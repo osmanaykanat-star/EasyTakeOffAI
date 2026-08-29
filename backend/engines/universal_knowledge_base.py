@@ -69,7 +69,7 @@ class UniversalKnowledgeBase:
     @classmethod
     def get_summary_context_for_ai(cls) -> str:
         stats = cls.load_stats()
-        total_p = stats.get("total_commercial_projects_indexed", 1747)
+        total_p = "1,000+"
         total_gc = stats.get("total_distinct_gc_clients", 215)
         total_m = stats.get("total_distinct_material_specs", 965)
         total_r = stats.get("total_distinct_room_types", 5011)

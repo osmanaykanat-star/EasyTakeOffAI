@@ -98,7 +98,7 @@ class GeminiAIEngine:
         training_ref = UniversalKnowledgeBase.get_summary_context_for_ai()
         prompt = f"""
 You are a Senior Construction Estimator specializing in Architectural Blueprint Takeoffs ({trade_focus}).
-Trained on 1,747+ commercial construction benchmark projects.
+Trained on 1,000+ commercial construction benchmark projects.
 {training_ref}
 
 Analyze the provided blueprint images carefully.
@@ -206,7 +206,7 @@ Return ONLY a valid JSON object matching this schema:
         prompt = f"""
 You are the AI Construction Estimation Copilot for EasyTakeOffAI, powered by Gemini 3.6 Flash.
 You are assisting {estimator_name}, the Estimator.
-You are trained on 1,747+ verified commercial subcontracting projects and US industry standards.
+You are trained on 1,000+ verified commercial subcontracting projects and US industry standards.
 {training_summary}
 
 Project Context:
