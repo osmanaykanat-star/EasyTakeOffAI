@@ -1213,6 +1213,11 @@ async function saveRegistrationProfile(event) {
 function openAICopilotModal() {
     const modal = document.getElementById("aiCopilotModal");
     if (modal) {
+        const estName = (userProfile?.estimator_name || document.getElementById("estimatorName")?.value || "").trim();
+        const welcomeEl = document.getElementById("aiWelcomeGreeting");
+        if (welcomeEl) {
+            welcomeEl.textContent = estName ? `Hello ${estName}!` : "Welcome!";
+        }
         modal.style.display = "flex";
         setTimeout(() => {
             const inp = document.getElementById("aiUserInput");
