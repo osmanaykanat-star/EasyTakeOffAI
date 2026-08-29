@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyTakeOffAI - Trade Takeoff & Proposal Suite</title>
+    <link rel="stylesheet" href="css/style.css?v=3.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-locked">
+    <!-- Top Navigation -->
+    <header class="app-header">
+        <div class="logo-group">
+            <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+                <h1>EasyTakeOff<span class="highlight">AI</span></h1>
+                <p class="tagline">Intelligent Construction Takeoff & Estimation</p>
+            </div>
+        </div>
+
+        <!-- Top Trade Multi-Select Dropdown -->
+        <div class="dropdown-trade-container">
+            <div class="trade-pill" id="currentTradePill" onclick="toggleTradeDropdown(event)">
+                <i class="fa-solid fa-shapes"></i> Trade: <strong id="currentTradeName">Tile & Stone</strong>
+                <span id="tradeCountBadge" class="trade-badge-count">1</span>
+                <i class="fa-solid fa-chevron-down ml-1"></i>
+            </div>
+            <div id="tradeDropdownMenu" class="trade-dropdown-menu">
+                <div class="trade-dropdown-header">
+                    <span><i class="fa-solid fa-layer-group"></i> Active Trades</span>
+                    <div class="trade-dropdown-quick-btns">
+                        <button type="button" class="btn-trade-quick" onclick="selectTradePreset('tile_only')">Tile & Stone Only</button>
+                        <button type="button" class="btn-trade-quick" onclick="selectTradePreset('all')">All Trades</button>
+                    </div>
+                </div>
+                <div class="trade-dropdown-list" id="tradeDropdownList">
+                    <!-- Dynamic multi-select items rendered by JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn btn-outline" id="aiCopilotBtn" onclick="openAICopilotModal()" style="border-color: #a855f7; color: #c084fc; font-weight: 700; background: rgba(168,85,247,0.1);" title="Gemini 3.6 Flash Copilot">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Gemini Copilot
+                <span class="ai-badge-dot" style="margin-left: 4px;"></span>
+            </button>
+            <button class="btn btn-outline" id="headerProfileBtn" onclick="openRegistrationModal(true)" style="border-color: #38bdf8; color: #38bdf8;" title="Company & Estimator Profile">
+                <i class="fa-solid fa-building-user"></i> <span id="navCompanyName">Register Company</span>
+            </button>
+            <button class="btn btn-new-project" onclick="createNewProjectPrompt()">
+                <i class="fa-solid fa-plus-circle"></i> New Project
+            </button>
+            <button class="btn btn-outline" style="border-color: #ef4444; color: #dc2626;" onclick="clearCurrentProject()">
+                <i class="fa-solid fa-trash-can"></i> Clear
+            </button>
+            <button class="btn btn-secondary" onclick="openProposalHtml()">
+                <i class="fa-solid fa-eye"></i> Proposal (HTML)
+            </button>
+            <button class="btn btn-secondary" onclick="openSowHtml()" style="border-color: #2563eb; color: #2563eb; font-weight: bold; background: #eff6ff;">
+                <i class="fa-solid fa-list-check"></i> SOW Bid (HTML)
+            </button>
+            <button class="btn btn-outline" onclick="exportToExcel()">
+                <i class="fa-solid fa-file-excel"></i> Proposal (.xlsx)
+            </button>
+            <button class="btn btn-primary" onclick="exportToSowExcel()">
+                <i class="fa-solid fa-table-list"></i> SOW Bid (.xlsx)
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <div class="workspace-container">
+        <!-- Left Sidebar: Project & Plan Uploader -->
+        <aside class="sidebar">
+            <section class="card project-info-card">
+                <h3><i class="fa-solid fa-briefcase"></i> Project Details</h3>
+                <div class="form-group">
+                    <label>Project Name / Re</label>
+                    <input type="text" id="projectName" placeholder="">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Company / GC (To:)</label>
+                        <input type="text" id="clientCompany" placeholder="">
+                    </div>
+                    <div class="form-group col">
+                        <label>Attn / Contact Person</label>
+                        <input type="text" id="clientName" placeholder="">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Estimator</label>
+                        <input type="text" id="estimatorName" value="" placeholder="">
+                    </div>
+                    <div class="form-group col">
+                        <label>Date</label>
+                        <input type="text" id="projectDate" value="">
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-outline w-100" onclick="saveProjectDetails()">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Project Details
+                </button>
+            </section>
+
+            <!-- PDF / ZIP Plan Upload Section -->
+            <section class="card pdf-upload-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <h3 style="margin-bottom: 0;"><i class="fa-solid fa-file-zipper"></i> Drawing & Specs Ingestion</h3>
+                    <span class="ai-badge-pulse"><span class="ai-badge-dot"></span> Gemini 3.6 Flash</span>
+                </div>
+                <div class="upload-dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+                    <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+                    <p>Click or Drag PDF Drawings, SOW Excel, or ZIP Archives</p>
+                    <span class="file-hint">Standard Ingestion & Instant Regex Project Indexing</span>
+                    <input type="file" id="fileInput" accept=".pdf, .zip, .xlsx, .xls, application/zip, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" style="display:none" onchange="handleFileUpload(event)">
+                </div>
+                
+                <div style="margin-top: 8px;">
+                    <button type="button" class="btn btn-sm w-100" id="btnAiDeepScan" onclick="document.getElementById('aiFileInput').click()" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff; font-weight: 700; border: none; padding: 9px 12px;">
+                        <i class="fa-solid fa-microchip"></i> ✨ AI Vision Takeoff (Gemini 3.6 Flash)
+                    </button>
+                    <input type="file" id="aiFileInput" accept=".pdf, .png, .jpg, .jpeg, .webp" style="display:none" onchange="handleAIVisionUpload(event)">
+                </div>
+
+                <div id="uploadStatus" class="upload-status" style="display:none">
+                    <i class="fa-solid fa-spinner fa-spin"></i> <span id="uploadStatusText">Extracting & Auto-Calculating Takeoff...</span>
+                </div>
+                <div id="analysisResults" class="analysis-results" style="display:none">
+                    <!-- Dynamic analysis badges -->
+                </div>
+            </section>
+
+            <!-- Quick Add Room / Auto-Takeoff Calculator -->
+            <section class="card room-calculator-card">
+                <h3><i class="fa-solid fa-calculator"></i> Room Takeoff Generator</h3>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Floor / Area</label>
+                        <input type="text" id="calcFloor" placeholder="e.g. APT 2B FLOOR">
+                    </div>
+                    <div class="form-group col">
+                        <label>Room Name</label>
+                        <input type="text" id="calcRoomName" placeholder="e.g. LOBBY or EXAM ROOM #1">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Length (ft)</label>
+                        <input type="number" id="calcLength" placeholder="Length (e.g. 10)" step="0.1">
+                    </div>
+                    <div class="form-group col">
+                        <label>Width (ft)</label>
+                        <input type="number" id="calcWidth" placeholder="Width (e.g. 8)" step="0.1">
+                    </div>
+                    <div class="form-group col">
+                        <label>Tile Ht (ft)</label>
+                        <input type="number" id="calcTileHt" placeholder="Height (e.g. 9)" step="0.5">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Floor Tile Code</label>
+                    <input type="text" id="calcFloorTile" placeholder="e.g. TL-01">
+                </div>
+                <div class="form-group">
+                    <label>Wall Tile Codes (Comma separated)</label>
+                    <input type="text" id="calcWallTiles" placeholder="e.g. TL-3.1, TL-3.2">
+                </div>
+                <div class="form-group">
+                    <label>Bullnose / Trim Code</label>
+                    <input type="text" id="calcBullnose" placeholder="e.g. TL-3/BULLNOSE">
+                </div>
+
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" id="calcWaterproof" checked> Waterproofing (S&I)</label>
+                    <label><input type="checkbox" id="calcMudset" checked> Mud-Set Bed (S&I)</label>
+                    <label><input type="checkbox" id="calcEpoxy"> Epoxy Grout</label>
+                    <label><input type="checkbox" id="calcSaddle"> Stone Saddle (1 pc)</label>
+                </div>
+
+                <button class="btn btn-primary w-100 mt-3" onclick="generateAndAddRoom()">
+                    <i class="fa-solid fa-plus"></i> Calculate & Add Room Items
+                </button>
+            </section>
+        </aside>
+
+        <!-- Right Content: Live Takeoff Sheet & Summary -->
+        <main class="main-content">
+            <!-- Summary Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <span class="stat-label">Total Rooms</span>
+                    <span class="stat-value" id="statTotalRooms">0</span>
+                </div>
+                <div class="stat-card highlight-stat">
+                    <span class="stat-label">Total Floor Tile (SF)</span>
+                    <span class="stat-value" id="statFloorTileSqft">0.00</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Total Wall Tile (SF)</span>
+                    <span class="stat-value" id="statWallTileSqft">0.00</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Stone & Tops (SF)</span>
+                    <span class="stat-value" id="statTopsSqft">0.00</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Waterproof / Prep (SF)</span>
+                    <span class="stat-value" id="statPrepSqft">0.00</span>
+                </div>
+                <div class="stat-card highlight-card">
+                    <span class="stat-label">Base Bid Total ($)</span>
+                    <span class="stat-value" id="statBaseBid">$0.00</span>
+                </div>
+            </div>
+
+            <!-- Tabs: Takeoff Grid | Blueprint Viewer | Material Specs | Price Manager | Settings -->
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('takeoffTab')">
+                    <i class="fa-solid fa-table-list"></i> Takeoff Sheet
+                </button>
+                <button class="tab-btn" onclick="switchTab('blueprintTab')">
+                    <i class="fa-solid fa-map-location-dot"></i> Blueprint Viewer
+                </button>
+                <button class="tab-btn" onclick="switchTab('priceTab')">
+                    <i class="fa-solid fa-tags"></i> Unit Pricing
+                </button>
+                <button class="tab-btn" onclick="switchTab('materialsTab')">
+                    <i class="fa-solid fa-box-archive"></i> Materials Spec
+                </button>
+                <button class="tab-btn" onclick="switchTab('settingsTab')">
+                    <i class="fa-solid fa-gear"></i> Settings
+                </button>
+            </div>
+
+            <!-- Tab 1: Takeoff Sheet -->
+            <div id="takeoffTab" class="tab-pane active">
+                <div class="table-container card">
+                    <table class="takeoff-table" id="takeoffTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 22%">Floor & Room</th>
+                                <th style="width: 14%">Symbol</th>
+                                <th style="width: 12%">Finish Type</th>
+                                <th style="width: 12%">Material Type</th>
+                                <th style="width: 8%">Work</th>
+                                <th style="width: 10%" class="text-right">Quantity</th>
+                                <th style="width: 6%">Unit</th>
+                                <th style="width: 8%" class="text-right">Mat. Price</th>
+                                <th style="width: 8%" class="text-right">Labor Price</th>
+                                <th style="width: 10%" class="text-right">Bid Amount</th>
+                                <th style="width: 4%"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="takeoffTableBody">
+                            <!-- Dynamic Table Rows or Empty State -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Detailed Totals Summary Card -->
+                <div class="card mt-4" id="detailedTotalsCard" style="display:none">
+                    <div class="card-header-flex">
+                        <h3><i class="fa-solid fa-chart-pie"></i> Detailed Quantities & Scope Breakdown</h3>
+                        <span class="badge badge-active" id="totalScopeBadge">7 Rooms Calculated</span>
+                    </div>
+                    <div class="breakdown-grid" id="breakdownGrid">
+                        <!-- Dynamic Detailed Category Cards -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Pricing Manager -->
+            <div id="priceTab" class="tab-pane">
+                <div class="card">
+                    <h3><i class="fa-solid fa-dollar-sign"></i> Bulk Unit Pricing & Labor Rates</h3>
+                    <p class="subtitle">Update material and labor prices per unit to update all room calculations instantly.</p>
+                    <table class="takeoff-table" id="priceManagerTable">
+                        <thead>
+                            <tr>
+                                <th>Symbol / Material</th>
+                                <th>Unit</th>
+                                <th class="text-right">Total Quantity</th>
+                                <th>Material Unit Price ($)</th>
+                                <th>Labor Unit Price ($)</th>
+                                <th class="text-right">Subtotal ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="priceTableBody">
+                            <!-- Dynamic Pricing Rows -->
+                        </tbody>
+                    </table>
+                    <div class="text-right mt-3">
+                        <button class="btn btn-primary" onclick="applyBulkPrices()">
+                            <i class="fa-solid fa-check"></i> Apply Prices to All Rooms
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Materials Specification (Adjustable Budget Prices) -->
+            <div id="materialsTab" class="tab-pane">
+                <div class="card">
+                    <div class="card-header-flex">
+                        <div>
+                            <h3><i class="fa-solid fa-list-check"></i> Materials Specification & Budget Prices</h3>
+                            <p class="subtitle">Adjust budget unit prices, submittal descriptions, and notes. These will be exported into the proposal sheet.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveMaterialSpecs()">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Specification Updates
+                        </button>
+                    </div>
+                    <table class="takeoff-table mt-3" id="specsTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 14%">Symbol</th>
+                                <th style="width: 38%">Specification Description</th>
+                                <th style="width: 8%">Unit</th>
+                                <th style="width: 14%" class="text-right">Budget Price ($ / Unit)</th>
+                                <th style="width: 12%" class="text-right">Total Qty in Scope</th>
+                                <th style="width: 14%">Submittal Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="specsTableBody">
+                            <!-- Dynamic Spec Rows with Inputs -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 4: Interactive Blueprint Viewer & Audit Canvas -->
+            <div id="blueprintTab" class="tab-pane">
+                <div class="blueprint-container">
+                    <!-- Safety Net & Audit Panel -->
+                    <div id="auditPanel" class="audit-panel-card" style="display:none">
+                        <!-- Populated by blueprint_viewer.js -->
+                    </div>
+
+                    <!-- Canvas Control Toolbar -->
+                    <div class="blueprint-toolbar">
+                        <div class="toolbar-btn-group">
+                            <button type="button" class="btn btn-sm btn-outline" onclick="canvasScale=Math.min(canvasScale*1.2, 4.0); renderBlueprintCanvas();">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom In
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline" onclick="canvasScale=Math.max(canvasScale/1.2, 0.3); renderBlueprintCanvas();">
+                                <i class="fa-solid fa-magnifying-glass-minus"></i> Zoom Out
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline" onclick="canvasScale=1.0; canvasPanX=0; canvasPanY=0; renderBlueprintCanvas();">
+                                <i class="fa-solid fa-arrows-rotate"></i> Reset View
+                            </button>
+                        </div>
+                        <div class="toolbar-btn-group">
+                            <span style="font-size: 0.85rem; color: #94a3b8;"><i class="fa-solid fa-ruler-combined"></i> Scale: <strong>1/4" = 1'-0"</strong></span>
+                            <button type="button" class="btn btn-sm btn-primary" onclick="loadPolygonsAndAudit()">
+                                <i class="fa-solid fa-rotate"></i> Refresh Takeoff Overlay
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Blueprint 2D Canvas -->
+                    <div class="canvas-wrapper">
+                        <canvas id="blueprintCanvas" width="1600" height="900"></canvas>
+                    </div>
+
+                    <!-- Takeoff Legend -->
+                    <div class="canvas-legend">
+                        <div class="legend-item"><div class="legend-dot" style="background:#0284c7;"></div> Floor Tile & Wet Rooms</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> Countertops & Vanities</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> Large Format / Lobby Stone</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6;"></div> Corridors & Portals</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#f43f5e;"></div> Stairs & Steps</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: Trade Settings & Company Preferences -->
+            <div id="settingsTab" class="tab-pane">
+                <div class="card">
+                    <div class="card-header-flex">
+                        <div>
+                            <h3><i class="fa-solid fa-sliders"></i> Trade Rules & Subcontractor Preferences</h3>
+                            <p class="subtitle">Customize calculation waste factors, waterproofing standards, labor rates, and company branding.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveTradeSettings()">
+                            <i class="fa-solid fa-floppy-disk"></i> Save All Settings
+                        </button>
+                    </div>
+
+                    <div class="settings-grid mt-3">
+                        <!-- Section 1: Company Profile -->
+                        <div class="settings-section">
+                            <h4><i class="fa-solid fa-building"></i> Company Profile & Branding</h4>
+                            <div class="form-group">
+                                <label>Company Name</label>
+                                <input type="text" id="settingsCompanyName" placeholder="e.g. Commercial Tile & Stone Subcontractors Inc.">
+                            </div>
+                            <div class="form-group">
+                                <label>NYC DCA / State License #</label>
+                                <input type="text" id="settingsLicenseNo" placeholder="e.g. NYC DCA #2049182">
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Waste & Takeoff Rules -->
+                        <div class="settings-section">
+                            <h4><i class="fa-solid fa-percent"></i> Waste Factors & Scope Rules</h4>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label>Standard Tile Waste (%)</label>
+                                    <input type="number" id="settingsTileWaste" value="10" step="1">
+                                </div>
+                                <div class="form-group col">
+                                    <label>Large Format / Slab Waste (%)</label>
+                                    <input type="number" id="settingsLargeFormatWaste" value="15" step="1">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label>Waterproof Base Height (in)</label>
+                                    <input type="number" id="settingsWpBaseHeight" value="6" step="1">
+                                </div>
+                                <div class="form-group col">
+                                    <label>Default Ceiling Ht (ft)</label>
+                                    <input type="number" id="settingsDefaultCeiling" value="9" step="0.5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- User / Company Registration & PIN Modal -->
+    <div id="registrationModal" class="modal-overlay" style="display:flex; z-index: 2500;">
+        <div class="modal-box" style="max-width: 650px;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #1e293b, #0f172a); border-bottom: 2px solid #2563eb;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 38px; height: 38px; background: rgba(37,99,235,0.2); border: 1px solid #38bdf8; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #38bdf8; font-size: 1.2rem;">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h2 style="margin: 0; font-size: 1.15rem; color: #ffffff;">EasyTakeOffAI Access Gate</h2>
+                        <span style="font-size: 0.78rem; color: #94a3b8;">Enter PIN for Quick Access or Register Your Company Profile</span>
+                    </div>
+                </div>
+                <span class="close-btn" id="regCloseBtn" onclick="closeRegistrationModal()" style="display:none;">&times;</span>
+            </div>
+
+            <!-- Gate Mode Selector Tabs -->
+            <div style="display: flex; background: #0f172a; border-bottom: 1px solid var(--border-color); padding: 4px 8px; gap: 6px;">
+                <button type="button" id="tabPinBtn" class="tab-btn active" style="flex: 1; text-align: center; justify-content: center; padding: 10px 14px; font-weight: 700; border-radius: 6px;" onclick="switchGateTab('pin')">
+                    <i class="fa-solid fa-key"></i> 🔑 Quick PIN Access
+                </button>
+                <button type="button" id="tabFormBtn" class="tab-btn" style="flex: 1; text-align: center; justify-content: center; padding: 10px 14px; font-weight: 700; border-radius: 6px;" onclick="switchGateTab('form')">
+                    <i class="fa-solid fa-building"></i> 🏢 Company Registration
+                </button>
+            </div>
+
+            <!-- Tab 1: PIN Access View -->
+            <div id="gatePinView" style="padding: 30px 24px; text-align: center;">
+                <div style="font-size: 42px; color: #38bdf8; margin-bottom: 12px;">
+                    <i class="fa-solid fa-unlock-keyhole"></i>
+                </div>
+                <h3 style="margin: 0 0 8px 0; font-size: 1.2rem; color: #fff;">Tester / Admin Quick Access</h3>
+                <p style="font-size: 0.85rem; color: #94a3b8; max-width: 440px; margin: 0 auto 22px auto; line-height: 1.5;">
+                    Enter your authorized 4-digit PIN code to unlock the application immediately without filling in company information.
+                </p>
+
+                <div style="max-width: 300px; margin: 0 auto;">
+                    <div style="margin-bottom: 16px;">
+                        <input type="password" id="accessPinInput" maxlength="6" placeholder="• • • •" 
+                               style="width: 100%; text-align: center; font-size: 1.8rem; letter-spacing: 10px; padding: 12px; background: #0f172a; border: 2px solid #38bdf8; color: #fff; border-radius: 8px; font-weight: 800;"
+                               onkeydown="if(event.key==='Enter') unlockWithPin()">
+                    </div>
+                    <div id="pinErrorMsg" style="display: none; color: #f87171; font-size: 0.82rem; margin-bottom: 14px; font-weight: 600;">
+                        <i class="fa-solid fa-circle-exclamation"></i> Invalid PIN code. Please try again.
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="unlockWithPin()" style="padding: 12px; font-size: 1rem; font-weight: 700; width: 100%;">
+                        <i class="fa-solid fa-bolt"></i> Unlock Application
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab 2: Company Registration Form View -->
+            <form id="registrationForm" onsubmit="saveRegistrationProfile(event)" style="display: none;">
+                <div class="modal-body" style="max-height: 65vh; overflow-y: auto; padding: 22px;">
+                    <div class="alert alert-info" style="background: rgba(37,99,235,0.1); border: 1px solid rgba(56,189,248,0.3); border-radius: 6px; padding: 10px 14px; margin-bottom: 18px; font-size: 0.82rem; color: #bae6fd; display: flex; gap: 10px; align-items: flex-start;">
+                        <i class="fa-solid fa-circle-info" style="margin-top: 3px; color: #38bdf8;"></i>
+                        <div>Please enter your company & estimating contact details. These will be automatically stamped on all <strong>Official Bid Proposals</strong> and <strong>SOW Bid Schedules</strong>.</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-building"></i> Company / Subcontractor Name <span style="color:#ef4444">*</span></label>
+                            <input type="text" id="regCompanyName" required placeholder="">
+                        </div>
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-briefcase"></i> Primary Trade Specialty</label>
+                            <select id="regTradeSpecialty" class="form-select" style="width:100%; padding: 8px 10px; background: #0f172a; border: 1px solid var(--border-color); color: #fff; border-radius: 6px; font-size: 0.85rem;">
+                                <option value="Tile & Stone">Tile & Stone</option>
+                                <option value="Flooring & Wood">Flooring & Wood</option>
+                                <option value="Painting">Painting & Wallcoverings</option>
+                                <option value="Millwork & Carpentry">Millwork & Carpentry</option>
+                                <option value="Plumbing">Plumbing</option>
+                                <option value="HVAC & Mechanical">HVAC & Mechanical</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Demolition">Demolition</option>
+                                <option value="General Contracting">General Contracting</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-user-tie"></i> Estimator / Contact Name <span style="color:#ef4444">*</span></label>
+                            <input type="text" id="regEstimatorName" required placeholder="">
+                        </div>
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-id-badge"></i> Estimator Title / Role</label>
+                            <input type="text" id="regEstimatorTitle" placeholder="" value="Senior Estimator">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-location-dot"></i> Company Business Address</label>
+                        <input type="text" id="regAddress" placeholder="">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-phone"></i> Phone Number <span style="color:#ef4444">*</span></label>
+                            <input type="tel" id="regPhone" required placeholder="">
+                        </div>
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-envelope"></i> Email Address <span style="color:#ef4444">*</span></label>
+                            <input type="email" id="regEmail" required placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-globe"></i> Website (Optional)</label>
+                            <input type="url" id="regWebsite" placeholder="">
+                        </div>
+                        <div class="form-group col">
+                            <label><i class="fa-solid fa-file-contract"></i> License / Tax ID (Optional)</label>
+                            <input type="text" id="regLicenseNo" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 10px; padding: 14px 20px;">
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 24px; font-weight: 700; font-size: 0.92rem;">
+                        <i class="fa-solid fa-floppy-disk"></i> Save & Continue to Takeoff
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Trade Selection Modal -->
+    <div id="tradeModal" class="modal-overlay" style="display:none">
+        <div class="modal-box" style="max-width: 780px;">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-layer-group"></i> Trade Specialties (Multi-Select)</h2>
+                <span class="close-btn" onclick="closeTradeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                    <p class="modal-intro" style="margin-bottom: 0;">Select one or more trade specialties to include in this proposal & takeoff sheet:</p>
+                    <div style="display: flex; gap: 6px;">
+                        <button type="button" class="btn btn-xs btn-outline" onclick="selectTradePreset('tile_only')">Tile Only</button>
+                        <button type="button" class="btn btn-xs btn-outline" onclick="selectTradePreset('all')">Select All</button>
+                    </div>
+                </div>
+                <div class="trade-grid" id="modalTradeGrid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px;">
+                    <!-- Dynamically populated by renderTradeModalGrid() in app.js -->
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="modalSelectedCount" style="color: #94a3b8; font-size: 0.85rem; font-weight: 600;">1 Trade Selected</span>
+                <button class="btn btn-primary" onclick="closeTradeModal()"><i class="fa-solid fa-check"></i> Apply & Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gemini 3.6 Flash AI Copilot Modal -->
+    <div id="aiCopilotModal" class="modal-overlay" style="display:none">
+        <div class="modal-box" style="max-width: 780px;">
+            <div class="modal-header" style="border-bottom: 1px solid #334155;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #7c3aed, #a855f7); display: flex; align-items: center; justify-content: center; color: #fff;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h2 style="margin: 0; font-size: 1.15rem; color: #fff;">EasyTakeOff AI Copilot</h2>
+                        <span style="font-size: 0.75rem; color: #94a3b8;"><span class="ai-badge-dot"></span> Powered by Gemini 3.6 Flash (Direct API)</span>
+                    </div>
+                </div>
+                <span class="close-btn" onclick="closeAICopilotModal()">&times;</span>
+            </div>
+            <div class="modal-body" style="padding: 16px 20px;">
+                <div class="ai-chat-box">
+                    <div class="ai-chat-history" id="aiChatHistory">
+                        <div class="ai-msg bot">
+                            <p><strong>Merhaba Osman!</strong> Ben EasyTakeOffAI'ın Gemini 3.6 Flash destekli akıllı asistanıyım.</p>
+                            <p>Yüklediğin planlar, metrajlar, mahal listesi ve malzeme fiyatları hakkında bana dilediğin soruyu sorabilirsin.</p>
+                            <div class="ai-msg-actions">
+                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('Mevcut projenin metraj ve kapsam özetini çıkar')">📊 Kapsam Özeti Çıkar</button>
+                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('FT-1 zemin seramiği için toplam m2 ve fire hesabı nedir?')">📐 FT-1 Toplam M²</button>
+                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('Bu proje için piyasa malzeme ve işçilik birim fiyat önerilerini ver')">💰 Fiyat Önerisi Al</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-input-bar">
+                        <input type="text" id="aiUserInput" placeholder="Plan veya proje hakkında sorunuzu yazın..." onkeydown="if(event.key==='Enter') sendAIChatMessage()">
+                        <button type="button" class="btn-ai-send" id="btnSendAIChat" onclick="sendAIChatMessage()">
+                            <i class="fa-solid fa-paper-plane"></i> Gönder
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="js/app.js?v=3.0"></script>
+    <script src="js/blueprint_viewer.js?v=3.0"></script>
+</body>
+</html>

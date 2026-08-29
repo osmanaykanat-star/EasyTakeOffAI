@@ -1,0 +1,20 @@
+# Python & Virtual Env
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+env/
+
+# Heavy local test uploads & raw benchmark archives
+uploads/*
+!uploads/.gitkeep
+benchmark_corpus/
+samples/
+*.zip
+*.crdownload
+*.log
+
+# Generated output files
+generated_proposals/*
+!generated_proposals/.gitkeep
