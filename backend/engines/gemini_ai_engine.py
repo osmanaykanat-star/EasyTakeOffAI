@@ -19,7 +19,17 @@ class GeminiAIEngine:
 
     @staticmethod
     def get_api_key() -> str:
-        return os.environ.get("GEMINI_API_KEY", "").strip()
+        key = os.environ.get("GEMINI_API_KEY", "").strip() or os.environ.get("GOOGLE_API_KEY", "").strip()
+        if not key and os.name == "nt":
+            try:
+                import winreg
+                with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Environment") as rkey:
+                    val, _ = winreg.QueryValueEx(rkey, "GEMINI_API_KEY")
+                    if val:
+                        key = str(val).strip()
+            except Exception:
+                pass
+        return key
 
     @classmethod
     def get_client(cls) -> genai.Client:
