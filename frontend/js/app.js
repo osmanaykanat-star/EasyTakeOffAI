@@ -1254,7 +1254,7 @@ async function sendAIChatMessage() {
     // Append Loading indicator
     const botLoadingDiv = document.createElement("div");
     botLoadingDiv.className = "ai-msg bot";
-    botLoadingDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gemini 3.6 Flash yanıt hazırlıyor...';
+    botLoadingDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gemini 3.6 Flash is analyzing project data...';
     history.appendChild(botLoadingDiv);
     history.scrollTop = history.scrollHeight;
 
@@ -1273,10 +1273,10 @@ async function sendAIChatMessage() {
             const formatted = data.reply.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
             botLoadingDiv.innerHTML = `<p>${formatted}</p>`;
         } else {
-            botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Hata: ${data.message || "Yanıt alınamadı."}</p>`;
+            botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Error: ${data.message || "Could not retrieve response."}</p>`;
         }
     } catch (err) {
-        botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Bağlantı hatası: ${err.message}</p>`;
+        botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Connection Error: ${err.message}</p>`;
     } finally {
         if (sendBtn) sendBtn.disabled = false;
         history.scrollTop = history.scrollHeight;
@@ -1290,7 +1290,7 @@ async function handleAIVisionUpload(event) {
     const statusEl = document.getElementById("uploadStatus");
     const statusText = document.getElementById("uploadStatusText");
     if (statusEl) statusEl.style.display = "block";
-    if (statusText) statusText.textContent = "✨ Gemini 3.6 Flash Vision ile plan taranıyor ve metraj çıkarılıyor...";
+    if (statusText) statusText.textContent = "✨ Scanning blueprint with Gemini 3.6 Flash Vision & calculating takeoff...";
 
     const formData = new FormData();
     formData.append("file", file);
@@ -1304,7 +1304,7 @@ async function handleAIVisionUpload(event) {
         const data = await res.json();
 
         if (data.status === "success") {
-            showToast(`✨ Gemini Vision Takeoff Başarılı! ${data.rooms_count} Mahal ve ${data.specs_count} Malzeme çıkarıldı.`);
+            showToast(`✨ Gemini Vision Takeoff Completed: ${data.rooms_count} Rooms & ${data.specs_count} Material Specs extracted.`);
             if (typeof loadProject === "function") {
                 await loadProject();
             }
@@ -1314,15 +1314,15 @@ async function handleAIVisionUpload(event) {
             if (history && data.summary) {
                 const summaryDiv = document.createElement("div");
                 summaryDiv.className = "ai-msg bot";
-                summaryDiv.innerHTML = `<strong>✨ Plan Analiz Özeti:</strong><p>${data.summary}</p>`;
+                summaryDiv.innerHTML = `<strong>✨ Blueprint Takeoff Summary:</strong><p>${data.summary}</p>`;
                 history.appendChild(summaryDiv);
                 history.scrollTop = history.scrollHeight;
             }
         } else {
-            alert(`AI Analiz Hatası: ${data.message || "Bilinmeyen hata"}`);
+            alert(`AI Analysis Error: ${data.message || "Unknown error"}`);
         }
     } catch (err) {
-        alert(`Sunucu / API Hatası: ${err.message}`);
+        alert(`Server / API Error: ${err.message}`);
     } finally {
         if (statusEl) statusEl.style.display = "none";
         event.target.value = "";

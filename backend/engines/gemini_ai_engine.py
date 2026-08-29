@@ -191,14 +191,22 @@ Return ONLY a valid JSON object matching this schema:
             ],
             "material_specs": project_context.get("material_specs", {})
         }
+        training_summary = UniversalKnowledgeBase.get_summary_context_for_ai()
         prompt = f"""
-You are EasyTakeOffAI Copilot powered by Gemini 3.6 Flash.
-You are assisting Osman, the estimator.
-Context:
+You are the AI Construction Estimation Copilot for EasyTakeOffAI, powered by Gemini 3.6 Flash.
+You are assisting Osman, the Senior Estimator.
+You are trained on 1,747+ verified commercial subcontracting projects and US industry standards.
+{training_summary}
+
+Project Context:
 {json.dumps(summary, indent=2)}
 
-Question: {message}
-Provide a clear, accurate, professional answer (in Turkish if asked in Turkish, or in English).
+User Question: {message}
+
+Instructions:
+1. Always respond strictly in professional American Construction English.
+2. Address the user professionally (e.g., 'Hello Osman' or 'Osman').
+3. Provide precise, actionable estimates, square footage breakdowns, waste margins, and specification details.
 """
         res = client.models.generate_content(
             model=cls.DEFAULT_MODEL,

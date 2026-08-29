@@ -603,19 +603,19 @@
                 <div class="ai-chat-box">
                     <div class="ai-chat-history" id="aiChatHistory">
                         <div class="ai-msg bot">
-                            <p><strong>Merhaba Osman!</strong> Ben EasyTakeOffAI'ın Gemini 3.6 Flash destekli akıllı asistanıyım.</p>
-                            <p>Yüklediğin planlar, metrajlar, mahal listesi ve malzeme fiyatları hakkında bana dilediğin soruyu sorabilirsin.</p>
+                            <p><strong>Hello Osman!</strong> I am your EasyTakeOff AI Copilot, powered by Gemini 3.6 Flash and trained on 1,747+ commercial construction benchmark projects.</p>
+                            <p>Ask me anything regarding drawings, room takeoffs, finish schedules, waste margins, or unit rate estimations.</p>
                             <div class="ai-msg-actions">
-                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('Mevcut projenin metraj ve kapsam özetini çıkar')">📊 Kapsam Özeti Çıkar</button>
-                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('FT-1 zemin seramiği için toplam m2 ve fire hesabı nedir?')">📐 FT-1 Toplam M²</button>
-                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('Bu proje için piyasa malzeme ve işçilik birim fiyat önerilerini ver')">💰 Fiyat Önerisi Al</button>
+                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('Generate an executive scope and takeoff summary for this project')">📊 Scope Summary</button>
+                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('Calculate total net square footage and recommended waste for floor tile')">📐 Floor Tile Breakdown</button>
+                                <button type="button" class="ai-quick-btn" onclick="quickAskAI('Provide market unit pricing and labor rate recommendations for these materials')">💰 Pricing & Waste Advice</button>
                             </div>
                         </div>
                     </div>
                     <div class="ai-input-bar">
-                        <input type="text" id="aiUserInput" placeholder="Plan veya proje hakkında sorunuzu yazın..." onkeydown="if(event.key==='Enter') sendAIChatMessage()">
+                        <input type="text" id="aiUserInput" placeholder="Ask a question about blueprints, specs, quantities, or pricing..." onkeydown="if(event.key==='Enter') sendAIChatMessage()">
                         <button type="button" class="btn-ai-send" id="btnSendAIChat" onclick="sendAIChatMessage()">
-                            <i class="fa-solid fa-paper-plane"></i> Gönder
+                            <i class="fa-solid fa-paper-plane"></i> Send
                         </button>
                     </div>
                 </div>
