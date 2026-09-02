@@ -22,6 +22,7 @@ from .engines.safety_net import SafetyNetEngine
 from .engines.geometry_engine import GeometryEngine
 from .engines.learning_store import LearningStore
 from .engines.gemini_ai_engine import GeminiAIEngine
+from .engines.trained_corpus import TrainedCorpusEngine
 
 app = FastAPI(title="EasyTakeOffAI API", version="1.0.0")
 
@@ -68,31 +69,34 @@ def get_empty_project(project_name: str = "New Takeoff Project") -> ProjectTakeo
         ]
     )
 
+def get_fhjc_sample_project() -> ProjectTakeoff:
+    meta = TrainedCorpusEngine.get_fhjc_metadata()
+    specs = TrainedCorpusEngine.get_fhjc_specs()
+    rooms = TrainedCorpusEngine.get_fhjc_rooms()
+    return ProjectTakeoff(
+        project_name=meta.get("project_name", "[BID] Forest Hills Jewish Center - 70-35 113th St, Flushing NY (HE2PD FHJC)"),
+        client_name=meta.get("client_name", "Forest Hills Jewish Center"),
+        client_company=meta.get("client_company", "General Contractor / Owner"),
+        estimator_name="",
+        date_str=meta.get("date_str", "03/20/2026"),
+        trade_category="Tile & Stone",
+        rooms=rooms,
+        material_specs=specs,
+        exclusions=[
+            "1) Structural framing and subfloor repair beyond standard leveling prep.",
+            "2) Plumbing fixtures, toilet partitions, and electrical connections (by MEP).",
+            "3) Premium / Overtime labor unless agreed in writing.",
+            "4) Permits and expeditor filing fees."
+        ]
+    )
+
 def get_initial_project() -> ProjectTakeoff:
     try:
-        specs = PDFAutoTakeoffEngine.get_adg_astoria_specs()
-        rooms = PDFAutoTakeoffEngine.get_adg_astoria_rooms()
-        return ProjectTakeoff(
-            project_name="[26-0812] 25-19 27th Street, Astoria - Tile & Stone Subcontractor Proposal (24 Units & Common Areas)",
-            client_name="Astoria Development LLC",
-            client_company="General Contractor",
-            estimator_name="",
-            date_str="08/26/2026",
-            trade_category="Tile & Stone",
-            rooms=rooms,
-            material_specs=specs,
-            exclusions=[
-                "1) Structural subfloor repairs or framing modifications beyond standard leveling prep.",
-                "2) Demolition, rough plumbing, electrical, carpentry, appliances or HVAC equipment (by others).",
-                "3) Painting and wall patching outside tile backing prep (by others).",
-                "4) Premium / Overtime labor unless agreed in writing.",
-                "5) Air freight of any material."
-            ]
-        )
+        return get_fhjc_sample_project()
     except Exception:
         return get_empty_project()
 
-CURRENT_PROJECT: ProjectTakeoff = get_empty_project()
+CURRENT_PROJECT: ProjectTakeoff = get_fhjc_sample_project()
 
 class RoomCalculationRequest(BaseModel):
     room_name: str
@@ -218,6 +222,8 @@ def load_sample(sample_id: str):
         CURRENT_PROJECT = get_zeta_sample_project()
     elif sample_id == "ls_power":
         CURRENT_PROJECT = get_ls_power_sample_project()
+    elif sample_id in ["fhjc", "forest_hills"]:
+        CURRENT_PROJECT = get_fhjc_sample_project()
     else:
         CURRENT_PROJECT = get_initial_project()
     return {"status": "success", "project": CURRENT_PROJECT.to_dict()}

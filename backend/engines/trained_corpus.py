@@ -4417,3 +4417,282 @@ class TrainedCorpusEngine:
         ]))
         return rooms
 
+    @staticmethod
+    def get_fhjc_metadata() -> Dict[str, str]:
+        return {
+            "project_name": "[BID] Forest Hills Jewish Center - 70-35 113th St, Flushing NY (HE2PD FHJC)",
+            "client_name": "Forest Hills Jewish Center",
+            "client_company": "General Contractor / Owner",
+            "date_str": "03/20/2026"
+        }
+
+    @staticmethod
+    def get_fhjc_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "CTF-01": MaterialSpec(symbol="CTF-01", description="NASCO, CEPPO COLLECTION LIGHT GREY MATTE 24\" X 48\" X 3/8\" PORCELAIN TILE", unit="SQ FT", budget_price=0.0, notes="Lobby, Entrance & Flex Space Floors", trade="Tile & Stone"),
+            "CTF-02": MaterialSpec(symbol="CTF-02", description="DALTILE, COHESION C026 DARK GREY MATTE 24\" X 24\" X 3/8\" COLOR BODY PORCELAIN TILE", unit="SQ FT", budget_price=0.0, notes="Classroom Restrooms (Cellar & Level 1)", trade="Tile & Stone"),
+            "CTF-03": MaterialSpec(symbol="CTF-03", description="NASCO, ETERNITY COLLECTION IVORY MATTE 24\" X 48\" X 3/8\" PORCELAIN TILE", unit="SQ FT", budget_price=0.0, notes="Core, Public & Unisex Restrooms (Cellar, Level 1, Level 2)", trade="Tile & Stone"),
+            "CTW-01": MaterialSpec(symbol="CTW-01", description="NEMO TILE, CERAMIC WALL TILE 3\" X 10\" RUNNING BOND", unit="SQ FT", budget_price=0.0, notes="Level 02 Staff Pantry Backsplash", trade="Tile & Stone"),
+            "CTW-02": MaterialSpec(symbol="CTW-02", description="CANCOS TILE & STONE, PORCELAIN WALL TILE 24\" X 48\"", unit="SQ FT", budget_price=0.0, notes="Typical Core Restrooms Wet Walls", trade="Tile & Stone"),
+            "CTW-03": MaterialSpec(symbol="CTW-03", description="DALTILE, KEYSTONES PORCELAIN MOSAIC 2\" X 2\"", unit="SQ FT", budget_price=0.0, notes="Typical Core & Unisex Restrooms Wet Walls", trade="Tile & Stone"),
+            "CTW-04": MaterialSpec(symbol="CTW-04", description="DALTILE, GLAZED CERAMIC WALL TILE 6\" X 6\" FULL HEIGHT", unit="SQ FT", budget_price=0.0, notes="Typical Classroom Restrooms (Cellar & Level 1)", trade="Tile & Stone"),
+            "SSW-01": MaterialSpec(symbol="SSW-01", description="COSENTINO, DEKTON WALL CLADDING / SLAB 128.74\" X 57.87\"", unit="SQ FT", budget_price=0.0, notes="Level 01 Entrance Vestibule & Lobby Feature Wall", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="NASCO, BULLNOSE PORCELAIN TILE BASE 3\" X 24\" / 3\" X 48\"", unit="LN FT", budget_price=0.0, notes="Perimeter Tile Base in Restrooms & Janitor Closets", trade="Tile & Stone"),
+            "SSF-01": MaterialSpec(symbol="SSF-01", description="CAESARSTONE, SOLID SURFACE COUNTERTOP 3/4\"", unit="SQ FT", budget_price=0.0, notes="Level 02 Pantry & Classroom Sinks", trade="Tile & Stone"),
+            "SSF-02": MaterialSpec(symbol="SSF-02", description="CAESARSTONE, SOLID SURFACE CUSTOM RESTROOM VANITY TOPS", unit="SQ FT", budget_price=0.0, notes="Restroom Vanity Countertops with Undermount Sinks", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="LATICRETE / HYDRO BAN LIQUID WATERPROOFING MEMBRANE", unit="SQ FT", budget_price=0.0, notes="Under All Tiled Floors + 6\" Coved Base + Wet Walls", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="PORTLAND MUD-SET & UNCOUPLING UNDERLAYMENT BED", unit="SQ FT", budget_price=0.0, notes="Subfloor Prep across All Tiled Floors", trade="Tile & Stone"),
+            "MS": MaterialSpec(symbol="MS", description="SCHLUTER SYSTEMS 1/4\" SATIN STAINLESS STEEL EDGE TRIM", unit="LN FT", budget_price=0.0, notes="Tile Edge Terminations & Floor Transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="GENERIC NATURAL MARBLE / STONE DOORWAY THRESHOLD SADDLE", unit="PCS", budget_price=0.0, notes="Doorway Transition Saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_fhjc_rooms() -> List[RoomTakeoff]:
+        rooms = []
+        
+        # ================= SUB-CELLAR LEVEL =================
+        rooms.append(RoomTakeoff(room_name="SUB-CELLAR MECHANICAL & BOH", floor_name="SUB-CELLAR LEVEL", length_ft=35.0, width_ft=20.0, ceiling_height_ft=11.0, items=[
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=700.0, unit="SQ FT", notes="Sub-slab patch & level prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="FLOOR", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=15.0, unit="LN FT", notes="Threshold edge trim to stair/elevator", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Sub-cellar doorway transitions", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="SUB-CELLAR STORAGE & UTILITY", floor_name="SUB-CELLAR LEVEL", length_ft=22.0, width_ft=14.0, ceiling_height_ft=11.0, items=[
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=308.0, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Doorway transition saddle", trade="Tile & Stone"),
+        ]))
+
+        # ================= CELLAR LEVEL =================
+        rooms.append(RoomTakeoff(room_name="CELLAR CORE RESTROOM - MEN'S", floor_name="CELLAR LEVEL", length_ft=16.0, width_ft=12.0, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=192.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 porcelain floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=180.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet walls", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="PORCELAIN TILE", work_type="S&I", quantity=150.0, unit="SQ FT", notes="Cancos 24x48 porcelain wall tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=56.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="DOUBLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=16.0, unit="SQ FT", notes="Caesarstone solid surface double vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=192.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=28.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=192.0, unit="SQ FT", notes="Subfloor mud-set leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=32.0, unit="LN FT", notes="Schluter 1/4\" satin stainless trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway threshold saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="CELLAR CORE RESTROOM - WOMEN'S", floor_name="CELLAR LEVEL", length_ft=16.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=224.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 porcelain floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=210.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet walls", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="PORCELAIN TILE", work_type="S&I", quantity=170.0, unit="SQ FT", notes="Cancos 24x48 porcelain wall tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=60.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="TRIPLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Caesarstone solid surface triple vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=224.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=30.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=224.0, unit="SQ FT", notes="Subfloor mud-set leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", notes="Schluter 1/4\" satin stainless trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway threshold saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="CELLAR UNISEX / ADA RESTROOM", floor_name="CELLAR LEVEL", length_ft=8.0, width_ft=7.0, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=56.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=120.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet wall", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=30.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="SINGLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=7.0, unit="SQ FT", notes="Caesarstone vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=56.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=56.0, unit="SQ FT", notes="Subfloor mud-set prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=16.0, unit="LN FT", notes="Schluter trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="CELLAR CLASSROOM RESTROOM #1", floor_name="CELLAR LEVEL", length_ft=7.5, width_ft=6.0, ceiling_height_ft=9.0, wall_tile_height_ft=9.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Daltile Cohesion 24x24 dark grey floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=190.0, unit="SQ FT", notes="Daltile 6x6 glazed ceramic full height wall tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=27.0, unit="LN FT", notes="Nasco 3\" tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="SINK TOP", material_type="SOLID SURFACE", work_type="S&I", quantity=6.0, unit="SQ FT", notes="Caesarstone sink surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=18.0, unit="LN FT", notes="Schluter edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="CELLAR CLASSROOM RESTROOM #2", floor_name="CELLAR LEVEL", length_ft=7.5, width_ft=6.0, ceiling_height_ft=9.0, wall_tile_height_ft=9.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Daltile Cohesion 24x24 dark grey floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=190.0, unit="SQ FT", notes="Daltile 6x6 glazed ceramic full height wall tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=27.0, unit="LN FT", notes="Nasco 3\" tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="SINK TOP", material_type="SOLID SURFACE", work_type="S&I", quantity=6.0, unit="SQ FT", notes="Caesarstone sink surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=18.0, unit="LN FT", notes="Schluter edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="CELLAR PANTRY & BREAK AREA", floor_name="CELLAR LEVEL", length_ft=12.0, width_ft=10.0, ceiling_height_ft=9.5, wall_tile_height_ft=2.5, door_count=1, items=[
+            TakeoffLineItem(symbol="SSF-01", finish_type="COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=28.0, unit="SQ FT", notes="Caesarstone solid surface pantry countertop", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="COUNTERTOP APRON/1-1/2'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=2.0, unit="SQ FT", notes="1-1/2 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="COUNTERTOP BACKSPLASH/FULL HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Full height splash under upper cabinets", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="FLOOR", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=8.0, unit="LN FT", notes="Schluter floor transition strip", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="CELLAR JANITOR CLOSET", floor_name="CELLAR LEVEL", length_ft=6.0, width_ft=5.0, ceiling_height_ft=9.0, wall_tile_height_ft=4.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=44.0, unit="SQ FT", notes="Mop sink splash surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=22.0, unit="LN FT", notes="Nasco tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+
+        # ================= LEVEL 1 =================
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 MAIN LOBBY & ENTRANCE", floor_name="LEVEL 1", length_ft=38.0, width_ft=28.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=2, items=[
+            TakeoffLineItem(symbol="CTF-01", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=1064.0, unit="SQ FT", notes="Nasco Ceppo Light Grey 24x48 porcelain tile floor", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSW-01", finish_type="FEATURE WALL", material_type="DEKTON SLAB", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Cosentino Dekton large slab feature wall cladding (A-627)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="CUSTOM LOBBY STONEWORK", material_type="SOLID SURFACE", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Caesarstone custom lobby reception desk tops & trims", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=1064.0, unit="SQ FT", notes="Floor crack isolation & waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1064.0, unit="SQ FT", notes="Subfloor mud-set / uncoupling leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="FLOOR", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=76.0, unit="LN FT", notes="Schluter 1/4\" satin stainless steel floor transitions", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 ENTRANCE VESTIBULE", floor_name="LEVEL 1", length_ft=14.0, width_ft=10.0, ceiling_height_ft=12.0, wall_tile_height_ft=10.0, door_count=2, items=[
+            TakeoffLineItem(symbol="CTF-01", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=75.0, unit="SQ FT", notes="Nasco Ceppo 24x48 tile perimeter around mat grating", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSW-01", finish_type="WALL", material_type="DEKTON SLAB", work_type="S&I", quantity=180.0, unit="SQ FT", notes="Cosentino Dekton wall cladding", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=75.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=75.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="FLOOR", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=32.0, unit="LN FT", notes="Schluter frame and transition trims", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Heavy duty entrance threshold saddles", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 CORE RESTROOM - MEN'S", floor_name="LEVEL 1", length_ft=18.0, width_ft=12.0, ceiling_height_ft=10.0, wall_tile_height_ft=10.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=216.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 porcelain floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=210.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet walls", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="PORCELAIN TILE", work_type="S&I", quantity=180.0, unit="SQ FT", notes="Cancos 24x48 porcelain wall tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=60.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="DOUBLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=18.0, unit="SQ FT", notes="Caesarstone solid surface double vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=216.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=30.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=216.0, unit="SQ FT", notes="Subfloor mud-set leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=38.0, unit="LN FT", notes="Schluter 1/4\" satin stainless trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway threshold saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 CORE RESTROOM - WOMEN'S", floor_name="LEVEL 1", length_ft=18.0, width_ft=14.0, ceiling_height_ft=10.0, wall_tile_height_ft=10.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 porcelain floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=240.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet walls", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="PORCELAIN TILE", work_type="S&I", quantity=200.0, unit="SQ FT", notes="Cancos 24x48 porcelain wall tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=64.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="TRIPLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Caesarstone solid surface triple vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=32.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Subfloor mud-set leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=42.0, unit="LN FT", notes="Schluter 1/4\" satin stainless trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway threshold saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 UNISEX / ADA RESTROOM", floor_name="LEVEL 1", length_ft=8.0, width_ft=7.5, ceiling_height_ft=10.0, wall_tile_height_ft=10.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=130.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet wall", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=31.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="SINGLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=8.0, unit="SQ FT", notes="Caesarstone vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Subfloor mud-set prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=18.0, unit="LN FT", notes="Schluter trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 CLASSROOM RESTROOM #101", floor_name="LEVEL 1", length_ft=7.5, width_ft=6.5, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Daltile Cohesion 24x24 dark grey floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=210.0, unit="SQ FT", notes="Daltile 6x6 glazed ceramic full height wall tile (A-646)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=28.0, unit="LN FT", notes="Nasco 3\" tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="SINK TOP", material_type="SOLID SURFACE", work_type="S&I", quantity=6.0, unit="SQ FT", notes="Caesarstone sink surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=20.0, unit="LN FT", notes="Schluter edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 CLASSROOM RESTROOM #102", floor_name="LEVEL 1", length_ft=7.5, width_ft=6.5, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Daltile Cohesion 24x24 dark grey floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=210.0, unit="SQ FT", notes="Daltile 6x6 glazed ceramic full height wall tile (A-646)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=28.0, unit="LN FT", notes="Nasco 3\" tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="SINK TOP", material_type="SOLID SURFACE", work_type="S&I", quantity=6.0, unit="SQ FT", notes="Caesarstone sink surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=20.0, unit="LN FT", notes="Schluter edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 CLASSROOM RESTROOM #103", floor_name="LEVEL 1", length_ft=7.5, width_ft=6.5, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Daltile Cohesion 24x24 dark grey floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=210.0, unit="SQ FT", notes="Daltile 6x6 glazed ceramic full height wall tile (A-646)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=28.0, unit="LN FT", notes="Nasco 3\" tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="SINK TOP", material_type="SOLID SURFACE", work_type="S&I", quantity=6.0, unit="SQ FT", notes="Caesarstone sink surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=20.0, unit="LN FT", notes="Schluter edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 CLASSROOM RESTROOM #104", floor_name="LEVEL 1", length_ft=7.5, width_ft=6.5, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Daltile Cohesion 24x24 dark grey floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=210.0, unit="SQ FT", notes="Daltile 6x6 glazed ceramic full height wall tile (A-646)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=28.0, unit="LN FT", notes="Nasco 3\" tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="SINK TOP", material_type="SOLID SURFACE", work_type="S&I", quantity=6.0, unit="SQ FT", notes="Caesarstone sink surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=49.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=20.0, unit="LN FT", notes="Schluter edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 1 JANITOR CLOSET", floor_name="LEVEL 1", length_ft=6.0, width_ft=5.0, ceiling_height_ft=9.5, wall_tile_height_ft=4.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=44.0, unit="SQ FT", notes="Mop basin splash surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=22.0, unit="LN FT", notes="Nasco tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+
+        # ================= LEVEL 2 =================
+        rooms.append(RoomTakeoff(room_name="LEVEL 2 CORE RESTROOM - MEN'S", floor_name="LEVEL 2", length_ft=16.0, width_ft=11.0, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=176.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 porcelain floor tile (A-616)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=180.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet walls (A-616)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=54.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="DOUBLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=16.0, unit="SQ FT", notes="Caesarstone solid surface double vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=176.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=27.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=176.0, unit="SQ FT", notes="Subfloor mud-set leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=32.0, unit="LN FT", notes="Schluter 1/4\" satin stainless trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway threshold saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 2 CORE RESTROOM - WOMEN'S", floor_name="LEVEL 2", length_ft=16.0, width_ft=12.0, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=192.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 porcelain floor tile (A-616)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=190.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet walls (A-616)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=56.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="DOUBLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=16.0, unit="SQ FT", notes="Caesarstone solid surface double vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=3.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=192.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=28.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=192.0, unit="SQ FT", notes="Subfloor mud-set leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=34.0, unit="LN FT", notes="Schluter 1/4\" satin stainless trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway threshold saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 2 UNISEX / ADA RESTROOM", floor_name="LEVEL 2", length_ft=8.0, width_ft=7.5, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=130.0, unit="SQ FT", notes="Daltile Keystones 2x2 mosaic wet wall", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=31.0, unit="LN FT", notes="Nasco 3\" bullnose tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-02", finish_type="SINGLE VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=8.0, unit="SQ FT", notes="Caesarstone vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Subfloor mud-set prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=18.0, unit="LN FT", notes="Schluter trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 2 STAFF PANTRY (A-616)", floor_name="LEVEL 2", length_ft=14.0, width_ft=10.0, ceiling_height_ft=9.5, wall_tile_height_ft=2.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTW-01", finish_type="WALL BACKSPLASH", material_type="CERAMIC TILE", work_type="S&I", quantity=36.0, unit="SQ FT", notes="Nemo Tile 3\" x 10\" running bond ceramic wall tile backsplash (A-616)", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=32.0, unit="SQ FT", notes="Caesarstone solid surface countertop (14'-0\" x 2'-4\")", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="COUNTERTOP APRON/1-1/2'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=2.0, unit="SQ FT", notes="1-1/2 inch front drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=14.0, unit="LN FT", notes="Schluter top edge trim above backsplash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone doorway transition saddle", trade="Tile & Stone"),
+        ]))
+        rooms.append(RoomTakeoff(room_name="LEVEL 2 JANITOR CLOSET", floor_name="LEVEL 2", length_ft=6.0, width_ft=5.0, ceiling_height_ft=9.5, wall_tile_height_ft=4.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-03", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Nasco Eternity Ivory 24x48 floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-04", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=44.0, unit="SQ FT", notes="Mop basin splash surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=22.0, unit="LN FT", notes="Nasco tile base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Floor waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=30.0, unit="SQ FT", notes="Subfloor prep", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Stone transition saddle", trade="Tile & Stone"),
+        ]))
+
+        return rooms
+
+
