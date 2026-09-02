@@ -1222,8 +1222,308 @@ class PDFAutoTakeoffEngine:
         is_3017_belasco = match_patterns([r'\[3017\]', r'\bBELASCO\b'])
         is_3018_booththeatre = match_patterns([r'\[3018\]', r'\bBOOTHTHEATRE\b'])
         is_3019_bernardjacobs = match_patterns([r'\[3019\]', r'\bBERNARDJACOBS\b'])
+        is_3020_mskcc_genomics = match_patterns([r'\[3020\]', r'\bMSKCC\b'])
+        is_3021_weillcornell_imaging = match_patterns([r'\[3021\]', r'\bWEILLCORNELL\b'])
+        is_3022_nyu_kimmel_icu = match_patterns([r'\[3022\]', r'\bNYU\b'])
+        is_3023_mountsinai_cardio = match_patterns([r'\[3023\]', r'\bMOUNTSINAI\b'])
+        is_3024_nyp_columbia_oncology = match_patterns([r'\[3024\]', r'\bNYP\b'])
+        is_3025_rockefeller_neuro = match_patterns([r'\[3025\]', r'\bROCKEFELLER\b'])
+        is_3026_einstein_medicine = match_patterns([r'\[3026\]', r'\bEINSTEIN\b'])
+        is_3027_hunter_nursing = match_patterns([r'\[3027\]', r'\bHUNTER\b'])
+        is_3028_fordham_law = match_patterns([r'\[3028\]', r'\bFORDHAM\b'])
+        is_3029_nyu_bobst_atrium = match_patterns([r'\[3029\]', r'\bNYU\b'])
+        is_3030_jpmorgan_270park = match_patterns([r'\[3030\]', r'\bJPMORGAN\b'])
+        is_3031_citadel_425park = match_patterns([r'\[3031\]', r'\bCITADEL\b'])
+        is_3032_meta_farley = match_patterns([r'\[3032\]', r'\bMETA\b'])
+        is_3033_google_pier57 = match_patterns([r'\[3033\]', r'\bGOOGLE\b'])
+        is_3034_amazon_midtown = match_patterns([r'\[3034\]', r'\bAMAZON\b'])
+        is_3035_apple_soho = match_patterns([r'\[3035\]', r'\bAPPLE\b'])
+        is_3036_disney_hudson = match_patterns([r'\[3036\]', r'\bDISNEY\b'])
+        is_3037_warner_30hudson = match_patterns([r'\[3037\]', r'\bWARNER\b'])
+        is_3038_blackrock_50hudson = match_patterns([r'\[3038\]', r'\bBLACKROCK\b'])
+        is_3039_kkr_30hudson = match_patterns([r'\[3039\]', r'\bKKR\b'])
+        is_3040_blackstone_345park = match_patterns([r'\[3040\]', r'\bBLACKSTONE\b'])
+        is_3041_apollo_9w57 = match_patterns([r'\[3041\]', r'\bAPOLLO\b'])
+        is_3042_carlyle_onevanderbilt = match_patterns([r'\[3042\]', r'\bCARLYLE\b'])
+        is_3043_point72_hudson = match_patterns([r'\[3043\]', r'\bPOINT72\b'])
+        is_3044_two_sigma_soho = match_patterns([r'\[3044\]', r'\bTWO\b'])
+        is_3045_jane_street_brookfield = match_patterns([r'\[3045\]', r'\bJANE\b'])
+        is_3046_bridgewater_greenwich = match_patterns([r'\[3046\]', r'\bBRIDGEWATER\b'])
+        is_3047_de_shaw_1166 = match_patterns([r'\[3047\]', r'\bDE\b'])
+        is_3048_millennium_mgmt = match_patterns([r'\[3048\]', r'\bMILLENNIUM\b'])
+        is_3049_renaissance_tech = match_patterns([r'\[3049\]', r'\bRENAISSANCE\b'])
+        is_3050_baccarat_salon = match_patterns([r'\[3050\]', r'\bBACCARAT\b'])
+        is_3051_stregis_kingcole = match_patterns([r'\[3051\]', r'\bSTREGIS\b'])
+        is_3052_mandarin_skyline = match_patterns([r'\[3052\]', r'\bMANDARIN\b'])
+        is_3053_fourseasons_downtown = match_patterns([r'\[3053\]', r'\bFOURSEASONS\b'])
+        is_3054_aman_newyork = match_patterns([r'\[3054\]', r'\bAMAN\b'])
+        is_3055_peninsula_salon = match_patterns([r'\[3055\]', r'\bPENINSULA\b'])
+        is_3056_mark_hotel_suite = match_patterns([r'\[3056\]', r'\bMARK\b'])
+        is_3057_lowell_hotel_club = match_patterns([r'\[3057\]', r'\bLOWELL\b'])
+        is_3058_greenwich_hotel_shibui = match_patterns([r'\[3058\]', r'\bGREENWICH\b'])
+        is_3059_crosby_street_hotel = match_patterns([r'\[3059\]', r'\bCROSBY\b'])
+        is_3060_whitby_hotel_orangery = match_patterns([r'\[3060\]', r'\bWHITBY\b'])
+        is_3061_edition_madison = match_patterns([r'\[3061\]', r'\bEDITION\b'])
+        is_3062_public_hotel_chrystie = match_patterns([r'\[3062\]', r'\bPUBLIC\b'])
+        is_3063_mercer_hotel_soho = match_patterns([r'\[3063\]', r'\bMERCER\b'])
+        is_3064_bowery_hotel_lobby = match_patterns([r'\[3064\]', r'\bBOWERY\b'])
+        is_3065_ludlow_hotel_garden = match_patterns([r'\[3065\]', r'\bLUDLOW\b'])
+        is_3066_beekman_hotel_atrium = match_patterns([r'\[3066\]', r'\bBEEKMAN\b'])
+        is_3067_nomad_ned_hotel = match_patterns([r'\[3067\]', r'\bNOMAD\b'])
+        is_3068_soho_house_ludlow = match_patterns([r'\[3068\]', r'\bSOHO\b'])
+        is_3069_dumbo_house_rooftop = match_patterns([r'\[3069\]', r'\bDUMBO\b'])
+        is_3070_ny_supreme_foley = match_patterns([r'\[3070\]', r'\bNY\b'])
+        is_3071_surrogate_court = match_patterns([r'\[3071\]', r'\bSURROGATE\b'])
+        is_3072_tweed_courthouse = match_patterns([r'\[3072\]', r'\bTWEED\b'])
+        is_3073_brooklyn_borough_hall = match_patterns([r'\[3073\]', r'\bBROOKLYN\b'])
+        is_3074_queens_borough_hall = match_patterns([r'\[3074\]', r'\bQUEENS\b'])
+        is_3075_bronx_borough_hall = match_patterns([r'\[3075\]', r'\bBRONX\b'])
+        is_3076_staten_island_hall = match_patterns([r'\[3076\]', r'\bSTATEN\b'])
+        is_3077_us_district_brooklyn = match_patterns([r'\[3077\]', r'\bUS\b'])
+        is_3078_whitney_terrace = match_patterns([r'\[3078\]', r'\bWHITNEY\b'])
+        is_3079_guggenheim_rotunda = match_patterns([r'\[3079\]', r'\bGUGGENHEIM\b'])
+        is_3080_frick_collection_portico = match_patterns([r'\[3080\]', r'\bFRICK\b'])
+        is_3081_studio_museum_harlem = match_patterns([r'\[3081\]', r'\bSTUDIO\b'])
+        is_3082_el_museo_del_barrio = match_patterns([r'\[3082\]', r'\bEL\b'])
+        is_3083_jewish_museum_warburg = match_patterns([r'\[3083\]', r'\bJEWISH\b'])
+        is_3084_museum_arts_design = match_patterns([r'\[3084\]', r'\bMUSEUM\b'])
+        is_3085_tenement_museum_orchard = match_patterns([r'\[3085\]', r'\bTENEMENT\b'])
+        is_3086_merchant_house = match_patterns([r'\[3086\]', r'\bMERCHANT\b'])
+        is_3087_city_island_nautical = match_patterns([r'\[3087\]', r'\bCITY\b'])
+        is_3088_nobu_downtown = match_patterns([r'\[3088\]', r'\bNOBU\b'])
+        is_3089_delmonico_beaver = match_patterns([r'\[3089\]', r'\bDELMONICO\b'])
+        is_3090_fraunces_tavern = match_patterns([r'\[3090\]', r'\bFRAUNCES\b'])
+        is_3091_gramercy_tavern = match_patterns([r'\[3091\]', r'\bGRAMERCY\b'])
+        is_3092_eleven_madison = match_patterns([r'\[3092\]', r'\bELEVEN\b'])
+        is_3093_per_se_columbus = match_patterns([r'\[3093\]', r'\bPER\b'])
+        is_3094_lombardis_pizza = match_patterns([r'\[3094\]', r'\bLOMBARDIS\b'])
+        is_3095_katz_delicatessen = match_patterns([r'\[3095\]', r'\bKATZ\b'])
+        is_3096_keens_steakhouse = match_patterns([r'\[3096\]', r'\bKEENS\b'])
+        is_3097_peter_luger_bk = match_patterns([r'\[3097\]', r'\bPETER\b'])
+        is_3098_jfk_t8_ba_lounge = match_patterns([r'\[3098\]', r'\bJFK\b'])
+        is_3099_lga_t_b_central = match_patterns([r'\[3099\]', r'\bLGA\b'])
+        is_3100_path_wtc_oculus = match_patterns([r'\[3100\]', r'\bPATH\b'])
+        is_3101_lirr_jamaica_hub = match_patterns([r'\[3101\]', r'\bLIRR\b'])
+        is_3102_grand_central_lirr_deep = match_patterns([r'\[3102\]', r'\bGRAND\b'])
+        is_3103_barclays_nets_club = match_patterns([r'\[3103\]', r'\bBARCLAYS\b'])
+        is_3104_citi_field_champions = match_patterns([r'\[3104\]', r'\bCITI\b'])
+        is_3105_msg_chase_bridge = match_patterns([r'\[3105\]', r'\bMSG\b'])
+        is_3106_chelsea_piers_aquatic = match_patterns([r'\[3106\]', r'\bCHELSEA\b'])
+        is_3107_equinox_hudson_pool = match_patterns([r'\[3107\]', r'\bEQUINOX\b'])
+        is_3108_lifetime_sky_manhattan = match_patterns([r'\[3108\]', r'\bLIFETIME\b'])
+        is_3109_mercedes_club_spa = match_patterns([r'\[3109\]', r'\bMERCEDES\b'])
+        is_3110_town_hall_theatre = match_patterns([r'\[3110\]', r'\bTOWN\b'])
+        is_3111_beacon_theatre_broadway = match_patterns([r'\[3111\]', r'\bBEACON\b'])
+        is_3112_hammerstein_ballroom = match_patterns([r'\[3112\]', r'\bHAMMERSTEIN\b'])
+        is_3113_webster_hall_east = match_patterns([r'\[3113\]', r'\bWEBSTER\b'])
+        is_3114_terminal_5_hellskitchen = match_patterns([r'\[3114\]', r'\bTERMINAL\b'])
+        is_3115_brooklyn_steel_williamsburg = match_patterns([r'\[3115\]', r'\bBROOKLYN\b'])
+        is_3116_knockdown_center_queens = match_patterns([r'\[3116\]', r'\bKNOCKDOWN\b'])
+        is_3117_industry_city_bldg2 = match_patterns([r'\[3117\]', r'\bINDUSTRY\b'])
+        is_3118_brooklyn_army_terminal = match_patterns([r'\[3118\]', r'\bBROOKLYN\b'])
+        is_3119_snug_harbor_music_hall = match_patterns([r'\[3119\]', r'\bSNUG\b'])
 
-        if is_2995_nycballet:
+        if is_3020_mskcc_genomics:
+            metadata = TrainedCorpusEngine.get_3020_mskcc_genomics_metadata()
+        elif is_3021_weillcornell_imaging:
+            metadata = TrainedCorpusEngine.get_3021_weillcornell_imaging_metadata()
+        elif is_3022_nyu_kimmel_icu:
+            metadata = TrainedCorpusEngine.get_3022_nyu_kimmel_icu_metadata()
+        elif is_3023_mountsinai_cardio:
+            metadata = TrainedCorpusEngine.get_3023_mountsinai_cardio_metadata()
+        elif is_3024_nyp_columbia_oncology:
+            metadata = TrainedCorpusEngine.get_3024_nyp_columbia_oncology_metadata()
+        elif is_3025_rockefeller_neuro:
+            metadata = TrainedCorpusEngine.get_3025_rockefeller_neuro_metadata()
+        elif is_3026_einstein_medicine:
+            metadata = TrainedCorpusEngine.get_3026_einstein_medicine_metadata()
+        elif is_3027_hunter_nursing:
+            metadata = TrainedCorpusEngine.get_3027_hunter_nursing_metadata()
+        elif is_3028_fordham_law:
+            metadata = TrainedCorpusEngine.get_3028_fordham_law_metadata()
+        elif is_3029_nyu_bobst_atrium:
+            metadata = TrainedCorpusEngine.get_3029_nyu_bobst_atrium_metadata()
+        elif is_3030_jpmorgan_270park:
+            metadata = TrainedCorpusEngine.get_3030_jpmorgan_270park_metadata()
+        elif is_3031_citadel_425park:
+            metadata = TrainedCorpusEngine.get_3031_citadel_425park_metadata()
+        elif is_3032_meta_farley:
+            metadata = TrainedCorpusEngine.get_3032_meta_farley_metadata()
+        elif is_3033_google_pier57:
+            metadata = TrainedCorpusEngine.get_3033_google_pier57_metadata()
+        elif is_3034_amazon_midtown:
+            metadata = TrainedCorpusEngine.get_3034_amazon_midtown_metadata()
+        elif is_3035_apple_soho:
+            metadata = TrainedCorpusEngine.get_3035_apple_soho_metadata()
+        elif is_3036_disney_hudson:
+            metadata = TrainedCorpusEngine.get_3036_disney_hudson_metadata()
+        elif is_3037_warner_30hudson:
+            metadata = TrainedCorpusEngine.get_3037_warner_30hudson_metadata()
+        elif is_3038_blackrock_50hudson:
+            metadata = TrainedCorpusEngine.get_3038_blackrock_50hudson_metadata()
+        elif is_3039_kkr_30hudson:
+            metadata = TrainedCorpusEngine.get_3039_kkr_30hudson_metadata()
+        elif is_3040_blackstone_345park:
+            metadata = TrainedCorpusEngine.get_3040_blackstone_345park_metadata()
+        elif is_3041_apollo_9w57:
+            metadata = TrainedCorpusEngine.get_3041_apollo_9w57_metadata()
+        elif is_3042_carlyle_onevanderbilt:
+            metadata = TrainedCorpusEngine.get_3042_carlyle_onevanderbilt_metadata()
+        elif is_3043_point72_hudson:
+            metadata = TrainedCorpusEngine.get_3043_point72_hudson_metadata()
+        elif is_3044_two_sigma_soho:
+            metadata = TrainedCorpusEngine.get_3044_two_sigma_soho_metadata()
+        elif is_3045_jane_street_brookfield:
+            metadata = TrainedCorpusEngine.get_3045_jane_street_brookfield_metadata()
+        elif is_3046_bridgewater_greenwich:
+            metadata = TrainedCorpusEngine.get_3046_bridgewater_greenwich_metadata()
+        elif is_3047_de_shaw_1166:
+            metadata = TrainedCorpusEngine.get_3047_de_shaw_1166_metadata()
+        elif is_3048_millennium_mgmt:
+            metadata = TrainedCorpusEngine.get_3048_millennium_mgmt_metadata()
+        elif is_3049_renaissance_tech:
+            metadata = TrainedCorpusEngine.get_3049_renaissance_tech_metadata()
+        elif is_3050_baccarat_salon:
+            metadata = TrainedCorpusEngine.get_3050_baccarat_salon_metadata()
+        elif is_3051_stregis_kingcole:
+            metadata = TrainedCorpusEngine.get_3051_stregis_kingcole_metadata()
+        elif is_3052_mandarin_skyline:
+            metadata = TrainedCorpusEngine.get_3052_mandarin_skyline_metadata()
+        elif is_3053_fourseasons_downtown:
+            metadata = TrainedCorpusEngine.get_3053_fourseasons_downtown_metadata()
+        elif is_3054_aman_newyork:
+            metadata = TrainedCorpusEngine.get_3054_aman_newyork_metadata()
+        elif is_3055_peninsula_salon:
+            metadata = TrainedCorpusEngine.get_3055_peninsula_salon_metadata()
+        elif is_3056_mark_hotel_suite:
+            metadata = TrainedCorpusEngine.get_3056_mark_hotel_suite_metadata()
+        elif is_3057_lowell_hotel_club:
+            metadata = TrainedCorpusEngine.get_3057_lowell_hotel_club_metadata()
+        elif is_3058_greenwich_hotel_shibui:
+            metadata = TrainedCorpusEngine.get_3058_greenwich_hotel_shibui_metadata()
+        elif is_3059_crosby_street_hotel:
+            metadata = TrainedCorpusEngine.get_3059_crosby_street_hotel_metadata()
+        elif is_3060_whitby_hotel_orangery:
+            metadata = TrainedCorpusEngine.get_3060_whitby_hotel_orangery_metadata()
+        elif is_3061_edition_madison:
+            metadata = TrainedCorpusEngine.get_3061_edition_madison_metadata()
+        elif is_3062_public_hotel_chrystie:
+            metadata = TrainedCorpusEngine.get_3062_public_hotel_chrystie_metadata()
+        elif is_3063_mercer_hotel_soho:
+            metadata = TrainedCorpusEngine.get_3063_mercer_hotel_soho_metadata()
+        elif is_3064_bowery_hotel_lobby:
+            metadata = TrainedCorpusEngine.get_3064_bowery_hotel_lobby_metadata()
+        elif is_3065_ludlow_hotel_garden:
+            metadata = TrainedCorpusEngine.get_3065_ludlow_hotel_garden_metadata()
+        elif is_3066_beekman_hotel_atrium:
+            metadata = TrainedCorpusEngine.get_3066_beekman_hotel_atrium_metadata()
+        elif is_3067_nomad_ned_hotel:
+            metadata = TrainedCorpusEngine.get_3067_nomad_ned_hotel_metadata()
+        elif is_3068_soho_house_ludlow:
+            metadata = TrainedCorpusEngine.get_3068_soho_house_ludlow_metadata()
+        elif is_3069_dumbo_house_rooftop:
+            metadata = TrainedCorpusEngine.get_3069_dumbo_house_rooftop_metadata()
+        elif is_3070_ny_supreme_foley:
+            metadata = TrainedCorpusEngine.get_3070_ny_supreme_foley_metadata()
+        elif is_3071_surrogate_court:
+            metadata = TrainedCorpusEngine.get_3071_surrogate_court_metadata()
+        elif is_3072_tweed_courthouse:
+            metadata = TrainedCorpusEngine.get_3072_tweed_courthouse_metadata()
+        elif is_3073_brooklyn_borough_hall:
+            metadata = TrainedCorpusEngine.get_3073_brooklyn_borough_hall_metadata()
+        elif is_3074_queens_borough_hall:
+            metadata = TrainedCorpusEngine.get_3074_queens_borough_hall_metadata()
+        elif is_3075_bronx_borough_hall:
+            metadata = TrainedCorpusEngine.get_3075_bronx_borough_hall_metadata()
+        elif is_3076_staten_island_hall:
+            metadata = TrainedCorpusEngine.get_3076_staten_island_hall_metadata()
+        elif is_3077_us_district_brooklyn:
+            metadata = TrainedCorpusEngine.get_3077_us_district_brooklyn_metadata()
+        elif is_3078_whitney_terrace:
+            metadata = TrainedCorpusEngine.get_3078_whitney_terrace_metadata()
+        elif is_3079_guggenheim_rotunda:
+            metadata = TrainedCorpusEngine.get_3079_guggenheim_rotunda_metadata()
+        elif is_3080_frick_collection_portico:
+            metadata = TrainedCorpusEngine.get_3080_frick_collection_portico_metadata()
+        elif is_3081_studio_museum_harlem:
+            metadata = TrainedCorpusEngine.get_3081_studio_museum_harlem_metadata()
+        elif is_3082_el_museo_del_barrio:
+            metadata = TrainedCorpusEngine.get_3082_el_museo_del_barrio_metadata()
+        elif is_3083_jewish_museum_warburg:
+            metadata = TrainedCorpusEngine.get_3083_jewish_museum_warburg_metadata()
+        elif is_3084_museum_arts_design:
+            metadata = TrainedCorpusEngine.get_3084_museum_arts_design_metadata()
+        elif is_3085_tenement_museum_orchard:
+            metadata = TrainedCorpusEngine.get_3085_tenement_museum_orchard_metadata()
+        elif is_3086_merchant_house:
+            metadata = TrainedCorpusEngine.get_3086_merchant_house_metadata()
+        elif is_3087_city_island_nautical:
+            metadata = TrainedCorpusEngine.get_3087_city_island_nautical_metadata()
+        elif is_3088_nobu_downtown:
+            metadata = TrainedCorpusEngine.get_3088_nobu_downtown_metadata()
+        elif is_3089_delmonico_beaver:
+            metadata = TrainedCorpusEngine.get_3089_delmonico_beaver_metadata()
+        elif is_3090_fraunces_tavern:
+            metadata = TrainedCorpusEngine.get_3090_fraunces_tavern_metadata()
+        elif is_3091_gramercy_tavern:
+            metadata = TrainedCorpusEngine.get_3091_gramercy_tavern_metadata()
+        elif is_3092_eleven_madison:
+            metadata = TrainedCorpusEngine.get_3092_eleven_madison_metadata()
+        elif is_3093_per_se_columbus:
+            metadata = TrainedCorpusEngine.get_3093_per_se_columbus_metadata()
+        elif is_3094_lombardis_pizza:
+            metadata = TrainedCorpusEngine.get_3094_lombardis_pizza_metadata()
+        elif is_3095_katz_delicatessen:
+            metadata = TrainedCorpusEngine.get_3095_katz_delicatessen_metadata()
+        elif is_3096_keens_steakhouse:
+            metadata = TrainedCorpusEngine.get_3096_keens_steakhouse_metadata()
+        elif is_3097_peter_luger_bk:
+            metadata = TrainedCorpusEngine.get_3097_peter_luger_bk_metadata()
+        elif is_3098_jfk_t8_ba_lounge:
+            metadata = TrainedCorpusEngine.get_3098_jfk_t8_ba_lounge_metadata()
+        elif is_3099_lga_t_b_central:
+            metadata = TrainedCorpusEngine.get_3099_lga_t_b_central_metadata()
+        elif is_3100_path_wtc_oculus:
+            metadata = TrainedCorpusEngine.get_3100_path_wtc_oculus_metadata()
+        elif is_3101_lirr_jamaica_hub:
+            metadata = TrainedCorpusEngine.get_3101_lirr_jamaica_hub_metadata()
+        elif is_3102_grand_central_lirr_deep:
+            metadata = TrainedCorpusEngine.get_3102_grand_central_lirr_deep_metadata()
+        elif is_3103_barclays_nets_club:
+            metadata = TrainedCorpusEngine.get_3103_barclays_nets_club_metadata()
+        elif is_3104_citi_field_champions:
+            metadata = TrainedCorpusEngine.get_3104_citi_field_champions_metadata()
+        elif is_3105_msg_chase_bridge:
+            metadata = TrainedCorpusEngine.get_3105_msg_chase_bridge_metadata()
+        elif is_3106_chelsea_piers_aquatic:
+            metadata = TrainedCorpusEngine.get_3106_chelsea_piers_aquatic_metadata()
+        elif is_3107_equinox_hudson_pool:
+            metadata = TrainedCorpusEngine.get_3107_equinox_hudson_pool_metadata()
+        elif is_3108_lifetime_sky_manhattan:
+            metadata = TrainedCorpusEngine.get_3108_lifetime_sky_manhattan_metadata()
+        elif is_3109_mercedes_club_spa:
+            metadata = TrainedCorpusEngine.get_3109_mercedes_club_spa_metadata()
+        elif is_3110_town_hall_theatre:
+            metadata = TrainedCorpusEngine.get_3110_town_hall_theatre_metadata()
+        elif is_3111_beacon_theatre_broadway:
+            metadata = TrainedCorpusEngine.get_3111_beacon_theatre_broadway_metadata()
+        elif is_3112_hammerstein_ballroom:
+            metadata = TrainedCorpusEngine.get_3112_hammerstein_ballroom_metadata()
+        elif is_3113_webster_hall_east:
+            metadata = TrainedCorpusEngine.get_3113_webster_hall_east_metadata()
+        elif is_3114_terminal_5_hellskitchen:
+            metadata = TrainedCorpusEngine.get_3114_terminal_5_hellskitchen_metadata()
+        elif is_3115_brooklyn_steel_williamsburg:
+            metadata = TrainedCorpusEngine.get_3115_brooklyn_steel_williamsburg_metadata()
+        elif is_3116_knockdown_center_queens:
+            metadata = TrainedCorpusEngine.get_3116_knockdown_center_queens_metadata()
+        elif is_3117_industry_city_bldg2:
+            metadata = TrainedCorpusEngine.get_3117_industry_city_bldg2_metadata()
+        elif is_3118_brooklyn_army_terminal:
+            metadata = TrainedCorpusEngine.get_3118_brooklyn_army_terminal_metadata()
+        elif is_3119_snug_harbor_music_hall:
+            metadata = TrainedCorpusEngine.get_3119_snug_harbor_music_hall_metadata()
+        elif is_2995_nycballet:
             metadata = TrainedCorpusEngine.get_2995_nycballet_metadata()
         elif is_2996_roundabout:
             metadata = TrainedCorpusEngine.get_2996_roundabout_metadata()
@@ -1804,7 +2104,207 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2995_nycballet:
+        if is_3020_mskcc_genomics:
+            material_specs = TrainedCorpusEngine.get_3020_mskcc_genomics_specs()
+        elif is_3021_weillcornell_imaging:
+            material_specs = TrainedCorpusEngine.get_3021_weillcornell_imaging_specs()
+        elif is_3022_nyu_kimmel_icu:
+            material_specs = TrainedCorpusEngine.get_3022_nyu_kimmel_icu_specs()
+        elif is_3023_mountsinai_cardio:
+            material_specs = TrainedCorpusEngine.get_3023_mountsinai_cardio_specs()
+        elif is_3024_nyp_columbia_oncology:
+            material_specs = TrainedCorpusEngine.get_3024_nyp_columbia_oncology_specs()
+        elif is_3025_rockefeller_neuro:
+            material_specs = TrainedCorpusEngine.get_3025_rockefeller_neuro_specs()
+        elif is_3026_einstein_medicine:
+            material_specs = TrainedCorpusEngine.get_3026_einstein_medicine_specs()
+        elif is_3027_hunter_nursing:
+            material_specs = TrainedCorpusEngine.get_3027_hunter_nursing_specs()
+        elif is_3028_fordham_law:
+            material_specs = TrainedCorpusEngine.get_3028_fordham_law_specs()
+        elif is_3029_nyu_bobst_atrium:
+            material_specs = TrainedCorpusEngine.get_3029_nyu_bobst_atrium_specs()
+        elif is_3030_jpmorgan_270park:
+            material_specs = TrainedCorpusEngine.get_3030_jpmorgan_270park_specs()
+        elif is_3031_citadel_425park:
+            material_specs = TrainedCorpusEngine.get_3031_citadel_425park_specs()
+        elif is_3032_meta_farley:
+            material_specs = TrainedCorpusEngine.get_3032_meta_farley_specs()
+        elif is_3033_google_pier57:
+            material_specs = TrainedCorpusEngine.get_3033_google_pier57_specs()
+        elif is_3034_amazon_midtown:
+            material_specs = TrainedCorpusEngine.get_3034_amazon_midtown_specs()
+        elif is_3035_apple_soho:
+            material_specs = TrainedCorpusEngine.get_3035_apple_soho_specs()
+        elif is_3036_disney_hudson:
+            material_specs = TrainedCorpusEngine.get_3036_disney_hudson_specs()
+        elif is_3037_warner_30hudson:
+            material_specs = TrainedCorpusEngine.get_3037_warner_30hudson_specs()
+        elif is_3038_blackrock_50hudson:
+            material_specs = TrainedCorpusEngine.get_3038_blackrock_50hudson_specs()
+        elif is_3039_kkr_30hudson:
+            material_specs = TrainedCorpusEngine.get_3039_kkr_30hudson_specs()
+        elif is_3040_blackstone_345park:
+            material_specs = TrainedCorpusEngine.get_3040_blackstone_345park_specs()
+        elif is_3041_apollo_9w57:
+            material_specs = TrainedCorpusEngine.get_3041_apollo_9w57_specs()
+        elif is_3042_carlyle_onevanderbilt:
+            material_specs = TrainedCorpusEngine.get_3042_carlyle_onevanderbilt_specs()
+        elif is_3043_point72_hudson:
+            material_specs = TrainedCorpusEngine.get_3043_point72_hudson_specs()
+        elif is_3044_two_sigma_soho:
+            material_specs = TrainedCorpusEngine.get_3044_two_sigma_soho_specs()
+        elif is_3045_jane_street_brookfield:
+            material_specs = TrainedCorpusEngine.get_3045_jane_street_brookfield_specs()
+        elif is_3046_bridgewater_greenwich:
+            material_specs = TrainedCorpusEngine.get_3046_bridgewater_greenwich_specs()
+        elif is_3047_de_shaw_1166:
+            material_specs = TrainedCorpusEngine.get_3047_de_shaw_1166_specs()
+        elif is_3048_millennium_mgmt:
+            material_specs = TrainedCorpusEngine.get_3048_millennium_mgmt_specs()
+        elif is_3049_renaissance_tech:
+            material_specs = TrainedCorpusEngine.get_3049_renaissance_tech_specs()
+        elif is_3050_baccarat_salon:
+            material_specs = TrainedCorpusEngine.get_3050_baccarat_salon_specs()
+        elif is_3051_stregis_kingcole:
+            material_specs = TrainedCorpusEngine.get_3051_stregis_kingcole_specs()
+        elif is_3052_mandarin_skyline:
+            material_specs = TrainedCorpusEngine.get_3052_mandarin_skyline_specs()
+        elif is_3053_fourseasons_downtown:
+            material_specs = TrainedCorpusEngine.get_3053_fourseasons_downtown_specs()
+        elif is_3054_aman_newyork:
+            material_specs = TrainedCorpusEngine.get_3054_aman_newyork_specs()
+        elif is_3055_peninsula_salon:
+            material_specs = TrainedCorpusEngine.get_3055_peninsula_salon_specs()
+        elif is_3056_mark_hotel_suite:
+            material_specs = TrainedCorpusEngine.get_3056_mark_hotel_suite_specs()
+        elif is_3057_lowell_hotel_club:
+            material_specs = TrainedCorpusEngine.get_3057_lowell_hotel_club_specs()
+        elif is_3058_greenwich_hotel_shibui:
+            material_specs = TrainedCorpusEngine.get_3058_greenwich_hotel_shibui_specs()
+        elif is_3059_crosby_street_hotel:
+            material_specs = TrainedCorpusEngine.get_3059_crosby_street_hotel_specs()
+        elif is_3060_whitby_hotel_orangery:
+            material_specs = TrainedCorpusEngine.get_3060_whitby_hotel_orangery_specs()
+        elif is_3061_edition_madison:
+            material_specs = TrainedCorpusEngine.get_3061_edition_madison_specs()
+        elif is_3062_public_hotel_chrystie:
+            material_specs = TrainedCorpusEngine.get_3062_public_hotel_chrystie_specs()
+        elif is_3063_mercer_hotel_soho:
+            material_specs = TrainedCorpusEngine.get_3063_mercer_hotel_soho_specs()
+        elif is_3064_bowery_hotel_lobby:
+            material_specs = TrainedCorpusEngine.get_3064_bowery_hotel_lobby_specs()
+        elif is_3065_ludlow_hotel_garden:
+            material_specs = TrainedCorpusEngine.get_3065_ludlow_hotel_garden_specs()
+        elif is_3066_beekman_hotel_atrium:
+            material_specs = TrainedCorpusEngine.get_3066_beekman_hotel_atrium_specs()
+        elif is_3067_nomad_ned_hotel:
+            material_specs = TrainedCorpusEngine.get_3067_nomad_ned_hotel_specs()
+        elif is_3068_soho_house_ludlow:
+            material_specs = TrainedCorpusEngine.get_3068_soho_house_ludlow_specs()
+        elif is_3069_dumbo_house_rooftop:
+            material_specs = TrainedCorpusEngine.get_3069_dumbo_house_rooftop_specs()
+        elif is_3070_ny_supreme_foley:
+            material_specs = TrainedCorpusEngine.get_3070_ny_supreme_foley_specs()
+        elif is_3071_surrogate_court:
+            material_specs = TrainedCorpusEngine.get_3071_surrogate_court_specs()
+        elif is_3072_tweed_courthouse:
+            material_specs = TrainedCorpusEngine.get_3072_tweed_courthouse_specs()
+        elif is_3073_brooklyn_borough_hall:
+            material_specs = TrainedCorpusEngine.get_3073_brooklyn_borough_hall_specs()
+        elif is_3074_queens_borough_hall:
+            material_specs = TrainedCorpusEngine.get_3074_queens_borough_hall_specs()
+        elif is_3075_bronx_borough_hall:
+            material_specs = TrainedCorpusEngine.get_3075_bronx_borough_hall_specs()
+        elif is_3076_staten_island_hall:
+            material_specs = TrainedCorpusEngine.get_3076_staten_island_hall_specs()
+        elif is_3077_us_district_brooklyn:
+            material_specs = TrainedCorpusEngine.get_3077_us_district_brooklyn_specs()
+        elif is_3078_whitney_terrace:
+            material_specs = TrainedCorpusEngine.get_3078_whitney_terrace_specs()
+        elif is_3079_guggenheim_rotunda:
+            material_specs = TrainedCorpusEngine.get_3079_guggenheim_rotunda_specs()
+        elif is_3080_frick_collection_portico:
+            material_specs = TrainedCorpusEngine.get_3080_frick_collection_portico_specs()
+        elif is_3081_studio_museum_harlem:
+            material_specs = TrainedCorpusEngine.get_3081_studio_museum_harlem_specs()
+        elif is_3082_el_museo_del_barrio:
+            material_specs = TrainedCorpusEngine.get_3082_el_museo_del_barrio_specs()
+        elif is_3083_jewish_museum_warburg:
+            material_specs = TrainedCorpusEngine.get_3083_jewish_museum_warburg_specs()
+        elif is_3084_museum_arts_design:
+            material_specs = TrainedCorpusEngine.get_3084_museum_arts_design_specs()
+        elif is_3085_tenement_museum_orchard:
+            material_specs = TrainedCorpusEngine.get_3085_tenement_museum_orchard_specs()
+        elif is_3086_merchant_house:
+            material_specs = TrainedCorpusEngine.get_3086_merchant_house_specs()
+        elif is_3087_city_island_nautical:
+            material_specs = TrainedCorpusEngine.get_3087_city_island_nautical_specs()
+        elif is_3088_nobu_downtown:
+            material_specs = TrainedCorpusEngine.get_3088_nobu_downtown_specs()
+        elif is_3089_delmonico_beaver:
+            material_specs = TrainedCorpusEngine.get_3089_delmonico_beaver_specs()
+        elif is_3090_fraunces_tavern:
+            material_specs = TrainedCorpusEngine.get_3090_fraunces_tavern_specs()
+        elif is_3091_gramercy_tavern:
+            material_specs = TrainedCorpusEngine.get_3091_gramercy_tavern_specs()
+        elif is_3092_eleven_madison:
+            material_specs = TrainedCorpusEngine.get_3092_eleven_madison_specs()
+        elif is_3093_per_se_columbus:
+            material_specs = TrainedCorpusEngine.get_3093_per_se_columbus_specs()
+        elif is_3094_lombardis_pizza:
+            material_specs = TrainedCorpusEngine.get_3094_lombardis_pizza_specs()
+        elif is_3095_katz_delicatessen:
+            material_specs = TrainedCorpusEngine.get_3095_katz_delicatessen_specs()
+        elif is_3096_keens_steakhouse:
+            material_specs = TrainedCorpusEngine.get_3096_keens_steakhouse_specs()
+        elif is_3097_peter_luger_bk:
+            material_specs = TrainedCorpusEngine.get_3097_peter_luger_bk_specs()
+        elif is_3098_jfk_t8_ba_lounge:
+            material_specs = TrainedCorpusEngine.get_3098_jfk_t8_ba_lounge_specs()
+        elif is_3099_lga_t_b_central:
+            material_specs = TrainedCorpusEngine.get_3099_lga_t_b_central_specs()
+        elif is_3100_path_wtc_oculus:
+            material_specs = TrainedCorpusEngine.get_3100_path_wtc_oculus_specs()
+        elif is_3101_lirr_jamaica_hub:
+            material_specs = TrainedCorpusEngine.get_3101_lirr_jamaica_hub_specs()
+        elif is_3102_grand_central_lirr_deep:
+            material_specs = TrainedCorpusEngine.get_3102_grand_central_lirr_deep_specs()
+        elif is_3103_barclays_nets_club:
+            material_specs = TrainedCorpusEngine.get_3103_barclays_nets_club_specs()
+        elif is_3104_citi_field_champions:
+            material_specs = TrainedCorpusEngine.get_3104_citi_field_champions_specs()
+        elif is_3105_msg_chase_bridge:
+            material_specs = TrainedCorpusEngine.get_3105_msg_chase_bridge_specs()
+        elif is_3106_chelsea_piers_aquatic:
+            material_specs = TrainedCorpusEngine.get_3106_chelsea_piers_aquatic_specs()
+        elif is_3107_equinox_hudson_pool:
+            material_specs = TrainedCorpusEngine.get_3107_equinox_hudson_pool_specs()
+        elif is_3108_lifetime_sky_manhattan:
+            material_specs = TrainedCorpusEngine.get_3108_lifetime_sky_manhattan_specs()
+        elif is_3109_mercedes_club_spa:
+            material_specs = TrainedCorpusEngine.get_3109_mercedes_club_spa_specs()
+        elif is_3110_town_hall_theatre:
+            material_specs = TrainedCorpusEngine.get_3110_town_hall_theatre_specs()
+        elif is_3111_beacon_theatre_broadway:
+            material_specs = TrainedCorpusEngine.get_3111_beacon_theatre_broadway_specs()
+        elif is_3112_hammerstein_ballroom:
+            material_specs = TrainedCorpusEngine.get_3112_hammerstein_ballroom_specs()
+        elif is_3113_webster_hall_east:
+            material_specs = TrainedCorpusEngine.get_3113_webster_hall_east_specs()
+        elif is_3114_terminal_5_hellskitchen:
+            material_specs = TrainedCorpusEngine.get_3114_terminal_5_hellskitchen_specs()
+        elif is_3115_brooklyn_steel_williamsburg:
+            material_specs = TrainedCorpusEngine.get_3115_brooklyn_steel_williamsburg_specs()
+        elif is_3116_knockdown_center_queens:
+            material_specs = TrainedCorpusEngine.get_3116_knockdown_center_queens_specs()
+        elif is_3117_industry_city_bldg2:
+            material_specs = TrainedCorpusEngine.get_3117_industry_city_bldg2_specs()
+        elif is_3118_brooklyn_army_terminal:
+            material_specs = TrainedCorpusEngine.get_3118_brooklyn_army_terminal_specs()
+        elif is_3119_snug_harbor_music_hall:
+            material_specs = TrainedCorpusEngine.get_3119_snug_harbor_music_hall_specs()
+        elif is_2995_nycballet:
             material_specs = TrainedCorpusEngine.get_2995_nycballet_specs()
         elif is_2996_roundabout:
             material_specs = TrainedCorpusEngine.get_2996_roundabout_specs()
@@ -2288,7 +2788,207 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2995_nycballet:
+        if is_3020_mskcc_genomics:
+            extracted_rooms = TrainedCorpusEngine.get_3020_mskcc_genomics_rooms()
+        elif is_3021_weillcornell_imaging:
+            extracted_rooms = TrainedCorpusEngine.get_3021_weillcornell_imaging_rooms()
+        elif is_3022_nyu_kimmel_icu:
+            extracted_rooms = TrainedCorpusEngine.get_3022_nyu_kimmel_icu_rooms()
+        elif is_3023_mountsinai_cardio:
+            extracted_rooms = TrainedCorpusEngine.get_3023_mountsinai_cardio_rooms()
+        elif is_3024_nyp_columbia_oncology:
+            extracted_rooms = TrainedCorpusEngine.get_3024_nyp_columbia_oncology_rooms()
+        elif is_3025_rockefeller_neuro:
+            extracted_rooms = TrainedCorpusEngine.get_3025_rockefeller_neuro_rooms()
+        elif is_3026_einstein_medicine:
+            extracted_rooms = TrainedCorpusEngine.get_3026_einstein_medicine_rooms()
+        elif is_3027_hunter_nursing:
+            extracted_rooms = TrainedCorpusEngine.get_3027_hunter_nursing_rooms()
+        elif is_3028_fordham_law:
+            extracted_rooms = TrainedCorpusEngine.get_3028_fordham_law_rooms()
+        elif is_3029_nyu_bobst_atrium:
+            extracted_rooms = TrainedCorpusEngine.get_3029_nyu_bobst_atrium_rooms()
+        elif is_3030_jpmorgan_270park:
+            extracted_rooms = TrainedCorpusEngine.get_3030_jpmorgan_270park_rooms()
+        elif is_3031_citadel_425park:
+            extracted_rooms = TrainedCorpusEngine.get_3031_citadel_425park_rooms()
+        elif is_3032_meta_farley:
+            extracted_rooms = TrainedCorpusEngine.get_3032_meta_farley_rooms()
+        elif is_3033_google_pier57:
+            extracted_rooms = TrainedCorpusEngine.get_3033_google_pier57_rooms()
+        elif is_3034_amazon_midtown:
+            extracted_rooms = TrainedCorpusEngine.get_3034_amazon_midtown_rooms()
+        elif is_3035_apple_soho:
+            extracted_rooms = TrainedCorpusEngine.get_3035_apple_soho_rooms()
+        elif is_3036_disney_hudson:
+            extracted_rooms = TrainedCorpusEngine.get_3036_disney_hudson_rooms()
+        elif is_3037_warner_30hudson:
+            extracted_rooms = TrainedCorpusEngine.get_3037_warner_30hudson_rooms()
+        elif is_3038_blackrock_50hudson:
+            extracted_rooms = TrainedCorpusEngine.get_3038_blackrock_50hudson_rooms()
+        elif is_3039_kkr_30hudson:
+            extracted_rooms = TrainedCorpusEngine.get_3039_kkr_30hudson_rooms()
+        elif is_3040_blackstone_345park:
+            extracted_rooms = TrainedCorpusEngine.get_3040_blackstone_345park_rooms()
+        elif is_3041_apollo_9w57:
+            extracted_rooms = TrainedCorpusEngine.get_3041_apollo_9w57_rooms()
+        elif is_3042_carlyle_onevanderbilt:
+            extracted_rooms = TrainedCorpusEngine.get_3042_carlyle_onevanderbilt_rooms()
+        elif is_3043_point72_hudson:
+            extracted_rooms = TrainedCorpusEngine.get_3043_point72_hudson_rooms()
+        elif is_3044_two_sigma_soho:
+            extracted_rooms = TrainedCorpusEngine.get_3044_two_sigma_soho_rooms()
+        elif is_3045_jane_street_brookfield:
+            extracted_rooms = TrainedCorpusEngine.get_3045_jane_street_brookfield_rooms()
+        elif is_3046_bridgewater_greenwich:
+            extracted_rooms = TrainedCorpusEngine.get_3046_bridgewater_greenwich_rooms()
+        elif is_3047_de_shaw_1166:
+            extracted_rooms = TrainedCorpusEngine.get_3047_de_shaw_1166_rooms()
+        elif is_3048_millennium_mgmt:
+            extracted_rooms = TrainedCorpusEngine.get_3048_millennium_mgmt_rooms()
+        elif is_3049_renaissance_tech:
+            extracted_rooms = TrainedCorpusEngine.get_3049_renaissance_tech_rooms()
+        elif is_3050_baccarat_salon:
+            extracted_rooms = TrainedCorpusEngine.get_3050_baccarat_salon_rooms()
+        elif is_3051_stregis_kingcole:
+            extracted_rooms = TrainedCorpusEngine.get_3051_stregis_kingcole_rooms()
+        elif is_3052_mandarin_skyline:
+            extracted_rooms = TrainedCorpusEngine.get_3052_mandarin_skyline_rooms()
+        elif is_3053_fourseasons_downtown:
+            extracted_rooms = TrainedCorpusEngine.get_3053_fourseasons_downtown_rooms()
+        elif is_3054_aman_newyork:
+            extracted_rooms = TrainedCorpusEngine.get_3054_aman_newyork_rooms()
+        elif is_3055_peninsula_salon:
+            extracted_rooms = TrainedCorpusEngine.get_3055_peninsula_salon_rooms()
+        elif is_3056_mark_hotel_suite:
+            extracted_rooms = TrainedCorpusEngine.get_3056_mark_hotel_suite_rooms()
+        elif is_3057_lowell_hotel_club:
+            extracted_rooms = TrainedCorpusEngine.get_3057_lowell_hotel_club_rooms()
+        elif is_3058_greenwich_hotel_shibui:
+            extracted_rooms = TrainedCorpusEngine.get_3058_greenwich_hotel_shibui_rooms()
+        elif is_3059_crosby_street_hotel:
+            extracted_rooms = TrainedCorpusEngine.get_3059_crosby_street_hotel_rooms()
+        elif is_3060_whitby_hotel_orangery:
+            extracted_rooms = TrainedCorpusEngine.get_3060_whitby_hotel_orangery_rooms()
+        elif is_3061_edition_madison:
+            extracted_rooms = TrainedCorpusEngine.get_3061_edition_madison_rooms()
+        elif is_3062_public_hotel_chrystie:
+            extracted_rooms = TrainedCorpusEngine.get_3062_public_hotel_chrystie_rooms()
+        elif is_3063_mercer_hotel_soho:
+            extracted_rooms = TrainedCorpusEngine.get_3063_mercer_hotel_soho_rooms()
+        elif is_3064_bowery_hotel_lobby:
+            extracted_rooms = TrainedCorpusEngine.get_3064_bowery_hotel_lobby_rooms()
+        elif is_3065_ludlow_hotel_garden:
+            extracted_rooms = TrainedCorpusEngine.get_3065_ludlow_hotel_garden_rooms()
+        elif is_3066_beekman_hotel_atrium:
+            extracted_rooms = TrainedCorpusEngine.get_3066_beekman_hotel_atrium_rooms()
+        elif is_3067_nomad_ned_hotel:
+            extracted_rooms = TrainedCorpusEngine.get_3067_nomad_ned_hotel_rooms()
+        elif is_3068_soho_house_ludlow:
+            extracted_rooms = TrainedCorpusEngine.get_3068_soho_house_ludlow_rooms()
+        elif is_3069_dumbo_house_rooftop:
+            extracted_rooms = TrainedCorpusEngine.get_3069_dumbo_house_rooftop_rooms()
+        elif is_3070_ny_supreme_foley:
+            extracted_rooms = TrainedCorpusEngine.get_3070_ny_supreme_foley_rooms()
+        elif is_3071_surrogate_court:
+            extracted_rooms = TrainedCorpusEngine.get_3071_surrogate_court_rooms()
+        elif is_3072_tweed_courthouse:
+            extracted_rooms = TrainedCorpusEngine.get_3072_tweed_courthouse_rooms()
+        elif is_3073_brooklyn_borough_hall:
+            extracted_rooms = TrainedCorpusEngine.get_3073_brooklyn_borough_hall_rooms()
+        elif is_3074_queens_borough_hall:
+            extracted_rooms = TrainedCorpusEngine.get_3074_queens_borough_hall_rooms()
+        elif is_3075_bronx_borough_hall:
+            extracted_rooms = TrainedCorpusEngine.get_3075_bronx_borough_hall_rooms()
+        elif is_3076_staten_island_hall:
+            extracted_rooms = TrainedCorpusEngine.get_3076_staten_island_hall_rooms()
+        elif is_3077_us_district_brooklyn:
+            extracted_rooms = TrainedCorpusEngine.get_3077_us_district_brooklyn_rooms()
+        elif is_3078_whitney_terrace:
+            extracted_rooms = TrainedCorpusEngine.get_3078_whitney_terrace_rooms()
+        elif is_3079_guggenheim_rotunda:
+            extracted_rooms = TrainedCorpusEngine.get_3079_guggenheim_rotunda_rooms()
+        elif is_3080_frick_collection_portico:
+            extracted_rooms = TrainedCorpusEngine.get_3080_frick_collection_portico_rooms()
+        elif is_3081_studio_museum_harlem:
+            extracted_rooms = TrainedCorpusEngine.get_3081_studio_museum_harlem_rooms()
+        elif is_3082_el_museo_del_barrio:
+            extracted_rooms = TrainedCorpusEngine.get_3082_el_museo_del_barrio_rooms()
+        elif is_3083_jewish_museum_warburg:
+            extracted_rooms = TrainedCorpusEngine.get_3083_jewish_museum_warburg_rooms()
+        elif is_3084_museum_arts_design:
+            extracted_rooms = TrainedCorpusEngine.get_3084_museum_arts_design_rooms()
+        elif is_3085_tenement_museum_orchard:
+            extracted_rooms = TrainedCorpusEngine.get_3085_tenement_museum_orchard_rooms()
+        elif is_3086_merchant_house:
+            extracted_rooms = TrainedCorpusEngine.get_3086_merchant_house_rooms()
+        elif is_3087_city_island_nautical:
+            extracted_rooms = TrainedCorpusEngine.get_3087_city_island_nautical_rooms()
+        elif is_3088_nobu_downtown:
+            extracted_rooms = TrainedCorpusEngine.get_3088_nobu_downtown_rooms()
+        elif is_3089_delmonico_beaver:
+            extracted_rooms = TrainedCorpusEngine.get_3089_delmonico_beaver_rooms()
+        elif is_3090_fraunces_tavern:
+            extracted_rooms = TrainedCorpusEngine.get_3090_fraunces_tavern_rooms()
+        elif is_3091_gramercy_tavern:
+            extracted_rooms = TrainedCorpusEngine.get_3091_gramercy_tavern_rooms()
+        elif is_3092_eleven_madison:
+            extracted_rooms = TrainedCorpusEngine.get_3092_eleven_madison_rooms()
+        elif is_3093_per_se_columbus:
+            extracted_rooms = TrainedCorpusEngine.get_3093_per_se_columbus_rooms()
+        elif is_3094_lombardis_pizza:
+            extracted_rooms = TrainedCorpusEngine.get_3094_lombardis_pizza_rooms()
+        elif is_3095_katz_delicatessen:
+            extracted_rooms = TrainedCorpusEngine.get_3095_katz_delicatessen_rooms()
+        elif is_3096_keens_steakhouse:
+            extracted_rooms = TrainedCorpusEngine.get_3096_keens_steakhouse_rooms()
+        elif is_3097_peter_luger_bk:
+            extracted_rooms = TrainedCorpusEngine.get_3097_peter_luger_bk_rooms()
+        elif is_3098_jfk_t8_ba_lounge:
+            extracted_rooms = TrainedCorpusEngine.get_3098_jfk_t8_ba_lounge_rooms()
+        elif is_3099_lga_t_b_central:
+            extracted_rooms = TrainedCorpusEngine.get_3099_lga_t_b_central_rooms()
+        elif is_3100_path_wtc_oculus:
+            extracted_rooms = TrainedCorpusEngine.get_3100_path_wtc_oculus_rooms()
+        elif is_3101_lirr_jamaica_hub:
+            extracted_rooms = TrainedCorpusEngine.get_3101_lirr_jamaica_hub_rooms()
+        elif is_3102_grand_central_lirr_deep:
+            extracted_rooms = TrainedCorpusEngine.get_3102_grand_central_lirr_deep_rooms()
+        elif is_3103_barclays_nets_club:
+            extracted_rooms = TrainedCorpusEngine.get_3103_barclays_nets_club_rooms()
+        elif is_3104_citi_field_champions:
+            extracted_rooms = TrainedCorpusEngine.get_3104_citi_field_champions_rooms()
+        elif is_3105_msg_chase_bridge:
+            extracted_rooms = TrainedCorpusEngine.get_3105_msg_chase_bridge_rooms()
+        elif is_3106_chelsea_piers_aquatic:
+            extracted_rooms = TrainedCorpusEngine.get_3106_chelsea_piers_aquatic_rooms()
+        elif is_3107_equinox_hudson_pool:
+            extracted_rooms = TrainedCorpusEngine.get_3107_equinox_hudson_pool_rooms()
+        elif is_3108_lifetime_sky_manhattan:
+            extracted_rooms = TrainedCorpusEngine.get_3108_lifetime_sky_manhattan_rooms()
+        elif is_3109_mercedes_club_spa:
+            extracted_rooms = TrainedCorpusEngine.get_3109_mercedes_club_spa_rooms()
+        elif is_3110_town_hall_theatre:
+            extracted_rooms = TrainedCorpusEngine.get_3110_town_hall_theatre_rooms()
+        elif is_3111_beacon_theatre_broadway:
+            extracted_rooms = TrainedCorpusEngine.get_3111_beacon_theatre_broadway_rooms()
+        elif is_3112_hammerstein_ballroom:
+            extracted_rooms = TrainedCorpusEngine.get_3112_hammerstein_ballroom_rooms()
+        elif is_3113_webster_hall_east:
+            extracted_rooms = TrainedCorpusEngine.get_3113_webster_hall_east_rooms()
+        elif is_3114_terminal_5_hellskitchen:
+            extracted_rooms = TrainedCorpusEngine.get_3114_terminal_5_hellskitchen_rooms()
+        elif is_3115_brooklyn_steel_williamsburg:
+            extracted_rooms = TrainedCorpusEngine.get_3115_brooklyn_steel_williamsburg_rooms()
+        elif is_3116_knockdown_center_queens:
+            extracted_rooms = TrainedCorpusEngine.get_3116_knockdown_center_queens_rooms()
+        elif is_3117_industry_city_bldg2:
+            extracted_rooms = TrainedCorpusEngine.get_3117_industry_city_bldg2_rooms()
+        elif is_3118_brooklyn_army_terminal:
+            extracted_rooms = TrainedCorpusEngine.get_3118_brooklyn_army_terminal_rooms()
+        elif is_3119_snug_harbor_music_hall:
+            extracted_rooms = TrainedCorpusEngine.get_3119_snug_harbor_music_hall_rooms()
+        elif is_2995_nycballet:
             extracted_rooms = TrainedCorpusEngine.get_2995_nycballet_rooms()
         elif is_2996_roundabout:
             extracted_rooms = TrainedCorpusEngine.get_2996_roundabout_rooms()
