@@ -1,12 +1,12 @@
 {
-  "company_name": "",
-  "estimator_name": "",
-  "estimator_title": "Senior Estimator",
-  "address": "",
-  "phone": "",
-  "email": "",
-  "website": "",
-  "trade_specialty": "Tile & Stone",
-  "license_no": "",
-  "is_registered": false
+  "company_name": "Aykanat Construction & Estimating",
+  "estimator_name": "Osman Aykanat",
+  "estimator_title": "Principal Estimator",
+  "address": "New York, NY",
+  "phone": "212-555-0199",
+  "email": "osman@example.com",
+  "website": "https://easytakeoff.ai",
+  "trade_specialty": "All Trades Unified",
+  "license_no": "NYC-GEN-2026",
+  "is_registered": true
 }
