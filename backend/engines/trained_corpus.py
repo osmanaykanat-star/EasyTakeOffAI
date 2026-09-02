@@ -4837,5 +4837,167 @@ class TrainedCorpusEngine:
 
         return rooms
 
+    # =========================================================================
+    # [2837] Mount Sinai Ambulatory Surgery & Healthcare Suite - 1190 5th Ave
+    # =========================================================================
+    @staticmethod
+    def get_2837_mountsinai_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2837] Mount Sinai Ambulatory Surgery & Healthcare Suite - 1190 5th Ave",
+            "client_name": "David Rosenberg, MD / Facilities",
+            "client_company": "Mount Sinai Health System",
+            "date_str": "06/12/2026",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2837_mountsinai_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "HFT-01": MaterialSpec(symbol="HFT-01", description="Crossville, Porcelain Cross-Tread Non-Porous Unpolished 24x24 Floor Tile", unit="SQ FT", budget_price=0.0, notes="Surgery prep & sterile corridor flooring", trade="Tile & Stone"),
+            "HWT-01": MaterialSpec(symbol="HWT-01", description="Daltile, Semi-Gloss Ultra-White 12x24 Hygienic Wall Tile", unit="SQ FT", budget_price=0.0, notes="Full height sterile scrub rooms & patient recovery wet walls", trade="Tile & Stone"),
+            "WB-01": MaterialSpec(symbol="WB-01", description="Daltile, 6x12 Sanitary Vitrified Coved Base & Bullnose Outcorners", unit="LN FT", budget_price=0.0, notes="Continuous sanitary coved baseboard", trade="Tile & Stone"),
+            "QZ-01": MaterialSpec(symbol="QZ-01", description="Cambria, White Cliff Non-Porous Antimicrobial Solid Quartz 3cm Countertop", unit="SQ FT", budget_price=0.0, notes="Nurse station & sterile scrub sink countertops", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Mapei Mapelastic AquaDefense Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Floor and wall sterile containment waterproofing", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Mortar Bed & Self-Leveling Subfloor Underlayment", unit="SQ FT", budget_price=0.0, notes="Subfloor leveling bed across clinical suites", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO 100% Solids Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="Chemical resistant sterile grouting", trade="Tile & Stone"),
+            "MS": MaterialSpec(symbol="MS", description="Schluter Systems Schiene Brushed Stainless Steel Metal Trim", unit="LN FT", budget_price=0.0, notes="Hygienic wall edge and termination trims", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Non-Porous Engineered Quartz Doorway Transition Saddle", unit="PCS", budget_price=0.0, notes="Clinical doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2837_mountsinai_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="SURGICAL SCRUB ROOM 101", floor_name="SURGERY LEVEL 1", length_ft=14.0, width_ft=10.0, ceiling_height_ft=10.0, wall_tile_height_ft=10.0, door_count=1, items=[
+                TakeoffLineItem(symbol="HFT-01", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=140.0, unit="SQ FT", notes="Crossville 24x24 non-porous floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="HWT-01", finish_type="WALL", material_type="HYGIENIC TILE", work_type="S&I", quantity=440.0, unit="SQ FT", notes="Daltile 12x24 ultra white full 10' walls", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=44.0, unit="LN FT", notes="Sanitary coved base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="QZ-01", finish_type="SCRUB SINK COUNTERTOP", material_type="QUARTZ", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Cambria 3cm non-porous surgical scrub top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=140.0, unit="SQ FT", notes="Liquid containment waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/FULL HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=440.0, unit="SQ FT", notes="Full height wall waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=140.0, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=140.0, unit="SQ FT", notes="Sterile epoxy grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", notes="Stainless edge trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Quartz transition saddle", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="PATIENT RECOVERY RESTROOM 102", floor_name="SURGERY LEVEL 1", length_ft=10.0, width_ft=8.0, ceiling_height_ft=9.5, wall_tile_height_ft=9.5, door_count=1, items=[
+                TakeoffLineItem(symbol="HFT-01", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=80.0, unit="SQ FT", notes="Crossville 24x24 floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="HWT-01", finish_type="WALL", material_type="HYGIENIC TILE", work_type="S&I", quantity=300.0, unit="SQ FT", notes="12x24 wall tile full height", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=34.0, unit="LN FT", notes="Sanitary cove base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="QZ-01", finish_type="VANITY COUNTERTOP", material_type="QUARTZ", work_type="S&I", quantity=10.0, unit="SQ FT", notes="Cambria vanity top with sink cutout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=80.0, unit="SQ FT", notes="Waterproofing membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=80.0, unit="SQ FT", notes="Mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=22.0, unit="LN FT", notes="Schluter trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Quartz saddle", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="NURSE STATION & MEDICATION PREP", floor_name="SURGERY LEVEL 1", length_ft=22.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=2.5, door_count=1, items=[
+                TakeoffLineItem(symbol="QZ-01", finish_type="NURSE STATION RECEPTION TOP", material_type="QUARTZ", work_type="S&I", quantity=48.0, unit="SQ FT", notes="Cambria 3cm quartz transaction & work top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="QZ-01", finish_type="COUNTERTOP APRON/2'' HEIGHT", material_type="QUARTZ", work_type="S&I", quantity=4.0, unit="SQ FT", notes="2 inch drop apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="HWT-01", finish_type="WALL BACKSPLASH", material_type="HYGIENIC TILE", work_type="S&I", quantity=35.0, unit="SQ FT", notes="Medication prep full height tile splash", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=18.0, unit="LN FT", notes="Schluter edge trim", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2838] The Nomad Luxury Hotel & Wellness Spa - 1170 Broadway
+    # =========================================================================
+    @staticmethod
+    def get_2838_nomad_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2838] The Nomad Luxury Hotel & Wellness Spa - 1170 Broadway",
+            "client_name": "Sydell Group / Development",
+            "client_company": "Hudson Meridian Construction Group",
+            "date_str": "07/22/2026",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2838_nomad_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "ST-01": MaterialSpec(symbol="ST-01", description="Artistic Tile, Calacatta Gold Polished 2cm Bookmatched Marble Slabs", unit="SQ FT", budget_price=0.0, notes="Lobby feature fireplace & reception desk cladding", trade="Tile & Stone"),
+            "ST-02": MaterialSpec(symbol="ST-02", description="Stone Source, French Beaumaniere Honed Limestone Pavers 24x36", unit="SQ FT", budget_price=0.0, notes="Main lobby entrance & conservatory floor", trade="Tile & Stone"),
+            "ST-03": MaterialSpec(symbol="ST-03", description="Nemo Tile, Nero Marquina Honed 2cm Marble Vanity Slabs with 4-inch Mitered Apron", unit="SQ FT", budget_price=0.0, notes="Guest room & penthouse custom vanity tops", trade="Tile & Stone"),
+            "TL-01": MaterialSpec(symbol="TL-01", description="Artistic Tile, Micro-Herringbone Thassos White Marble Mosaic 1x2", unit="SQ FT", budget_price=0.0, notes="Guest suite bathroom & spa shower floors", trade="Tile & Stone"),
+            "TL-02": MaterialSpec(symbol="TL-02", description="Cancos Tile, Hand-Crafted Glossy Subway Tile 2-1/2 x 8 Linen White", unit="SQ FT", budget_price=0.0, notes="Full height bathroom wet walls & shower surrounds", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Artistic Tile, Nero Marquina 4x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter luxury stone baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Schluter Kerdi Liquid & Sheet Waterproofing System", unit="SQ FT", budget_price=0.0, notes="Spa steam room, shower floors & full wet enclosures", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Mortar Bed & Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Subfloor mud-set across all natural stone floors", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Brass Metal Trim (Classic Gold Finish)", unit="LN FT", budget_price=0.0, notes="Shower corner & marble transition trims", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Nero Marquina Honed Marble Double-Beveled Transition Saddle", unit="PCS", budget_price=0.0, notes="Guestroom bathroom doorway thresholds", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2838_nomad_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="MAIN LOBBY & RECEPTION SALON", floor_name="GROUND FLOOR", length_ft=34.0, width_ft=22.0, ceiling_height_ft=14.0, wall_tile_height_ft=14.0, door_count=2, items=[
+                TakeoffLineItem(symbol="ST-02", finish_type="FLOOR", material_type="LIMESTONE", work_type="S&I", quantity=748.0, unit="SQ FT", notes="French Beaumaniere limestone 24x36 pavers", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="RECEPTION WALL FEATURE", material_type="MARBLE SLAB", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Bookmatched Calacatta Gold 2cm polished slabs", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="RECEPTION DESK CLADDING", material_type="MARBLE SLAB", work_type="S&I", quantity=72.0, unit="SQ FT", notes="Mitered Calacatta reception front & waterfall sides", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=112.0, unit="LN FT", notes="Nero Marquina 4x12 marble baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=748.0, unit="SQ FT", notes="1-1/2 inch Portland mud-set bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=44.0, unit="LN FT", notes="Solid satin brass floor transition trim", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="SPA WELLNESS STEAM ROOM & HYDROTHERAPY", floor_name="LOWER LEVEL", length_ft=18.0, width_ft=14.0, ceiling_height_ft=9.0, wall_tile_height_ft=9.0, door_count=1, items=[
+                TakeoffLineItem(symbol="TL-01", finish_type="FLOOR", material_type="MARBLE MOSAIC", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Thassos White micro-herringbone mosaic floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TL-02", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=540.0, unit="SQ FT", notes="Hand-crafted linen white subway wall tile to ceiling", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-03", finish_type="STEAM BENCH SEATING & TOPS", material_type="MARBLE SLAB", work_type="S&I", quantity=48.0, unit="SQ FT", notes="Solid Nero Marquina bench slabs & mitered drop aprons", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR & FULL STEAM WALLS", material_type="WATERPROOF", work_type="S&I", quantity=792.0, unit="SQ FT", notes="Schluter Kerdi steam-rated waterproofing membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Pitched mud-set bed to floor drains", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="WALL", material_type="BRASS METAL TRIM", work_type="S&I", quantity=64.0, unit="LN FT", notes="Satin brass corner & niche trims", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Nero Marquina honed saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2839] Le Bernardin Private Dining & Commercial Culinary Kitchen - 155 W 51st
+    # =========================================================================
+    @staticmethod
+    def get_2839_lebernardin_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2839] Le Bernardin Private Dining & Commercial Culinary Kitchen - 155 W 51st",
+            "client_name": "Culinary Operations / Eric Ripert",
+            "client_company": "Structure Tone / Hospitality Division",
+            "date_str": "08/14/2026",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2839_lebernardin_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "QT-01": MaterialSpec(symbol="QT-01", description="Daltile, Quarry Tile 6x6 Heavy-Duty Abrasive Slip-Resistant Red Canyon", unit="SQ FT", budget_price=0.0, notes="Commercial kitchen, cook line & dishwashing floor", trade="Tile & Stone"),
+            "QB-01": MaterialSpec(symbol="QB-01", description="Daltile, 6x6 Quarry Sanitary Cove Base & Outcorners", unit="LN FT", budget_price=0.0, notes="NYC Health Department certified sanitary coved base", trade="Tile & Stone"),
+            "WT-01": MaterialSpec(symbol="WT-01", description="Daltile, 4-1/4 x 8-1/2 Bright White Glazed Commercial Wall Tile", unit="SQ FT", budget_price=0.0, notes="Full height kitchen cooking & prep wet walls", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Cosentino, Dekton Laurent 2cm Polished Waterfall Bar Cladding & Top", unit="SQ FT", budget_price=0.0, notes="Private dining bar counter, waterfall sides & drip apron", trade="Tile & Stone"),
+            "FT-01": MaterialSpec(symbol="FT-01", description="Porcelanosa, Terrazzo Grigio 36x36 Polished Large Format Floor Tile", unit="SQ FT", budget_price=0.0, notes="Private dining room main seating floor", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete Hydro Ban / Mapelastic Liquid Waterproofing", unit="SQ FT", budget_price=0.0, notes="Commercial kitchen floor & 1-foot up perimeter walls", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Heavy-Duty Sloped Underlayment Bed", unit="SQ FT", budget_price=0.0, notes="Pitched subfloor to trench drains", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK 2000 IG Chemical & Grease-Resistant Industrial Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="Kitchen quarry tile floor & wet wall joints", trade="Tile & Stone"),
+            "MS": MaterialSpec(symbol="MS", description="Schluter Schiene Heavy-Duty Stainless Steel Edge Trim", unit="LN FT", budget_price=0.0, notes="Tile to vinyl/wood transition trim", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Heavy-Duty Absolute Black Granite Threshold Saddle", unit="PCS", budget_price=0.0, notes="Kitchen to dining room transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2839_lebernardin_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="COMMERCIAL MAIN COOK LINE & PREP KITCHEN", floor_name="MAIN FLOOR", length_ft=32.0, width_ft=18.0, ceiling_height_ft=11.0, wall_tile_height_ft=10.0, door_count=2, items=[
+                TakeoffLineItem(symbol="QT-01", finish_type="FLOOR", material_type="QUARRY TILE", work_type="S&I", quantity=576.0, unit="SQ FT", notes="Daltile 6x6 abrasive quarry tile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WT-01", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=840.0, unit="SQ FT", notes="Daltile 4-1/4 x 8-1/2 glazed wall tile full 10' height", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="QB-01", finish_type="WALL", material_type="QUARRY COVE BASE", work_type="S&I", quantity=96.0, unit="LN FT", notes="Sanitary coved base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=576.0, unit="SQ FT", notes="Kitchen floor waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/1' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=96.0, unit="SQ FT", notes="1 foot wall base containment waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=576.0, unit="SQ FT", notes="Sloped mud-set bed to trench drains", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=576.0, unit="SQ FT", notes="SpectraLOCK 2000 IG industrial grease-proof epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=42.0, unit="LN FT", notes="Heavy-duty stainless trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Absolute Black granite saddle", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="PRIVATE DINING SALON & SOMMELIER BAR", floor_name="MAIN FLOOR", length_ft=26.0, width_ft=18.0, ceiling_height_ft=12.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="FT-01", finish_type="FLOOR", material_type="PORCELAIN TERRAZZO", work_type="S&I", quantity=468.0, unit="SQ FT", notes="Porcelanosa Terrazzo Grigio 36x36 floor tile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="BAR COUNTERTOP & WATERFALL", material_type="DEKTON SLAB", work_type="S&I", quantity=56.0, unit="SQ FT", notes="Dekton Laurent 2cm polished bar top with mitered waterfall edge", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="BAR FRONT CLADDING", material_type="DEKTON SLAB", work_type="S&I", quantity=48.0, unit="SQ FT", notes="Dekton bar die-wall stone cladding", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=468.0, unit="SQ FT", notes="Subfloor leveling mud-set bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS", finish_type="FLOOR", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=24.0, unit="LN FT", notes="Stainless transition strip", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Absolute Black granite threshold saddle", trade="Tile & Stone")
+            ])
+        ]
+
 
 

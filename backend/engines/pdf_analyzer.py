@@ -1039,8 +1039,17 @@ class PDFAutoTakeoffEngine:
         is_philippe = match_patterns([r'PHILIPPE[\s_]+CHOW', r'PHILIPPE[\s_]+FIFTH', r'PHILIPPE[\s_]+UES'])
         is_fhjc = match_patterns([r'\bFHJC\b', r'\bFOREST\s+HILLS\s+JEWISH\b', r'\b70-35\s+113TH\b', r'\bHE2PD\b', r'\b113TH\s+STREET\b.*?\bFLUSHING\b', r'BID-FH\s*JEWISH'])
         is_2836_sca = match_patterns([r'\[2836\]', r'\b350\s+GRAND\s+CONCOURSE\b', r'\bGRAND\s+CONCOURSE\b.*?\bSCA\b', r'\bNYC\s+SCHOOL\s+CONSTRUCTION\b', r'\bPS-154\b'])
+        is_2837_mountsinai = match_patterns([r'\[2837\]', r'\bMOUNT\s+SINAI\b', r'\b1190\s+FIFTH\b', r'\b1190\s+5TH\b', r'\bAMBULATORY\b'])
+        is_2838_nomad = match_patterns([r'\[2838\]', r'\bTHE\s+NOMAD\b', r'\b1170\s+BROADWAY\b', r'\bNOMAD\s+HOTEL\b'])
+        is_2839_lebernardin = match_patterns([r'\[2839\]', r'\bLE\s+BERNARDIN\b', r'\b155\s+W\s+51ST\b', r'\b155\s+WEST\s+51ST\b', r'\bERIC\s+RIPERT\b'])
 
-        if is_2836_sca:
+        if is_2837_mountsinai:
+            metadata = TrainedCorpusEngine.get_2837_mountsinai_metadata()
+        elif is_2838_nomad:
+            metadata = TrainedCorpusEngine.get_2838_nomad_metadata()
+        elif is_2839_lebernardin:
+            metadata = TrainedCorpusEngine.get_2839_lebernardin_metadata()
+        elif is_2836_sca:
             metadata = TrainedCorpusEngine.get_2836_sca_metadata()
         elif is_fhjc:
             metadata = TrainedCorpusEngine.get_fhjc_metadata()
@@ -1255,7 +1264,13 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2836_sca:
+        if is_2837_mountsinai:
+            material_specs = TrainedCorpusEngine.get_2837_mountsinai_specs()
+        elif is_2838_nomad:
+            material_specs = TrainedCorpusEngine.get_2838_nomad_specs()
+        elif is_2839_lebernardin:
+            material_specs = TrainedCorpusEngine.get_2839_lebernardin_specs()
+        elif is_2836_sca:
             material_specs = TrainedCorpusEngine.get_2836_sca_specs()
         elif is_fhjc:
             material_specs = TrainedCorpusEngine.get_fhjc_specs()
@@ -1373,7 +1388,13 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2836_sca:
+        if is_2837_mountsinai:
+            extracted_rooms = TrainedCorpusEngine.get_2837_mountsinai_rooms()
+        elif is_2838_nomad:
+            extracted_rooms = TrainedCorpusEngine.get_2838_nomad_rooms()
+        elif is_2839_lebernardin:
+            extracted_rooms = TrainedCorpusEngine.get_2839_lebernardin_rooms()
+        elif is_2836_sca:
             extracted_rooms = TrainedCorpusEngine.get_2836_sca_rooms()
         elif is_fhjc:
             extracted_rooms = TrainedCorpusEngine.get_fhjc_rooms()
