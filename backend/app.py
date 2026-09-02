@@ -23,6 +23,7 @@ from .engines.geometry_engine import GeometryEngine
 from .engines.learning_store import LearningStore
 from .engines.gemini_ai_engine import GeminiAIEngine
 from .engines.trained_corpus import TrainedCorpusEngine
+from .engines.universal_knowledge_base import UniversalKnowledgeBase
 
 app = FastAPI(title="EasyTakeOffAI API", version="1.0.0")
 
@@ -73,15 +74,42 @@ def get_fhjc_sample_project() -> ProjectTakeoff:
     meta = TrainedCorpusEngine.get_fhjc_metadata()
     specs = TrainedCorpusEngine.get_fhjc_specs()
     rooms = TrainedCorpusEngine.get_fhjc_rooms()
+    
+    enriched_rooms = []
+    enriched_specs = dict(specs)
+    for trade in UniversalKnowledgeBase.get_supported_trades():
+        enriched_specs.update(UniversalKnowledgeBase.get_trade_specs(trade))
+        
+    for room in rooms:
+        mt_room = UniversalKnowledgeBase.generate_full_multitrade_takeoff(
+            room_name=room.room_name,
+            floor_name=room.floor_name,
+            length_ft=room.length_ft,
+            width_ft=room.width_ft,
+            ceiling_height_ft=room.ceiling_height_ft,
+            door_count=room.door_count,
+            selected_trades=UniversalKnowledgeBase.get_supported_trades()
+        )
+        combined_items = list(room.items) + [it for it in mt_room.items if it.trade != "Tile & Stone"]
+        enriched_rooms.append(RoomTakeoff(
+            room_name=room.room_name,
+            floor_name=room.floor_name,
+            length_ft=room.length_ft,
+            width_ft=room.width_ft,
+            ceiling_height_ft=room.ceiling_height_ft,
+            door_count=room.door_count,
+            items=combined_items
+        ))
+
     return ProjectTakeoff(
         project_name=meta.get("project_name", "[BID] Forest Hills Jewish Center - 70-35 113th St, Flushing NY (HE2PD FHJC)"),
         client_name=meta.get("client_name", "Forest Hills Jewish Center"),
         client_company=meta.get("client_company", "General Contractor / Owner"),
         estimator_name="",
         date_str=meta.get("date_str", "03/20/2026"),
-        trade_category="Tile & Stone",
-        rooms=rooms,
-        material_specs=specs,
+        trade_category="Multi-Trade Unified",
+        rooms=enriched_rooms,
+        material_specs=enriched_specs,
         exclusions=[
             "1) Structural framing and subfloor repair beyond standard leveling prep.",
             "2) Plumbing fixtures, toilet partitions, and electrical connections (by MEP).",

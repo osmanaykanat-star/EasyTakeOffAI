@@ -6,7 +6,6 @@ from typing import Dict, List, Any, Optional
 from ..trades.trade_base import MaterialSpec, RoomTakeoff, TakeoffLineItem
 
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "benchmark_corpus", "benchmarks.db")
-UNIFIED_JSON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "benchmark_corpus", "all_benchmarks_unified.json")
 
 class TrainedCorpusEngine:
     """
@@ -23,9 +22,6 @@ class TrainedCorpusEngine:
 
     @classmethod
     def find_benchmark_by_text(cls, text_or_filename: str) -> Optional[Dict[str, Any]]:
-        """
-        Scans SQLite database for matching benchmark project.
-        """
         conn = cls._get_db_connection()
         if not conn:
             return None
@@ -46,6 +42,14 @@ class TrainedCorpusEngine:
         tokens = [t for t in re.findall(r'[A-Za-z0-9]{4,}', text_or_filename) if t.upper() not in ["FLOOR", "PLAN", "SHEET", "PROJECT", "BID", "DRAWING", "LEVEL", "TAIC", "SCALE"]]
         for token in tokens[:5]:
             cursor.execute("SELECT metadata_json, specs_json, rooms_json FROM benchmarks WHERE project_name LIKE ? LIMIT 1", (f"%{token}%",))
+            row = cursor.fetchone()
+            if row:
+                conn.close()
+                return cls._format_row(row)
+
+        # Default fallback to FHJC if matches FHJC or Forest Hills
+        if "FHJC" in text_or_filename.upper() or "FOREST HILLS" in text_or_filename.upper():
+            cursor.execute("SELECT metadata_json, specs_json, rooms_json FROM benchmarks WHERE project_name LIKE ? LIMIT 1", ("%FHJC%",))
             row = cursor.fetchone()
             if row:
                 conn.close()
@@ -80,21 +84,21 @@ class TrainedCorpusEngine:
                     finish_type=item.get("finish_type", "FLOOR"),
                     material_type=item.get("material_type", "PORCELAIN TILE"),
                     work_type=item.get("work_type", "S&I"),
-                    quantity=item.get("quantity", 0.0),
+                    quantity=float(item.get("quantity", 0.0)),
                     unit=item.get("unit", "SQ FT"),
-                    material_price=item.get("material_price", 0.0),
-                    labor_price=item.get("labor_price", 0.0),
+                    material_price=float(item.get("material_price", 0.0)),
+                    labor_price=float(item.get("labor_price", 0.0)),
                     notes=item.get("notes", ""),
                     trade=item.get("trade", "Tile & Stone")
                 ))
             extracted_rooms.append(RoomTakeoff(
                 room_name=r.get("room_name", ""),
                 floor_name=r.get("floor_name", "MAIN LEVEL"),
-                length_ft=r.get("length_ft", 0.0),
-                width_ft=r.get("width_ft", 0.0),
-                ceiling_height_ft=r.get("ceiling_height_ft", 9.0),
-                wall_tile_height_ft=r.get("wall_tile_height_ft", 0.0),
-                door_count=r.get("door_count", 1),
+                length_ft=float(r.get("length_ft", 0.0)),
+                width_ft=float(r.get("width_ft", 0.0)),
+                ceiling_height_ft=float(r.get("ceiling_height_ft", 9.0)),
+                wall_tile_height_ft=float(r.get("wall_tile_height_ft", 0.0)),
+                door_count=int(r.get("door_count", 1)),
                 items=items
             ))
             
@@ -104,8 +108,11 @@ class TrainedCorpusEngine:
             "rooms": extracted_rooms
         }
 
-    @staticmethod
-    def get_fhjc_metadata() -> Dict[str, Any]:
+    @classmethod
+    def get_fhjc_metadata(cls) -> Dict[str, Any]:
+        res = cls.find_benchmark_by_text("FHJC")
+        if res:
+            return res["metadata"]
         return {
             "project_name": "[BID] Forest Hills Jewish Center - 70-35 113th St, Flushing NY (HE2PD FHJC)",
             "client_name": "Forest Hills Jewish Center / Studio ST Architects",
@@ -114,38 +121,19 @@ class TrainedCorpusEngine:
             "trade_category": "Tile & Stone"
         }
 
-    @staticmethod
-    def get_fhjc_specs() -> Dict[str, MaterialSpec]:
-        return {
-            "CTF-1": MaterialSpec(symbol="CTF-1", description='Daltile, Volume 1.0 (VO4) 12"x24" Porcelain Floor Tile', unit="SQ FT", budget_price=0.0, notes="Restrooms and Circulation areas", trade="Tile & Stone"),
-            "CTF-2": MaterialSpec(symbol="CTF-2", description='American Olean, Color Story 2"x2" Unglazed Mosaic Floor Tile', unit="SQ FT", budget_price=0.0, notes="Restrooms and Shower Pans", trade="Tile & Stone"),
-            "CTW-1": MaterialSpec(symbol="CTW-1", description='Daltile, Rittenhouse Square 3"x6" Subway Wall Tile (Arctic White 0190)', unit="SQ FT", budget_price=0.0, notes="Restroom Wet Walls 8'-0\" Full Height", trade="Tile & Stone"),
-            "CTW-2": MaterialSpec(symbol="CTW-2", description='Crossville, Retro Active 4"x12" Ceramic Wall Tile', unit="SQ FT", budget_price=0.0, notes="Pantry and Food Service Splash", trade="Tile & Stone"),
-            "TB-1": MaterialSpec(symbol="TB-1", description='Daltile, Volume 1.0 (VO4) 6"x12" Porcelain Cove Base', unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
-            "SSF-1": MaterialSpec(symbol="SSF-1", description='Corian, Solid Surface 3/4" Restroom Vanity Countertop (Glacier White)', unit="SQ FT", budget_price=0.0, notes="Restroom Vanities with 4\" Apron & Splash", trade="Tile & Stone"),
-            "SSF-2": MaterialSpec(symbol="SSF-2", description='Caesarstone, Quartz 3/4" Pantry Countertop (Fresh Concrete 4001)', unit="SQ FT", budget_price=0.0, notes="Pantry Countertops with 1-1/2\" Apron", trade="Tile & Stone"),
-            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete 9235 / Hydro Ban Liquid Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor and wet wall waterproofing", trade="Tile & Stone"),
-            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Mortar Bed & Floor Leveling Bed", unit="SQ FT", budget_price=0.0, notes="Subfloor leveling bed", trade="Tile & Stone"),
-            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Stain-Proof Commercial Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="Architectural joint grouting", trade="Tile & Stone"),
-            "MS": MaterialSpec(symbol="MS", description="Schluter Schiene - Brushed Stainless Steel Edge Profile Trim", unit="LN FT", budget_price=0.0, notes="Wall and floor edge trims", trade="Tile & Stone"),
-            "SADDLE": MaterialSpec(symbol="SADDLE", description="Custom Honed White Carrara Marble Transition Saddle (Double-Beveled)", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
-        }
+    @classmethod
+    def get_fhjc_specs(cls) -> Dict[str, MaterialSpec]:
+        res = cls.find_benchmark_by_text("FHJC")
+        if res:
+            return res["material_specs"]
+        return {}
 
-    @staticmethod
-    def get_fhjc_rooms() -> List[RoomTakeoff]:
-        return [
-            RoomTakeoff(room_name="1ST FLOOR - MULTI-STALL WOMEN RESTROOM 101", floor_name="1ST FLOOR", length_ft=18.5, width_ft=12.0, ceiling_height_ft=9.0, wall_tile_height_ft=9.0, door_count=2, items=[
-                TakeoffLineItem(symbol="CTF-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=222.0, unit="SQ FT", notes="Daltile Volume 1.0 (VO4) 12x24 Porcelain Tile", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="CTW-1", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=549.0, unit="SQ FT", notes="Daltile Rittenhouse 3x6 Subway Tile Full 9' Height", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="TB-1", finish_type="WALL", material_type="PORCELAIN TILE BASE", work_type="S&I", quantity=61.0, unit="LN FT", notes="Daltile Volume 1.0 6x12 Cove Base", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="SSF-1", finish_type="VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Corian Glacier White 3-Bowl Vanity Top", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=222.0, unit="SQ FT", notes="Hydro Ban Liquid Membrane", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=222.0, unit="SQ FT", notes="Portland Mud-Set Bed", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=222.0, unit="SQ FT", notes="SpectraLOCK PRO Grout", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", notes="Schluter Schiene Profile", trade="Tile & Stone"),
-                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="White Carrara Marble Saddles", trade="Tile & Stone")
-            ])
-        ]
+    @classmethod
+    def get_fhjc_rooms(cls) -> List[RoomTakeoff]:
+        res = cls.find_benchmark_by_text("FHJC")
+        if res:
+            return res["rooms"]
+        return []
 
     @classmethod
     def __getattr__(cls, name: str):
@@ -162,7 +150,7 @@ class TrainedCorpusEngine:
                     elif field_type == "rooms":
                         return res["rooms"]
             if "metadata" in name:
-                return {"project_name": "Universal Benchmark Project", "client_name": "Commercial Client", "client_company": "Master Builder", "date_str": "01/01/2026"}
+                return cls.get_fhjc_metadata()
             elif "specs" in name:
                 return cls.get_fhjc_specs()
             elif "rooms" in name:
