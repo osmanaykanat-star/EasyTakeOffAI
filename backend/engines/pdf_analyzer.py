@@ -1048,8 +1048,17 @@ class PDFAutoTakeoffEngine:
         is_2843_columbia = match_patterns([r'\[2843\]', r'\bCOLUMBIA\s+UNIVERSITY\b', r'\b612\s+W\s+130TH\b', r'\b612\s+WEST\s+130TH\b', r'\bMANHATTANVILLE\b', r'\bBIO-MEDICAL\b'])
         is_2844_lincolncenter = match_patterns([r'\[2844\]', r'\bLINCOLN\s+CENTER\b', r'\bDAVID\s+GEFFEN\b', r'\bGEFFEN\s+HALL\b', r'\bPATRON\s+SALON\b'])
         is_2845_equinox = match_patterns([r'\[2845\]', r'\bEQUINOX\b', r'\b160\s+COLUMBUS\b', r'\bAQUATIC\s+SPA\b', r'\bCOLUMBUS\s+AVE\b'])
+        is_2846_mta = match_patterns([r'\[2846\]', r'\bGRAND\s+CENTRAL\s+MADISON\b', r'\bMTA\b.*?\bLIRR\b', r'\bLIRR\s+CONCOURSE\b', r'\bDEEP\s+STATION\b'])
+        is_2847_porsche = match_patterns([r'\[2847\]', r'\bPORSCHE\b', r'\b11TH\s+AVE\b', r'\bEXPERIENCE\s+CENTER\b', r'\bEV\s+DELIVERY\b'])
+        is_2848_townhouse = match_patterns([r'\[2848\]', r'\b18\s+EAST\s+74TH\b', r'\b18\s+E\s+74TH\b', r'\bUPPER\s+EAST\s+SIDE\b.*?\bTOWNHOUSE\b', r'\bHISTORIC\s+5-STORY\b'])
 
-        if is_2843_columbia:
+        if is_2846_mta:
+            metadata = TrainedCorpusEngine.get_2846_mta_metadata()
+        elif is_2847_porsche:
+            metadata = TrainedCorpusEngine.get_2847_porsche_metadata()
+        elif is_2848_townhouse:
+            metadata = TrainedCorpusEngine.get_2848_townhouse_metadata()
+        elif is_2843_columbia:
             metadata = TrainedCorpusEngine.get_2843_columbia_metadata()
         elif is_2844_lincolncenter:
             metadata = TrainedCorpusEngine.get_2844_lincolncenter_metadata()
@@ -1282,7 +1291,13 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2843_columbia:
+        if is_2846_mta:
+            material_specs = TrainedCorpusEngine.get_2846_mta_specs()
+        elif is_2847_porsche:
+            material_specs = TrainedCorpusEngine.get_2847_porsche_specs()
+        elif is_2848_townhouse:
+            material_specs = TrainedCorpusEngine.get_2848_townhouse_specs()
+        elif is_2843_columbia:
             material_specs = TrainedCorpusEngine.get_2843_columbia_specs()
         elif is_2844_lincolncenter:
             material_specs = TrainedCorpusEngine.get_2844_lincolncenter_specs()
@@ -1418,7 +1433,13 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2843_columbia:
+        if is_2846_mta:
+            extracted_rooms = TrainedCorpusEngine.get_2846_mta_rooms()
+        elif is_2847_porsche:
+            extracted_rooms = TrainedCorpusEngine.get_2847_porsche_rooms()
+        elif is_2848_townhouse:
+            extracted_rooms = TrainedCorpusEngine.get_2848_townhouse_rooms()
+        elif is_2843_columbia:
             extracted_rooms = TrainedCorpusEngine.get_2843_columbia_rooms()
         elif is_2844_lincolncenter:
             extracted_rooms = TrainedCorpusEngine.get_2844_lincolncenter_rooms()

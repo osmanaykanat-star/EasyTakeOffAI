@@ -5305,5 +5305,154 @@ class TrainedCorpusEngine:
             ])
         ]
 
+    # =========================================================================
+    # [2846] MTA Grand Central Madison - LIRR Concourse & Deep Station Mezzanine
+    # =========================================================================
+    @staticmethod
+    def get_2846_mta_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2846] MTA Grand Central Madison - LIRR Concourse & Deep Station Mezzanine",
+            "client_name": "MTA Construction & Development / Capital Programs",
+            "client_company": "Tutor Perini / Heavy Civil & Transit Division",
+            "date_str": "12/08/2026",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2846_mta_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MTA-QT": MaterialSpec(symbol="MTA-QT", description="Daltile, Heavy-Duty Abrasive Vitrified Transit Quarry Tile 6x6 Abrasive Surface", unit="SQ FT", budget_price=0.0, notes="Deep concourse passenger walkways, escalator landings & platform circulation", trade="Tile & Stone"),
+            "MTA-WT": MaterialSpec(symbol="MTA-WT", description="Daltile, High-Impact Glazed Ceramic Station Wall Tile 4-1/4 x 8-1/2 Bright White", unit="SQ FT", budget_price=0.0, notes="Full height 14' transit concourse perimeter wet walls & tunnel cladding", trade="Tile & Stone"),
+            "ADA-DOMES": MaterialSpec(symbol="ADA-DOMES", description="Armor-Tile, Tactile Detectable Warning Truncated Dome Vitrified Tiles 24x24 Federal Yellow", unit="SQ FT", budget_price=0.0, notes="Platform edge and stairway warning paving tiles", trade="Tile & Stone"),
+            "MTA-BASE": MaterialSpec(symbol="MTA-BASE", description="Daltile, 6x6 Sanitary Quarry Coved Baseboard & Outcorner Fittings", unit="LN FT", budget_price=0.0, notes="Continuous transit coved perimeter baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="MTA Specified Heavy-Duty Elastomeric Positive Side Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Sub-grade concrete slab & deep bedrock wall containment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Mortar Bed & Heavy-Load Transit Bedding Underlayment", unit="SQ FT", budget_price=0.0, notes="Vibration-isolated subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK 2000 IG Transit Grade Heavy Chemical & Stain Resistant Epoxy", unit="SQ FT", budget_price=0.0, notes="High-pressure washdown and graffiti chemical resistant grouting", trade="Tile & Stone"),
+            "MS-EXP": MaterialSpec(symbol="MS-EXP", description="Schluter Dilex Heavy-Duty Solid Stainless Steel Structural Expansion Joint Profiles", unit="LN FT", budget_price=0.0, notes="Thermal and structural seismic expansion joint profiles", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Heavy-Duty Absolute Black Granite Custom Transit Beveled Transition Saddle", unit="PCS", budget_price=0.0, notes="Egress doorway transition thresholds", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2846_mta_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="LIRR DEEP STATION CONCOURSE & ESCALATOR MEZZANINE", floor_name="CONCOURSE LEVEL", length_ft=65.0, width_ft=34.0, ceiling_height_ft=16.0, wall_tile_height_ft=14.0, door_count=3, items=[
+                TakeoffLineItem(symbol="MTA-QT", finish_type="FLOOR", material_type="TRANSIT QUARRY TILE", work_type="S&I", quantity=2210.0, unit="SQ FT", notes="Daltile 6x6 abrasive transit quarry tile floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MTA-WT", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=1480.0, unit="SQ FT", notes="Daltile 4-1/4 x 8-1/2 transit wall tile 14' high", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ADA-DOMES", finish_type="STAIR & EGRESS WARNING", material_type="DETECTABLE WARNING", work_type="S&I", quantity=120.0, unit="SQ FT", notes="Armor-Tile 24x24 yellow tactile warning tiles", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MTA-BASE", finish_type="WALL", material_type="QUARRY COVE BASE", work_type="S&I", quantity=188.0, unit="LN FT", notes="6x6 coved quarry base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR & TUNNEL WALLS", material_type="WATERPROOF", work_type="S&I", quantity=3690.0, unit="SQ FT", notes="Heavy duty elastomeric positive-side waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2210.0, unit="SQ FT", notes="Heavy load transit mud-set bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2210.0, unit="SQ FT", notes="SpectraLOCK 2000 IG washdown-proof epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-EXP", finish_type="FLOOR", material_type="SCHLUTER EXPANSION TRIM", work_type="S&I", quantity=124.0, unit="LN FT", notes="Schluter Dilex heavy-duty stainless expansion joints", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Absolute Black granite transit saddles", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="PUBLIC MULTI-STALL PASSENGER RESTROOM SUITE", floor_name="CONCOURSE LEVEL", length_ft=24.0, width_ft=16.0, ceiling_height_ft=11.0, wall_tile_height_ft=11.0, door_count=1, items=[
+                TakeoffLineItem(symbol="MTA-QT", finish_type="FLOOR", material_type="TRANSIT QUARRY TILE", work_type="S&I", quantity=384.0, unit="SQ FT", notes="Daltile 6x6 quarry tile floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MTA-WT", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=580.0, unit="SQ FT", notes="Daltile 4-1/4 x 8-1/2 wall tile full height", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MTA-BASE", finish_type="WALL", material_type="QUARRY COVE BASE", work_type="S&I", quantity=76.0, unit="LN FT", notes="6x6 coved base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=384.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=384.0, unit="SQ FT", notes="Mud-set leveling bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=384.0, unit="SQ FT", notes="Washdown epoxy grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-EXP", finish_type="WALL", material_type="SCHLUTER EXPANSION TRIM", work_type="S&I", quantity=32.0, unit="LN FT", notes="Stainless edge trims", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Granite doorway saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2847] Porsche NYC Experience Center & High-Load EV Delivery Lounge - 11th Ave
+    # =========================================================================
+    @staticmethod
+    def get_2847_porsche_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2847] Porsche NYC Experience Center & High-Load EV Delivery Lounge - 11th Ave",
+            "client_name": "Porsche Cars North America / Retail Real Estate",
+            "client_company": "Plaza Construction / Automotive Flagship Division",
+            "date_str": "12/16/2026",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2847_porsche_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "AUT-01": MaterialSpec(symbol="AUT-01", description="Grespania, 20mm High-Load Structural Porcelain 24x24 Heavy Point Load Floor Tile (R12 Slip Rating)", unit="SQ FT", budget_price=0.0, notes="Vehicle delivery runway, turntable & EV handover bay (8,000 lb wheel load rating)", trade="Tile & Stone"),
+            "AUT-02": MaterialSpec(symbol="AUT-02", description="Porcelanosa, Concrete Grigio Polished Large Format Porcelain 48x48 Showroom Tile", unit="SQ FT", budget_price=0.0, notes="Client consultation gallery, design studio & accessories boutique", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Caesarstone, Black Tempal 2cm Honed Quartz Island Countertop with 4-inch Drop Apron", unit="SQ FT", budget_price=0.0, notes="Fitting lounge bar and vehicle specification consultation island", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Grespania, 4x24 Matching 20mm Industrial Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Vehicle showroom impact-resistant perimeter base", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete Hydro Ban High-Compressive Load Waterproofing & Crack Isolation", unit="SQ FT", budget_price=0.0, notes="Showroom slab crack isolation & EV wet delivery bay", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength 6,000 PSI Mud-Set Mortar Bed Underlayment", unit="SQ FT", budget_price=0.0, notes="Heavy vehicle point-load bedding mortar", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Industrial Tire-Mark & Oil-Proof Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="Automotive chemical and hot tire pickup resistant epoxy", trade="Tile & Stone"),
+            "MS-HEAVY": MaterialSpec(symbol="MS-HEAVY", description="Schluter Reno-RAMP Heavy-Duty Extruded Anodized Aluminum Vehicle Ramp Edge Profile", unit="LN FT", budget_price=0.0, notes="Vehicle roll-over transition profiles", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Custom Heavy-Duty Absolute Black Granite 1-1/4 inch Vehicle Threshold Saddle", unit="PCS", budget_price=0.0, notes="Vehicle bay overhead door threshold transitions", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2847_porsche_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="EV VEHICLE HANDOVER BAY & RUNWAY SALON", floor_name="GROUND FLOOR", length_ft=44.0, width_ft=28.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="AUT-01", finish_type="FLOOR", material_type="20MM PORCELAIN TILE", work_type="S&I", quantity=1232.0, unit="SQ FT", notes="Grespania 20mm structural porcelain 24x24 vehicle floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=138.0, unit="LN FT", notes="4x24 20mm matching baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=1232.0, unit="SQ FT", notes="High-compressive load crack isolation membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1232.0, unit="SQ FT", notes="High-strength 6000 PSI vehicle mud-set bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1232.0, unit="SQ FT", notes="SpectraLOCK PRO tire-mark proof epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-HEAVY", finish_type="FLOOR", material_type="ALUMINUM RAMP TRIM", work_type="S&I", quantity=56.0, unit="LN FT", notes="Schluter Reno-RAMP vehicle roll-over edge profile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Heavy duty 1-1/4 inch granite saddles", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="DESIGN FITTING STUDIO & CLIENT LOUNGE", floor_name="GROUND FLOOR", length_ft=28.0, width_ft=18.0, ceiling_height_ft=12.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="AUT-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Porcelanosa 48x48 concrete grigio polished tile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="CONSULTATION ISLAND COUNTERTOP", material_type="QUARTZ", work_type="S&I", quantity=64.0, unit="SQ FT", notes="Caesarstone Black Tempal island top with 4-inch mitered drop apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=89.0, unit="LN FT", notes="Tile perimeter base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Precision self-leveling underlayment", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-HEAVY", finish_type="FLOOR", material_type="ALUMINUM RAMP TRIM", work_type="S&I", quantity=24.0, unit="LN FT", notes="Schluter transition trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Granite transition saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2848] Upper East Side Historic 5-Story Townhouse Restoration - 18 East 74th St
+    # =========================================================================
+    @staticmethod
+    def get_2848_townhouse_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2848] Upper East Side Historic 5-Story Townhouse Restoration - 18 East 74th St",
+            "client_name": "Private Client / Historical Commission",
+            "client_company": "Prime Renovations / Luxury Residential",
+            "date_str": "12/22/2026",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2848_townhouse_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "ZEL-01": MaterialSpec(symbol="ZEL-01", description="Clé Tile, Hand-Crafted Authentic Moroccan Terracotta Zellige 4x4 Wall Tile Snow White", unit="SQ FT", budget_price=0.0, notes="Kitchen full height backsplash, hood surround & pantry walls", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Artistic Tile, Calacatta Viola Honed 2cm Marble Slabs with Carved Integral Basin", unit="SQ FT", budget_price=0.0, notes="Primary bathroom wall slab cladding, floating stone vanity & shower bench", trade="Tile & Stone"),
+            "MOS-01": MaterialSpec(symbol="MOS-01", description="Stone Source, Arabescato & Nero Marquina Basketweave Marble Mosaic 1x2 with Black Dots", unit="SQ FT", budget_price=0.0, notes="Primary bathroom heated floor and shower pan floor", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Artistic Tile, Calacatta Viola 4x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Primary bathroom perimeter luxury stone baseboard", trade="Tile & Stone"),
+            "RADIANT-HEAT": MaterialSpec(symbol="RADIANT-HEAT", description="Schluter Ditra-Heat Electric Floor Heating & Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Primary bathroom radiant floor warming & crack isolation", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Mortar Bed & Sloped Shower Pan Underlayment", unit="SQ FT", budget_price=0.0, notes="Pitched mud bed to linear hidden trench drain", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Unlacquered Living Brass Trim Profile", unit="LN FT", budget_price=0.0, notes="Handcrafted living brass corner & niche termination trims", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Calacatta Viola Honed Marble Custom Double-Beveled Transition Saddle", unit="PCS", budget_price=0.0, notes="Townhouse bedroom to primary bath transition thresholds", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2848_townhouse_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="LEVEL 3 PRIMARY BATHROOM & WET ROOM SUITE", floor_name="LEVEL 3", length_ft=18.0, width_ft=14.0, ceiling_height_ft=11.0, wall_tile_height_ft=11.0, door_count=1, items=[
+                TakeoffLineItem(symbol="MOS-01", finish_type="FLOOR", material_type="MARBLE MOSAIC", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Arabescato basketweave mosaic heated floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="WALL SLAB CLADDING", material_type="MARBLE SLAB", work_type="S&I", quantity=520.0, unit="SQ FT", notes="Calacatta Viola 2cm honed marble slabs full 11' height", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="CARVED VANITY & FLOATING SINK", material_type="MARBLE SLAB", work_type="S&I", quantity=32.0, unit="SQ FT", notes="Calacatta Viola floating vanity with carved integral marble basin", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="SHOWER BENCH & NICHE LEDGE", material_type="MARBLE SLAB", work_type="S&I", quantity=14.0, unit="SQ FT", notes="Solid marble floating shower bench and shelf", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=58.0, unit="LN FT", notes="Calacatta Viola 4x12 marble baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="RADIANT-HEAT", finish_type="FLOOR", material_type="HEATED MEMBRANE", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Schluter Ditra-Heat electric heating membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=252.0, unit="SQ FT", notes="Sloped mud-set bed to linear drain", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="WALL", material_type="BRASS METAL TRIM", work_type="S&I", quantity=48.0, unit="LN FT", notes="Solid unlacquered brass corner trims", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Calacatta Viola doorway saddle", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="GARDEN LEVEL CHEF'S KITCHEN & PANTRY", floor_name="GARDEN LEVEL", length_ft=22.0, width_ft=15.0, ceiling_height_ft=10.0, wall_tile_height_ft=3.5, door_count=1, items=[
+                TakeoffLineItem(symbol="ZEL-01", finish_type="WALL BACKSPLASH & HOOD", material_type="ZELLIGE TILE", work_type="S&I", quantity=95.0, unit="SQ FT", notes="Clé Tile handcrafted Moroccan Zellige 4x4 full splash and range hood", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="WALL", material_type="BRASS METAL TRIM", work_type="S&I", quantity=32.0, unit="LN FT", notes="Unlacquered brass top edge trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+            ])
+        ]
+
 
 
