@@ -4695,4 +4695,147 @@ class TrainedCorpusEngine:
 
         return rooms
 
+    # =========================================================================
+    # [2836] NYC Public School & Community Center Renovation - 350 Grand Concourse (SCA Standard)
+    # =========================================================================
+    @staticmethod
+    def get_2836_sca_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2836] NYC Public School & Community Center Renovation - 350 Grand Concourse",
+            "client_name": "SCA Project Manager",
+            "client_company": "NYC School Construction Authority / DDC",
+            "date_str": "05/18/2026",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2836_sca_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "CTF-01": MaterialSpec(symbol="CTF-01", description="Daltile Keystones, 2\" x 2\" Unglazed Porcelain Mosaic Tile, Slip-Resistant Bed", unit="SQ FT", budget_price=0.0, notes="Basement Athletic Showers & Locker Room Floors (DCOF >= 0.60)", trade="Tile & Stone"),
+            "CTF-02": MaterialSpec(symbol="CTF-02", description="American Olean, Horizon 12\" x 24\" High-Traffic Commercial Porcelain Tile", unit="SQ FT", budget_price=0.0, notes="1st, 2nd, 3rd Floor Student & Faculty Restroom Floors", trade="Tile & Stone"),
+            "CTW-01": MaterialSpec(symbol="CTW-01", description="Daltile, Semi-Gloss 4-1/4\" x 4-1/4\" Glazed Wall Tile, Full Height", unit="SQ FT", budget_price=0.0, notes="Basement Athletic Shower Stalls & Drying Wet Walls", trade="Tile & Stone"),
+            "CTW-02": MaterialSpec(symbol="CTW-02", description="Daltile, Color Wheel 6\" x 6\" Glazed Wall Tile, Full Height to 8'-0\"", unit="SQ FT", budget_price=0.0, notes="Core Multi-Stall Student Restroom Wet Walls across all floors", trade="Tile & Stone"),
+            "CTW-03": MaterialSpec(symbol="CTW-03", description="Nemo Tile, 3\" x 6\" Beveled Ceramic Subway Tile", unit="SQ FT", budget_price=0.0, notes="2nd Floor Faculty Lounge & Pantry Backsplash", trade="Tile & Stone"),
+            "WB-01": MaterialSpec(symbol="WB-01", description="Daltile, 6\" x 12\" Sanitary Ceramic Cove Base & Outcorner Fittings", unit="LN FT", budget_price=0.0, notes="Continuous sanitary coved tile perimeter base", trade="Tile & Stone"),
+            "SSF-01": MaterialSpec(symbol="SSF-01", description="Caesarstone, 3/4\" Solid Surface Multi-Lavatory Countertops & Troughs", unit="SQ FT", budget_price=0.0, notes="Restroom vanity countertops & faculty pantry countertop with 4\" aprons", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete Hydro Ban / ANSI A118.10 Liquid Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Floors, continuous 6\" base, full shower enclosures", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Mortar Bed & Self-Leveling Subfloor Underlayment", unit="SQ FT", budget_price=0.0, notes="Subfloor leveling bed across all tiled areas", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Premium Epoxy Grout (Heavy-Duty Chemical Resistant)", unit="SQ FT", budget_price=0.0, notes="Shower stalls, locker floors, and student restrooms", trade="Tile & Stone"),
+            "MS": MaterialSpec(symbol="MS", description="Schluter Systems Schiene 1/4\" Satin Stainless Steel Wall & Floor Trim", unit="LN FT", budget_price=0.0, notes="Tile edge terminations and floor transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="White Carrara / Honed Marble Beveled Doorway Transition Saddle (SCA Standard)", unit="PCS", budget_price=0.0, notes="Doorway transition thresholds", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2836_sca_rooms() -> List[RoomTakeoff]:
+        rooms = []
+        # ================= BASEMENT LOCKER & ATHLETIC LEVEL =================
+        rooms.append(RoomTakeoff(room_name="BASEMENT BOYS LOCKER & SHOWERS", floor_name="BASEMENT LEVEL", length_ft=28.0, width_ft=18.0, ceiling_height_ft=10.0, wall_tile_height_ft=9.0, door_count=2, items=[
+            TakeoffLineItem(symbol="CTF-01", finish_type="FLOOR", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Daltile Keystones 2x2 unglazed slip-resistant floor", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-01", finish_type="SHOWER WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=680.0, unit="SQ FT", notes="Daltile 4-1/4 x 4-1/4 glazed wall tile full height shower enclosure", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=92.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="SHOWER WALL/FULL HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=680.0, unit="SQ FT", notes="Shower wet walls waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Sloped mud-set mortar bed to floor drains", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Heavy duty epoxy grout", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=48.0, unit="LN FT", notes="Schluter stainless edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Doorway transition saddles", trade="Tile & Stone")
+        ]))
+        rooms.append(RoomTakeoff(room_name="BASEMENT GIRLS LOCKER & SHOWERS", floor_name="BASEMENT LEVEL", length_ft=28.0, width_ft=18.0, ceiling_height_ft=10.0, wall_tile_height_ft=9.0, door_count=2, items=[
+            TakeoffLineItem(symbol="CTF-01", finish_type="FLOOR", material_type="PORCELAIN MOSAIC", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Daltile Keystones 2x2 unglazed slip-resistant floor", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-01", finish_type="SHOWER WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=680.0, unit="SQ FT", notes="Daltile 4-1/4 x 4-1/4 glazed wall tile full height shower enclosure", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=92.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="SHOWER WALL/FULL HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=680.0, unit="SQ FT", notes="Shower wet walls waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Sloped mud-set mortar bed to floor drains", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=504.0, unit="SQ FT", notes="Heavy duty epoxy grout", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=48.0, unit="LN FT", notes="Schluter stainless edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Doorway transition saddles", trade="Tile & Stone")
+        ]))
+
+        # ================= 1ST FLOOR =================
+        rooms.append(RoomTakeoff(room_name="1ST FLOOR BOYS RESTROOM 101", floor_name="1ST FLOOR", length_ft=20.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=280.0, unit="SQ FT", notes="American Olean 12x24 commercial floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=420.0, unit="SQ FT", notes="Daltile 6x6 glazed wall tile to 8'-0\"", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=68.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="MULTI-LAVATORY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Caesarstone 4-bowl lavatory countertop (12'-0\" x 2'-0\")", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=34.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", notes="Schluter top edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+        ]))
+        rooms.append(RoomTakeoff(room_name="1ST FLOOR GIRLS RESTROOM 102", floor_name="1ST FLOOR", length_ft=20.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=280.0, unit="SQ FT", notes="American Olean 12x24 commercial floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=420.0, unit="SQ FT", notes="Daltile 6x6 glazed wall tile to 8'-0\"", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=68.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="MULTI-LAVATORY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Caesarstone 4-bowl lavatory countertop (12'-0\" x 2'-0\")", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=34.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", notes="Schluter top edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+        ]))
+
+        # ================= 2ND FLOOR =================
+        rooms.append(RoomTakeoff(room_name="2ND FLOOR FACULTY LOUNGE & PANTRY 205", floor_name="2ND FLOOR", length_ft=18.0, width_ft=12.0, ceiling_height_ft=9.5, wall_tile_height_ft=2.5, door_count=1, items=[
+            TakeoffLineItem(symbol="CTW-03", finish_type="WALL BACKSPLASH", material_type="CERAMIC TILE", work_type="S&I", quantity=45.0, unit="SQ FT", notes="Nemo Tile 3x6 beveled subway tile backsplash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=36.0, unit="SQ FT", notes="Caesarstone solid surface pantry countertop (15'-6\" x 2'-4\")", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="COUNTERTOP APRON/1-1/2'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=2.0, unit="SQ FT", notes="1-1/2 inch front drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=16.0, unit="LN FT", notes="Schluter top edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+        ]))
+        rooms.append(RoomTakeoff(room_name="2ND FLOOR FACULTY RESTROOM 206", floor_name="2ND FLOOR", length_ft=9.0, width_ft=7.5, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=67.5, unit="SQ FT", notes="American Olean 12x24 commercial floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=160.0, unit="SQ FT", notes="Daltile 6x6 glazed wall tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=33.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=8.0, unit="SQ FT", notes="Caesarstone single sink vanity top", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=67.5, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=67.5, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=18.0, unit="LN FT", notes="Schluter top edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+        ]))
+
+        # ================= 3RD FLOOR =================
+        rooms.append(RoomTakeoff(room_name="3RD FLOOR BOYS RESTROOM 301", floor_name="3RD FLOOR", length_ft=20.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=280.0, unit="SQ FT", notes="American Olean 12x24 commercial floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=420.0, unit="SQ FT", notes="Daltile 6x6 glazed wall tile to 8'-0\"", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=68.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="MULTI-LAVATORY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Caesarstone 4-bowl lavatory countertop (12'-0\" x 2'-0\")", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=34.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", notes="Schluter top edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+        ]))
+        rooms.append(RoomTakeoff(room_name="3RD FLOOR GIRLS RESTROOM 302", floor_name="3RD FLOOR", length_ft=20.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=280.0, unit="SQ FT", notes="American Olean 12x24 commercial floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=420.0, unit="SQ FT", notes="Daltile 6x6 glazed wall tile to 8'-0\"", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=68.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="MULTI-LAVATORY COUNTERTOP", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", notes="Caesarstone 4-bowl lavatory countertop (12'-0\" x 2'-0\")", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY APRON/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch drop apron", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SSF-01", finish_type="VANITY BACKSPLASH/4'' HEIGHT", material_type="SOLID SURFACE", work_type="S&I", quantity=4.0, unit="SQ FT", notes="4 inch solid surface splash", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="WALL/6'' HEIGHT", material_type="WATERPROOF", work_type="S&I", quantity=34.0, unit="SQ FT", notes="6 inch base waterproofing", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=280.0, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MS", finish_type="WALL", material_type="SCHLUTER METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", notes="Schluter top edge trim", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+        ]))
+        rooms.append(RoomTakeoff(room_name="3RD FLOOR JANITOR CLOSET 303", floor_name="3RD FLOOR", length_ft=6.0, width_ft=5.5, ceiling_height_ft=9.5, wall_tile_height_ft=4.0, door_count=1, items=[
+            TakeoffLineItem(symbol="CTF-02", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=33.0, unit="SQ FT", notes="American Olean 12x24 commercial floor tile", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="CTW-02", finish_type="WALL", material_type="GLAZED WALL TILE", work_type="S&I", quantity=46.0, unit="SQ FT", notes="Mop basin splash surround", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WB-01", finish_type="WALL", material_type="CERAMIC COVE BASE", work_type="S&I", quantity=23.0, unit="LN FT", notes="6x12 sanitary cove base", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=33.0, unit="SQ FT", notes="Floor waterproofing membrane", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=33.0, unit="SQ FT", notes="Mud-set mortar bed", trade="Tile & Stone"),
+            TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Marble transition saddle", trade="Tile & Stone")
+        ]))
+
+        return rooms
+
+
 

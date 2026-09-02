@@ -1038,8 +1038,11 @@ class PDFAutoTakeoffEngine:
         is_ul_solutions = match_patterns([r'\b2419\b', r'MELVILLE', r'UL[\s_]+SOLUTIONS', r'175[\s_]+BROADHOLLOW', r'1524930-00'])
         is_philippe = match_patterns([r'PHILIPPE[\s_]+CHOW', r'PHILIPPE[\s_]+FIFTH', r'PHILIPPE[\s_]+UES'])
         is_fhjc = match_patterns([r'\bFHJC\b', r'\bFOREST\s+HILLS\s+JEWISH\b', r'\b70-35\s+113TH\b', r'\bHE2PD\b', r'\b113TH\s+STREET\b.*?\bFLUSHING\b', r'BID-FH\s*JEWISH'])
+        is_2836_sca = match_patterns([r'\[2836\]', r'\b350\s+GRAND\s+CONCOURSE\b', r'\bGRAND\s+CONCOURSE\b.*?\bSCA\b', r'\bNYC\s+SCHOOL\s+CONSTRUCTION\b', r'\bPS-154\b'])
 
-        if is_fhjc:
+        if is_2836_sca:
+            metadata = TrainedCorpusEngine.get_2836_sca_metadata()
+        elif is_fhjc:
             metadata = TrainedCorpusEngine.get_fhjc_metadata()
         elif is_ul_solutions:
             metadata = TrainedCorpusEngine.get_2419_melville_metadata()
@@ -1252,7 +1255,9 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_fhjc:
+        if is_2836_sca:
+            material_specs = TrainedCorpusEngine.get_2836_sca_specs()
+        elif is_fhjc:
             material_specs = TrainedCorpusEngine.get_fhjc_specs()
         elif is_ul_solutions:
             material_specs = TrainedCorpusEngine.get_2419_melville_specs()
@@ -1368,7 +1373,9 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_fhjc:
+        if is_2836_sca:
+            extracted_rooms = TrainedCorpusEngine.get_2836_sca_rooms()
+        elif is_fhjc:
             extracted_rooms = TrainedCorpusEngine.get_fhjc_rooms()
         elif is_ul_solutions:
             extracted_rooms = TrainedCorpusEngine.get_2419_melville_rooms()
