@@ -4,3 +4,4 @@ from .drywall_and_framing import DrywallAndFramingEngine
 from .painting_and_coatings import PaintingAndCoatingsEngine
 from .commercial_flooring import CommercialFlooringEngine
 from .doors_and_hardware import DoorsAndHardwareEngine
+from .cabinets_and_millwork import CabinetsAndMillworkEngine
