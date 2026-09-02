@@ -1042,8 +1042,17 @@ class PDFAutoTakeoffEngine:
         is_2837_mountsinai = match_patterns([r'\[2837\]', r'\bMOUNT\s+SINAI\b', r'\b1190\s+FIFTH\b', r'\b1190\s+5TH\b', r'\bAMBULATORY\b'])
         is_2838_nomad = match_patterns([r'\[2838\]', r'\bTHE\s+NOMAD\b', r'\b1170\s+BROADWAY\b', r'\bNOMAD\s+HOTEL\b'])
         is_2839_lebernardin = match_patterns([r'\[2839\]', r'\bLE\s+BERNARDIN\b', r'\b155\s+W\s+51ST\b', r'\b155\s+WEST\s+51ST\b', r'\bERIC\s+RIPERT\b'])
+        is_2840_jfk = match_patterns([r'\[2840\]', r'\bJFK\b', r'\bTERMINAL\s+4\b', r'\bSKY\s+CLUB\b', r'\bPANYNJ\b', r'\bDELTA\s+AIR\b'])
+        is_2841_tiffany = match_patterns([r'\[2841\]', r'\bTIFFANY\b', r'\b727\s+5TH\b', r'\b727\s+FIFTH\b', r'\bLANDMARK\s+BOUTIQUE\b'])
+        is_2842_hudsonyards = match_patterns([r'\[2842\]', r'\b50\s+HUDSON\s+YARDS\b', r'\bHUDSON\s+YARDS\b.*?\bFINTECH\b', r'\bBLACKROCK\b'])
 
-        if is_2837_mountsinai:
+        if is_2840_jfk:
+            metadata = TrainedCorpusEngine.get_2840_jfk_metadata()
+        elif is_2841_tiffany:
+            metadata = TrainedCorpusEngine.get_2841_tiffany_metadata()
+        elif is_2842_hudsonyards:
+            metadata = TrainedCorpusEngine.get_2842_hudsonyards_metadata()
+        elif is_2837_mountsinai:
             metadata = TrainedCorpusEngine.get_2837_mountsinai_metadata()
         elif is_2838_nomad:
             metadata = TrainedCorpusEngine.get_2838_nomad_metadata()
@@ -1264,7 +1273,13 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2837_mountsinai:
+        if is_2840_jfk:
+            material_specs = TrainedCorpusEngine.get_2840_jfk_specs()
+        elif is_2841_tiffany:
+            material_specs = TrainedCorpusEngine.get_2841_tiffany_specs()
+        elif is_2842_hudsonyards:
+            material_specs = TrainedCorpusEngine.get_2842_hudsonyards_specs()
+        elif is_2837_mountsinai:
             material_specs = TrainedCorpusEngine.get_2837_mountsinai_specs()
         elif is_2838_nomad:
             material_specs = TrainedCorpusEngine.get_2838_nomad_specs()
@@ -1388,7 +1403,13 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2837_mountsinai:
+        if is_2840_jfk:
+            extracted_rooms = TrainedCorpusEngine.get_2840_jfk_rooms()
+        elif is_2841_tiffany:
+            extracted_rooms = TrainedCorpusEngine.get_2841_tiffany_rooms()
+        elif is_2842_hudsonyards:
+            extracted_rooms = TrainedCorpusEngine.get_2842_hudsonyards_rooms()
+        elif is_2837_mountsinai:
             extracted_rooms = TrainedCorpusEngine.get_2837_mountsinai_rooms()
         elif is_2838_nomad:
             extracted_rooms = TrainedCorpusEngine.get_2838_nomad_rooms()
