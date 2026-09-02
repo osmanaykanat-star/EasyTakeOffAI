@@ -1088,7 +1088,7 @@ class PDFAutoTakeoffEngine:
         is_2883_helipad = match_patterns([r'\[2883\]', r'\bHELIPAD\b', r'\bSKY\s+HANGAR\b', r'\bBLADE\b', r'\bW\s+30TH\b.*\b12TH\b'])
         is_2884_plaza = match_patterns([r'\[2884\]', r'\bPLAZA\s+HOTEL\b', r'\bPALM\s+COURT\b', r'\bAFTERNOON\s+TEA\b', r'\b768\s+5TH\b'])
 
-                                if is_2876_carnegie:
+        if is_2876_carnegie:
             metadata = TrainedCorpusEngine.get_2876_carnegie_metadata()
         elif is_2877_nyse:
             metadata = TrainedCorpusEngine.get_2877_nyse_metadata()
@@ -1399,7 +1399,7 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-                                if is_2876_carnegie:
+        if is_2876_carnegie:
             material_specs = TrainedCorpusEngine.get_2876_carnegie_specs()
         elif is_2877_nyse:
             material_specs = TrainedCorpusEngine.get_2877_nyse_specs()
@@ -1613,7 +1613,7 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-                                if is_2876_carnegie:
+        if is_2876_carnegie:
             extracted_rooms = TrainedCorpusEngine.get_2876_carnegie_rooms()
         elif is_2877_nyse:
             extracted_rooms = TrainedCorpusEngine.get_2877_nyse_rooms()
