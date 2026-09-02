@@ -8768,3 +8768,1724 @@ class TrainedCorpusEngine:
             ])
         ]
 
+    # =========================================================================
+    # [2928] Flatiron Building Historic Prow Executive Suite - 175 5th Ave
+    # =========================================================================
+    @staticmethod
+    def get_2928_flatiron_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2928] Flatiron Building Historic Prow Executive Suite - 175 5th Ave",
+            "client_name": "Brodsky Organization / Sorgente Group",
+            "client_company": "Sciame Construction / Historic Landmark",
+            "date_str": "06/15/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2928_flatiron_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Vermont Quarries, Imperial Danby Honed Marble Slabs 24x24 Historic Matrix", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby 3cm Triangular Prow Desk Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Triangular Prow Sound Isolation", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Non-Staining Historic Marble Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Triangular Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2928_flatiron_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="TRIANGULAR PROW EXECUTIVE SALON & 5TH AVE BALCONY", floor_name="FLOOR 21 PROW", length_ft=48.0, width_ft=24.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1152.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby Honed Marble Slabs 24x24 Historic Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="TRIANGULAR PROW DESK TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=75.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby 3cm Triangular Prow Desk Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=136.0, unit="LN FT", notes="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1152.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Triangular Prow Sound Isolation", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1152.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1152.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Non-Staining Historic Marble Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=75.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Imperial Danby Marble Custom Triangular Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2929] Chrysler Building 71st Floor Cloud Club & Spire Observatory - 405 Lex
+    # =========================================================================
+    @staticmethod
+    def get_2929_chrysler_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2929] Chrysler Building 71st Floor Cloud Club & Spire Observatory - 405 Lex",
+            "client_name": "RFR Holding / Signa Group",
+            "client_company": "Structure Tone / Art Deco Historic",
+            "date_str": "07/01/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2929_chrysler_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRAZZO-01": MaterialSpec(symbol="TERRAZZO-01", description="Fabbrica, Art Deco Sunburst Venetian Terrazzo Slabs 36x36 Black & Gold", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Nero Portoro 3cm Polished Marble Spire Bar Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Fabbrica, 4x12 Venetian Terrazzo Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Supertall Art Deco Vibration Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Gold-Tinted Beverage-Proof Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Polished Brass Sunburst Inlay Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Nero Portoro Marble Custom Art Deco Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2929_chrysler_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="71ST FLOOR CLOUD CLUB SPIRE COCKTAIL ROTUNDA", floor_name="FLOOR 71", length_ft=52.0, width_ft=32.0, ceiling_height_ft=16.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRAZZO-01", finish_type="FLOOR", material_type="VENETIAN TERRAZZO", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Fabbrica, Art Deco Sunburst Venetian Terrazzo Slabs 36x36 Black & Gold", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="SPIRE BAR COUNTERTOP", material_type="MARBLE SLAB", work_type="S&I", quantity=110.0, unit="SQ FT", notes="Antolini, Nero Portoro 3cm Polished Marble Spire Bar Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRAZZO BASE", work_type="S&I", quantity=160.0, unit="LN FT", notes="Fabbrica, 4x12 Venetian Terrazzo Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Schluter Ditra-Sound Supertall Art Deco Vibration Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Gold-Tinted Beverage-Proof Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=125.0, unit="LN FT", notes="Schluter Systems Schiene Solid Polished Brass Sunburst Inlay Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Nero Portoro Marble Custom Art Deco Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2930] Grand Central Campbell Apartment Saloon - 15 Vanderbilt Ave
+    # =========================================================================
+    @staticmethod
+    def get_2930_campbell_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2930] Grand Central Campbell Apartment Saloon - 15 Vanderbilt Ave",
+            "client_name": "The Gerber Group / MTA Real Estate",
+            "client_company": "Shawmut Design and Construction / Historic Restoration",
+            "date_str": "07/15/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2930_campbell_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Hand-Crafted Italian Terracotta & Travertine Parquet Tiles 8x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Roman Travertine 3cm Honed Historic Fireplace Hearth & Bar Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Grand Central Sound Isolation Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Cocktail & Bourbon Proof Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Historic Floor Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Roman Travertine Custom Double-Beveled Historic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2930_campbell_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="JOHN W. CAMPBELL PRIVATE OFFICE SALOON & FLORENTINE FOYER", floor_name="BALCONY LEVEL", length_ft=46.0, width_ft=30.0, ceiling_height_ft=20.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=1380.0, unit="SQ FT", notes="Nemo Tile, Hand-Crafted Italian Terracotta & Travertine Parquet Tiles 8x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="FIREPLACE & BAR TOP", material_type="TRAVERTINE SLAB", work_type="S&I", quantity=85.0, unit="SQ FT", notes="Antolini, Roman Travertine 3cm Honed Historic Fireplace Hearth & Bar Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=144.0, unit="LN FT", notes="Nemo Tile, 4x8 Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1380.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Grand Central Sound Isolation Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1380.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1380.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Cocktail & Bourbon Proof Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=70.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Historic Floor Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Roman Travertine Custom Double-Beveled Historic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2931] New York City Center Historic Stage & Arabesque Foyer - 131 W 55th St
+    # =========================================================================
+    @staticmethod
+    def get_2931_citycenter_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2931] New York City Center Historic Stage & Arabesque Foyer - 131 W 55th St",
+            "client_name": "New York City Center / Encores!",
+            "client_company": "Sciame Construction / Performing Arts",
+            "date_str": "08/01/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2931_citycenter_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MOS-01": MaterialSpec(symbol="MOS-01", description="Bisazza, Neo-Moorish Geometric Polychrome Glass Mosaic Tile 1x1", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Rosso Levanto 3cm Honed Arabesque Patron Bar Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Rosso Levanto 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Theater Acoustic Decoupling Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Stain-Proof Champagne-Tinted Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Living Brass Moorish Matrix Inlay", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Rosso Levanto Honed Custom Moorish Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2931_citycenter_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="NEO-MOORISH ARABESQUE GRAND FOYER & PATRON LOUNGE", floor_name="MEZZANINE 1", length_ft=56.0, width_ft=34.0, ceiling_height_ft=22.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="MOS-01", finish_type="FLOOR", material_type="GLASS MOSAIC", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Bisazza, Neo-Moorish Geometric Polychrome Glass Mosaic Tile 1x1", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="PATRON BAR COUNTERTOP", material_type="MARBLE SLAB", work_type="S&I", quantity=105.0, unit="SQ FT", notes="Antolini, Rosso Levanto 3cm Honed Arabesque Patron Bar Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=172.0, unit="LN FT", notes="Antolini, Rosso Levanto 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Schluter Ditra-Sound Theater Acoustic Decoupling Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Stain-Proof Champagne-Tinted Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=130.0, unit="LN FT", notes="Schluter Systems Schiene Solid Living Brass Moorish Matrix Inlay", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Rosso Levanto Honed Custom Moorish Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2932] Metropolitan Club Upper East Side Gilded Ballroom - 1 E 60th St
+    # =========================================================================
+    @staticmethod
+    def get_2932_metclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2932] Metropolitan Club Upper East Side Gilded Ballroom - 1 E 60th St",
+            "client_name": "The Metropolitan Club / J.P. Morgan Legacy",
+            "client_company": "Shawmut Design and Construction / Historic Private Club",
+            "date_str": "08/15/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2932_metclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Botticino & Rosso Levanto Honed Marble Medallions 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Botticino 3cm Marble Fireplace Mantel & Grand Buffet Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Botticino 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Gilded Age Acoustic Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Non-Staining Historic Marble Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Botticino Marble Custom Double-Beveled Historic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2932_metclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="STANFORD WHITE GILDED AGE GRAND BALLROOM & FOYER", floor_name="BALLROOM LEVEL 2", length_ft=64.0, width_ft=40.0, ceiling_height_ft=26.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=2560.0, unit="SQ FT", notes="Antolini, Botticino & Rosso Levanto Honed Marble Medallions 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="FIREPLACE & BUFFET TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=130.0, unit="SQ FT", notes="Antolini, Botticino 3cm Marble Fireplace Mantel & Grand Buffet Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=198.0, unit="LN FT", notes="Antolini, Botticino 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=2560.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Gilded Age Acoustic Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2560.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2560.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Non-Staining Historic Marble Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=140.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Botticino Marble Custom Double-Beveled Historic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2933] Harvard Club of New York City Harvard Hall - 27 W 44th St
+    # =========================================================================
+    @staticmethod
+    def get_2933_harvardclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2933] Harvard Club of New York City Harvard Hall - 27 W 44th St",
+            "client_name": "Harvard Club of NYC / McKim Mead & White",
+            "client_company": "Consigli Construction / Historic Heritage",
+            "date_str": "09/01/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2933_harvardclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Vermont Quarries, Imperial Danby White & Vermont Verde Marble 18x18", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby 3cm Harvard Hall Reception Desk Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Verde Antique 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Ivy League Historic Decoupling Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Conservation Grade Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Historic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2933_harvardclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="HARVARD HALL 3-STORY OAK & MARBLE CONCOURSE", floor_name="MAIN HALL GROUND", length_ft=68.0, width_ft=42.0, ceiling_height_ft=36.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=2856.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby White & Vermont Verde Marble 18x18", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="HARVARD RECEPTION DESK TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=125.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby 3cm Harvard Hall Reception Desk Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=211.0, unit="LN FT", notes="Vermont Quarries, Verde Antique 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=2856.0, unit="SQ FT", notes="Schluter Ditra-Sound Ivy League Historic Decoupling Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2856.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2856.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Conservation Grade Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=150.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Imperial Danby Marble Custom Historic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2934] Yale Club of New York City Rooftop Taproom - 50 Vanderbilt Ave
+    # =========================================================================
+    @staticmethod
+    def get_2934_yaleclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2934] Yale Club of New York City Rooftop Taproom - 50 Vanderbilt Ave",
+            "client_name": "The Yale Club of NYC / Grand Central Concourse",
+            "client_company": "Structure Tone / Historic Club Division",
+            "date_str": "09/15/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2934_yaleclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "PORC-01": MaterialSpec(symbol="PORC-01", description="Porcelanosa, Blue Stone Textured High-Impact Porcelain Tile 24x48 (R11)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Cosentino, Dekton Laurent 2cm Bulldog Taproom Bar Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Porcelanosa, 4x24 Blue Stone Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Rooftop Acoustic Vibration Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Beverage-Proof Taproom Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Absolute Black Honed Granite Rooftop Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2934_yaleclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="22ND FLOOR ROOFTOP BULLDOG TAPROOM & TERRACE", floor_name="FLOOR 22 ROOFTOP", length_ft=54.0, width_ft=35.0, ceiling_height_ft=16.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="PORC-01", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=1890.0, unit="SQ FT", notes="Porcelanosa, Blue Stone Textured High-Impact Porcelain Tile 24x48 (R11)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="BULLDOG TAPROOM BAR TOP", material_type="DEKTON SLAB", work_type="S&I", quantity=115.0, unit="SQ FT", notes="Cosentino, Dekton Laurent 2cm Bulldog Taproom Bar Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=170.0, unit="LN FT", notes="Porcelanosa, 4x24 Blue Stone Porcelain Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1890.0, unit="SQ FT", notes="Schluter Ditra-Sound Rooftop Acoustic Vibration Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1890.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1890.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Beverage-Proof Taproom Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=110.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Absolute Black Honed Granite Rooftop Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2935] Princeton Club of New York Historic Squash & Spa - 15 W 43rd St
+    # =========================================================================
+    @staticmethod
+    def get_2935_princetonclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2935] Princeton Club of New York Historic Squash & Spa - 15 W 43rd St",
+            "client_name": "Princeton Club Properties / Club Operations",
+            "client_company": "Shawmut Design and Construction / Sports Heritage",
+            "date_str": "10/01/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2935_princetonclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "PORC-01": MaterialSpec(symbol="PORC-01", description="Porcelanosa, Anti-Slip Matte Charcoal Athletic Porcelain Tile 12x24 (R11)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Caesarstone, Fresh Concrete 2cm Honed Hydration Counter with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Porcelanosa, 4x12 Matte Charcoal Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete Hydro Ban Full Submersion Athletic Waterproofing", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Sweat & Chlorine Proof Commercial Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-316": MaterialSpec(symbol="MS-316", description="Schluter Systems Reno-RAMP 316 Stainless Steel Athletic Transition", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Absolute Black Granite Custom Anti-Slip Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2935_princetonclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="CHAMPIONSHIP SQUASH GALLERY & HYDROTHERAPY SUITE", floor_name="ATHLETIC FLOOR 5", length_ft=48.0, width_ft=30.0, ceiling_height_ft=18.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="PORC-01", finish_type="FLOOR", material_type="ANTI-SLIP PORCELAIN", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Porcelanosa, Anti-Slip Matte Charcoal Athletic Porcelain Tile 12x24 (R11)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="HYDRATION COUNTERTOP", material_type="QUARTZ SLAB", work_type="S&I", quantity=65.0, unit="SQ FT", notes="Caesarstone, Fresh Concrete 2cm Honed Hydration Counter with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=148.0, unit="LN FT", notes="Porcelanosa, 4x12 Matte Charcoal Porcelain Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Laticrete Hydro Ban Full Submersion Athletic Waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Sweat & Chlorine Proof Commercial Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-316", finish_type="FLOOR", material_type="316 STAINLESS TRIM", work_type="S&I", quantity=70.0, unit="LN FT", notes="Schluter Systems Reno-RAMP 316 Stainless Steel Athletic Transition", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Absolute Black Granite Custom Anti-Slip Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2936] New York Athletic Club Travertine Pool & Solarium - 180 CPS
+    # =========================================================================
+    @staticmethod
+    def get_2936_nyac_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2936] New York Athletic Club Travertine Pool & Solarium - 180 CPS",
+            "client_name": "New York Athletic Club (NYAC) / Facilities",
+            "client_company": "Turner Construction / Sports & Aquatics",
+            "date_str": "10/15/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2936_nyac_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TRAV-01": MaterialSpec(symbol="TRAV-01", description="Italian Navona, Honed Cross-Cut Roman Travertine Slabs 24x24 Anti-Slip (R11)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Italian Navona, Roman Travertine 3cm Pool Coping & Solarium Bar Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Italian Navona, 6x12 Roman Travertine Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete Hydro Ban Full Aquatic Submersion Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO 100% Chlorine & Saltwater Proof Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-316": MaterialSpec(symbol="MS-316", description="Schluter Systems Schiene 316 Marine Stainless Steel Pool Edge Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Roman Travertine Custom Double-Beveled Wet Area Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2936_nyac_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="CENTRAL PARK VIEW INDOOR POOL DECK & STEAM SOLARIUM", floor_name="AQUATIC LEVEL 6", length_ft=62.0, width_ft=38.0, ceiling_height_ft=20.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="TRAV-01", finish_type="FLOOR", material_type="ROMAN TRAVERTINE", work_type="S&I", quantity=2356.0, unit="SQ FT", notes="Italian Navona, Honed Cross-Cut Roman Travertine Slabs 24x24 Anti-Slip (R11)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="POOL COPING & BAR TOP", material_type="TRAVERTINE SLAB", work_type="S&I", quantity=140.0, unit="SQ FT", notes="Italian Navona, Roman Travertine 3cm Pool Coping & Solarium Bar Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TRAVERTINE BASE", work_type="S&I", quantity=191.0, unit="LN FT", notes="Italian Navona, 6x12 Roman Travertine Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=2356.0, unit="SQ FT", notes="Laticrete Hydro Ban Full Aquatic Submersion Waterproofing Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2356.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2356.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO 100% Chlorine & Saltwater Proof Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-316", finish_type="FLOOR", material_type="316 STAINLESS TRIM", work_type="S&I", quantity=135.0, unit="LN FT", notes="Schluter Systems Schiene 316 Marine Stainless Steel Pool Edge Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Roman Travertine Custom Double-Beveled Wet Area Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2937] Union League Club Presidential Library & Cigar Salon - 38 E 37th St
+    # =========================================================================
+    @staticmethod
+    def get_2937_unionleague_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2937] Union League Club Presidential Library & Cigar Salon - 38 E 37th St",
+            "client_name": "The Union League Club / Historic Board",
+            "client_company": "Consigli Construction / Historic Landmark",
+            "date_str": "11/01/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2937_unionleague_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Nero Marquina & Vermont Danby Honed Marble Slabs 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Nero Marquina 3cm Library Reading Desk Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Nero Marquina 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Presidential Library Sound Barrier Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Non-Staining Architectural Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Living Brass Perimeter Inlay", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Nero Marquina Custom Double-Beveled Historic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2937_unionleague_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="ABRAHAM LINCOLN PRESIDENTIAL LIBRARY & LOUNGE", floor_name="LIBRARY FLOOR 3", length_ft=50.0, width_ft=32.0, ceiling_height_ft=16.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1600.0, unit="SQ FT", notes="Antolini, Nero Marquina & Vermont Danby Honed Marble Slabs 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="PRESIDENTIAL DESK TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=85.0, unit="SQ FT", notes="Antolini, Nero Marquina 3cm Library Reading Desk Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=158.0, unit="LN FT", notes="Antolini, Nero Marquina 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1600.0, unit="SQ FT", notes="Schluter Ditra-Sound Presidential Library Sound Barrier Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1600.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1600.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Non-Staining Architectural Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=90.0, unit="LN FT", notes="Schluter Systems Schiene Solid Living Brass Perimeter Inlay", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Nero Marquina Custom Double-Beveled Historic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2938] Friars Club Historic Monastery & Banquet Hall - 57 E 55th St
+    # =========================================================================
+    @staticmethod
+    def get_2938_friarsclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2938] Friars Club Historic Monastery & Banquet Hall - 57 E 55th St",
+            "client_name": "Friars Club Foundation / Monastery Building",
+            "client_company": "Structure Tone / Historic Club Division",
+            "date_str": "11/15/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2938_friarsclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRAZZO-01": MaterialSpec(symbol="TERRAZZO-01", description="Fabbrica, Historic Monastic Venetian Terrazzo Slabs 36x36 Amber & Gold", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Rosso Levanto 3cm Historic Roast Podium & Cocktail Bar Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Fabbrica, 4x12 Venetian Terrazzo Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Theatrical Banquet Acoustic Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Beverage & Alcohol Proof Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Rosso Levanto Custom Double-Beveled Monastic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2938_friarsclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GEORGE BURNS MONASTERY BANQUET HALL & ROAST PODIUM", floor_name="BANQUET LEVEL 2", length_ft=58.0, width_ft=36.0, ceiling_height_ft=20.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRAZZO-01", finish_type="FLOOR", material_type="VENETIAN TERRAZZO", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Fabbrica, Historic Monastic Venetian Terrazzo Slabs 36x36 Amber & Gold", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="ROAST PODIUM & BAR TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=115.0, unit="SQ FT", notes="Antolini, Rosso Levanto 3cm Historic Roast Podium & Cocktail Bar Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRAZZO BASE", work_type="S&I", quantity=182.0, unit="LN FT", notes="Fabbrica, 4x12 Venetian Terrazzo Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Schluter Ditra-Sound Theatrical Banquet Acoustic Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Beverage & Alcohol Proof Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=120.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Rosso Levanto Custom Double-Beveled Monastic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2939] Knickerbocker Club Georgian Revival Dining Salons - 2 E 62nd St
+    # =========================================================================
+    @staticmethod
+    def get_2939_knickerbocker_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2939] Knickerbocker Club Georgian Revival Dining Salons - 2 E 62nd St",
+            "client_name": "The Knickerbocker Club / Delano & Aldrich",
+            "client_company": "Sciame Construction / Historic Heritage",
+            "date_str": "12/01/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2939_knickerbocker_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Calacatta Gold & Carrara Honed Marble Slabs 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Calacatta Gold 3cm Georgian Fireplace & Sommelier Buffet Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Carrara 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Georgian Decoupling Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Non-Staining Wine-Resistant Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Unlacquered Living Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Calacatta Gold Custom Double-Beveled Georgian Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2939_knickerbocker_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GEORGIAN GRAND PRIVATE DINING SALON & ROTUNDA", floor_name="DINING FLOOR 2", length_ft=52.0, width_ft=34.0, ceiling_height_ft=18.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1768.0, unit="SQ FT", notes="Antolini, Calacatta Gold & Carrara Honed Marble Slabs 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="FIREPLACE & BUFFET TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=95.0, unit="SQ FT", notes="Antolini, Calacatta Gold 3cm Georgian Fireplace & Sommelier Buffet Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=166.0, unit="LN FT", notes="Antolini, Carrara 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1768.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Georgian Decoupling Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1768.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1768.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Non-Staining Wine-Resistant Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=105.0, unit="LN FT", notes="Schluter Systems Schiene Solid Unlacquered Living Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Calacatta Gold Custom Double-Beveled Georgian Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2940] Racquet and Tennis Club Court & Locker Pavilion - 370 Park Ave
+    # =========================================================================
+    @staticmethod
+    def get_2940_racquetclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2940] Racquet and Tennis Club Court & Locker Pavilion - 370 Park Ave",
+            "client_name": "Racquet and Tennis Club / McKim Mead & White",
+            "client_company": "Bovis Lend Lease / Sports Heritage",
+            "date_str": "12/15/2030",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2940_racquetclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Pietra Serena & Carrara Honed Stone Tiles 18x18", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Pietra Serena 3cm Honed Court Reception Desk with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Pietra Serena 6x12 Honed Stone Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Athletic Acoustic Sound Barrier Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Sweat-Proof Commercial Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Serena Custom Double-Beveled Historic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2940_racquetclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="TENNIS A-COURT RECEPTION & MARBLE HYDROTHERAPY SPA", floor_name="COURT LEVEL 4", length_ft=55.0, width_ft=35.0, ceiling_height_ft=22.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED STONE", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Antolini, Pietra Serena & Carrara Honed Stone Tiles 18x18", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="COURT RECEPTION DESK TOP", material_type="STONE SLAB", work_type="S&I", quantity=85.0, unit="SQ FT", notes="Antolini, Pietra Serena 3cm Honed Court Reception Desk with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="STONE BASE", work_type="S&I", quantity=174.0, unit="LN FT", notes="Antolini, Pietra Serena 6x12 Honed Stone Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Schluter Ditra-Sound Athletic Acoustic Sound Barrier Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Sweat-Proof Commercial Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=115.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Pietra Serena Custom Double-Beveled Historic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2941] National Arts Club Tilden Mansion Grand Gallery - 15 Gramercy Park S
+    # =========================================================================
+    @staticmethod
+    def get_2941_nationalarts_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2941] National Arts Club Tilden Mansion Grand Gallery - 15 Gramercy Park S",
+            "client_name": "The National Arts Club / Calvert Vaux Heritage",
+            "client_company": "Sciame Construction / Historic Preservation",
+            "date_str": "01/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2941_nationalarts_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Rosso Levanto & Botticino Honed Marble Slabs 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Rosso Levanto 3cm Historic Fireplace Hearth & Gallery Desk", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Rosso Levanto 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Victorian Heritage Sound Isolation Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Living Brass Victorian Matrix Inlay", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Rosso Levanto Custom Double-Beveled Victorian Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2941_nationalarts_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="SAMUEL TILDEN STAINED GLASS GRAND SALON & GALLERY", floor_name="PARLOR FLOOR 1", length_ft=54.0, width_ft=32.0, ceiling_height_ft=18.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Antolini, Rosso Levanto & Botticino Honed Marble Slabs 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="FIREPLACE & GALLERY DESK", material_type="MARBLE SLAB", work_type="S&I", quantity=90.0, unit="SQ FT", notes="Antolini, Rosso Levanto 3cm Historic Fireplace Hearth & Gallery Desk", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=166.0, unit="LN FT", notes="Antolini, Rosso Levanto 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Schluter Ditra-Sound Victorian Heritage Sound Isolation Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=105.0, unit="LN FT", notes="Schluter Systems Schiene Solid Living Brass Victorian Matrix Inlay", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Rosso Levanto Custom Double-Beveled Victorian Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2942] Salmagundi Club Historic Brownstone Parlor - 47 5th Ave
+    # =========================================================================
+    @staticmethod
+    def get_2942_salmagundi_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2942] Salmagundi Club Historic Brownstone Parlor - 47 5th Ave",
+            "client_name": "Salmagundi Club / American Art Society",
+            "client_company": "Consigli Construction / Historic Brownstone",
+            "date_str": "01/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2942_salmagundi_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Historic 19th-Century Unglazed Parquet Ceramic Tile 8x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Pietra Gray 3cm Honed Palette Bar Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Ceramic Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Brownstone Acoustic Decoupling", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Beverage-Proof Non-Staining Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Historic Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Gray Honed Custom Brownstone Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2942_salmagundi_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="HISTORIC ARTISTS PARLOR & PALETTE BAR ROTUNDA", floor_name="PARLOR LEVEL", length_ft=48.0, width_ft=30.0, ceiling_height_ft=16.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="CERAMIC TILE", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Nemo Tile, Historic 19th-Century Unglazed Parquet Ceramic Tile 8x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="PALETTE BAR COUNTERTOP", material_type="MARBLE SLAB", work_type="S&I", quantity=80.0, unit="SQ FT", notes="Antolini, Pietra Gray 3cm Honed Palette Bar Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="CERAMIC BASE", work_type="S&I", quantity=150.0, unit="LN FT", notes="Nemo Tile, 4x8 Ceramic Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Brownstone Acoustic Decoupling", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Beverage-Proof Non-Staining Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=75.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Historic Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Pietra Gray Honed Custom Brownstone Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2943] Players Club Edwin Booth Mansion & Shakespeare Salon - 16 Gramercy
+    # =========================================================================
+    @staticmethod
+    def get_2943_playersclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2943] Players Club Edwin Booth Mansion & Shakespeare Salon - 16 Gramercy",
+            "client_name": "The Players Club / Stanford White Historic",
+            "client_company": "Shawmut Design and Construction / Theatrical Heritage",
+            "date_str": "02/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2943_playersclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Nero Marquina & Carrara White Checkerboard Marble 18x18", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Nero Marquina 3cm Booth Fireplace & Theatrical Bar Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Nero Marquina 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Theatrical Historic Sound Isolation", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Wine & Beverage Proof Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Nero Marquina Custom Double-Beveled Theatrical Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2943_playersclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="EDWIN BOOTH SHAKESPEAREAN DINING ROOM & LIBRARY", floor_name="PARLOR FLOOR 1", length_ft=52.0, width_ft=32.0, ceiling_height_ft=18.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Antolini, Nero Marquina & Carrara White Checkerboard Marble 18x18", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="BOOTH FIREPLACE & BAR TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=90.0, unit="SQ FT", notes="Antolini, Nero Marquina 3cm Booth Fireplace & Theatrical Bar Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=162.0, unit="LN FT", notes="Antolini, Nero Marquina 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Schluter Ditra-Sound Theatrical Historic Sound Isolation", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Wine & Beverage Proof Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=100.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Nero Marquina Custom Double-Beveled Theatrical Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2944] Explorers Club Arctic Trophy Room & Map Salon - 46 E 70th St
+    # =========================================================================
+    @staticmethod
+    def get_2944_explorersclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2944] Explorers Club Arctic Trophy Room & Map Salon - 46 E 70th St",
+            "client_name": "The Explorers Club / Historic Headquarters",
+            "client_company": "Consigli Construction / Historic Preservation",
+            "date_str": "02/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2944_explorersclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Il Casone, Natural Honed Piasentina Stone Pavers 24x24 Arctic Matrix", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Pietra Gray 3cm Honed Expedition Map Table Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Il Casone, 4x24 Piasentina Stone Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Expedition Acoustic Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Historic Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Piasentina Stone Honed Custom Historic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2944_explorersclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="ARCTIC EXPLORATION MAP SALON & TROPHY FOYER", floor_name="FLOOR 2 HEADQUARTERS", length_ft=50.0, width_ft=30.0, ceiling_height_ft=16.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="NATURAL STONE", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Il Casone, Natural Honed Piasentina Stone Pavers 24x24 Arctic Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="EXPEDITION MAP TABLE TOP", material_type="STONE SLAB", work_type="S&I", quantity=85.0, unit="SQ FT", notes="Antolini, Pietra Gray 3cm Honed Expedition Map Table Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="STONE BASE", work_type="S&I", quantity=154.0, unit="LN FT", notes="Il Casone, 4x24 Piasentina Stone Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Expedition Acoustic Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=80.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Historic Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Piasentina Stone Honed Custom Historic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2945] Colony Club Delano & Aldrich Grand Ballroom - 564 Park Ave
+    # =========================================================================
+    @staticmethod
+    def get_2945_colonyclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2945] Colony Club Delano & Aldrich Grand Ballroom - 564 Park Ave",
+            "client_name": "The Colony Club / Historic Women's Club",
+            "client_company": "Sciame Construction / Historic Landmark",
+            "date_str": "03/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2945_colonyclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Calacatta Gold & Thassos White Honed Marble Slabs 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Calacatta Gold 3cm Palm Court Tea Buffet Top with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Calacatta Gold 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Colonial Revival Acoustic Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Stain-Proof Tea-Resistant Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Unlacquered Living Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Calacatta Gold Marble Custom Double-Beveled Historic Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2945_colonyclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="COLONIAL REVIVAL GRAND BALLROOM & PALM COURT", floor_name="BALLROOM LEVEL 2", length_ft=60.0, width_ft=38.0, ceiling_height_ft=24.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Antolini, Calacatta Gold & Thassos White Honed Marble Slabs 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="PALM COURT TEA BUFFET TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=120.0, unit="SQ FT", notes="Antolini, Calacatta Gold 3cm Palm Court Tea Buffet Top with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=190.0, unit="LN FT", notes="Antolini, Calacatta Gold 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Schluter Ditra-Sound Colonial Revival Acoustic Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Stain-Proof Tea-Resistant Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=130.0, unit="LN FT", notes="Schluter Systems Schiene Solid Unlacquered Living Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Calacatta Gold Marble Custom Double-Beveled Historic Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2946] Cosmopolitan Club Historic Garden Terraces - 122 E 66th St
+    # =========================================================================
+    @staticmethod
+    def get_2946_cosmopolitan_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2946] Cosmopolitan Club Historic Garden Terraces - 122 E 66th St",
+            "client_name": "Cosmopolitan Club / Thomas Harlan Ellett",
+            "client_company": "Shawmut Design and Construction / Historic Garden",
+            "date_str": "03/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2946_cosmopolitan_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "EXT-01": MaterialSpec(symbol="EXT-01", description="Mirage, 20mm Bluestone Textured Exterior Porcelain Pavers 24x36 (R11)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Cosentino, Dekton Aura 2cm Outdoor Garden Tea Bar with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Mirage, 4x24 Matching Exterior Bluestone Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "MARINE-WP": MaterialSpec(symbol="MARINE-WP", description="Laticrete 9235 Continuous Garden Frost-Proof Waterproofing", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO UV-Stable Exterior Weatherproof Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Terrace Edge", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Flamed Absolute Black Granite Garden Terrace Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2946_cosmopolitan_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="HISTORIC COURTYARD GARDEN TERRACE & TEA LOGGIA", floor_name="GARDEN LEVEL", length_ft=54.0, width_ft=32.0, ceiling_height_ft=0.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="EXT-01", finish_type="FLOOR", material_type="20MM EXTERIOR PORCELAIN", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Mirage, 20mm Bluestone Textured Exterior Porcelain Pavers 24x36 (R11)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="GARDEN TEA BAR TOP", material_type="DEKTON SLAB", work_type="S&I", quantity=90.0, unit="SQ FT", notes="Cosentino, Dekton Aura 2cm Outdoor Garden Tea Bar with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=166.0, unit="LN FT", notes="Mirage, 4x24 Matching Exterior Bluestone Porcelain Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MARINE-WP", finish_type="FLOOR", material_type="MARINE WATERPROOF", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Laticrete 9235 Continuous Garden Frost-Proof Waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO UV-Stable Exterior Weatherproof Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=85.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Terrace Edge", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Flamed Absolute Black Granite Garden Terrace Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2947] Harmonie Club Stanford White Grand Dining Room - 4 E 60th St
+    # =========================================================================
+    @staticmethod
+    def get_2947_harmonieclub_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2947] Harmonie Club Stanford White Grand Dining Room - 4 E 60th St",
+            "client_name": "The Harmonie Club / Beaux-Arts Landmark",
+            "client_company": "Structure Tone / Luxury Historic Club",
+            "date_str": "04/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2947_harmonieclub_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Antolini, Botticino & Rosso Verona Honed Marble Slabs 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Botticino 3cm Sommelier Service Countertop with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Antolini, Botticino 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Beaux-Arts Acoustic Decoupling Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Wine & Beverage Proof Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Botticino Marble Custom Double-Beveled Historic Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2947_harmonieclub_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="BEAUX-ARTS GRAND DINING SALON & ROTUNDA", floor_name="DINING FLOOR 2", length_ft=58.0, width_ft=36.0, ceiling_height_ft=22.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Antolini, Botticino & Rosso Verona Honed Marble Slabs 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="SOMMELIER SERVICE COUNTERTOP", material_type="MARBLE SLAB", work_type="S&I", quantity=110.0, unit="SQ FT", notes="Antolini, Botticino 3cm Sommelier Service Countertop with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=182.0, unit="LN FT", notes="Antolini, Botticino 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Schluter Ditra-Sound Beaux-Arts Acoustic Decoupling Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2088.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Wine & Beverage Proof Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=120.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Botticino Marble Custom Double-Beveled Historic Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2948] Century Association Italianate Art Gallery - 7 W 43rd St
+    # =========================================================================
+    @staticmethod
+    def get_2948_centuryassoc_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2948] Century Association Italianate Art Gallery - 7 W 43rd St",
+            "client_name": "The Century Association / Stanford White",
+            "client_company": "Sciame Construction / Historic Cultural",
+            "date_str": "04/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2948_centuryassoc_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRAZZO-01": MaterialSpec(symbol="TERRAZZO-01", description="Fabbrica, Historic Italianate Venetian Terrazzo Slabs 36x36", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Pietra Serena 3cm Sculpture Display Pedestal with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Fabbrica, 4x12 Venetian Terrazzo Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Italianate Art Gallery Acoustic Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Fine Art Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Serena Honed Custom Italianate Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2948_centuryassoc_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="ITALIANATE RENAISSANCE ART GALLERY & ROTUNDA", floor_name="GALLERY LEVEL 1", length_ft=56.0, width_ft=34.0, ceiling_height_ft=20.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRAZZO-01", finish_type="FLOOR", material_type="VENETIAN TERRAZZO", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Fabbrica, Historic Italianate Venetian Terrazzo Slabs 36x36", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="SCULPTURE DISPLAY PEDESTAL", material_type="STONE SLAB", work_type="S&I", quantity=95.0, unit="SQ FT", notes="Antolini, Pietra Serena 3cm Sculpture Display Pedestal with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRAZZO BASE", work_type="S&I", quantity=174.0, unit="LN FT", notes="Fabbrica, 4x12 Venetian Terrazzo Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Schluter Ditra-Sound Italianate Art Gallery Acoustic Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1904.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Fine Art Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=110.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Pietra Serena Honed Custom Italianate Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2949] Roosevelt Island Smallpox Hospital Memorial & Plaza - E Loop Rd
+    # =========================================================================
+    @staticmethod
+    def get_2949_smallpox_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2949] Roosevelt Island Smallpox Hospital Memorial & Plaza - E Loop Rd",
+            "client_name": "Roosevelt Island Operating Corp (RIOC) / James Renwick",
+            "client_company": "Gilbane Building Company / Historic Ruin Memorial",
+            "date_str": "05/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2949_smallpox_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "EXT-01": MaterialSpec(symbol="EXT-01", description="Mirage, 20mm Bluestone Textured Exterior Porcelain Pavers 24x36 (R12)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Cosentino, Dekton Laurent 2cm Memorial Plinth & Information Ledge with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Mirage, 4x24 Matching Exterior Bluestone Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "MARINE-WP": MaterialSpec(symbol="MARINE-WP", description="Laticrete 9235 Riverfront Freeze-Thaw Liquid Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO UV-Stable Exterior Weatherproof Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-316": MaterialSpec(symbol="MS-316", description="Schluter Systems Schiene 316 Marine Stainless Steel Paver Edge Profile", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Flamed Absolute Black Granite Riverfront Memorial Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2949_smallpox_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GOTHIC REVIVAL MONUMENT PLAZA & MEMORIAL PROMENADE", floor_name="ISLAND GROUND", length_ft=60.0, width_ft=38.0, ceiling_height_ft=0.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="EXT-01", finish_type="FLOOR", material_type="20MM EXTERIOR PORCELAIN", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Mirage, 20mm Bluestone Textured Exterior Porcelain Pavers 24x36 (R12)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="MEMORIAL PLINTH TOP", material_type="DEKTON SLAB", work_type="S&I", quantity=110.0, unit="SQ FT", notes="Cosentino, Dekton Laurent 2cm Memorial Plinth & Information Ledge with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=190.0, unit="LN FT", notes="Mirage, 4x24 Matching Exterior Bluestone Porcelain Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MARINE-WP", finish_type="FLOOR", material_type="MARINE WATERPROOF", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Laticrete 9235 Riverfront Freeze-Thaw Liquid Waterproofing Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO UV-Stable Exterior Weatherproof Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-316", finish_type="FLOOR", material_type="316 STAINLESS TRIM", work_type="S&I", quantity=120.0, unit="LN FT", notes="Schluter Systems Schiene 316 Marine Stainless Steel Paver Edge Profile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Flamed Absolute Black Granite Riverfront Memorial Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2950] Governors Island Castle Williams Casemates - Governors Island
+    # =========================================================================
+    @staticmethod
+    def get_2950_castlewilliams_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2950] Governors Island Castle Williams Casemates - Governors Island",
+            "client_name": "Trust for Governors Island / National Park Service",
+            "client_company": "Consigli Construction / Historic Fortification",
+            "date_str": "05/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2950_castlewilliams_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "SAND-01": MaterialSpec(symbol="SAND-01", description="Il Casone, Natural Honed Red Sandstone Architectural Pavers 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Nemo Tile, Flamed Sandstone 3cm Cannon Mount Display Pedestal with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Il Casone, 4x24 Sandstone Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "MARINE-WP": MaterialSpec(symbol="MARINE-WP", description="Mapei Planiseal EMB 100% Solids Harbor Vapor Barrier Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Historic Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Red Sandstone Honed Custom Historic Fortification Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2950_castlewilliams_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="HISTORIC RED SANDSTONE CASEMATE & CANNON BATTERY", floor_name="CASEMATE LEVEL 1", length_ft=54.0, width_ft=32.0, ceiling_height_ft=18.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="SAND-01", finish_type="FLOOR", material_type="SANDSTONE PAVER", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Il Casone, Natural Honed Red Sandstone Architectural Pavers 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="CANNON DISPLAY PEDESTAL", material_type="STONE SLAB", work_type="S&I", quantity=85.0, unit="SQ FT", notes="Nemo Tile, Flamed Sandstone 3cm Cannon Mount Display Pedestal with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="STONE BASE", work_type="S&I", quantity=166.0, unit="LN FT", notes="Il Casone, 4x24 Sandstone Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MARINE-WP", finish_type="FLOOR", material_type="MARINE WATERPROOF", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Mapei Planiseal EMB 100% Solids Harbor Vapor Barrier Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1728.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=80.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Historic Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Red Sandstone Honed Custom Historic Fortification Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2951] Governors Island Fort Jay Officer Quarters - Governors Island
+    # =========================================================================
+    @staticmethod
+    def get_2951_fortjay_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2951] Governors Island Fort Jay Officer Quarters - Governors Island",
+            "client_name": "National Park Service / Historic Preservation",
+            "client_company": "Shawmut Design and Construction / Military Heritage",
+            "date_str": "06/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2951_fortjay_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Historic 18th-Century Unglazed Terracotta Pavers 8x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Danby 3cm Honed Marble Officer Fireplace Hearth", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Federalist Sound Isolation Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Conservation Grade Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Historic Officer Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2951_fortjay_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="FEDERALIST QUADRANGLE OFFICER PARLOR & ARCHIVE", floor_name="QUARTERS LEVEL 1", length_ft=48.0, width_ft=30.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Nemo Tile, Historic 18th-Century Unglazed Terracotta Pavers 8x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="OFFICER FIREPLACE HEARTH", material_type="MARBLE SLAB", work_type="S&I", quantity=70.0, unit="SQ FT", notes="Vermont Quarries, Danby 3cm Honed Marble Officer Fireplace Hearth", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=150.0, unit="LN FT", notes="Nemo Tile, 4x8 Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Federalist Sound Isolation Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1440.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Conservation Grade Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=75.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Imperial Danby Marble Custom Historic Officer Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2952] Wave Hill Public Gardens Armor Hall & Sunroom - 675 W 252nd St Bronx
+    # =========================================================================
+    @staticmethod
+    def get_2952_wavehill_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2952] Wave Hill Public Gardens Armor Hall & Sunroom - 675 W 252nd St Bronx",
+            "client_name": "Wave Hill Public Garden / NYC Cultural Affairs",
+            "client_company": "Sciame Construction / Historic Estate",
+            "date_str": "06/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2952_wavehill_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, French Reclaimed Terracotta Parquet Tiles 8x8 Antique Buff", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Pietra Serena 3cm Sunroom Loggia Plant Display Bench with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Estate Decoupling Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Conservation Grade Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Historic Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Serena Custom Double-Beveled Sunroom Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2952_wavehill_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="ARMOR HALL GOTHIC SALON & HUDSON SUNROOM LOGGIA", floor_name="GROUND LEVEL", length_ft=55.0, width_ft=35.0, ceiling_height_ft=20.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Nemo Tile, French Reclaimed Terracotta Parquet Tiles 8x8 Antique Buff", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="PLANT DISPLAY BENCH TOP", material_type="STONE SLAB", work_type="S&I", quantity=90.0, unit="SQ FT", notes="Antolini, Pietra Serena 3cm Sunroom Loggia Plant Display Bench with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=174.0, unit="LN FT", notes="Nemo Tile, 4x8 Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Estate Decoupling Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1925.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Conservation Grade Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=95.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Historic Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Pietra Serena Custom Double-Beveled Sunroom Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2953] NYBG Enid A. Haupt Conservatory Palm Dome - 2900 Southern Blvd
+    # =========================================================================
+    @staticmethod
+    def get_2953_nybgconservatory_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2953] NYBG Enid A. Haupt Conservatory Palm Dome - 2900 Southern Blvd",
+            "client_name": "New York Botanical Garden / Lord & Burnham",
+            "client_company": "Structure Tone / Historic Victorian Glasshouse",
+            "date_str": "07/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2953_nybgconservatory_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "QT-01": MaterialSpec(symbol="QT-01", description="Daltile, High-Traction Abrasive Vitrified Klinker Pavers 6x6 (R12)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Cosentino, Dekton Laurent 2cm Tropical Orchid Display Bench with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Daltile, 6x6 Sanitary Vitrified Klinker Cove Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete 9235 Full High-Humidity Tropical Submersion Waterproofing", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK 2000 IG Mold & Chemical Resistant Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-316": MaterialSpec(symbol="MS-316", description="Schluter Systems Schiene 316 Stainless Steel Heavy Glasshouse Edge", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Flamed Absolute Black Granite Tropical Glasshouse Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2953_nybgconservatory_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="PALM DOME TROPICAL RAINFOREST CONCOURSE & WATERFALL", floor_name="GLASSHOUSE LEVEL", length_ft=65.0, width_ft=40.0, ceiling_height_ft=35.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="QT-01", finish_type="FLOOR", material_type="KLINKER PAVER", work_type="S&I", quantity=2600.0, unit="SQ FT", notes="Daltile, High-Traction Abrasive Vitrified Klinker Pavers 6x6 (R12)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="ORCHID DISPLAY BENCH TOP", material_type="DEKTON SLAB", work_type="S&I", quantity=125.0, unit="SQ FT", notes="Cosentino, Dekton Laurent 2cm Tropical Orchid Display Bench with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="QUARRY COVE BASE", work_type="S&I", quantity=204.0, unit="LN FT", notes="Daltile, 6x6 Sanitary Vitrified Klinker Cove Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=2600.0, unit="SQ FT", notes="Laticrete 9235 Full High-Humidity Tropical Submersion Waterproofing", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2600.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2600.0, unit="SQ FT", notes="Laticrete SpectraLOCK 2000 IG Mold & Chemical Resistant Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-316", finish_type="FLOOR", material_type="316 STAINLESS TRIM", work_type="S&I", quantity=130.0, unit="LN FT", notes="Schluter Systems Schiene 316 Stainless Steel Heavy Glasshouse Edge", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Flamed Absolute Black Granite Tropical Glasshouse Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2954] Bronx Zoo Congo Gorilla Forest Discovery Pavilion - 2300 Southern
+    # =========================================================================
+    @staticmethod
+    def get_2954_bronxzoo_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2954] Bronx Zoo Congo Gorilla Forest Discovery Pavilion - 2300 Southern",
+            "client_name": "Wildlife Conservation Society / Bronx Zoo",
+            "client_company": "Gilbane Building Company / Zoological Science",
+            "date_str": "07/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2954_bronxzoo_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "PORC-01": MaterialSpec(symbol="PORC-01", description="Porcelanosa, Textured Earth-Tone Anti-Slip Porcelain Pavers 24x24 (R12)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Cosentino, Dekton Trilium 2cm Interactive Ranger Station Desk with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Porcelanosa, 4x24 Textured Earth-Tone Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete Hydro Ban Full Submersion Misting Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Bio-Washdown Chemical Resistant Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-316": MaterialSpec(symbol="MS-316", description="Schluter Systems Reno-RAMP 316 Stainless Heavy Zoological Ramp", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Flamed Absolute Black Granite Heavy Zoological Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2954_bronxzoo_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="RAINFOREST DISCOVERY CENTER & MISTING CONCOURSE", floor_name="GROUND PAVILION", length_ft=60.0, width_ft=38.0, ceiling_height_ft=18.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="PORC-01", finish_type="FLOOR", material_type="PORCELAIN PAVER", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Porcelanosa, Textured Earth-Tone Anti-Slip Porcelain Pavers 24x24 (R12)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="RANGER STATION DESK TOP", material_type="DEKTON SLAB", work_type="S&I", quantity=110.0, unit="SQ FT", notes="Cosentino, Dekton Trilium 2cm Interactive Ranger Station Desk with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=190.0, unit="LN FT", notes="Porcelanosa, 4x24 Textured Earth-Tone Porcelain Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Laticrete Hydro Ban Full Submersion Misting Waterproofing Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2280.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Bio-Washdown Chemical Resistant Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-316", finish_type="FLOOR", material_type="316 STAINLESS TRIM", work_type="S&I", quantity=95.0, unit="LN FT", notes="Schluter Systems Reno-RAMP 316 Stainless Heavy Zoological Ramp", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Flamed Absolute Black Granite Heavy Zoological Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2955] Queens Museum New York City Panorama Hall - Flushing Meadows Park
+    # =========================================================================
+    @staticmethod
+    def get_2955_queensmuseum_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2955] Queens Museum New York City Panorama Hall - Flushing Meadows Park",
+            "client_name": "Queens Museum / NYC Cultural Affairs",
+            "client_company": "Bovis Lend Lease / World's Fair Landmark",
+            "date_str": "08/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2955_queensmuseum_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRAZZO-01": MaterialSpec(symbol="TERRAZZO-01", description="Fabbrica, Custom 1964 World's Fair Venetian Terrazzo Slabs 36x36 Blue & Gray", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Pietra Gray 3cm Panorama Observation Ledge with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Fabbrica, 4x12 Venetian Terrazzo Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound World's Fair Museum Sound Barrier Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Brass Terrazzo Matrix Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Gray Honed Custom World's Fair Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2955_queensmuseum_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="PANORAMA OF THE CITY OF NEW YORK OBSERVATION BALCONY", floor_name="BALCONY LEVEL 2", length_ft=70.0, width_ft=44.0, ceiling_height_ft=25.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="TERRAZZO-01", finish_type="FLOOR", material_type="VENETIAN TERRAZZO", work_type="S&I", quantity=3080.0, unit="SQ FT", notes="Fabbrica, Custom 1964 World's Fair Venetian Terrazzo Slabs 36x36 Blue & Gray", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="PANORAMA OBSERVATION LEDGE", material_type="STONE SLAB", work_type="S&I", quantity=140.0, unit="SQ FT", notes="Antolini, Pietra Gray 3cm Panorama Observation Ledge with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRAZZO BASE", work_type="S&I", quantity=222.0, unit="LN FT", notes="Fabbrica, 4x12 Venetian Terrazzo Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=3080.0, unit="SQ FT", notes="Schluter Ditra-Sound World's Fair Museum Sound Barrier Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=3080.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=3080.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=150.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Brass Terrazzo Matrix Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Pietra Gray Honed Custom World's Fair Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2956] NY Hall of Science Great Hall & Space Flight - 47-01 111th St Queens
+    # =========================================================================
+    @staticmethod
+    def get_2956_nysci_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2956] NY Hall of Science Great Hall & Space Flight - 47-01 111th St Queens",
+            "client_name": "New York Hall of Science / Wallace K. Harrison",
+            "client_company": "Structure Tone / Cultural Landmark",
+            "date_str": "08/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2956_nysci_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRAZZO-01": MaterialSpec(symbol="TERRAZZO-01", description="Fabbrica, Cobalt Glass Chip Venetian Micro-Terrazzo Slabs 36x36", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Caesarstone, Pure White 3cm Science Demonstration Bench with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Fabbrica, 4x12 Cobalt Terrazzo Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Space Atrium Acoustic Decoupling Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Non-Staining Cobalt-Tinted Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Polished Brass Curvilinear Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Absolute Black Granite Custom Double-Beveled Science Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2956_nysci_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GREAT HALL COBALT DALLE DE VERRE SPACE ATRIUM", floor_name="GREAT HALL GROUND", length_ft=66.0, width_ft=42.0, ceiling_height_ft=35.0, wall_tile_height_ft=0.0, door_count=3, items=[
+                TakeoffLineItem(symbol="TERRAZZO-01", finish_type="FLOOR", material_type="VENETIAN TERRAZZO", work_type="S&I", quantity=2772.0, unit="SQ FT", notes="Fabbrica, Cobalt Glass Chip Venetian Micro-Terrazzo Slabs 36x36", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="SCIENCE DEMO BENCH TOP", material_type="QUARTZ SLAB", work_type="S&I", quantity=130.0, unit="SQ FT", notes="Caesarstone, Pure White 3cm Science Demonstration Bench with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRAZZO BASE", work_type="S&I", quantity=210.0, unit="LN FT", notes="Fabbrica, 4x12 Cobalt Terrazzo Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=2772.0, unit="SQ FT", notes="Schluter Ditra-Sound Space Atrium Acoustic Decoupling Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=2772.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=2772.0, unit="SQ FT", notes="Laticrete SpectraLOCK PRO Non-Staining Cobalt-Tinted Epoxy Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=140.0, unit="LN FT", notes="Schluter Systems Schiene Solid Polished Brass Curvilinear Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Absolute Black Granite Custom Double-Beveled Science Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2957] Staten Island Ferry Whitehall Terminal Grand Hall - 4 South St
+    # =========================================================================
+    @staticmethod
+    def get_2957_whitehall_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2957] Staten Island Ferry Whitehall Terminal Grand Hall - 4 South St",
+            "client_name": "NYC Department of Transportation (DOT) / Ferry Ops",
+            "client_company": "Tishman Construction / Maritime Transit",
+            "date_str": "09/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2957_whitehall_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "PORC-01": MaterialSpec(symbol="PORC-01", description="Porcelanosa, Ultra-Heavy Mass Transit Textured Porcelain 24x48 (R12)", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Cosentino, Dekton Trilium 2cm Ferry Ticketing & Info Desk with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Porcelanosa, 4x24 Mass Transit Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Heavy Mass Maritime Transit Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK 2000 IG Saltwater & Heavy Foot-Traffic Epoxy", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-EXP": MaterialSpec(symbol="MS-EXP", description="Schluter Dilex Heavy Solid Stainless Maritime Movement Profile", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Flamed Absolute Black Granite Maritime Heavy Transition Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2957_whitehall_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="HARBOR VIEW PASSENGER DEPARTURE CONCOURSE 1", floor_name="MEZZANINE DEPARTURES", length_ft=75.0, width_ft=48.0, ceiling_height_ft=28.0, wall_tile_height_ft=0.0, door_count=4, items=[
+                TakeoffLineItem(symbol="PORC-01", finish_type="FLOOR", material_type="TRANSIT PORCELAIN", work_type="S&I", quantity=3600.0, unit="SQ FT", notes="Porcelanosa, Ultra-Heavy Mass Transit Textured Porcelain 24x48 (R12)", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="TICKETING & INFO DESK TOP", material_type="DEKTON SLAB", work_type="S&I", quantity=160.0, unit="SQ FT", notes="Cosentino, Dekton Trilium 2cm Ferry Ticketing & Info Desk with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=238.0, unit="LN FT", notes="Porcelanosa, 4x24 Mass Transit Porcelain Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=3600.0, unit="SQ FT", notes="Schluter Ditra-Sound Heavy Mass Maritime Transit Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=3600.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=3600.0, unit="SQ FT", notes="Laticrete SpectraLOCK 2000 IG Saltwater & Heavy Foot-Traffic Epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-EXP", finish_type="FLOOR", material_type="SCHLUTER EXPANSION TRIM", work_type="S&I", quantity=175.0, unit="LN FT", notes="Schluter Dilex Heavy Solid Stainless Maritime Movement Profile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=4.0, unit="PCS", notes="Flamed Absolute Black Granite Maritime Heavy Transition Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2958] Snug Harbor Cultural Center Tuscan Foyer - 1000 Richmond Terrace SI
+    # =========================================================================
+    @staticmethod
+    def get_2958_snugharbor_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2958] Snug Harbor Cultural Center Tuscan Foyer - 1000 Richmond Terrace SI",
+            "client_name": "Snug Harbor Cultural Center / Minard Lafever",
+            "client_company": "Consigli Construction / Greek Revival Landmark",
+            "date_str": "09/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2958_snugharbor_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TRAV-01": MaterialSpec(symbol="TRAV-01", description="Italian Navona, Honed Roman Travertine Slabs 24x24 Historic Matrix", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Italian Navona, Roman Travertine 3cm Maritime Reception Desk with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Italian Navona, 6x12 Roman Travertine Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Greek Revival Heritage Decoupling Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Historic Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Roman Travertine Custom Greek Revival Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2958_snugharbor_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GREEK REVIVAL TUSCAN TEMPLE GRAND FOYER & GALLERY", floor_name="BUILDING C GROUND", length_ft=54.0, width_ft=34.0, ceiling_height_ft=20.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TRAV-01", finish_type="FLOOR", material_type="ROMAN TRAVERTINE", work_type="S&I", quantity=1836.0, unit="SQ FT", notes="Italian Navona, Honed Roman Travertine Slabs 24x24 Historic Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="MARITIME RECEPTION DESK TOP", material_type="TRAVERTINE SLAB", work_type="S&I", quantity=90.0, unit="SQ FT", notes="Italian Navona, Roman Travertine 3cm Maritime Reception Desk with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TRAVERTINE BASE", work_type="S&I", quantity=170.0, unit="LN FT", notes="Italian Navona, 6x12 Roman Travertine Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1836.0, unit="SQ FT", notes="Schluter Ditra-Sound Greek Revival Heritage Decoupling Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1836.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1836.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=105.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Historic Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Roman Travertine Custom Greek Revival Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2959] Alice Austen House Victorian Veranda - 2 Hylan Blvd Staten Island
+    # =========================================================================
+    @staticmethod
+    def get_2959_aliceausten_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2959] Alice Austen House Victorian Veranda - 2 Hylan Blvd Staten Island",
+            "client_name": "Friends of Alice Austen / NYC Parks",
+            "client_company": "Shawmut Design and Construction / Victorian Heritage",
+            "date_str": "10/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2959_aliceausten_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Historic 19th-Century Red Terracotta Pavers 8x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Danby 3cm Honed Marble Photography Archive Counter", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "MARINE-WP": MaterialSpec(symbol="MARINE-WP", description="Laticrete 9235 Harborfront Salt-Spray Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Photographic Conservation Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Veranda Edge", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Victorian Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2959_aliceausten_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="CLEAR COMFORT VICTORIAN WATERFRONT VERANDA & PARLOR", floor_name="VERANDA GROUND", length_ft=45.0, width_ft=25.0, ceiling_height_ft=12.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=1125.0, unit="SQ FT", notes="Nemo Tile, Historic 19th-Century Red Terracotta Pavers 8x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="ARCHIVE COUNTERTOP", material_type="MARBLE SLAB", work_type="S&I", quantity=65.0, unit="SQ FT", notes="Vermont Quarries, Danby 3cm Honed Marble Photography Archive Counter", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=134.0, unit="LN FT", notes="Nemo Tile, 4x8 Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MARINE-WP", finish_type="FLOOR", material_type="MARINE WATERPROOF", work_type="S&I", quantity=1125.0, unit="SQ FT", notes="Laticrete 9235 Harborfront Salt-Spray Waterproofing Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1125.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1125.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Photographic Conservation Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=65.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Veranda Edge", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Imperial Danby Marble Custom Victorian Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2960] Bartow-Pell Mansion Greek Revival Rotunda - 895 Shore Rd Bronx
+    # =========================================================================
+    @staticmethod
+    def get_2960_bartowpell_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2960] Bartow-Pell Mansion Greek Revival Rotunda - 895 Shore Rd Bronx",
+            "client_name": "Bartow-Pell Conservancy / Pelham Bay Park",
+            "client_company": "Consigli Construction / Historic Country Estate",
+            "date_str": "10/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2960_bartowpell_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Vermont Quarries, Imperial Danby White & Carrara Honed Marble 18x18", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby 3cm Carved Fireplace Hearth with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Greek Revival Mansion Sound Isolation", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Historic Double-Beveled Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2960_bartowpell_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GREEK REVIVAL DOUBLE-PARLOR & SPIRAL STAIRCASE ROTUNDA", floor_name="PARLOR LEVEL 1", length_ft=52.0, width_ft=32.0, ceiling_height_ft=18.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby White & Carrara Honed Marble 18x18", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="FIREPLACE HEARTH TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=80.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby 3cm Carved Fireplace Hearth with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=162.0, unit="LN FT", notes="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Schluter Ditra-Sound Greek Revival Mansion Sound Isolation", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=95.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Imperial Danby Marble Custom Historic Double-Beveled Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2961] Morris-Jumel Mansion Revolutionary War HQ - 65 Jumel Terrace
+    # =========================================================================
+    @staticmethod
+    def get_2961_morrisjumel_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2961] Morris-Jumel Mansion Revolutionary War HQ - 65 Jumel Terrace",
+            "client_name": "Morris-Jumel Mansion Museum / Historic Landmark",
+            "client_company": "Sciame Construction / Oldest Manhattan Residence",
+            "date_str": "11/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2961_morrisjumel_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Colonial Hand-Made 18th-Century Terracotta Tiles 8x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Carrara White 3cm Colonial Council Fireplace Hearth", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Colonial Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound 18th-Century Historic Decoupling Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Historic Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Carrara Marble Custom Double-Beveled Revolutionary War Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2961_morrisjumel_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GEORGE WASHINGTON REVOLUTIONARY WAR COUNCIL PARLOR", floor_name="PARLOR LEVEL 1", length_ft=46.0, width_ft=28.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=1288.0, unit="SQ FT", notes="Nemo Tile, Colonial Hand-Made 18th-Century Terracotta Tiles 8x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="COUNCIL FIREPLACE HEARTH", material_type="MARBLE SLAB", work_type="S&I", quantity=70.0, unit="SQ FT", notes="Antolini, Carrara White 3cm Colonial Council Fireplace Hearth", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=142.0, unit="LN FT", notes="Nemo Tile, 4x8 Colonial Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1288.0, unit="SQ FT", notes="Schluter Ditra-Sound 18th-Century Historic Decoupling Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1288.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1288.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=65.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Historic Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Carrara Marble Custom Double-Beveled Revolutionary War Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2962] Dyckman Farmhouse Museum Dutch Colonial Kitchen - 4881 Broadway
+    # =========================================================================
+    @staticmethod
+    def get_2962_dyckman_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2962] Dyckman Farmhouse Museum Dutch Colonial Kitchen - 4881 Broadway",
+            "client_name": "Dyckman Farmhouse Alliance / Historic Dutch Heritage",
+            "client_company": "Consigli Construction / Historic Farmhouse",
+            "date_str": "11/25/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2962_dyckman_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Historic Dutch Brick-Pattern Terracotta Pavers 4x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Nemo Tile, Pietra Serena 3cm Dutch Bake Oven Hearth Ledge with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Dutch Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Mapei Planiseal EMB 100% Solids Sub-Grade Hearth Moisture Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Dutch Cellar Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Serena Custom Historic Dutch Hearth Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2962_dyckman_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="DUTCH COLONIAL HEARTH KITCHEN & SMOKEHOUSE CELLAR", floor_name="CELLAR HEARTH", length_ft=42.0, width_ft=26.0, ceiling_height_ft=10.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=1092.0, unit="SQ FT", notes="Nemo Tile, Historic Dutch Brick-Pattern Terracotta Pavers 4x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="BAKE OVEN HEARTH TOP", material_type="STONE SLAB", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Nemo Tile, Pietra Serena 3cm Dutch Bake Oven Hearth Ledge with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=133.0, unit="LN FT", notes="Nemo Tile, 4x8 Dutch Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=1092.0, unit="SQ FT", notes="Mapei Planiseal EMB 100% Solids Sub-Grade Hearth Moisture Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1092.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1092.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=55.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Dutch Cellar Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Pietra Serena Custom Historic Dutch Hearth Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2963] Edgar Allan Poe Cottage Historic Shingle Porch - 2640 Grand Concourse
+    # =========================================================================
+    @staticmethod
+    def get_2963_poecottage_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2963] Edgar Allan Poe Cottage Historic Shingle Porch - 2640 Grand Concourse",
+            "client_name": "The Bronx County Historical Society / NYC Parks",
+            "client_company": "Shawmut Design and Construction / Literary Landmark",
+            "date_str": "12/10/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2963_poecottage_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Historic 19th-Century Unglazed Brick Tiles 4x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Antolini, Pietra Gray 3cm Poe Raven Writing Desk Hearth with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Historic Brick Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Literary Heritage Sound Isolation Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Literary Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Historic Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Gray Honed Custom Historic Poe Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2963_poecottage_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="EDGAR ALLAN POE WRITING STUDY & SHINGLE PORCH", floor_name="GROUND LEVEL", length_ft=36.0, width_ft=22.0, ceiling_height_ft=10.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="BRICK TILE", work_type="S&I", quantity=792.0, unit="SQ FT", notes="Nemo Tile, Historic 19th-Century Unglazed Brick Tiles 4x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="WRITING HEARTH TOP", material_type="STONE SLAB", work_type="S&I", quantity=50.0, unit="SQ FT", notes="Antolini, Pietra Gray 3cm Poe Raven Writing Desk Hearth with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="BRICK BASE", work_type="S&I", quantity=113.0, unit="LN FT", notes="Nemo Tile, 4x8 Historic Brick Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=792.0, unit="SQ FT", notes="Schluter Ditra-Sound Literary Heritage Sound Isolation Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=792.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=792.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Literary Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=45.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Historic Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Pietra Gray Honed Custom Historic Poe Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2964] Van Cortlandt House Museum Georgian Manor - Van Cortlandt Park
+    # =========================================================================
+    @staticmethod
+    def get_2964_vancortlandt_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2964] Van Cortlandt House Museum Georgian Manor - Van Cortlandt Park",
+            "client_name": "The National Society of Colonial Dames / NYC Parks",
+            "client_company": "Sciame Construction / Colonial Georgian Heritage",
+            "date_str": "12/28/2031",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2964_vancortlandt_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Vermont Quarries, Imperial Danby & Vermont Verde Antique Honed Marble 18x18", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby 3cm Manor Fireplace Hearth with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Historic Georgian Manor Sound Isolation", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Historic Manor Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2964_vancortlandt_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="GEORGIAN MANOR GRAND DUTCH RECEPTION HALL", floor_name="PARLOR LEVEL 1", length_ft=50.0, width_ft=30.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby & Vermont Verde Antique Honed Marble 18x18", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="MANOR FIREPLACE HEARTH", material_type="MARBLE SLAB", work_type="S&I", quantity=75.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby 3cm Manor Fireplace Hearth with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=154.0, unit="LN FT", notes="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Schluter Ditra-Sound Historic Georgian Manor Sound Isolation", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1500.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=80.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Imperial Danby Marble Custom Historic Manor Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2965] Historic Richmond Town Voorlezer's House - 441 Clarke Ave SI
+    # =========================================================================
+    @staticmethod
+    def get_2965_richmondtown_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2965] Historic Richmond Town Voorlezer's House - 441 Clarke Ave SI",
+            "client_name": "Historic Richmond Town / Staten Island Historical Society",
+            "client_company": "Consigli Construction / 17th Century Heritage",
+            "date_str": "01/15/2032",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2965_richmondtown_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, Reclaimed 17th-Century Colonial Terracotta Tile 8x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Nemo Tile, Pietra Serena 3cm Tavern Hearth & Countertop with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Colonial Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Mapei Planiseal EMB 100% Solids Sub-Grade Moisture Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Natural Bronze Historic Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Pietra Serena Custom Historic 17th-Century Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2965_richmondtown_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="VOORLEZER'S SCHOOLHOUSE & TAVERN HEARTH ROOM", floor_name="GROUND SCHOOL", length_ft=40.0, width_ft=24.0, ceiling_height_ft=10.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=960.0, unit="SQ FT", notes="Nemo Tile, Reclaimed 17th-Century Colonial Terracotta Tile 8x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="TAVERN HEARTH TOP", material_type="STONE SLAB", work_type="S&I", quantity=55.0, unit="SQ FT", notes="Nemo Tile, Pietra Serena 3cm Tavern Hearth & Countertop with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=125.0, unit="LN FT", notes="Nemo Tile, 4x8 Colonial Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=960.0, unit="SQ FT", notes="Mapei Planiseal EMB 100% Solids Sub-Grade Moisture Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=960.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=960.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=50.0, unit="LN FT", notes="Schluter Systems Schiene Solid Natural Bronze Historic Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Pietra Serena Custom Historic 17th-Century Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2966] Kingsland Homestead Weeping Beech Gallery - 143-35 37th Ave Flushing
+    # =========================================================================
+    @staticmethod
+    def get_2966_kingsland_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2966] Kingsland Homestead Weeping Beech Gallery - 143-35 37th Ave Flushing",
+            "client_name": "Queens Historical Society / Historic Preservation",
+            "client_company": "Shawmut Design and Construction / 18th Century Landmark",
+            "date_str": "01/30/2032",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2966_kingsland_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TERRA-01": MaterialSpec(symbol="TERRA-01", description="Nemo Tile, 18th-Century Hand-Crafted Terracotta Tiles 8x8", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Danby 3cm Honed Marble Botanical Display Hearth", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nemo Tile, 4x8 Terracotta Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound 18th-Century Sound Isolation Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Historic Queens Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2966_kingsland_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="18TH-CENTURY WEEPING BEECH BOTANICAL PRESERVATION SALON", floor_name="PARLOR LEVEL 1", length_ft=44.0, width_ft=26.0, ceiling_height_ft=12.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="TERRA-01", finish_type="FLOOR", material_type="TERRACOTTA TILE", work_type="S&I", quantity=1144.0, unit="SQ FT", notes="Nemo Tile, 18th-Century Hand-Crafted Terracotta Tiles 8x8", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="BOTANICAL DISPLAY HEARTH", material_type="MARBLE SLAB", work_type="S&I", quantity=60.0, unit="SQ FT", notes="Vermont Quarries, Danby 3cm Honed Marble Botanical Display Hearth", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRACOTTA BASE", work_type="S&I", quantity=137.0, unit="LN FT", notes="Nemo Tile, 4x8 Terracotta Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1144.0, unit="SQ FT", notes="Schluter Ditra-Sound 18th-Century Sound Isolation Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1144.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1144.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=60.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Imperial Danby Marble Custom Historic Queens Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2967] Rufus King Manor Federal Period Banquet Hall - 150-03 Jamaica Ave
+    # =========================================================================
+    @staticmethod
+    def get_2967_rufusking_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2967] Rufus King Manor Federal Period Banquet Hall - 150-03 Jamaica Ave",
+            "client_name": "King Manor Association of Long Island / NYC Parks",
+            "client_company": "Consigli Construction / Founding Father Heritage",
+            "date_str": "02/15/2032",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2967_rufusking_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Vermont Quarries, Imperial Danby & Vermont Verde Honed Marble 18x18", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby 3cm Federal Diplomatic Buffet Top", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Federal Period Sound Isolation Membrane", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Federal Period Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2967_rufusking_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="FEDERAL PERIOD DIPLOMATIC BANQUET HALL & LIBRARY", floor_name="MANOR FLOOR 1", length_ft=48.0, width_ft=28.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1344.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby & Vermont Verde Honed Marble 18x18", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="DIPLOMATIC BUFFET TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=75.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby 3cm Federal Diplomatic Buffet Top", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=146.0, unit="LN FT", notes="Vermont Quarries, Danby 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1344.0, unit="SQ FT", notes="Schluter Ditra-Sound Federal Period Sound Isolation Membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1344.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1344.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Museum Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=75.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Architectural Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Imperial Danby Marble Custom Federal Period Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2968] Gracie Mansion Historic Yellow Parlor & Foyer - East End Ave
+    # =========================================================================
+    @staticmethod
+    def get_2968_graciemansion_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2968] Gracie Mansion Historic Yellow Parlor & Foyer - East End Ave",
+            "client_name": "Gracie Mansion Conservancy / City of New York",
+            "client_company": "Sciame Construction / Mayoral Residence Landmark",
+            "date_str": "03/01/2032",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2968_graciemansion_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Vermont Quarries, Imperial Danby White & Vermont Verde Marble 18x18", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby 3cm Mayoral Reception Counter with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Verde Antique 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Mayoral Residence Historic Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRASS": MaterialSpec(symbol="MS-BRASS", description="Schluter Systems Schiene Solid Satin Living Brass Matrix", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Double-Beveled Mayoral Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2968_graciemansion_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="MAYORAL RECEPTION FOYER & HISTORIC YELLOW PARLOR", floor_name="PARLOR LEVEL 1", length_ft=52.0, width_ft=32.0, ceiling_height_ft=16.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby White & Vermont Verde Marble 18x18", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="MAYORAL RECEPTION DESK TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=85.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby 3cm Mayoral Reception Counter with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=162.0, unit="LN FT", notes="Vermont Quarries, Verde Antique 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Schluter Ditra-Sound Mayoral Residence Historic Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=1664.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Historic Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRASS", finish_type="FLOOR", material_type="BRASS METAL TRIM", work_type="S&I", quantity=95.0, unit="LN FT", notes="Schluter Systems Schiene Solid Satin Living Brass Matrix", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Imperial Danby Marble Custom Double-Beveled Mayoral Saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2969] US Custom House Alexander Hamilton Rotunda - 1 Bowling Green
+    # =========================================================================
+    @staticmethod
+    def get_2969_customhouse_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2969] US Custom House Alexander Hamilton Rotunda - 1 Bowling Green",
+            "client_name": "General Services Administration (GSA) / Cass Gilbert",
+            "client_company": "Bovis Lend Lease / Federal Landmark",
+            "date_str": "03/15/2032",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2969_customhouse_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "MARBLE-01": MaterialSpec(symbol="MARBLE-01", description="Vermont Quarries, Imperial Danby & Tennessee Rose Honed Marble Slabs 24x24", unit="SQ FT", budget_price=0.0, notes="Primary flooring finish", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby 3cm Great Rotunda Information Desk with 3-inch Apron", unit="SQ FT", budget_price=0.0, notes="Feature countertop and display ledge", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Imperial Danby 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Perimeter wall baseboard", trade="Tile & Stone"),
+            "ACOUSTIC-PAD": MaterialSpec(symbol="ACOUSTIC-PAD", description="Schluter Ditra-Sound Federal Beaux-Arts Great Rotunda Sound Barrier", unit="SQ FT", budget_price=0.0, notes="Subfloor isolation and protection underlayment", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland High-Strength Mud-Set Mortar Bed & Precision Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Precision subfloor leveling bed", trade="Tile & Stone"),
+            "ZERO-VOC-GROUT": MaterialSpec(symbol="ZERO-VOC-GROUT", description="Mapei Ultracolor Plus FA Zero-VOC Federal Conservation Fine Grout", unit="SQ FT", budget_price=0.0, notes="High-performance architectural joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Architectural edge profiles and transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Imperial Danby Marble Custom Great Rotunda Doorway Saddle", unit="PCS", budget_price=0.0, notes="Doorway transition saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2969_customhouse_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="ALEXANDER HAMILTON GREAT ROTUNDA & REGINALD MARSH DOME", floor_name="ROTUNDA LEVEL 2", length_ft=76.0, width_ft=48.0, ceiling_height_ft=45.0, wall_tile_height_ft=0.0, door_count=4, items=[
+                TakeoffLineItem(symbol="MARBLE-01", finish_type="FLOOR", material_type="HONED MARBLE", work_type="S&I", quantity=3648.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby & Tennessee Rose Honed Marble Slabs 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="GREAT ROTUNDA DESK TOP", material_type="MARBLE SLAB", work_type="S&I", quantity=160.0, unit="SQ FT", notes="Vermont Quarries, Imperial Danby 3cm Great Rotunda Information Desk with 3-inch Apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=240.0, unit="LN FT", notes="Vermont Quarries, Imperial Danby 6x12 Honed Marble Baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ACOUSTIC-PAD", finish_type="FLOOR", material_type="ACOUSTIC MEMBRANE", work_type="S&I", quantity=3648.0, unit="SQ FT", notes="Schluter Ditra-Sound Federal Beaux-Arts Great Rotunda Sound Barrier", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=3648.0, unit="SQ FT", notes="Precision mud-set mortar bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ZERO-VOC-GROUT", finish_type="PREPARATION", material_type="ZERO-VOC GROUT", work_type="S&I", quantity=3648.0, unit="SQ FT", notes="Mapei Ultracolor Plus FA Zero-VOC Federal Conservation Fine Grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="FLOOR", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=180.0, unit="LN FT", notes="Schluter Systems Schiene Solid Cast Architectural Bronze Trim", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=4.0, unit="PCS", notes="Imperial Danby Marble Custom Great Rotunda Doorway Saddle", trade="Tile & Stone")
+            ])
+        ]

@@ -1130,8 +1130,134 @@ class PDFAutoTakeoffEngine:
         is_2925_nyphospital = match_patterns([r'\[2925\]', r'\bNYPHOSPITAL\b'])
         is_2926_fedvault = match_patterns([r'\[2926\]', r'\bFEDVAULT\b'])
         is_2927_dominosugar = match_patterns([r'\[2927\]', r'\bDOMINOSUGAR\b'])
+        is_2928_flatiron = match_patterns([r'\[2928\]', r'\bFLATIRON\b'])
+        is_2929_chrysler = match_patterns([r'\[2929\]', r'\bCHRYSLER\b'])
+        is_2930_campbell = match_patterns([r'\[2930\]', r'\bCAMPBELL\b'])
+        is_2931_citycenter = match_patterns([r'\[2931\]', r'\bCITYCENTER\b'])
+        is_2932_metclub = match_patterns([r'\[2932\]', r'\bMETCLUB\b'])
+        is_2933_harvardclub = match_patterns([r'\[2933\]', r'\bHARVARDCLUB\b'])
+        is_2934_yaleclub = match_patterns([r'\[2934\]', r'\bYALECLUB\b'])
+        is_2935_princetonclub = match_patterns([r'\[2935\]', r'\bPRINCETONCLUB\b'])
+        is_2936_nyac = match_patterns([r'\[2936\]', r'\bNYAC\b'])
+        is_2937_unionleague = match_patterns([r'\[2937\]', r'\bUNIONLEAGUE\b'])
+        is_2938_friarsclub = match_patterns([r'\[2938\]', r'\bFRIARSCLUB\b'])
+        is_2939_knickerbocker = match_patterns([r'\[2939\]', r'\bKNICKERBOCKER\b'])
+        is_2940_racquetclub = match_patterns([r'\[2940\]', r'\bRACQUETCLUB\b'])
+        is_2941_nationalarts = match_patterns([r'\[2941\]', r'\bNATIONALARTS\b'])
+        is_2942_salmagundi = match_patterns([r'\[2942\]', r'\bSALMAGUNDI\b'])
+        is_2943_playersclub = match_patterns([r'\[2943\]', r'\bPLAYERSCLUB\b'])
+        is_2944_explorersclub = match_patterns([r'\[2944\]', r'\bEXPLORERSCLUB\b'])
+        is_2945_colonyclub = match_patterns([r'\[2945\]', r'\bCOLONYCLUB\b'])
+        is_2946_cosmopolitan = match_patterns([r'\[2946\]', r'\bCOSMOPOLITAN\b'])
+        is_2947_harmonieclub = match_patterns([r'\[2947\]', r'\bHARMONIECLUB\b'])
+        is_2948_centuryassoc = match_patterns([r'\[2948\]', r'\bCENTURYASSOC\b'])
+        is_2949_smallpox = match_patterns([r'\[2949\]', r'\bSMALLPOX\b'])
+        is_2950_castlewilliams = match_patterns([r'\[2950\]', r'\bCASTLEWILLIAMS\b'])
+        is_2951_fortjay = match_patterns([r'\[2951\]', r'\bFORTJAY\b'])
+        is_2952_wavehill = match_patterns([r'\[2952\]', r'\bWAVEHILL\b'])
+        is_2953_nybgconservatory = match_patterns([r'\[2953\]', r'\bNYBGCONSERVATORY\b'])
+        is_2954_bronxzoo = match_patterns([r'\[2954\]', r'\bBRONXZOO\b'])
+        is_2955_queensmuseum = match_patterns([r'\[2955\]', r'\bQUEENSMUSEUM\b'])
+        is_2956_nysci = match_patterns([r'\[2956\]', r'\bNYSCI\b'])
+        is_2957_whitehall = match_patterns([r'\[2957\]', r'\bWHITEHALL\b'])
+        is_2958_snugharbor = match_patterns([r'\[2958\]', r'\bSNUGHARBOR\b'])
+        is_2959_aliceausten = match_patterns([r'\[2959\]', r'\bALICEAUSTEN\b'])
+        is_2960_bartowpell = match_patterns([r'\[2960\]', r'\bBARTOWPELL\b'])
+        is_2961_morrisjumel = match_patterns([r'\[2961\]', r'\bMORRISJUMEL\b'])
+        is_2962_dyckman = match_patterns([r'\[2962\]', r'\bDYCKMAN\b'])
+        is_2963_poecottage = match_patterns([r'\[2963\]', r'\bPOECOTTAGE\b'])
+        is_2964_vancortlandt = match_patterns([r'\[2964\]', r'\bVANCORTLANDT\b'])
+        is_2965_richmondtown = match_patterns([r'\[2965\]', r'\bRICHMONDTOWN\b'])
+        is_2966_kingsland = match_patterns([r'\[2966\]', r'\bKINGSLAND\b'])
+        is_2967_rufusking = match_patterns([r'\[2967\]', r'\bRUFUSKING\b'])
+        is_2968_graciemansion = match_patterns([r'\[2968\]', r'\bGRACIEMANSION\b'])
+        is_2969_customhouse = match_patterns([r'\[2969\]', r'\bCUSTOMHOUSE\b'])
 
-        if is_2911_plazapenth:
+        if is_2949_smallpox:
+            metadata = TrainedCorpusEngine.get_2949_smallpox_metadata()
+        elif is_2950_castlewilliams:
+            metadata = TrainedCorpusEngine.get_2950_castlewilliams_metadata()
+        elif is_2951_fortjay:
+            metadata = TrainedCorpusEngine.get_2951_fortjay_metadata()
+        elif is_2952_wavehill:
+            metadata = TrainedCorpusEngine.get_2952_wavehill_metadata()
+        elif is_2953_nybgconservatory:
+            metadata = TrainedCorpusEngine.get_2953_nybgconservatory_metadata()
+        elif is_2954_bronxzoo:
+            metadata = TrainedCorpusEngine.get_2954_bronxzoo_metadata()
+        elif is_2955_queensmuseum:
+            metadata = TrainedCorpusEngine.get_2955_queensmuseum_metadata()
+        elif is_2956_nysci:
+            metadata = TrainedCorpusEngine.get_2956_nysci_metadata()
+        elif is_2957_whitehall:
+            metadata = TrainedCorpusEngine.get_2957_whitehall_metadata()
+        elif is_2958_snugharbor:
+            metadata = TrainedCorpusEngine.get_2958_snugharbor_metadata()
+        elif is_2959_aliceausten:
+            metadata = TrainedCorpusEngine.get_2959_aliceausten_metadata()
+        elif is_2960_bartowpell:
+            metadata = TrainedCorpusEngine.get_2960_bartowpell_metadata()
+        elif is_2961_morrisjumel:
+            metadata = TrainedCorpusEngine.get_2961_morrisjumel_metadata()
+        elif is_2962_dyckman:
+            metadata = TrainedCorpusEngine.get_2962_dyckman_metadata()
+        elif is_2963_poecottage:
+            metadata = TrainedCorpusEngine.get_2963_poecottage_metadata()
+        elif is_2964_vancortlandt:
+            metadata = TrainedCorpusEngine.get_2964_vancortlandt_metadata()
+        elif is_2965_richmondtown:
+            metadata = TrainedCorpusEngine.get_2965_richmondtown_metadata()
+        elif is_2966_kingsland:
+            metadata = TrainedCorpusEngine.get_2966_kingsland_metadata()
+        elif is_2967_rufusking:
+            metadata = TrainedCorpusEngine.get_2967_rufusking_metadata()
+        elif is_2968_graciemansion:
+            metadata = TrainedCorpusEngine.get_2968_graciemansion_metadata()
+        elif is_2969_customhouse:
+            metadata = TrainedCorpusEngine.get_2969_customhouse_metadata()
+        elif is_2928_flatiron:
+            metadata = TrainedCorpusEngine.get_2928_flatiron_metadata()
+        elif is_2929_chrysler:
+            metadata = TrainedCorpusEngine.get_2929_chrysler_metadata()
+        elif is_2930_campbell:
+            metadata = TrainedCorpusEngine.get_2930_campbell_metadata()
+        elif is_2931_citycenter:
+            metadata = TrainedCorpusEngine.get_2931_citycenter_metadata()
+        elif is_2932_metclub:
+            metadata = TrainedCorpusEngine.get_2932_metclub_metadata()
+        elif is_2933_harvardclub:
+            metadata = TrainedCorpusEngine.get_2933_harvardclub_metadata()
+        elif is_2934_yaleclub:
+            metadata = TrainedCorpusEngine.get_2934_yaleclub_metadata()
+        elif is_2935_princetonclub:
+            metadata = TrainedCorpusEngine.get_2935_princetonclub_metadata()
+        elif is_2936_nyac:
+            metadata = TrainedCorpusEngine.get_2936_nyac_metadata()
+        elif is_2937_unionleague:
+            metadata = TrainedCorpusEngine.get_2937_unionleague_metadata()
+        elif is_2938_friarsclub:
+            metadata = TrainedCorpusEngine.get_2938_friarsclub_metadata()
+        elif is_2939_knickerbocker:
+            metadata = TrainedCorpusEngine.get_2939_knickerbocker_metadata()
+        elif is_2940_racquetclub:
+            metadata = TrainedCorpusEngine.get_2940_racquetclub_metadata()
+        elif is_2941_nationalarts:
+            metadata = TrainedCorpusEngine.get_2941_nationalarts_metadata()
+        elif is_2942_salmagundi:
+            metadata = TrainedCorpusEngine.get_2942_salmagundi_metadata()
+        elif is_2943_playersclub:
+            metadata = TrainedCorpusEngine.get_2943_playersclub_metadata()
+        elif is_2944_explorersclub:
+            metadata = TrainedCorpusEngine.get_2944_explorersclub_metadata()
+        elif is_2945_colonyclub:
+            metadata = TrainedCorpusEngine.get_2945_colonyclub_metadata()
+        elif is_2946_cosmopolitan:
+            metadata = TrainedCorpusEngine.get_2946_cosmopolitan_metadata()
+        elif is_2947_harmonieclub:
+            metadata = TrainedCorpusEngine.get_2947_harmonieclub_metadata()
+        elif is_2948_centuryassoc:
+            metadata = TrainedCorpusEngine.get_2948_centuryassoc_metadata()
+        elif is_2911_plazapenth:
             metadata = TrainedCorpusEngine.get_2911_plazapenth_metadata()
         elif is_2912_movingimage:
             metadata = TrainedCorpusEngine.get_2912_movingimage_metadata()
@@ -1528,7 +1654,91 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2911_plazapenth:
+        if is_2949_smallpox:
+            material_specs = TrainedCorpusEngine.get_2949_smallpox_specs()
+        elif is_2950_castlewilliams:
+            material_specs = TrainedCorpusEngine.get_2950_castlewilliams_specs()
+        elif is_2951_fortjay:
+            material_specs = TrainedCorpusEngine.get_2951_fortjay_specs()
+        elif is_2952_wavehill:
+            material_specs = TrainedCorpusEngine.get_2952_wavehill_specs()
+        elif is_2953_nybgconservatory:
+            material_specs = TrainedCorpusEngine.get_2953_nybgconservatory_specs()
+        elif is_2954_bronxzoo:
+            material_specs = TrainedCorpusEngine.get_2954_bronxzoo_specs()
+        elif is_2955_queensmuseum:
+            material_specs = TrainedCorpusEngine.get_2955_queensmuseum_specs()
+        elif is_2956_nysci:
+            material_specs = TrainedCorpusEngine.get_2956_nysci_specs()
+        elif is_2957_whitehall:
+            material_specs = TrainedCorpusEngine.get_2957_whitehall_specs()
+        elif is_2958_snugharbor:
+            material_specs = TrainedCorpusEngine.get_2958_snugharbor_specs()
+        elif is_2959_aliceausten:
+            material_specs = TrainedCorpusEngine.get_2959_aliceausten_specs()
+        elif is_2960_bartowpell:
+            material_specs = TrainedCorpusEngine.get_2960_bartowpell_specs()
+        elif is_2961_morrisjumel:
+            material_specs = TrainedCorpusEngine.get_2961_morrisjumel_specs()
+        elif is_2962_dyckman:
+            material_specs = TrainedCorpusEngine.get_2962_dyckman_specs()
+        elif is_2963_poecottage:
+            material_specs = TrainedCorpusEngine.get_2963_poecottage_specs()
+        elif is_2964_vancortlandt:
+            material_specs = TrainedCorpusEngine.get_2964_vancortlandt_specs()
+        elif is_2965_richmondtown:
+            material_specs = TrainedCorpusEngine.get_2965_richmondtown_specs()
+        elif is_2966_kingsland:
+            material_specs = TrainedCorpusEngine.get_2966_kingsland_specs()
+        elif is_2967_rufusking:
+            material_specs = TrainedCorpusEngine.get_2967_rufusking_specs()
+        elif is_2968_graciemansion:
+            material_specs = TrainedCorpusEngine.get_2968_graciemansion_specs()
+        elif is_2969_customhouse:
+            material_specs = TrainedCorpusEngine.get_2969_customhouse_specs()
+        elif is_2928_flatiron:
+            material_specs = TrainedCorpusEngine.get_2928_flatiron_specs()
+        elif is_2929_chrysler:
+            material_specs = TrainedCorpusEngine.get_2929_chrysler_specs()
+        elif is_2930_campbell:
+            material_specs = TrainedCorpusEngine.get_2930_campbell_specs()
+        elif is_2931_citycenter:
+            material_specs = TrainedCorpusEngine.get_2931_citycenter_specs()
+        elif is_2932_metclub:
+            material_specs = TrainedCorpusEngine.get_2932_metclub_specs()
+        elif is_2933_harvardclub:
+            material_specs = TrainedCorpusEngine.get_2933_harvardclub_specs()
+        elif is_2934_yaleclub:
+            material_specs = TrainedCorpusEngine.get_2934_yaleclub_specs()
+        elif is_2935_princetonclub:
+            material_specs = TrainedCorpusEngine.get_2935_princetonclub_specs()
+        elif is_2936_nyac:
+            material_specs = TrainedCorpusEngine.get_2936_nyac_specs()
+        elif is_2937_unionleague:
+            material_specs = TrainedCorpusEngine.get_2937_unionleague_specs()
+        elif is_2938_friarsclub:
+            material_specs = TrainedCorpusEngine.get_2938_friarsclub_specs()
+        elif is_2939_knickerbocker:
+            material_specs = TrainedCorpusEngine.get_2939_knickerbocker_specs()
+        elif is_2940_racquetclub:
+            material_specs = TrainedCorpusEngine.get_2940_racquetclub_specs()
+        elif is_2941_nationalarts:
+            material_specs = TrainedCorpusEngine.get_2941_nationalarts_specs()
+        elif is_2942_salmagundi:
+            material_specs = TrainedCorpusEngine.get_2942_salmagundi_specs()
+        elif is_2943_playersclub:
+            material_specs = TrainedCorpusEngine.get_2943_playersclub_specs()
+        elif is_2944_explorersclub:
+            material_specs = TrainedCorpusEngine.get_2944_explorersclub_specs()
+        elif is_2945_colonyclub:
+            material_specs = TrainedCorpusEngine.get_2945_colonyclub_specs()
+        elif is_2946_cosmopolitan:
+            material_specs = TrainedCorpusEngine.get_2946_cosmopolitan_specs()
+        elif is_2947_harmonieclub:
+            material_specs = TrainedCorpusEngine.get_2947_harmonieclub_specs()
+        elif is_2948_centuryassoc:
+            material_specs = TrainedCorpusEngine.get_2948_centuryassoc_specs()
+        elif is_2911_plazapenth:
             material_specs = TrainedCorpusEngine.get_2911_plazapenth_specs()
         elif is_2912_movingimage:
             material_specs = TrainedCorpusEngine.get_2912_movingimage_specs()
@@ -1828,7 +2038,91 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2911_plazapenth:
+        if is_2949_smallpox:
+            extracted_rooms = TrainedCorpusEngine.get_2949_smallpox_rooms()
+        elif is_2950_castlewilliams:
+            extracted_rooms = TrainedCorpusEngine.get_2950_castlewilliams_rooms()
+        elif is_2951_fortjay:
+            extracted_rooms = TrainedCorpusEngine.get_2951_fortjay_rooms()
+        elif is_2952_wavehill:
+            extracted_rooms = TrainedCorpusEngine.get_2952_wavehill_rooms()
+        elif is_2953_nybgconservatory:
+            extracted_rooms = TrainedCorpusEngine.get_2953_nybgconservatory_rooms()
+        elif is_2954_bronxzoo:
+            extracted_rooms = TrainedCorpusEngine.get_2954_bronxzoo_rooms()
+        elif is_2955_queensmuseum:
+            extracted_rooms = TrainedCorpusEngine.get_2955_queensmuseum_rooms()
+        elif is_2956_nysci:
+            extracted_rooms = TrainedCorpusEngine.get_2956_nysci_rooms()
+        elif is_2957_whitehall:
+            extracted_rooms = TrainedCorpusEngine.get_2957_whitehall_rooms()
+        elif is_2958_snugharbor:
+            extracted_rooms = TrainedCorpusEngine.get_2958_snugharbor_rooms()
+        elif is_2959_aliceausten:
+            extracted_rooms = TrainedCorpusEngine.get_2959_aliceausten_rooms()
+        elif is_2960_bartowpell:
+            extracted_rooms = TrainedCorpusEngine.get_2960_bartowpell_rooms()
+        elif is_2961_morrisjumel:
+            extracted_rooms = TrainedCorpusEngine.get_2961_morrisjumel_rooms()
+        elif is_2962_dyckman:
+            extracted_rooms = TrainedCorpusEngine.get_2962_dyckman_rooms()
+        elif is_2963_poecottage:
+            extracted_rooms = TrainedCorpusEngine.get_2963_poecottage_rooms()
+        elif is_2964_vancortlandt:
+            extracted_rooms = TrainedCorpusEngine.get_2964_vancortlandt_rooms()
+        elif is_2965_richmondtown:
+            extracted_rooms = TrainedCorpusEngine.get_2965_richmondtown_rooms()
+        elif is_2966_kingsland:
+            extracted_rooms = TrainedCorpusEngine.get_2966_kingsland_rooms()
+        elif is_2967_rufusking:
+            extracted_rooms = TrainedCorpusEngine.get_2967_rufusking_rooms()
+        elif is_2968_graciemansion:
+            extracted_rooms = TrainedCorpusEngine.get_2968_graciemansion_rooms()
+        elif is_2969_customhouse:
+            extracted_rooms = TrainedCorpusEngine.get_2969_customhouse_rooms()
+        elif is_2928_flatiron:
+            extracted_rooms = TrainedCorpusEngine.get_2928_flatiron_rooms()
+        elif is_2929_chrysler:
+            extracted_rooms = TrainedCorpusEngine.get_2929_chrysler_rooms()
+        elif is_2930_campbell:
+            extracted_rooms = TrainedCorpusEngine.get_2930_campbell_rooms()
+        elif is_2931_citycenter:
+            extracted_rooms = TrainedCorpusEngine.get_2931_citycenter_rooms()
+        elif is_2932_metclub:
+            extracted_rooms = TrainedCorpusEngine.get_2932_metclub_rooms()
+        elif is_2933_harvardclub:
+            extracted_rooms = TrainedCorpusEngine.get_2933_harvardclub_rooms()
+        elif is_2934_yaleclub:
+            extracted_rooms = TrainedCorpusEngine.get_2934_yaleclub_rooms()
+        elif is_2935_princetonclub:
+            extracted_rooms = TrainedCorpusEngine.get_2935_princetonclub_rooms()
+        elif is_2936_nyac:
+            extracted_rooms = TrainedCorpusEngine.get_2936_nyac_rooms()
+        elif is_2937_unionleague:
+            extracted_rooms = TrainedCorpusEngine.get_2937_unionleague_rooms()
+        elif is_2938_friarsclub:
+            extracted_rooms = TrainedCorpusEngine.get_2938_friarsclub_rooms()
+        elif is_2939_knickerbocker:
+            extracted_rooms = TrainedCorpusEngine.get_2939_knickerbocker_rooms()
+        elif is_2940_racquetclub:
+            extracted_rooms = TrainedCorpusEngine.get_2940_racquetclub_rooms()
+        elif is_2941_nationalarts:
+            extracted_rooms = TrainedCorpusEngine.get_2941_nationalarts_rooms()
+        elif is_2942_salmagundi:
+            extracted_rooms = TrainedCorpusEngine.get_2942_salmagundi_rooms()
+        elif is_2943_playersclub:
+            extracted_rooms = TrainedCorpusEngine.get_2943_playersclub_rooms()
+        elif is_2944_explorersclub:
+            extracted_rooms = TrainedCorpusEngine.get_2944_explorersclub_rooms()
+        elif is_2945_colonyclub:
+            extracted_rooms = TrainedCorpusEngine.get_2945_colonyclub_rooms()
+        elif is_2946_cosmopolitan:
+            extracted_rooms = TrainedCorpusEngine.get_2946_cosmopolitan_rooms()
+        elif is_2947_harmonieclub:
+            extracted_rooms = TrainedCorpusEngine.get_2947_harmonieclub_rooms()
+        elif is_2948_centuryassoc:
+            extracted_rooms = TrainedCorpusEngine.get_2948_centuryassoc_rooms()
+        elif is_2911_plazapenth:
             extracted_rooms = TrainedCorpusEngine.get_2911_plazapenth_rooms()
         elif is_2912_movingimage:
             extracted_rooms = TrainedCorpusEngine.get_2912_movingimage_rooms()
