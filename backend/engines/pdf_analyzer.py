@@ -1051,8 +1051,17 @@ class PDFAutoTakeoffEngine:
         is_2846_mta = match_patterns([r'\[2846\]', r'\bGRAND\s+CENTRAL\s+MADISON\b', r'\bMTA\b.*?\bLIRR\b', r'\bLIRR\s+CONCOURSE\b', r'\bDEEP\s+STATION\b'])
         is_2847_porsche = match_patterns([r'\[2847\]', r'\bPORSCHE\b', r'\b11TH\s+AVE\b', r'\bEXPERIENCE\s+CENTER\b', r'\bEV\s+DELIVERY\b'])
         is_2848_townhouse = match_patterns([r'\[2848\]', r'\b18\s+EAST\s+74TH\b', r'\b18\s+E\s+74TH\b', r'\bUPPER\s+EAST\s+SIDE\b.*?\bTOWNHOUSE\b', r'\bHISTORIC\s+5-STORY\b'])
+        is_2849_onevanderbilt = match_patterns([r'\[2849\]', r'\bONE\s+VANDERBILT\b', r'\b1\s+VANDERBILT\b', r'\bSUMMIT\b', r'\bSKY\s+LOUNGE\b', r'\bOBSERVATION\s+TERRACE\b'])
+        is_2850_courthouse = match_patterns([r'\[2850\]', r'\bTHURGOOD\s+MARSHALL\b', r'\b40\s+FOLEY\b', r'\bFOLEY\s+SQ\b', r'\bFEDERAL\s+COURTHOUSE\b', r'\bGSA\b'])
+        is_2851_cinema = match_patterns([r'\[2851\]', r'\bALAMO\b', r'\bDRAFTHOUSE\b', r'\b28\s+LIBERTY\b', r'\bIMAX\b', r'\bCINEMA\b'])
 
-        if is_2846_mta:
+        if is_2849_onevanderbilt:
+            metadata = TrainedCorpusEngine.get_2849_onevanderbilt_metadata()
+        elif is_2850_courthouse:
+            metadata = TrainedCorpusEngine.get_2850_courthouse_metadata()
+        elif is_2851_cinema:
+            metadata = TrainedCorpusEngine.get_2851_cinema_metadata()
+        elif is_2846_mta:
             metadata = TrainedCorpusEngine.get_2846_mta_metadata()
         elif is_2847_porsche:
             metadata = TrainedCorpusEngine.get_2847_porsche_metadata()
@@ -1291,7 +1300,13 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2846_mta:
+        if is_2849_onevanderbilt:
+            material_specs = TrainedCorpusEngine.get_2849_onevanderbilt_specs()
+        elif is_2850_courthouse:
+            material_specs = TrainedCorpusEngine.get_2850_courthouse_specs()
+        elif is_2851_cinema:
+            material_specs = TrainedCorpusEngine.get_2851_cinema_specs()
+        elif is_2846_mta:
             material_specs = TrainedCorpusEngine.get_2846_mta_specs()
         elif is_2847_porsche:
             material_specs = TrainedCorpusEngine.get_2847_porsche_specs()
@@ -1433,7 +1448,13 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2846_mta:
+        if is_2849_onevanderbilt:
+            extracted_rooms = TrainedCorpusEngine.get_2849_onevanderbilt_rooms()
+        elif is_2850_courthouse:
+            extracted_rooms = TrainedCorpusEngine.get_2850_courthouse_rooms()
+        elif is_2851_cinema:
+            extracted_rooms = TrainedCorpusEngine.get_2851_cinema_rooms()
+        elif is_2846_mta:
             extracted_rooms = TrainedCorpusEngine.get_2846_mta_rooms()
         elif is_2847_porsche:
             extracted_rooms = TrainedCorpusEngine.get_2847_porsche_rooms()

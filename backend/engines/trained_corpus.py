@@ -5454,5 +5454,151 @@ class TrainedCorpusEngine:
             ])
         ]
 
+    # =========================================================================
+    # [2849] One Vanderbilt Summit Sky Lounge & Heated Outdoor Observation Terrace - 1 Vanderbilt Ave
+    # =========================================================================
+    @staticmethod
+    def get_2849_onevanderbilt_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2849] One Vanderbilt Summit Sky Lounge & Heated Outdoor Observation Terrace - 1 Vanderbilt Ave",
+            "client_name": "SL Green Realty / Summit Development",
+            "client_company": "AECOM Tishman / Supertall Tower Division",
+            "date_str": "01/15/2027",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2849_onevanderbilt_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "EXT-01": MaterialSpec(symbol="EXT-01", description="Mirage, 20mm (3/4-inch) Exterior Freeze-Thaw Anti-Slip Porcelain Pavers 24x24 (R11 Rating)", unit="SQ FT", budget_price=0.0, notes="High-altitude heated outdoor terrace & sky observation deck", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Nemo Tile, Flamed Jet Mist Granite 2-inch Custom Parapet Coping & Firepit Surrounds", unit="LN FT", budget_price=0.0, notes="Perimeter sky terrace parapet wall coping and cantilevered ledge", trade="Tile & Stone"),
+            "ST-02": MaterialSpec(symbol="ST-02", description="Cosentino, Dekton Aura 2cm Polished Sky Bar Countertop with Mitered Waterfall Ends", unit="SQ FT", budget_price=0.0, notes="Sky lounge cocktail bar & outdoor heated service counter", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Mirage, 4x24 Matching 20mm Exterior Porcelain Baseboard", unit="LN FT", budget_price=0.0, notes="Terrace perimeter baseboard", trade="Tile & Stone"),
+            "SNOW-MELT": MaterialSpec(symbol="SNOW-MELT", description="Schluter Ditra-Heat Exterior Radiant Snow-Melt Thermal & Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Radiant thermal snow-melt system across all exterior terrace floors", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Polymer-Modified Frost-Resistant Mud-Set Mortar Bed Underlayment", unit="SQ FT", budget_price=0.0, notes="Pitched freeze-thaw bed to perimeter continuous roof scuppers", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Exterior UV & Freeze-Thaw Weatherproof Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="100% UV stable exterior weatherproof grouting", trade="Tile & Stone"),
+            "MS-WIND": MaterialSpec(symbol="MS-WIND", description="Schluter Systems Reno-HV Heavy-Duty Wind-Lock Stainless Steel Paver Edge Profile", unit="LN FT", budget_price=0.0, notes="High-altitude wind-uplift perimeter locking profiles", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Flamed Jet Mist Granite Custom Weatherproof Exterior Doorway Saddle", unit="PCS", budget_price=0.0, notes="Terrace slider to indoor lounge transition thresholds", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2849_onevanderbilt_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="SUMMIT HEATED OUTDOOR SKY OBSERVATION TERRACE", floor_name="FLOOR 73", length_ft=52.0, width_ft=30.0, ceiling_height_ft=0.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="EXT-01", finish_type="FLOOR", material_type="20MM EXTERIOR PORCELAIN", work_type="S&I", quantity=1560.0, unit="SQ FT", notes="Mirage 20mm freeze-thaw porcelain pavers 24x24", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="PARAPET COPING & FIREPIT", material_type="GRANITE SLAB", work_type="S&I", quantity=164.0, unit="LN FT", notes="Flamed Jet Mist Granite 2-inch coping stones", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=158.0, unit="LN FT", notes="4x24 matching exterior porcelain base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SNOW-MELT", finish_type="FLOOR", material_type="RADIANT MEMBRANE", work_type="S&I", quantity=1560.0, unit="SQ FT", notes="Schluter radiant thermal snow-melt system", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1560.0, unit="SQ FT", notes="Polymer-modified frost-resistant mud-set bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1560.0, unit="SQ FT", notes="SpectraLOCK PRO UV-stable exterior epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-WIND", finish_type="FLOOR", material_type="SCHLUTER WIND TRIM", work_type="S&I", quantity=84.0, unit="LN FT", notes="High-altitude wind-lock perimeter profiles", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Flamed granite weatherproof saddles", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="INDOOR SKY LOUNGE & COCKTAIL SALON", floor_name="FLOOR 73", length_ft=34.0, width_ft=22.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="EXT-01", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=748.0, unit="SQ FT", notes="Mirage 24x24 porcelain floor tile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-02", finish_type="SKY BAR COUNTERTOP & WATERFALL", material_type="DEKTON SLAB", work_type="S&I", quantity=76.0, unit="SQ FT", notes="Dekton Aura 2cm bar top with 3-inch mitered waterfall edge", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="PORCELAIN BASE", work_type="S&I", quantity=112.0, unit="LN FT", notes="Porcelain perimeter base", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=748.0, unit="SQ FT", notes="Precision mud-set underlayment", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Honed granite transition saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2850] Thurgood Marshall US Courthouse & Federal Judicial Chambers - 40 Foley Sq
+    # =========================================================================
+    @staticmethod
+    def get_2850_courthouse_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2850] Thurgood Marshall US Courthouse & Federal Judicial Chambers - 40 Foley Sq",
+            "client_name": "GSA Public Buildings Service / Region 2",
+            "client_company": "Gilbane Building Company / Federal Landmark Division",
+            "date_str": "01/28/2027",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2850_courthouse_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "ST-01": MaterialSpec(symbol="ST-01", description="Vermont Quarries, Imperial Danby Honed 2cm Marble Wall Wainscot Slabs", unit="SQ FT", budget_price=0.0, notes="Judicial ceremonial courtroom wainscot & judge's bench surround", trade="Tile & Stone"),
+            "ST-02": MaterialSpec(symbol="ST-02", description="Tennessee Marble, Gray Fleuri Honed 18x18 Natural Marble Paver Tile", unit="SQ FT", budget_price=0.0, notes="Public judicial concourse, grand rotunda & jury deliberation foyer", trade="Tile & Stone"),
+            "WT-01": MaterialSpec(symbol="WT-01", description="Daltile, Semi-Gloss Architectural Biscuit White 6x6 Acoustic Tile", unit="SQ FT", budget_price=0.0, notes="Federal restroom suites and secure prisoner holding wet walls", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Vermont Quarries, Imperial Danby 6x12 Honed Marble Baseboard", unit="LN FT", budget_price=0.0, notes="Continuous Federal courthouse stone baseboard", trade="Tile & Stone"),
+            "GSA-MUD": MaterialSpec(symbol="GSA-MUD", description="Portland Blast-Mitigation Reinforced Mud-Set Bed & Subfloor Leveling", unit="SQ FT", budget_price=0.0, notes="GSA specified high-density reinforced stone bedding mortar", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Mapei Mapelastic 315 Low-VOC Elastomeric Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Restrooms, water containment and subfloor isolation", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Low-VOC Non-Shrink Architectural Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="Federal landmark non-staining marble joint grouting", trade="Tile & Stone"),
+            "MS-BRONZE": MaterialSpec(symbol="MS-BRONZE", description="Schluter Systems Schiene Solid Architectural Architectural Bronze Trim", unit="LN FT", budget_price=0.0, notes="Historical bronze wainscot top caps and floor transitions", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Architectural Solid Cast Bronze Fluted ADA Doorway Transition Threshold", unit="PCS", budget_price=0.0, notes="Chambers doorway solid bronze thresholds", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2850_courthouse_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="CEREMONIAL FEDERAL COURTROOM & BENCH SALON", floor_name="COURT FLOOR 5", length_ft=48.0, width_ft=32.0, ceiling_height_ft=18.0, wall_tile_height_ft=6.0, door_count=3, items=[
+                TakeoffLineItem(symbol="ST-02", finish_type="FLOOR", material_type="MARBLE PAVER", work_type="S&I", quantity=1536.0, unit="SQ FT", notes="Tennessee Gray Fleuri 18x18 marble floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="WALL WAINSCOT SLABS", material_type="MARBLE SLAB", work_type="S&I", quantity=860.0, unit="SQ FT", notes="Imperial Danby 2cm marble slabs to 6-foot wainscot height", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=152.0, unit="LN FT", notes="Imperial Danby 6x12 marble baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="GSA-MUD", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=1536.0, unit="SQ FT", notes="GSA blast-mitigation reinforced mud-set bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=1536.0, unit="SQ FT", notes="SpectraLOCK PRO non-staining marble grout", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="WALL", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=160.0, unit="LN FT", notes="Solid architectural bronze wainscot top caps", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="BRONZE SADDLE", work_type="S&I", quantity=3.0, unit="PCS", notes="Solid architectural bronze ADA saddles", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="JUDICIAL RESTROOM & HOLDING VESTIBULE", floor_name="COURT FLOOR 5", length_ft=15.0, width_ft=11.0, ceiling_height_ft=10.0, wall_tile_height_ft=10.0, door_count=1, items=[
+                TakeoffLineItem(symbol="ST-02", finish_type="FLOOR", material_type="MARBLE PAVER", work_type="S&I", quantity=165.0, unit="SQ FT", notes="Tennessee marble floor", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WT-01", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=480.0, unit="SQ FT", notes="Daltile 6x6 biscuit white wall tile full height", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="MARBLE BASE", work_type="S&I", quantity=51.0, unit="LN FT", notes="Marble baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=165.0, unit="SQ FT", notes="Low-VOC waterproofing membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="GSA-MUD", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=165.0, unit="SQ FT", notes="Mud-set bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-BRONZE", finish_type="WALL", material_type="BRONZE METAL TRIM", work_type="S&I", quantity=26.0, unit="LN FT", notes="Bronze corner trims", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="BRONZE SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Bronze doorway threshold saddle", trade="Tile & Stone")
+            ])
+        ]
+
+    # =========================================================================
+    # [2851] Alamo Drafthouse Cinema & IMAX Multi-Auditorium Entertainment Complex - 28 Liberty St
+    # =========================================================================
+    @staticmethod
+    def get_2851_cinema_metadata() -> Dict[str, Any]:
+        return {
+            "project_name": "[2851] Alamo Drafthouse Cinema & IMAX Multi-Auditorium Entertainment Complex - 28 Liberty St",
+            "client_name": "Fosun / Alamo Drafthouse Real Estate",
+            "client_company": "Structure Tone / Entertainment & Cinema Division",
+            "date_str": "02/11/2027",
+            "trade_category": "Tile & Stone"
+        }
+
+    @staticmethod
+    def get_2851_cinema_specs() -> Dict[str, MaterialSpec]:
+        return {
+            "TR-01": MaterialSpec(symbol="TR-01", description="Porcelanosa, Charcoal Matte Non-Slip Stair Tread & Riser Porcelain 12x48 with Integral Abrasive Grooves", unit="LN FT", budget_price=0.0, notes="Multi-auditorium stadium seating step treads, risers & aisles", trade="Tile & Stone"),
+            "TZ-01": MaterialSpec(symbol="TZ-01", description="Nabel, Polished Cast Terrazzo 24x24 Large Format Lobby & Concession Floor Tile", unit="SQ FT", budget_price=0.0, notes="Main cinema concessions, ticket foyer & cocktail bar floor", trade="Tile & Stone"),
+            "ST-01": MaterialSpec(symbol="ST-01", description="Caesarstone, Concrete Rough 2cm Quartz Concession & Ticket Countertop with 3-inch Drop Apron", unit="SQ FT", budget_price=0.0, notes="Concession pick-up counter, beer tap bar & POS stations", trade="Tile & Stone"),
+            "TB-01": MaterialSpec(symbol="TB-01", description="Nabel, 4x24 Matching Polished Terrazzo Baseboard", unit="LN FT", budget_price=0.0, notes="Continuous cinema lobby baseboard", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Laticrete Hydro Ban Commercial Sound & Spill Barrier Waterproofing Membrane", unit="SQ FT", budget_price=0.0, notes="Concession bar, kitchen prep & restroom wet areas", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Mud-Set Mortar Bed & Stadium Tier Leveling Underlayment", unit="SQ FT", budget_price=0.0, notes="Auditorium stadium raked step mud bedding", trade="Tile & Stone"),
+            "EPOXY-GROUT": MaterialSpec(symbol="EPOXY-GROUT", description="Laticrete SpectraLOCK PRO Heavy Commercial Beverage & Spill Resistant Epoxy Grout", unit="SQ FT", budget_price=0.0, notes="Cinema stain and syrup resistant epoxy grouting", trade="Tile & Stone"),
+            "MS-GLOW": MaterialSpec(symbol="MS-GLOW", description="Schluter Systems Trep-G Photoluminescent Glow-in-the-Dark Stair Nosing Safety Trim", unit="LN FT", budget_price=0.0, notes="Auditorium step edge glow safety nosing profiles", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="Heavy-Duty Absolute Black Honed Granite Doorway Transition Saddle", unit="PCS", budget_price=0.0, notes="Soundlock acoustic vestibule doorway saddles", trade="Tile & Stone")
+        }
+
+    @staticmethod
+    def get_2851_cinema_rooms() -> List[RoomTakeoff]:
+        return [
+            RoomTakeoff(room_name="IMAX AUDITORIUM 1 - STADIUM STEPPED SEATING & AISLES", floor_name="LOWER LEVEL 2", length_ft=56.0, width_ft=38.0, ceiling_height_ft=24.0, wall_tile_height_ft=0.0, door_count=2, items=[
+                TakeoffLineItem(symbol="TR-01", finish_type="STADIUM STEP TREADS & RISERS", material_type="STAIR TREAD PORCELAIN", work_type="S&I", quantity=420.0, unit="LN FT", notes="Porcelanosa 12x48 charcoal non-slip stair treads & risers", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=840.0, unit="SQ FT", notes="Stadium tiered step mortar bedding", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREPARATION", material_type="EPOXY GROUT", work_type="S&I", quantity=840.0, unit="SQ FT", notes="SpectraLOCK PRO spill-proof epoxy", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MS-GLOW", finish_type="STAIR NOSING", material_type="GLOW SAFETY TRIM", work_type="S&I", quantity=420.0, unit="LN FT", notes="Schluter Trep-G photoluminescent glow-in-the-dark step nosings", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", notes="Absolute Black granite acoustic soundlock saddles", trade="Tile & Stone")
+            ]),
+            RoomTakeoff(room_name="MAIN CINEMA CONCESSIONS & CRAFT BEER SALON", floor_name="LOWER LEVEL 2", length_ft=38.0, width_ft=24.0, ceiling_height_ft=14.0, wall_tile_height_ft=0.0, door_count=1, items=[
+                TakeoffLineItem(symbol="TZ-01", finish_type="FLOOR", material_type="TERRAZZO TILE", work_type="S&I", quantity=912.0, unit="SQ FT", notes="Nabel 24x24 polished terrazzo floor tile", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="ST-01", finish_type="CONCESSION COUNTERTOP & FRONT", material_type="QUARTZ", work_type="S&I", quantity=96.0, unit="SQ FT", notes="Caesarstone 2cm Concrete Rough countertop with 3-inch drop apron", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="TB-01", finish_type="WALL", material_type="TERRAZZO BASE", work_type="S&I", quantity=122.0, unit="LN FT", notes="4x24 terrazzo baseboard", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=912.0, unit="SQ FT", notes="Spill barrier waterproofing membrane", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="MUD-SET", finish_type="PREPARATION", material_type="MUD-SET", work_type="S&I", quantity=912.0, unit="SQ FT", notes="Subfloor leveling bed", trade="Tile & Stone"),
+                TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", notes="Granite doorway saddle", trade="Tile & Stone")
+            ])
+        ]
+
 
 
