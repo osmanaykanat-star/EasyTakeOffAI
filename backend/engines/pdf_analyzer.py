@@ -1054,8 +1054,17 @@ class PDFAutoTakeoffEngine:
         is_2849_onevanderbilt = match_patterns([r'\[2849\]', r'\bONE\s+VANDERBILT\b', r'\b1\s+VANDERBILT\b', r'\bSUMMIT\b', r'\bSKY\s+LOUNGE\b', r'\bOBSERVATION\s+TERRACE\b'])
         is_2850_courthouse = match_patterns([r'\[2850\]', r'\bTHURGOOD\s+MARSHALL\b', r'\b40\s+FOLEY\b', r'\bFOLEY\s+SQ\b', r'\bFEDERAL\s+COURTHOUSE\b', r'\bGSA\b'])
         is_2851_cinema = match_patterns([r'\[2851\]', r'\bALAMO\b', r'\bDRAFTHOUSE\b', r'\b28\s+LIBERTY\b', r'\bIMAX\b', r'\bCINEMA\b'])
+        is_2852_marina = match_patterns([r'\[2852\]', r'\bNAVY\s+YARD\b', r'\bWATERFRONT\s+MARINA\b', r'\bCOMMODORE\b', r'\b63\s+FLUSHING\b'])
+        is_2853_saks = match_patterns([r'\[2853\]', r'\bSAKS\b', r'\bSAKS\s+FIFTH\b', r'\b611\s+5TH\b', r'\b611\s+FIFTH\b', r'\bBEAUTY\s+ATRIUM\b'])
+        is_2854_pfizer = match_patterns([r'\[2854\]', r'\bPFIZER\b', r'\b235\s+E\s+42ND\b', r'\bCLEANROOM\b', r'\bSTERILE\s+COMPOUNDING\b'])
 
-        if is_2849_onevanderbilt:
+        if is_2852_marina:
+            metadata = TrainedCorpusEngine.get_2852_marinaclub_metadata()
+        elif is_2853_saks:
+            metadata = TrainedCorpusEngine.get_2853_saks_metadata()
+        elif is_2854_pfizer:
+            metadata = TrainedCorpusEngine.get_2854_pfizer_metadata()
+        elif is_2849_onevanderbilt:
             metadata = TrainedCorpusEngine.get_2849_onevanderbilt_metadata()
         elif is_2850_courthouse:
             metadata = TrainedCorpusEngine.get_2850_courthouse_metadata()
@@ -1300,7 +1309,13 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2849_onevanderbilt:
+        if is_2852_marina:
+            material_specs = TrainedCorpusEngine.get_2852_marinaclub_specs()
+        elif is_2853_saks:
+            material_specs = TrainedCorpusEngine.get_2853_saks_specs()
+        elif is_2854_pfizer:
+            material_specs = TrainedCorpusEngine.get_2854_pfizer_specs()
+        elif is_2849_onevanderbilt:
             material_specs = TrainedCorpusEngine.get_2849_onevanderbilt_specs()
         elif is_2850_courthouse:
             material_specs = TrainedCorpusEngine.get_2850_courthouse_specs()
@@ -1448,7 +1463,13 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2849_onevanderbilt:
+        if is_2852_marina:
+            extracted_rooms = TrainedCorpusEngine.get_2852_marinaclub_rooms()
+        elif is_2853_saks:
+            extracted_rooms = TrainedCorpusEngine.get_2853_saks_rooms()
+        elif is_2854_pfizer:
+            extracted_rooms = TrainedCorpusEngine.get_2854_pfizer_rooms()
+        elif is_2849_onevanderbilt:
             extracted_rooms = TrainedCorpusEngine.get_2849_onevanderbilt_rooms()
         elif is_2850_courthouse:
             extracted_rooms = TrainedCorpusEngine.get_2850_courthouse_rooms()
