@@ -1069,8 +1069,35 @@ class PDFAutoTakeoffEngine:
         is_2864_brewery = match_patterns([r'\[2864\]', r'\bMICROBREWERY\b', r'\bTAPROOM\b', r'\b20\s+HUDSON\s+YARDS\b', r'\bBREW-DECK\b'])
         is_2865_carlyle = match_patterns([r'\[2865\]', r'\bCARLYLE\b', r'\b35\s+E\s+76TH\b', r'\b35\s+EAST\s+76TH\b', r'\bPENTHOUSE\s+NORTH\b'])
         is_2866_moynihan = match_patterns([r'\[2866\]', r'\bMOYNIHAN\b', r'\bTRAIN\s+HALL\b', r'\b383\s+W\s+31ST\b', r'\b383\s+WEST\s+31ST\b', r'\bAMTRAK\b'])
+        is_2867_library = match_patterns([r'\[2867\]', r'\bBROOKLYN\s+PUBLIC\s+LIBRARY\b', r'\bGRAND\s+ARMY\s+PLAZA\b', r'\bRARE\s+BOOKS\b'])
+        is_2868_msg = match_patterns([r'\[2868\]', r'\bMADISON\s+SQUARE\s+GARDEN\b', r'\bMSG\b.*\bSKYBRIDGE\b', r'\b4\s+PENNSYLVANIA\s+PLAZA\b'])
+        is_2869_cornell = match_patterns([r'\[2869\]', r'\bCORNELL\s+TECH\b', r'\bTATA\s+INNOVATION\b', r'\bROBOTICS\s+LAB\b', r'\b11\s+EAST\s+LOOP\b'])
+        is_2870_pier57 = match_patterns([r'\[2870\]', r'\bPIER\s+57\b', r'\bHUDSON\s+RIVER\s+PARK\b', r'\b25\s+11TH\b', r'\b25\s+ELEVENTH\b'])
+        is_2871_mskcc = match_patterns([r'\[2871\]', r'\bMSKCC\b', r'\bMEMORIAL\s+SLOAN\b', r'\bBONE\s+MARROW\b', r'\b1275\s+YORK\b'])
+        is_2872_sothebys = match_patterns([r'\[2872\]', r'\bSOTHEBY\'?S\b', r'\bAUCTION\s+PAVILION\b', r'\b1334\s+YORK\b'])
+        is_2873_standard = match_patterns([r'\[2873\]', r'\bSTANDARD\s+HOTEL\b', r'\bBOOM\s+BOOM\s+ROOM\b', r'\b848\s+WASHINGTON\b'])
+        is_2874_un = match_patterns([r'\[2874\]', r'\bUNITED\s+NATIONS\b', r'\bGENERAL\s+ASSEMBLY\b', r'\b405\s+E\s+42ND\b', r'\b405\s+EAST\s+42ND\b'])
+        is_2875_intrepid = match_patterns([r'\[2875\]', r'\bINTREPID\b', r'\bSPACE\s+SHUTTLE\b', r'\bPIER\s+86\b', r'\bFLIGHT\s+DECK\b'])
 
-                if is_2858_proton:
+                        if is_2867_library:
+            metadata = TrainedCorpusEngine.get_2867_library_metadata()
+        elif is_2868_msg:
+            metadata = TrainedCorpusEngine.get_2868_msg_metadata()
+        elif is_2869_cornell:
+            metadata = TrainedCorpusEngine.get_2869_cornell_metadata()
+        elif is_2870_pier57:
+            metadata = TrainedCorpusEngine.get_2870_pier57_metadata()
+        elif is_2871_mskcc:
+            metadata = TrainedCorpusEngine.get_2871_mskcc_metadata()
+        elif is_2872_sothebys:
+            metadata = TrainedCorpusEngine.get_2872_sothebys_metadata()
+        elif is_2873_standard:
+            metadata = TrainedCorpusEngine.get_2873_standard_metadata()
+        elif is_2874_un:
+            metadata = TrainedCorpusEngine.get_2874_un_metadata()
+        elif is_2875_intrepid:
+            metadata = TrainedCorpusEngine.get_2875_intrepid_metadata()
+        elif is_2858_proton:
             metadata = TrainedCorpusEngine.get_2858_proton_metadata()
         elif is_2859_cipriani:
             metadata = TrainedCorpusEngine.get_2859_cipriani_metadata()
@@ -1345,7 +1372,25 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-                if is_2858_proton:
+                        if is_2867_library:
+            material_specs = TrainedCorpusEngine.get_2867_library_specs()
+        elif is_2868_msg:
+            material_specs = TrainedCorpusEngine.get_2868_msg_specs()
+        elif is_2869_cornell:
+            material_specs = TrainedCorpusEngine.get_2869_cornell_specs()
+        elif is_2870_pier57:
+            material_specs = TrainedCorpusEngine.get_2870_pier57_specs()
+        elif is_2871_mskcc:
+            material_specs = TrainedCorpusEngine.get_2871_mskcc_specs()
+        elif is_2872_sothebys:
+            material_specs = TrainedCorpusEngine.get_2872_sothebys_specs()
+        elif is_2873_standard:
+            material_specs = TrainedCorpusEngine.get_2873_standard_specs()
+        elif is_2874_un:
+            material_specs = TrainedCorpusEngine.get_2874_un_specs()
+        elif is_2875_intrepid:
+            material_specs = TrainedCorpusEngine.get_2875_intrepid_specs()
+        elif is_2858_proton:
             material_specs = TrainedCorpusEngine.get_2858_proton_specs()
         elif is_2859_cipriani:
             material_specs = TrainedCorpusEngine.get_2859_cipriani_specs()
@@ -1523,7 +1568,25 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-                if is_2858_proton:
+                        if is_2867_library:
+            extracted_rooms = TrainedCorpusEngine.get_2867_library_rooms()
+        elif is_2868_msg:
+            extracted_rooms = TrainedCorpusEngine.get_2868_msg_rooms()
+        elif is_2869_cornell:
+            extracted_rooms = TrainedCorpusEngine.get_2869_cornell_rooms()
+        elif is_2870_pier57:
+            extracted_rooms = TrainedCorpusEngine.get_2870_pier57_rooms()
+        elif is_2871_mskcc:
+            extracted_rooms = TrainedCorpusEngine.get_2871_mskcc_rooms()
+        elif is_2872_sothebys:
+            extracted_rooms = TrainedCorpusEngine.get_2872_sothebys_rooms()
+        elif is_2873_standard:
+            extracted_rooms = TrainedCorpusEngine.get_2873_standard_rooms()
+        elif is_2874_un:
+            extracted_rooms = TrainedCorpusEngine.get_2874_un_rooms()
+        elif is_2875_intrepid:
+            extracted_rooms = TrainedCorpusEngine.get_2875_intrepid_rooms()
+        elif is_2858_proton:
             extracted_rooms = TrainedCorpusEngine.get_2858_proton_rooms()
         elif is_2859_cipriani:
             extracted_rooms = TrainedCorpusEngine.get_2859_cipriani_rooms()
