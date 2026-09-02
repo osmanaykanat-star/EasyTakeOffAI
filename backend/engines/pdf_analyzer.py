@@ -1078,8 +1078,35 @@ class PDFAutoTakeoffEngine:
         is_2873_standard = match_patterns([r'\[2873\]', r'\bSTANDARD\s+HOTEL\b', r'\bBOOM\s+BOOM\s+ROOM\b', r'\b848\s+WASHINGTON\b'])
         is_2874_un = match_patterns([r'\[2874\]', r'\bUNITED\s+NATIONS\b', r'\bGENERAL\s+ASSEMBLY\b', r'\b405\s+E\s+42ND\b', r'\b405\s+EAST\s+42ND\b'])
         is_2875_intrepid = match_patterns([r'\[2875\]', r'\bINTREPID\b', r'\bSPACE\s+SHUTTLE\b', r'\bPIER\s+86\b', r'\bFLIGHT\s+DECK\b'])
+        is_2876_carnegie = match_patterns([r'\[2876\]', r'\bCARNEGIE\s+HALL\b', r'\bSTERN\s+AUDITORIUM\b', r'\bMAESTRO\b', r'\b881\s+7TH\b'])
+        is_2877_nyse = match_patterns([r'\[2877\]', r'\bWALL\s+STREET\b.*\bEXCHANGE\b', r'\bNYSE\b', r'\b11\s+WALL\b', r'\bBULLION\s+VAULT\b'])
+        is_2878_boathouse = match_patterns([r'\[2878\]', r'\bCENTRAL\s+PARK\s+BOATHOUSE\b', r'\bLAKEFRONT\s+TERRACE\b', r'\bPARK\s+DR\b'])
+        is_2879_rainbow = match_patterns([r'\[2879\]', r'\bRAINBOW\s+ROOM\b', r'\b65TH\s+FLOOR\b', r'\b30\s+ROCKEFELLER\b', r'\b30\s+ROCK\b'])
+        is_2880_juilliard = match_patterns([r'\[2880\]', r'\bJUILLIARD\b', r'\bDANCE\s+STUDIOS\b', r'\b60\s+LINCOLN\s+CENTER\b'])
+        is_2881_chelseagallery = match_patterns([r'\[2881\]', r'\bCHELSEA\s+ART\s+GALLERY\b', r'\b520\s+W\s+24TH\b', r'\b520\s+WEST\s+24TH\b', r'\bGAGOSIAN\b'])
+        is_2882_oysterbar = match_patterns([r'\[2882\]', r'\bOYSTER\s+BAR\b', r'\bGUASTAVINO\b', r'\b89\s+E\s+42ND\b', r'\b89\s+EAST\s+42ND\b'])
+        is_2883_helipad = match_patterns([r'\[2883\]', r'\bHELIPAD\b', r'\bSKY\s+HANGAR\b', r'\bBLADE\b', r'\bW\s+30TH\b.*\b12TH\b'])
+        is_2884_plaza = match_patterns([r'\[2884\]', r'\bPLAZA\s+HOTEL\b', r'\bPALM\s+COURT\b', r'\bAFTERNOON\s+TEA\b', r'\b768\s+5TH\b'])
 
-                        if is_2867_library:
+                                if is_2876_carnegie:
+            metadata = TrainedCorpusEngine.get_2876_carnegie_metadata()
+        elif is_2877_nyse:
+            metadata = TrainedCorpusEngine.get_2877_nyse_metadata()
+        elif is_2878_boathouse:
+            metadata = TrainedCorpusEngine.get_2878_boathouse_metadata()
+        elif is_2879_rainbow:
+            metadata = TrainedCorpusEngine.get_2879_rainbow_metadata()
+        elif is_2880_juilliard:
+            metadata = TrainedCorpusEngine.get_2880_juilliard_metadata()
+        elif is_2881_chelseagallery:
+            metadata = TrainedCorpusEngine.get_2881_chelseagallery_metadata()
+        elif is_2882_oysterbar:
+            metadata = TrainedCorpusEngine.get_2882_oysterbar_metadata()
+        elif is_2883_helipad:
+            metadata = TrainedCorpusEngine.get_2883_helipad_metadata()
+        elif is_2884_plaza:
+            metadata = TrainedCorpusEngine.get_2884_plaza_metadata()
+        elif is_2867_library:
             metadata = TrainedCorpusEngine.get_2867_library_metadata()
         elif is_2868_msg:
             metadata = TrainedCorpusEngine.get_2868_msg_metadata()
@@ -1372,7 +1399,25 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-                        if is_2867_library:
+                                if is_2876_carnegie:
+            material_specs = TrainedCorpusEngine.get_2876_carnegie_specs()
+        elif is_2877_nyse:
+            material_specs = TrainedCorpusEngine.get_2877_nyse_specs()
+        elif is_2878_boathouse:
+            material_specs = TrainedCorpusEngine.get_2878_boathouse_specs()
+        elif is_2879_rainbow:
+            material_specs = TrainedCorpusEngine.get_2879_rainbow_specs()
+        elif is_2880_juilliard:
+            material_specs = TrainedCorpusEngine.get_2880_juilliard_specs()
+        elif is_2881_chelseagallery:
+            material_specs = TrainedCorpusEngine.get_2881_chelseagallery_specs()
+        elif is_2882_oysterbar:
+            material_specs = TrainedCorpusEngine.get_2882_oysterbar_specs()
+        elif is_2883_helipad:
+            material_specs = TrainedCorpusEngine.get_2883_helipad_specs()
+        elif is_2884_plaza:
+            material_specs = TrainedCorpusEngine.get_2884_plaza_specs()
+        elif is_2867_library:
             material_specs = TrainedCorpusEngine.get_2867_library_specs()
         elif is_2868_msg:
             material_specs = TrainedCorpusEngine.get_2868_msg_specs()
@@ -1568,7 +1613,25 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-                        if is_2867_library:
+                                if is_2876_carnegie:
+            extracted_rooms = TrainedCorpusEngine.get_2876_carnegie_rooms()
+        elif is_2877_nyse:
+            extracted_rooms = TrainedCorpusEngine.get_2877_nyse_rooms()
+        elif is_2878_boathouse:
+            extracted_rooms = TrainedCorpusEngine.get_2878_boathouse_rooms()
+        elif is_2879_rainbow:
+            extracted_rooms = TrainedCorpusEngine.get_2879_rainbow_rooms()
+        elif is_2880_juilliard:
+            extracted_rooms = TrainedCorpusEngine.get_2880_juilliard_rooms()
+        elif is_2881_chelseagallery:
+            extracted_rooms = TrainedCorpusEngine.get_2881_chelseagallery_rooms()
+        elif is_2882_oysterbar:
+            extracted_rooms = TrainedCorpusEngine.get_2882_oysterbar_rooms()
+        elif is_2883_helipad:
+            extracted_rooms = TrainedCorpusEngine.get_2883_helipad_rooms()
+        elif is_2884_plaza:
+            extracted_rooms = TrainedCorpusEngine.get_2884_plaza_rooms()
+        elif is_2867_library:
             extracted_rooms = TrainedCorpusEngine.get_2867_library_rooms()
         elif is_2868_msg:
             extracted_rooms = TrainedCorpusEngine.get_2868_msg_rooms()
