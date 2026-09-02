@@ -212,20 +212,46 @@ def update_project(data: Dict[str, Any]):
 @app.post("/api/project/load_sample")
 def load_sample(sample_id: str):
     global CURRENT_PROJECT
-    if sample_id == "astoria":
-        CURRENT_PROJECT = get_initial_project()
+    if sample_id in ["fhjc", "forest_hills"]:
+        CURRENT_PROJECT = get_fhjc_sample_project()
+    elif sample_id == "astoria":
+        specs = PDFAutoTakeoffEngine.get_adg_astoria_specs()
+        rooms = PDFAutoTakeoffEngine.get_adg_astoria_rooms()
+        CURRENT_PROJECT = ProjectTakeoff(
+            project_name="[26-0812] 25-19 27th Street, Astoria - Residential Renovation (24 Units)",
+            client_name="Astoria Development LLC",
+            client_company="General Contractor",
+            estimator_name="",
+            date_str="08/26/2026",
+            trade_category="Tile & Stone",
+            rooms=rooms,
+            material_specs=specs,
+            exclusions=["1) Structural framing and subfloor repair.", "2) Premium labor unless approved.", "3) Permits and expediting fees."]
+        )
     elif sample_id == "glencove":
         CURRENT_PROJECT = get_glencove_sample_project()
     elif sample_id == "200_cps":
-        CURRENT_PROJECT = get_200_cps_sample_project()
+        CURRENT_PROJECT = ProjectTakeoff(
+            project_name="[2827] 200 CPS",
+            client_name="Gencer Hepozden",
+            client_company="Tema Builders Group",
+            date_str="07/17/2026",
+            trade_category="Tile & Stone",
+            rooms=TrainedCorpusEngine.get_2827_200cps_rooms(),
+            material_specs=TrainedCorpusEngine.get_2827_200cps_specs()
+        )
+    elif sample_id == "citibank":
+        m = TrainedCorpusEngine.get_2822_citibank_metadata()
+        CURRENT_PROJECT = ProjectTakeoff(project_name=m.get("project_name", "[2822] Citibank"), client_name=m.get("client_name", "Citibank"), client_company=m.get("client_company", "GC"), date_str=m.get("date_str", "07/11/2026"), trade_category="Tile & Stone", rooms=TrainedCorpusEngine.get_2822_citibank_rooms(), material_specs=TrainedCorpusEngine.get_2822_citibank_specs())
+    elif sample_id == "49e96":
+        m = TrainedCorpusEngine.get_2821_49e96_metadata()
+        CURRENT_PROJECT = ProjectTakeoff(project_name=m.get("project_name", "[2821] 49 E 96th"), client_name=m.get("client_name", "Prime"), client_company=m.get("client_company", "GC"), date_str=m.get("date_str", "07/08/2026"), trade_category="Tile & Stone", rooms=TrainedCorpusEngine.get_2821_49e96_rooms(), material_specs=TrainedCorpusEngine.get_2821_49e96_specs())
     elif sample_id == "zeta":
         CURRENT_PROJECT = get_zeta_sample_project()
     elif sample_id == "ls_power":
         CURRENT_PROJECT = get_ls_power_sample_project()
-    elif sample_id in ["fhjc", "forest_hills"]:
-        CURRENT_PROJECT = get_fhjc_sample_project()
     else:
-        CURRENT_PROJECT = get_initial_project()
+        CURRENT_PROJECT = get_fhjc_sample_project()
     return {"status": "success", "project": CURRENT_PROJECT.to_dict()}
 
 @app.post("/api/project/update_specs")

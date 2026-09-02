@@ -47,6 +47,17 @@
             <button class="btn btn-outline" id="headerProfileBtn" onclick="openRegistrationModal(true)" style="border-color: #38bdf8; color: #38bdf8;" title="Company & Estimator Profile">
                 <i class="fa-solid fa-building-user"></i> <span id="navCompanyName">Register Company</span>
             </button>
+            <select class="btn btn-outline" style="background: #0f172a; color: #e2e8f0; border-color: #64748b; font-size: 0.82rem; font-weight: 600; padding: 6px 10px; cursor: pointer; border-radius: 6px;" onchange="loadSampleProject(this.value)" title="Switch between Trained Benchmark Projects">
+                <option value="" disabled selected>📚 Benchmark Trainings</option>
+                <option value="fhjc">🏛️ [BID] Forest Hills Jewish Center (4 Floors / 15 Specs)</option>
+                <option value="astoria">🏢 [26-0812] ADG Astoria (24 Units)</option>
+                <option value="glencove">🏭 [IFB] Glen Cove Commercial</option>
+                <option value="citibank">🏦 [2822] Citibank Relocation</option>
+                <option value="49e96">🏠 [2821] 49 East 96th St Apt 10A</option>
+                <option value="200_cps">🏬 [2827] 200 Central Park South</option>
+                <option value="zeta">🏫 [2024] Zeta Bronx Academy</option>
+                <option value="ls_power">⚡ [2025] LS Power NYC</option>
+            </select>
             <button class="btn btn-new-project" onclick="createNewProjectPrompt()">
                 <i class="fa-solid fa-plus-circle"></i> New Project
             </button>

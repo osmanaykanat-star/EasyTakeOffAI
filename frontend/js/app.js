@@ -140,11 +140,35 @@ async function createNewProjectPrompt() {
         if (typeof loadPolygonsAndAudit === 'function') {
             loadPolygonsAndAudit();
         }
-        showToast("✨ New project initialized!");
+        showToast("✨ Started fresh project: " + projectData.project_name);
     } catch (e) {
-        showToast("Error: " + e.message);
+        showToast("Error creating project: " + e.message);
     }
 }
+
+// Load Selected Trained Benchmark Project
+async function loadSampleProject(sampleId) {
+    if (!sampleId) return;
+    try {
+        const res = await fetch(`/api/project/load_sample?sample_id=${encodeURIComponent(sampleId)}`, {
+            method: "POST",
+            headers: { "Cache-Control": "no-cache" }
+        });
+        const data = await res.json();
+        projectData = data.project;
+        if (projectData.selected_trades && projectData.selected_trades.length > 0) {
+            selectedTrades = projectData.selected_trades;
+        }
+        renderProject();
+        if (typeof loadPolygonsAndAudit === 'function') {
+            loadPolygonsAndAudit();
+        }
+        showToast("📚 Loaded benchmark training: " + (projectData.project_name || sampleId));
+    } catch (e) {
+        showToast("Error loading benchmark: " + e.message);
+    }
+}
+
 function categorizeTakeoffItem(item) {
     const ftUpper = (item.finish_type || "").toUpperCase();
     const mtUpper = (item.material_type || "").toUpperCase();
