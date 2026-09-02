@@ -124,7 +124,7 @@ def get_initial_project() -> ProjectTakeoff:
     except Exception:
         return get_empty_project()
 
-CURRENT_PROJECT: ProjectTakeoff = get_fhjc_sample_project()
+CURRENT_PROJECT: ProjectTakeoff = get_empty_project("New Takeoff Project")
 
 class RoomCalculationRequest(BaseModel):
     room_name: str
@@ -505,9 +505,9 @@ async def upload_drawing(file: UploadFile = File(...)):
     total_toilet_pages = 0
     all_extracted_rooms = []
 
-    clean_upload_title = clean_project_title_from_filename(file.filename)
-    if clean_upload_title and clean_upload_title.upper() not in ["DESIGN FILES", "UPLOAD", "NEW TAKEOFF PROJECT", "NEW PROJECT", ""]:
-        CURRENT_PROJECT.project_name = clean_upload_title
+    clean_upload_title = clean_project_title_from_filename(file.filename) or "Uploaded Takeoff Project"
+    # STRICT PROJECT ISOLATION: Completely reset memory before ingesting new project
+    CURRENT_PROJECT = get_empty_project(clean_upload_title)
 
     for pdf_path in pdf_files_to_process:
         try:
