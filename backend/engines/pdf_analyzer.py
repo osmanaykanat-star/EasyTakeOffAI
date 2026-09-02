@@ -1060,8 +1060,35 @@ class PDFAutoTakeoffEngine:
         is_2855_resortsworld = match_patterns([r'\[2855\]', r'\bRESORTS\s+WORLD\b', r'\bBACCARAT\b', r'\bGAMING\s+PAVILION\b', r'\b110-00\s+ROCKAWAY\b'])
         is_2856_moma = match_patterns([r'\[2856\]', r'\bMOMA\b', r'\bMUSEUM\s+OF\s+MODERN\s+ART\b', r'\b11\s+W\s+53RD\b', r'\bSCULPTURE\s+PAVILION\b'])
         is_2857_equinixdata = match_patterns([r'\[2857\]', r'\bEQUINIX\b.*?\bSECAUCUS\b', r'\bHYPERSCALE\s+DATA\b', r'\bPOWER\s+VAULT\b', r'\b755\s+SECAUCUS\b'])
+        is_2858_proton = match_patterns([r'\[2858\]', r'\bPROTON\s+THERAPY\b', r'\b1184\s+5TH\b', r'\b1184\s+FIFTH\b', r'\bONCOLOGY\b'])
+        is_2859_cipriani = match_patterns([r'\[2859\]', r'\bCIPRIANI\b', r'\b110\s+E\s+42ND\b', r'\b110\s+EAST\s+42ND\b', r'\bGRAND\s+BALLROOM\b'])
+        is_2860_vivarium = match_patterns([r'\[2860\]', r'\bVIVARIUM\b', r'\b701\s+W\s+168TH\b', r'\b701\s+WEST\s+168TH\b', r'\bCAGE\s+WASH\b'])
+        is_2861_barrys = match_patterns([r'\[2861\]', r'\bBARRY\'?S\b', r'\bBOOTCAMP\b', r'\b135\s+W\s+20TH\b', r'\b135\s+WEST\s+20TH\b'])
+        is_2862_apple = match_patterns([r'\[2862\]', r'\bAPPLE\s+FIFTH\b', r'\bGLASS\s+CUBE\b', r'\b767\s+5TH\b', r'\b767\s+FIFTH\b'])
+        is_2863_botanic = match_patterns([r'\[2863\]', r'\bBOTANIC\s+GARDEN\b', r'\bCONSERVATORY\b', r'\bGLASSHOUSE\b', r'\b990\s+WASHINGTON\b'])
+        is_2864_brewery = match_patterns([r'\[2864\]', r'\bMICROBREWERY\b', r'\bTAPROOM\b', r'\b20\s+HUDSON\s+YARDS\b', r'\bBREW-DECK\b'])
+        is_2865_carlyle = match_patterns([r'\[2865\]', r'\bCARLYLE\b', r'\b35\s+E\s+76TH\b', r'\b35\s+EAST\s+76TH\b', r'\bPENTHOUSE\s+NORTH\b'])
+        is_2866_moynihan = match_patterns([r'\[2866\]', r'\bMOYNIHAN\b', r'\bTRAIN\s+HALL\b', r'\b383\s+W\s+31ST\b', r'\b383\s+WEST\s+31ST\b', r'\bAMTRAK\b'])
 
-        if is_2855_resortsworld:
+                if is_2858_proton:
+            metadata = TrainedCorpusEngine.get_2858_proton_metadata()
+        elif is_2859_cipriani:
+            metadata = TrainedCorpusEngine.get_2859_cipriani_metadata()
+        elif is_2860_vivarium:
+            metadata = TrainedCorpusEngine.get_2860_vivarium_metadata()
+        elif is_2861_barrys:
+            metadata = TrainedCorpusEngine.get_2861_barrys_metadata()
+        elif is_2862_apple:
+            metadata = TrainedCorpusEngine.get_2862_apple_metadata()
+        elif is_2863_botanic:
+            metadata = TrainedCorpusEngine.get_2863_botanic_metadata()
+        elif is_2864_brewery:
+            metadata = TrainedCorpusEngine.get_2864_brewery_metadata()
+        elif is_2865_carlyle:
+            metadata = TrainedCorpusEngine.get_2865_carlyle_metadata()
+        elif is_2866_moynihan:
+            metadata = TrainedCorpusEngine.get_2866_moynihan_metadata()
+        elif is_2855_resortsworld:
             metadata = TrainedCorpusEngine.get_2855_resortsworld_metadata()
         elif is_2856_moma:
             metadata = TrainedCorpusEngine.get_2856_moma_metadata()
@@ -1318,7 +1345,25 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2855_resortsworld:
+                if is_2858_proton:
+            material_specs = TrainedCorpusEngine.get_2858_proton_specs()
+        elif is_2859_cipriani:
+            material_specs = TrainedCorpusEngine.get_2859_cipriani_specs()
+        elif is_2860_vivarium:
+            material_specs = TrainedCorpusEngine.get_2860_vivarium_specs()
+        elif is_2861_barrys:
+            material_specs = TrainedCorpusEngine.get_2861_barrys_specs()
+        elif is_2862_apple:
+            material_specs = TrainedCorpusEngine.get_2862_apple_specs()
+        elif is_2863_botanic:
+            material_specs = TrainedCorpusEngine.get_2863_botanic_specs()
+        elif is_2864_brewery:
+            material_specs = TrainedCorpusEngine.get_2864_brewery_specs()
+        elif is_2865_carlyle:
+            material_specs = TrainedCorpusEngine.get_2865_carlyle_specs()
+        elif is_2866_moynihan:
+            material_specs = TrainedCorpusEngine.get_2866_moynihan_specs()
+        elif is_2855_resortsworld:
             material_specs = TrainedCorpusEngine.get_2855_resortsworld_specs()
         elif is_2856_moma:
             material_specs = TrainedCorpusEngine.get_2856_moma_specs()
@@ -1478,7 +1523,25 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2855_resortsworld:
+                if is_2858_proton:
+            extracted_rooms = TrainedCorpusEngine.get_2858_proton_rooms()
+        elif is_2859_cipriani:
+            extracted_rooms = TrainedCorpusEngine.get_2859_cipriani_rooms()
+        elif is_2860_vivarium:
+            extracted_rooms = TrainedCorpusEngine.get_2860_vivarium_rooms()
+        elif is_2861_barrys:
+            extracted_rooms = TrainedCorpusEngine.get_2861_barrys_rooms()
+        elif is_2862_apple:
+            extracted_rooms = TrainedCorpusEngine.get_2862_apple_rooms()
+        elif is_2863_botanic:
+            extracted_rooms = TrainedCorpusEngine.get_2863_botanic_rooms()
+        elif is_2864_brewery:
+            extracted_rooms = TrainedCorpusEngine.get_2864_brewery_rooms()
+        elif is_2865_carlyle:
+            extracted_rooms = TrainedCorpusEngine.get_2865_carlyle_rooms()
+        elif is_2866_moynihan:
+            extracted_rooms = TrainedCorpusEngine.get_2866_moynihan_rooms()
+        elif is_2855_resortsworld:
             extracted_rooms = TrainedCorpusEngine.get_2855_resortsworld_rooms()
         elif is_2856_moma:
             extracted_rooms = TrainedCorpusEngine.get_2856_moma_rooms()
