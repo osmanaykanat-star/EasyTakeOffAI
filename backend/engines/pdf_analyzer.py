@@ -1087,8 +1087,35 @@ class PDFAutoTakeoffEngine:
         is_2882_oysterbar = match_patterns([r'\[2882\]', r'\bOYSTER\s+BAR\b', r'\bGUASTAVINO\b', r'\b89\s+E\s+42ND\b', r'\b89\s+EAST\s+42ND\b'])
         is_2883_helipad = match_patterns([r'\[2883\]', r'\bHELIPAD\b', r'\bSKY\s+HANGAR\b', r'\bBLADE\b', r'\bW\s+30TH\b.*\b12TH\b'])
         is_2884_plaza = match_patterns([r'\[2884\]', r'\bPLAZA\s+HOTEL\b', r'\bPALM\s+COURT\b', r'\bAFTERNOON\s+TEA\b', r'\b768\s+5TH\b'])
+        is_2885_metmuseum = match_patterns([r'\[2885\]', r'\bMETROPOLITAN\s+MUSEUM\b', r'\bTHE\s+MET\b', r'\bTEMPLE\s+OF\s+DENDUR\b', r'\b1000\s+5TH\b'])
+        is_2886_empire = match_patterns([r'\[2886\]', r'\bEMPIRE\s+STATE\b', r'\b102ND\s+FLOOR\b', r'\bOBSERVATORY\b', r'\b350\s+5TH\b'])
+        is_2887_nyulangone = match_patterns([r'\[2887\]', r'\bNYU\s+LANGONE\b', r'\bKIMMEL\s+PAVILION\b', r'\bROBOTICS\s+OPERATING\b', r'\b570\s+1ST\b'])
+        is_2888_barclays = match_patterns([r'\[2888\]', r'\bBARCLAYS\s+CENTER\b', r'\bBILLBOARD\s+LOUNGE\b', r'\b620\s+ATLANTIC\b', r'\bBROOKLYN\s+NETS\b'])
+        is_2889_icerink = match_patterns([r'\[2889\]', r'\bROCKEFELLER\b.*\bICE\s+RINK\b', r'\bSKATE\s+LOUNGE\b', r'\b600\s+5TH\b'])
+        is_2890_stpatricks = match_patterns([r'\[2890\]', r'\bST\.?\s+PATRICK\'?S\b', r'\bARCHBISHOP\b', r'\b14\s+E\s+51ST\b', r'\b14\s+EAST\s+51ST\b'])
+        is_2891_nypl = match_patterns([r'\[2891\]', r'\bNYPL\b', r'\bSCHWARZMAN\b', r'\bROSE\s+MAIN\s+READING\b', r'\b476\s+5TH\b'])
+        is_2892_jpmc = match_patterns([r'\[2892\]', r'\bJPMORGAN\b', r'\bJPMC\b', r'\b270\s+PARK\b', r'\bTRADING\s+TOWER\b'])
+        is_2893_radiocity = match_patterns([r'\[2893\]', r'\bRADIO\s+CITY\b', r'\bROXY\s+SUITE\b', r'\b1260\s+6TH\b', r'\b1260\s+SIXTH\b'])
 
-        if is_2876_carnegie:
+        if is_2885_metmuseum:
+            metadata = TrainedCorpusEngine.get_2885_metmuseum_metadata()
+        elif is_2886_empire:
+            metadata = TrainedCorpusEngine.get_2886_empire_metadata()
+        elif is_2887_nyulangone:
+            metadata = TrainedCorpusEngine.get_2887_nyulangone_metadata()
+        elif is_2888_barclays:
+            metadata = TrainedCorpusEngine.get_2888_barclays_metadata()
+        elif is_2889_icerink:
+            metadata = TrainedCorpusEngine.get_2889_icerink_metadata()
+        elif is_2890_stpatricks:
+            metadata = TrainedCorpusEngine.get_2890_stpatricks_metadata()
+        elif is_2891_nypl:
+            metadata = TrainedCorpusEngine.get_2891_nypl_metadata()
+        elif is_2892_jpmc:
+            metadata = TrainedCorpusEngine.get_2892_jpmc_metadata()
+        elif is_2893_radiocity:
+            metadata = TrainedCorpusEngine.get_2893_radiocity_metadata()
+        elif is_2876_carnegie:
             metadata = TrainedCorpusEngine.get_2876_carnegie_metadata()
         elif is_2877_nyse:
             metadata = TrainedCorpusEngine.get_2877_nyse_metadata()
@@ -1399,7 +1426,25 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2876_carnegie:
+        if is_2885_metmuseum:
+            material_specs = TrainedCorpusEngine.get_2885_metmuseum_specs()
+        elif is_2886_empire:
+            material_specs = TrainedCorpusEngine.get_2886_empire_specs()
+        elif is_2887_nyulangone:
+            material_specs = TrainedCorpusEngine.get_2887_nyulangone_specs()
+        elif is_2888_barclays:
+            material_specs = TrainedCorpusEngine.get_2888_barclays_specs()
+        elif is_2889_icerink:
+            material_specs = TrainedCorpusEngine.get_2889_icerink_specs()
+        elif is_2890_stpatricks:
+            material_specs = TrainedCorpusEngine.get_2890_stpatricks_specs()
+        elif is_2891_nypl:
+            material_specs = TrainedCorpusEngine.get_2891_nypl_specs()
+        elif is_2892_jpmc:
+            material_specs = TrainedCorpusEngine.get_2892_jpmc_specs()
+        elif is_2893_radiocity:
+            material_specs = TrainedCorpusEngine.get_2893_radiocity_specs()
+        elif is_2876_carnegie:
             material_specs = TrainedCorpusEngine.get_2876_carnegie_specs()
         elif is_2877_nyse:
             material_specs = TrainedCorpusEngine.get_2877_nyse_specs()
@@ -1613,7 +1658,25 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2876_carnegie:
+        if is_2885_metmuseum:
+            extracted_rooms = TrainedCorpusEngine.get_2885_metmuseum_rooms()
+        elif is_2886_empire:
+            extracted_rooms = TrainedCorpusEngine.get_2886_empire_rooms()
+        elif is_2887_nyulangone:
+            extracted_rooms = TrainedCorpusEngine.get_2887_nyulangone_rooms()
+        elif is_2888_barclays:
+            extracted_rooms = TrainedCorpusEngine.get_2888_barclays_rooms()
+        elif is_2889_icerink:
+            extracted_rooms = TrainedCorpusEngine.get_2889_icerink_rooms()
+        elif is_2890_stpatricks:
+            extracted_rooms = TrainedCorpusEngine.get_2890_stpatricks_rooms()
+        elif is_2891_nypl:
+            extracted_rooms = TrainedCorpusEngine.get_2891_nypl_rooms()
+        elif is_2892_jpmc:
+            extracted_rooms = TrainedCorpusEngine.get_2892_jpmc_rooms()
+        elif is_2893_radiocity:
+            extracted_rooms = TrainedCorpusEngine.get_2893_radiocity_rooms()
+        elif is_2876_carnegie:
             extracted_rooms = TrainedCorpusEngine.get_2876_carnegie_rooms()
         elif is_2877_nyse:
             extracted_rooms = TrainedCorpusEngine.get_2877_nyse_rooms()
