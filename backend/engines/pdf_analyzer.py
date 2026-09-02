@@ -1057,8 +1057,17 @@ class PDFAutoTakeoffEngine:
         is_2852_marina = match_patterns([r'\[2852\]', r'\bNAVY\s+YARD\b', r'\bWATERFRONT\s+MARINA\b', r'\bCOMMODORE\b', r'\b63\s+FLUSHING\b'])
         is_2853_saks = match_patterns([r'\[2853\]', r'\bSAKS\b', r'\bSAKS\s+FIFTH\b', r'\b611\s+5TH\b', r'\b611\s+FIFTH\b', r'\bBEAUTY\s+ATRIUM\b'])
         is_2854_pfizer = match_patterns([r'\[2854\]', r'\bPFIZER\b', r'\b235\s+E\s+42ND\b', r'\bCLEANROOM\b', r'\bSTERILE\s+COMPOUNDING\b'])
+        is_2855_resortsworld = match_patterns([r'\[2855\]', r'\bRESORTS\s+WORLD\b', r'\bBACCARAT\b', r'\bGAMING\s+PAVILION\b', r'\b110-00\s+ROCKAWAY\b'])
+        is_2856_moma = match_patterns([r'\[2856\]', r'\bMOMA\b', r'\bMUSEUM\s+OF\s+MODERN\s+ART\b', r'\b11\s+W\s+53RD\b', r'\bSCULPTURE\s+PAVILION\b'])
+        is_2857_equinixdata = match_patterns([r'\[2857\]', r'\bEQUINIX\b.*?\bSECAUCUS\b', r'\bHYPERSCALE\s+DATA\b', r'\bPOWER\s+VAULT\b', r'\b755\s+SECAUCUS\b'])
 
-        if is_2852_marina:
+        if is_2855_resortsworld:
+            metadata = TrainedCorpusEngine.get_2855_resortsworld_metadata()
+        elif is_2856_moma:
+            metadata = TrainedCorpusEngine.get_2856_moma_metadata()
+        elif is_2857_equinixdata:
+            metadata = TrainedCorpusEngine.get_2857_equinixdata_metadata()
+        elif is_2852_marina:
             metadata = TrainedCorpusEngine.get_2852_marinaclub_metadata()
         elif is_2853_saks:
             metadata = TrainedCorpusEngine.get_2853_saks_metadata()
@@ -1309,7 +1318,13 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2852_marina:
+        if is_2855_resortsworld:
+            material_specs = TrainedCorpusEngine.get_2855_resortsworld_specs()
+        elif is_2856_moma:
+            material_specs = TrainedCorpusEngine.get_2856_moma_specs()
+        elif is_2857_equinixdata:
+            material_specs = TrainedCorpusEngine.get_2857_equinixdata_specs()
+        elif is_2852_marina:
             material_specs = TrainedCorpusEngine.get_2852_marinaclub_specs()
         elif is_2853_saks:
             material_specs = TrainedCorpusEngine.get_2853_saks_specs()
@@ -1463,7 +1478,13 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2852_marina:
+        if is_2855_resortsworld:
+            extracted_rooms = TrainedCorpusEngine.get_2855_resortsworld_rooms()
+        elif is_2856_moma:
+            extracted_rooms = TrainedCorpusEngine.get_2856_moma_rooms()
+        elif is_2857_equinixdata:
+            extracted_rooms = TrainedCorpusEngine.get_2857_equinixdata_rooms()
+        elif is_2852_marina:
             extracted_rooms = TrainedCorpusEngine.get_2852_marinaclub_rooms()
         elif is_2853_saks:
             extracted_rooms = TrainedCorpusEngine.get_2853_saks_rooms()
