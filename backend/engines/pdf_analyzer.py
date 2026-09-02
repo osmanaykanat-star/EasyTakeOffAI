@@ -1045,8 +1045,17 @@ class PDFAutoTakeoffEngine:
         is_2840_jfk = match_patterns([r'\[2840\]', r'\bJFK\b', r'\bTERMINAL\s+4\b', r'\bSKY\s+CLUB\b', r'\bPANYNJ\b', r'\bDELTA\s+AIR\b'])
         is_2841_tiffany = match_patterns([r'\[2841\]', r'\bTIFFANY\b', r'\b727\s+5TH\b', r'\b727\s+FIFTH\b', r'\bLANDMARK\s+BOUTIQUE\b'])
         is_2842_hudsonyards = match_patterns([r'\[2842\]', r'\b50\s+HUDSON\s+YARDS\b', r'\bHUDSON\s+YARDS\b.*?\bFINTECH\b', r'\bBLACKROCK\b'])
+        is_2843_columbia = match_patterns([r'\[2843\]', r'\bCOLUMBIA\s+UNIVERSITY\b', r'\b612\s+W\s+130TH\b', r'\b612\s+WEST\s+130TH\b', r'\bMANHATTANVILLE\b', r'\bBIO-MEDICAL\b'])
+        is_2844_lincolncenter = match_patterns([r'\[2844\]', r'\bLINCOLN\s+CENTER\b', r'\bDAVID\s+GEFFEN\b', r'\bGEFFEN\s+HALL\b', r'\bPATRON\s+SALON\b'])
+        is_2845_equinox = match_patterns([r'\[2845\]', r'\bEQUINOX\b', r'\b160\s+COLUMBUS\b', r'\bAQUATIC\s+SPA\b', r'\bCOLUMBUS\s+AVE\b'])
 
-        if is_2840_jfk:
+        if is_2843_columbia:
+            metadata = TrainedCorpusEngine.get_2843_columbia_metadata()
+        elif is_2844_lincolncenter:
+            metadata = TrainedCorpusEngine.get_2844_lincolncenter_metadata()
+        elif is_2845_equinox:
+            metadata = TrainedCorpusEngine.get_2845_equinox_metadata()
+        elif is_2840_jfk:
             metadata = TrainedCorpusEngine.get_2840_jfk_metadata()
         elif is_2841_tiffany:
             metadata = TrainedCorpusEngine.get_2841_tiffany_metadata()
@@ -1273,7 +1282,13 @@ class PDFAutoTakeoffEngine:
             metadata["date_str"] = datetime.date.today().strftime("%m/%d/%Y")
 
         # 2. Material Specs Selection
-        if is_2840_jfk:
+        if is_2843_columbia:
+            material_specs = TrainedCorpusEngine.get_2843_columbia_specs()
+        elif is_2844_lincolncenter:
+            material_specs = TrainedCorpusEngine.get_2844_lincolncenter_specs()
+        elif is_2845_equinox:
+            material_specs = TrainedCorpusEngine.get_2845_equinox_specs()
+        elif is_2840_jfk:
             material_specs = TrainedCorpusEngine.get_2840_jfk_specs()
         elif is_2841_tiffany:
             material_specs = TrainedCorpusEngine.get_2841_tiffany_specs()
@@ -1403,7 +1418,13 @@ class PDFAutoTakeoffEngine:
         # 3. Intelligent Room Extraction & Net Area Calculation
         extracted_rooms: List[RoomTakeoff] = []
 
-        if is_2840_jfk:
+        if is_2843_columbia:
+            extracted_rooms = TrainedCorpusEngine.get_2843_columbia_rooms()
+        elif is_2844_lincolncenter:
+            extracted_rooms = TrainedCorpusEngine.get_2844_lincolncenter_rooms()
+        elif is_2845_equinox:
+            extracted_rooms = TrainedCorpusEngine.get_2845_equinox_rooms()
+        elif is_2840_jfk:
             extracted_rooms = TrainedCorpusEngine.get_2840_jfk_rooms()
         elif is_2841_tiffany:
             extracted_rooms = TrainedCorpusEngine.get_2841_tiffany_rooms()
