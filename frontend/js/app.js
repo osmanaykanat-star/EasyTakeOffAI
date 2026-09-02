@@ -285,23 +285,6 @@ function categorizeTakeoffItem(item) {
         return "COUNTERTOP";
     }
 
-    // 8. Cabinets, Casework & Millwork
-    if (
-        symUpper.startsWith("CAB-") ||
-        ftUpper.includes("CASEWORK") ||
-        ftUpper.includes("CABINET") ||
-        mtUpper.includes("CABINET") ||
-        mtUpper.includes("CASEWORK") ||
-        mtUpper.includes("DRAWER") ||
-        mtUpper.includes("BAR PULL") ||
-        mtUpper.includes("HINGE") ||
-        mtUpper.includes("UNDERMOUNT SLIDE") ||
-        mtUpper.includes("TOE KICK") ||
-        (item.trade && (item.trade.includes("Cabinet") || item.trade.includes("Millwork")))
-    ) {
-        return "CABINET";
-    }
-
     return "OTHER";
 }
 

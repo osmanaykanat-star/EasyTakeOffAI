@@ -21,7 +21,7 @@ def classify_item_trade(finish_type: str, material_type: str, symbol: str) -> st
     elif any(k in s for k in ["PAINT", "WALL COVER", "BENJAMIN", "PRIMER", "PLASTER", "COATING"]):
         return "Painting"
     elif any(k in s for k in ["CABINET", "MILLWORK", "KRAFTMAID", "DOOR", "HARDWARE", "SHELVING", "CARPENTRY", "VANITY"]):
-        return "Cabinets & Millwork"
+        return "Millwork & Carpentry"
     elif any(k in s for k in ["PLUMB", "SINK", "TOILET", "FAUCET", "BATHTUB", "TUB", "DRAIN", "SHOWER TRIM", "ELKAY", "KOHLER"]):
         return "Plumbing"
     elif any(k in s for k in ["HVAC", "PTAC", "BOILER", "HEAT", "AC", "GAS LINE", "COOLING"]):

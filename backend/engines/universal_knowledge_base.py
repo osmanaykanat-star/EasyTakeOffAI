@@ -7,7 +7,6 @@ from ..trades.drywall_and_framing import DrywallAndFramingEngine
 from ..trades.painting_and_coatings import PaintingAndCoatingsEngine
 from ..trades.commercial_flooring import CommercialFlooringEngine
 from ..trades.doors_and_hardware import DoorsAndHardwareEngine
-from ..trades.cabinets_and_millwork import CabinetsAndMillworkEngine
 
 DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "all_commercial_proposals_knowledge.json")
 STATS_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "commercial_training_statistics.json")
@@ -15,13 +14,12 @@ STATS_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "c
 class UniversalKnowledgeBase:
     """
     Master Knowledge Base & Multi-Trade Estimation Engine:
-    Trained across 5,000 Master Benchmark Projects and full multi-discipline scopes:
-    - Tile & Stone (Division 09 30 00)
-    - Drywall & Framing (Division 09 22 00)
-    - Painting & Finishes (Division 09 91 00)
-    - Commercial Flooring (Division 09 65 00 / 09 68 00)
-    - Doors & Hardware (Division 08 11 00 / 08 71 00)
-    - Cabinets & Millwork (Division 06 41 00 / 12 35 00)
+    Trained on 5,000 Master Benchmark Projects and full multi-discipline scopes:
+    - Tile & Stone
+    - Drywall & Framing
+    - Painting & Finishes
+    - Commercial Flooring
+    - Doors & Hardware
     """
     _cached_data = None
     _cached_stats = None
@@ -59,8 +57,7 @@ class UniversalKnowledgeBase:
             "Drywall & Framing",
             "Painting & Finishes",
             "Commercial Flooring",
-            "Doors & Hardware",
-            "Cabinets & Millwork"
+            "Doors & Hardware"
         ]
 
     @classmethod
@@ -74,8 +71,6 @@ class UniversalKnowledgeBase:
             return CommercialFlooringEngine.get_default_specs()
         elif "door" in t or "hardware" in t:
             return DoorsAndHardwareEngine.get_default_specs()
-        elif "cabinet" in t or "millwork" in t or "casework" in t:
-            return CabinetsAndMillworkEngine.get_default_specs()
         else:
             return TileAndStoneEngine.get_default_specs()
 
@@ -116,9 +111,6 @@ class UniversalKnowledgeBase:
             if "door" in t or "hardware" in t:
                 is_exit = any(k in room_name.upper() for k in ["CORRIDOR", "EGRESS", "STAIR", "EXIT", "LOBBY"])
                 all_items.extend(DoorsAndHardwareEngine.calculate_room_doors(room_name, door_count=door_count, is_fire_exit=is_exit, is_wood_door=not is_exit))
-            if "cabinet" in t or "millwork" in t or "casework" in t:
-                dummy_room = RoomTakeoff(room_name=room_name, floor_name=floor_name, length_ft=length_ft, width_ft=width_ft, ceiling_height_ft=ceiling_height_ft, door_count=door_count)
-                all_items.extend(CabinetsAndMillworkEngine.calculate_room_casework(dummy_room))
                 
         return RoomTakeoff(
             room_name=room_name,

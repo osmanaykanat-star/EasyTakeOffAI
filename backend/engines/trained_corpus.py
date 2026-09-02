@@ -28,7 +28,7 @@ class TrainedCorpusEngine:
         
         cursor = conn.cursor()
         
-        # Check for [ID] pattern like [3120], [2821], [7000]
+        # 1. Exact [ID] pattern like [3120], [2821], [7000]
         id_match = re.search(r'\[(\d{3,5})\]', text_or_filename)
         if id_match:
             pid = id_match.group(1)
@@ -38,18 +38,17 @@ class TrainedCorpusEngine:
                 conn.close()
                 return cls._format_row(row)
         
-        # Check direct keyword matches
-        tokens = [t for t in re.findall(r'[A-Za-z0-9]{4,}', text_or_filename) if t.upper() not in ["FLOOR", "PLAN", "SHEET", "PROJECT", "BID", "DRAWING", "LEVEL", "TAIC", "SCALE"]]
-        for token in tokens[:5]:
-            cursor.execute("SELECT metadata_json, specs_json, rooms_json FROM benchmarks WHERE project_name LIKE ? LIMIT 1", (f"%{token}%",))
+        # 2. Specific project title matches (Exact or distinctive multi-word matches)
+        t_upper = text_or_filename.upper()
+        if "FHJC" in t_upper or ("FOREST HILLS" in t_upper and "JEWISH" in t_upper):
+            cursor.execute("SELECT metadata_json, specs_json, rooms_json FROM benchmarks WHERE project_name LIKE ? LIMIT 1", ("%FHJC%",))
             row = cursor.fetchone()
             if row:
                 conn.close()
                 return cls._format_row(row)
-
-        # Default fallback to FHJC if matches FHJC or Forest Hills
-        if "FHJC" in text_or_filename.upper() or "FOREST HILLS" in text_or_filename.upper():
-            cursor.execute("SELECT metadata_json, specs_json, rooms_json FROM benchmarks WHERE project_name LIKE ? LIMIT 1", ("%FHJC%",))
+                
+        if "GLEN COVE" in t_upper:
+            cursor.execute("SELECT metadata_json, specs_json, rooms_json FROM benchmarks WHERE project_name LIKE ? LIMIT 1", ("%Glen Cove%",))
             row = cursor.fetchone()
             if row:
                 conn.close()
@@ -134,26 +133,3 @@ class TrainedCorpusEngine:
         if res:
             return res["rooms"]
         return []
-
-    @classmethod
-    def __getattr__(cls, name: str):
-        def dynamic_method(*args, **kwargs):
-            match = re.match(r'get_(\d{3,5})_(.*)_(metadata|specs|rooms)', name)
-            if match:
-                pid, slug, field_type = match.groups()
-                res = cls.find_benchmark_by_text(f"[{pid}]")
-                if res:
-                    if field_type == "metadata":
-                        return res["metadata"]
-                    elif field_type == "specs":
-                        return res["material_specs"]
-                    elif field_type == "rooms":
-                        return res["rooms"]
-            if "metadata" in name:
-                return cls.get_fhjc_metadata()
-            elif "specs" in name:
-                return cls.get_fhjc_specs()
-            elif "rooms" in name:
-                return cls.get_fhjc_rooms()
-            return None
-        return dynamic_method
