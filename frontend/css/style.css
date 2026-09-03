@@ -1074,6 +1074,47 @@ body.app-locked .sidebar {
 .ai-msg.bot p:last-child {
     margin: 0;
 }
+.ai-msg.bot table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 0.82rem;
+}
+.ai-msg.bot th, .ai-msg.bot td {
+    padding: 5px 8px;
+    border: 1px solid #334155;
+    text-align: left;
+}
+.ai-msg.bot th {
+    background: #0f172a;
+    color: #c084fc;
+    font-weight: 600;
+}
+.ai-msg.bot tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+}
+.ai-msg.bot ul, .ai-msg.bot ol {
+    margin: 6px 0 6px 20px;
+    padding: 0;
+}
+.ai-msg.bot li {
+    margin-bottom: 4px;
+}
+.ai-msg.bot h1, .ai-msg.bot h2, .ai-msg.bot h3, .ai-msg.bot h4 {
+    color: #f8fafc;
+    margin: 10px 0 6px 0;
+    font-size: 0.95rem;
+}
+.ai-msg.bot strong {
+    color: #c084fc;
+}
+.ai-msg.bot code {
+    background: #0f172a;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #38bdf8;
+}
 
 .ai-msg-actions {
     margin-top: 8px;

@@ -15,7 +15,7 @@ class GeminiAIEngine:
     Intelligent Multimodal Takeoff and Estimating Engine powered by Gemini 3.6 Flash.
     Provides automated blueprint vision takeoff, schedule extraction, Q&A chat, and price advisory.
     """
-    DEFAULT_MODEL = "gemini-3.6-flash"
+    DEFAULT_MODEL = "gemini-3.5-flash-lite"
 
     @staticmethod
     def get_api_key() -> str:
@@ -58,7 +58,7 @@ class GeminiAIEngine:
                 "error": str(e)
             }
 
-    FALLBACK_MODELS = ["gemini-flash-latest", "gemini-2.5-flash-lite"]
+    FALLBACK_MODELS = ["gemini-3.5-flash", "gemini-3-flash-preview"]
 
     @classmethod
     def convert_pdf_to_images(cls, pdf_path: str, max_pages: int = 4, dpi: int = 120) -> List[bytes]:
@@ -201,7 +201,7 @@ Return ONLY a valid JSON object matching this schema:
             return {"status": "error", "raw_response": raw, "error": str(e)}
 
     @classmethod
-    def chat_with_project(cls, message: str, project_context: Dict[str, Any]) -> str:
+    def chat_with_project(cls, message: str, project_context: Dict[str, Any], history: Optional[List[Dict[str, str]]] = None) -> str:
         client = cls.get_client()
         summary = {
             "project_name": project_context.get("project_name", ""),
@@ -214,11 +214,18 @@ Return ONLY a valid JSON object matching this schema:
                     "name": r.get("room_name"),
                     "floor": r.get("floor_name"),
                     "items": [
-                        {"symbol": it.get("symbol"), "type": it.get("finish_type"), "qty": it.get("quantity"), "unit": it.get("unit")}
+                        {
+                            "symbol": it.get("symbol"),
+                            "type": it.get("finish_type"),
+                            "qty": it.get("quantity"),
+                            "unit": it.get("unit"),
+                            "material_price": it.get("material_price", 0.0),
+                            "labor_price": it.get("labor_price", 0.0)
+                        }
                         for it in r.get("items", [])
                     ]
                 }
-                for r in project_context.get("rooms", [])[:20]
+                for r in project_context.get("rooms", [])[:30]
             ],
             "material_specs": project_context.get("material_specs", {})
         }
@@ -228,21 +235,34 @@ Return ONLY a valid JSON object matching this schema:
         except Exception:
             training_summary = "Trained on 1,000+ commercial construction benchmark projects."
 
+        # Format conversation history
+        history_text = ""
+        if history and isinstance(history, list):
+            history_snippets = []
+            for h in history[-8:]:
+                role = "Estimator" if h.get("role") == "user" else "Copilot"
+                content = str(h.get("content", "")).strip()
+                if content:
+                    history_snippets.append(f"{role}: {content}")
+            if history_snippets:
+                history_text = "Recent Conversation History:\n" + "\n".join(history_snippets) + "\n\n"
+
         prompt = f"""
 You are the AI Construction Estimation Copilot for EasyTakeOffAI, powered by Gemini 3.6 Flash.
 You are assisting {estimator_name}, the Estimator.
-You are trained on 1,000+ verified commercial subcontracting projects and US industry standards.
+You are trained on 1,000+ verified commercial subcontracting projects and US/international construction standards.
 {training_summary}
 
 Project Context:
 {json.dumps(summary, indent=2)}
 
-User Question: {message}
+{history_text}Current User Question: {message}
 
 Instructions:
-1. Always respond strictly in professional American Construction English.
-2. Address the user professionally as {estimator_name}.
-3. Provide precise, actionable estimates, square footage breakdowns, waste margins, and specification details.
+1. Language matching: Detect the language of the user's question. If the user writes in Turkish, respond completely and fluently in professional Turkish (using standard Turkish construction & takeoff terms: metraj, mahal listesi, birim fiyat, fire payı, şap, su yalıtımı vb.). If in English, respond in professional American Construction English.
+2. Address the user respectfully (as {estimator_name} or değerli meslektaşım).
+3. Provide precise, actionable estimates, square footage/meter breakdowns, waste margins, unit pricing, and specification details based on the project data.
+4. When presenting data, use clear Markdown headings, bullet points, and tables.
 """
         models_to_try = [cls.DEFAULT_MODEL] + cls.FALLBACK_MODELS
         for model_name in models_to_try:

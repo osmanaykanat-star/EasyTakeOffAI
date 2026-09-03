@@ -1240,13 +1240,15 @@ async function saveRegistrationProfile(event) {
 // ============================================================
 // GEMINI 3.6 FLASH AI COPILOT & VISION HANDLERS
 // ============================================================
+let aiChatConversationHistory = [];
+
 function openAICopilotModal() {
     const modal = document.getElementById("aiCopilotModal");
     if (modal) {
         const estName = (userProfile?.estimator_name || document.getElementById("estimatorName")?.value || "").trim();
         const welcomeEl = document.getElementById("aiWelcomeGreeting");
         if (welcomeEl) {
-            welcomeEl.textContent = estName ? `Hello ${estName}!` : "Welcome!";
+            welcomeEl.textContent = estName ? `Merhaba ${estName}!` : "Hoş Geldiniz!";
         }
         modal.style.display = "flex";
         setTimeout(() => {
@@ -1286,10 +1288,13 @@ async function sendAIChatMessage() {
     inp.value = "";
     history.scrollTop = history.scrollHeight;
 
+    // Append to local history
+    aiChatConversationHistory.push({ role: "user", content: message });
+
     // Append Loading indicator
     const botLoadingDiv = document.createElement("div");
     botLoadingDiv.className = "ai-msg bot";
-    botLoadingDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gemini 3.6 Flash is analyzing project data...';
+    botLoadingDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gemini 3.6 Flash yanıt hazırlıyor...';
     history.appendChild(botLoadingDiv);
     history.scrollTop = history.scrollHeight;
 
@@ -1299,19 +1304,30 @@ async function sendAIChatMessage() {
         const response = await fetch("/api/ai/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: message })
+            body: JSON.stringify({
+                message: message,
+                history: aiChatConversationHistory,
+                project: (typeof projectData !== "undefined" && projectData) ? projectData : null
+            })
         });
         const data = await response.json();
 
         if (data.status === "success" && data.reply) {
-            // Format newlines to paragraphs / clean markdown
-            const formatted = data.reply.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
-            botLoadingDiv.innerHTML = `<p>${formatted}</p>`;
+            aiChatConversationHistory.push({ role: "assistant", content: data.reply });
+            if (typeof marked !== "undefined" && marked.parse) {
+                botLoadingDiv.innerHTML = marked.parse(data.reply);
+            } else {
+                const formatted = data.reply
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n\n/g, "</p><p>")
+                    .replace(/\n/g, "<br>");
+                botLoadingDiv.innerHTML = `<p>${formatted}</p>`;
+            }
         } else {
-            botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Error: ${data.message || "Could not retrieve response."}</p>`;
+            botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Hata: ${data.message || "Yanıt alınamadı."}</p>`;
         }
     } catch (err) {
-        botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Connection Error: ${err.message}</p>`;
+        botLoadingDiv.innerHTML = `<p style="color: #ef4444;">⚠️ Bağlantı Hatası: ${err.message}</p>`;
     } finally {
         if (sendBtn) sendBtn.disabled = false;
         history.scrollTop = history.scrollHeight;
