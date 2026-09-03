@@ -127,19 +127,20 @@ class ScheduleScanner:
     def scan_material_legend_text(text: str) -> Dict[str, Dict[str, str]]:
         """
         Parses Finish Legends and Material Schedules line-by-line across all pages.
-        Extracts: Symbol (e.g. CPT-1, LVT-1, T-1, PT-1), Manufacturer, Model, Dimensions, Color, Finish
+        Extracts: Symbol (e.g. CPT-1, LVT-1, T-1, PT-1, ST-01), Manufacturer, Model, Dimensions, Color, Finish.
+        Supports both single-line ('TAG : Description') and multi-line vertical columnar tables.
         """
         legend = {}
-        lines = text.split("\n")
+        lines = [l.strip() for l in text.split("\n") if l.strip()]
         
+        # 1. Single-line pattern (e.g. 'FT-1 : 12x24 Daltile Portfolio Dove Grey')
         legend_regex = re.compile(
             r'^\s*([A-Z]{1,4}-?[0-9]{1,3}[A-Z]?)\s*[:\s-]\s*([A-Z0-9\s,\'\"\./&-]{5,100})',
             re.IGNORECASE
         )
 
         for line in lines:
-            line_str = line.strip()
-            m = legend_regex.search(line_str)
+            m = legend_regex.search(line)
             if m:
                 sym = m.group(1).upper()
                 desc = m.group(2).strip()
@@ -148,5 +149,35 @@ class ScheduleScanner:
                         "symbol": sym,
                         "description": desc
                     }
+
+        # 2. Multi-line columnar table schedule scanner (e.g. Architectural Finish Schedules)
+        tag_pattern = re.compile(
+            r'^(T-[0-9]{1,2}|TL-[0-9]{1,2}|CTF-[0-9]{1,2}|CTW-[0-9]{1,2}|FT-[0-9]{1,2}|WT-[0-9]{1,2}|TB-[0-9]{1,2}|ST-[0-9]{1,2}|SSF?-[0-9]{1,2}|PT-[0-9]{1,2}|CPT-[0-9]{1,2}|ACT-[0-9]{1,2}|SC-[0-9]{1,2}|RBF[0-9]{1,2}|PF-[A-Z0-9-]+)$',
+            re.IGNORECASE
+        )
+        category_stop_words = {
+            'FLOOR', 'WALL', 'CEILING', 'MILLWORK', 'PAINT', 'METAL PROFILES', 'WALL BASE',
+            'FINISH SCHEDULE', 'MATERIAL LEGEND', 'ROOM FINISH SCHEDULE', 'ROOM NO'
+        }
+
+        for i, line in enumerate(lines):
+            m = tag_pattern.match(line)
+            if m:
+                sym = m.group(1).upper()
+                next_parts = []
+                for j in range(i + 1, min(len(lines), i + 7)):
+                    nl = lines[j]
+                    if tag_pattern.match(nl) or nl.upper() in category_stop_words:
+                        break
+                    if nl not in ['N/A', '-', '']:
+                        next_parts.append(nl)
+                if next_parts:
+                    desc = ' - '.join(next_parts[:4])
+                    # If this multi-line description is richer or symbol not yet present, save it
+                    if sym not in legend or len(desc) > len(legend[sym].get("description", "")):
+                        legend[sym] = {
+                            "symbol": sym,
+                            "description": desc
+                        }
 
         return legend

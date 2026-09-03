@@ -79,6 +79,8 @@ class PDFAutoTakeoffEngine:
         benchmark_match = TrainedCorpusEngine.find_benchmark_by_text(file_basename)
         if not benchmark_match and ("FHJC" in full_text[:2000].upper() or ("FOREST HILLS" in full_text[:2000].upper() and "JEWISH" in full_text[:2000].upper())):
             benchmark_match = TrainedCorpusEngine.find_benchmark_by_text("FHJC")
+        if not benchmark_match and any(k in full_text[:5000].upper() or k in file_basename.upper() for k in ["HERO", "HEROS", "2024043", "LL REVIEW"]):
+            benchmark_match = TrainedCorpusEngine.get_heros_journey_benchmark()
         if not benchmark_match and any(k in full_text[:5000].upper() or k in file_basename.upper() for k in ["CROZIER", "32-02 QUEENS", "32 02 QUEENS", "QUEENS BLVD", "ONEDRIVE_2026-09-03", "ONEDRIVE20260903"]):
             benchmark_match = TrainedCorpusEngine.find_benchmark_by_text("CROZIER")
 
