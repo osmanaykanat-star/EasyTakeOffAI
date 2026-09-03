@@ -553,6 +553,7 @@ async function saveMaterialSpecs() {
         });
         const data = await res.json();
         projectData = data.project;
+        if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
         renderProject();
         showToast("✨ Material specifications & budget prices saved!");
     } catch (e) {
@@ -589,6 +590,7 @@ async function uploadFile(file) {
         if (resultsEl) resultsEl.style.display = "flex";
 
         projectData = data.project;
+        if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
         renderProject();
         if (typeof loadPolygonsAndAudit === 'function') {
             loadPolygonsAndAudit();
@@ -641,6 +643,7 @@ async function applyBulkPrices() {
         });
         const data = await res.json();
         projectData = data.project;
+        if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
         renderProject();
         showToast("Unit prices updated successfully!");
     } catch (e) {
@@ -725,6 +728,7 @@ async function deleteRoom(rIdx) {
         const res = await fetch(`/api/project/rooms/${rIdx}`, { method: "DELETE" });
         const data = await res.json();
         projectData = data.project;
+        if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
         renderProject();
         showToast("Room deleted.");
     } catch (e) {
@@ -758,6 +762,7 @@ async function loadSampleProject(sampleId) {
         const res = await fetch(`/api/project/load_sample?sample_id=${sampleId}`, { method: "POST" });
         const data = await res.json();
         projectData = data.project;
+        if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
         renderProject();
         showToast(`Loaded ${sampleId.toUpperCase()} sample project.`);
     } catch (e) {
@@ -902,6 +907,7 @@ async function applyTradesFilter() {
         });
         const data = await res.json();
         projectData = data.project;
+        if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
         renderProject();
         showToast(`Trade güncellendi: ${selectedTrades.join(", ")}`);
     } catch (e) {

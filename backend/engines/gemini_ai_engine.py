@@ -58,8 +58,10 @@ class GeminiAIEngine:
                 "error": str(e)
             }
 
+    FALLBACK_MODELS = ["gemini-flash-latest", "gemini-2.5-flash-lite"]
+
     @classmethod
-    def convert_pdf_to_images(cls, pdf_path: str, max_pages: int = 5, dpi: int = 150) -> List[bytes]:
+    def convert_pdf_to_images(cls, pdf_path: str, max_pages: int = 4, dpi: int = 120) -> List[bytes]:
         images_bytes = []
         try:
             doc = pymupdf.open(pdf_path)
@@ -69,7 +71,7 @@ class GeminiAIEngine:
                 zoom = dpi / 72.0
                 mat = pymupdf.Matrix(zoom, zoom)
                 pix = page.get_pixmap(matrix=mat, alpha=False)
-                images_bytes.append(pix.tobytes("jpeg"))
+                images_bytes.append(pix.tobytes("jpeg", jpg_quality=80))
             doc.close()
         except Exception as e:
             print(f"Error converting PDF: {e}")
@@ -82,7 +84,7 @@ class GeminiAIEngine:
         contents_payload = []
 
         if ext == ".pdf":
-            images = cls.convert_pdf_to_images(file_path, max_pages=6, dpi=160)
+            images = cls.convert_pdf_to_images(file_path, max_pages=4, dpi=120)
             if not images:
                 raise ValueError("Could not render PDF pages for AI Vision.")
             for img in images:
@@ -95,7 +97,11 @@ class GeminiAIEngine:
         else:
             raise ValueError(f"Unsupported file format: {ext}")
 
-        training_ref = UniversalKnowledgeBase.get_summary_context_for_ai()
+        try:
+            training_ref = UniversalKnowledgeBase.get_summary_context_for_ai()
+        except Exception:
+            training_ref = "Trained on 1,000+ commercial construction benchmark projects."
+
         prompt = f"""
 You are a Senior Construction Estimator specializing in Architectural Blueprint Takeoffs ({trade_focus}).
 Trained on 1,000+ commercial construction benchmark projects.
@@ -163,10 +169,25 @@ Return ONLY a valid JSON object matching this schema:
 }}
 """
         contents_payload.append(prompt)
-        res = client.models.generate_content(
-            model=cls.DEFAULT_MODEL,
-            contents=contents_payload
-        )
+
+        models_to_try = [cls.DEFAULT_MODEL] + cls.FALLBACK_MODELS
+        res = None
+        last_error = None
+        for model_name in models_to_try:
+            try:
+                res = client.models.generate_content(
+                    model=model_name,
+                    contents=contents_payload
+                )
+                if res and res.text:
+                    break
+            except Exception as ex:
+                last_error = ex
+                continue
+
+        if not res or not res.text:
+            return {"status": "error", "error": f"Gemini Vision generation failed: {last_error}"}
+
         raw = res.text or ""
         cleaned = re.sub(r"^```json\s*", "", raw.strip(), flags=re.IGNORECASE)
         cleaned = re.sub(r"```$", "", cleaned.strip())
@@ -202,7 +223,11 @@ Return ONLY a valid JSON object matching this schema:
             "material_specs": project_context.get("material_specs", {})
         }
         estimator_name = (project_context.get("estimator_name") or "").strip() or "Estimator"
-        training_summary = UniversalKnowledgeBase.get_summary_context_for_ai()
+        try:
+            training_summary = UniversalKnowledgeBase.get_summary_context_for_ai()
+        except Exception:
+            training_summary = "Trained on 1,000+ commercial construction benchmark projects."
+
         prompt = f"""
 You are the AI Construction Estimation Copilot for EasyTakeOffAI, powered by Gemini 3.6 Flash.
 You are assisting {estimator_name}, the Estimator.
@@ -219,11 +244,18 @@ Instructions:
 2. Address the user professionally as {estimator_name}.
 3. Provide precise, actionable estimates, square footage breakdowns, waste margins, and specification details.
 """
-        res = client.models.generate_content(
-            model=cls.DEFAULT_MODEL,
-            contents=prompt
-        )
-        return res.text or "No response generated."
+        models_to_try = [cls.DEFAULT_MODEL] + cls.FALLBACK_MODELS
+        for model_name in models_to_try:
+            try:
+                res = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt
+                )
+                if res and res.text:
+                    return res.text
+            except Exception:
+                continue
+        return "AI Copilot is momentarily unavailable. Please try again."
 
     @classmethod
     def suggest_pricing(cls, trade: str, symbol: str, description: str, unit: str = "SQ FT") -> Dict[str, Any]:

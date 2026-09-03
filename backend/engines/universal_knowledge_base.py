@@ -145,3 +145,19 @@ class UniversalKnowledgeBase:
             "4) Protection of finished work after final punchlist turnover",
             "5) Final trade cleaning beyond broom clean condition"
         ]
+
+    @classmethod
+    def get_summary_context_for_ai(cls) -> str:
+        stats = cls.load_stats()
+        if stats:
+            total_proj = stats.get("total_commercial_projects_indexed", 1747)
+            total_specs = stats.get("total_distinct_material_specs", 965)
+            total_rooms = stats.get("total_distinct_room_types", 5011)
+            return (
+                f"Trained on Universal Commercial Knowledge Base:\n"
+                f"- Indexed Commercial Projects: {total_proj}+\n"
+                f"- Material Specifications Catalog: {total_specs}+\n"
+                f"- Room Types & Scope Benchmarks: {total_rooms}+\n"
+                f"- Standard Disciplines: Tile & Stone, Drywall & Framing, Painting & Finishes, Commercial Flooring, Doors & Hardware."
+            )
+        return "Trained on Universal Commercial Knowledge Base: 1,000+ commercial construction projects indexed across major subcontracting trades."

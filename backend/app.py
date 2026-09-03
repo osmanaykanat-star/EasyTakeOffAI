@@ -530,6 +530,8 @@ async def upload_drawing(file: UploadFile = File(...)):
                 CURRENT_PROJECT.client_company = meta["client_company"]
             if meta.get("date_str") and (has_rooms or not CURRENT_PROJECT.date_str):
                 CURRENT_PROJECT.date_str = meta["date_str"]
+            if meta.get("trade_category"):
+                CURRENT_PROJECT.trade_category = meta["trade_category"]
 
             if res.get("material_specs"):
                 CURRENT_PROJECT.material_specs.update(res["material_specs"])
@@ -564,13 +566,25 @@ async def upload_drawing(file: UploadFile = File(...)):
         "project": CURRENT_PROJECT.to_dict()
     }
 
+def get_effective_project(trades: Optional[str] = None) -> ProjectTakeoff:
+    global CURRENT_PROJECT, ACTIVE_TRADES
+    if not CURRENT_PROJECT.rooms:
+        return CURRENT_PROJECT
+    if not trades or trades.upper() in ["ALL", "NONE", ""]:
+        return CURRENT_PROJECT
+    selected = [t.strip() for t in trades.split(",") if t.strip()]
+    if not selected or "ALL" in [s.upper() for s in selected]:
+        return CURRENT_PROJECT
+    filtered = CURRENT_PROJECT.filter_by_trades(selected)
+    if not filtered.rooms:
+        return CURRENT_PROJECT
+    return filtered
+
 @app.get("/api/export/excel")
 def export_excel(trades: Optional[str] = None):
-    global CURRENT_PROJECT, ACTIVE_TRADES
-    selected = [t.strip() for t in trades.split(",") if t.strip()] if trades else ACTIVE_TRADES
-    proj = CURRENT_PROJECT.filter_by_trades(selected)
+    proj = get_effective_project(trades)
     temp_dir = tempfile.gettempdir()
-    clean_name = "".join([c if c.isalnum() else "_" for c in proj.project_name])
+    clean_name = "".join([c if c.isalnum() else "_" for c in proj.project_name or "Proposal"])
     export_path = os.path.join(temp_dir, f"Proposal_{clean_name}.xlsx")
     ExcelProposalGenerator.generate_excel(proj, export_path)
     return FileResponse(
@@ -581,11 +595,9 @@ def export_excel(trades: Optional[str] = None):
 
 @app.get("/api/export/sow-excel")
 def export_sow_excel(trades: Optional[str] = None):
-    global CURRENT_PROJECT, ACTIVE_TRADES
-    selected = [t.strip() for t in trades.split(",") if t.strip()] if trades else ACTIVE_TRADES
-    proj = CURRENT_PROJECT.filter_by_trades(selected)
+    proj = get_effective_project(trades)
     temp_dir = tempfile.gettempdir()
-    clean_name = "".join([c if c.isalnum() else "_" for c in proj.project_name])
+    clean_name = "".join([c if c.isalnum() else "_" for c in proj.project_name or "SOW_Takeoff"])
     export_path = os.path.join(temp_dir, f"SOW_Bid_Proposal_{clean_name}.xlsx")
     ExcelProposalGenerator.generate_sow_excel(proj, export_path)
     return FileResponse(
@@ -596,17 +608,13 @@ def export_sow_excel(trades: Optional[str] = None):
 
 @app.get("/api/export/html")
 def export_html(trades: Optional[str] = None):
-    global CURRENT_PROJECT, ACTIVE_TRADES
-    selected = [t.strip() for t in trades.split(",") if t.strip()] if trades else ACTIVE_TRADES
-    proj = CURRENT_PROJECT.filter_by_trades(selected)
+    proj = get_effective_project(trades)
     html_content = HTMLProposalGenerator.generate_html(proj)
     return HTMLResponse(content=html_content)
 
 @app.get("/api/export/sow-html")
 def export_sow_html(trades: Optional[str] = None):
-    global CURRENT_PROJECT, ACTIVE_TRADES
-    selected = [t.strip() for t in trades.split(",") if t.strip()] if trades else ACTIVE_TRADES
-    proj = CURRENT_PROJECT.filter_by_trades(selected)
+    proj = get_effective_project(trades)
     html_content = HTMLProposalGenerator.generate_sow_html(proj)
     return HTMLResponse(content=html_content)
 
@@ -729,6 +737,28 @@ async def analyze_blueprint_ai(file: UploadFile = File(...), trade: str = Form("
     try:
         ai_res = GeminiAIEngine.analyze_blueprint_with_vision(save_path, trade_focus=trade)
         if ai_res.get("status") != "success":
+            print(f"Gemini vision notice ({ai_res.get('error')}), falling back to PDFAutoTakeoffEngine...")
+            if save_path.lower().endswith(".pdf"):
+                local_res = PDFAutoTakeoffEngine.process_pdf(save_path)
+                if local_res.get("extracted_rooms"):
+                    CURRENT_PROJECT.rooms = local_res["extracted_rooms"]
+                if local_res.get("material_specs"):
+                    CURRENT_PROJECT.material_specs.update(local_res["material_specs"])
+                meta = local_res.get("metadata", {})
+                if meta.get("project_name"):
+                    CURRENT_PROJECT.project_name = meta["project_name"]
+                if meta.get("client_name"):
+                    CURRENT_PROJECT.client_name = meta["client_name"]
+                if meta.get("client_company"):
+                    CURRENT_PROJECT.client_company = meta["client_company"]
+                return {
+                    "status": "success",
+                    "message": "Processed successfully with local Takeoff Engine (AI Fallback)",
+                    "summary": f"Completed takeoff processing: {len(CURRENT_PROJECT.rooms)} rooms and {len(CURRENT_PROJECT.material_specs)} specs extracted.",
+                    "rooms_count": len(CURRENT_PROJECT.rooms),
+                    "specs_count": len(CURRENT_PROJECT.material_specs),
+                    "project": CURRENT_PROJECT.to_dict()
+                }
             return JSONResponse(status_code=500, content={"status": "error", "message": ai_res.get("error", "AI Analysis failed")})
         
         data = ai_res.get("data", {})
@@ -799,6 +829,26 @@ async def analyze_blueprint_ai(file: UploadFile = File(...), trade: str = Form("
             "project": CURRENT_PROJECT.to_dict()
         }
     except Exception as e:
+        if save_path.lower().endswith(".pdf"):
+            try:
+                local_res = PDFAutoTakeoffEngine.process_pdf(save_path)
+                if local_res.get("extracted_rooms"):
+                    CURRENT_PROJECT.rooms = local_res["extracted_rooms"]
+                if local_res.get("material_specs"):
+                    CURRENT_PROJECT.material_specs.update(local_res["material_specs"])
+                meta = local_res.get("metadata", {})
+                if meta.get("project_name"):
+                    CURRENT_PROJECT.project_name = meta["project_name"]
+                return {
+                    "status": "success",
+                    "message": "Processed successfully with local Takeoff Engine (AI Fallback)",
+                    "summary": f"Completed takeoff processing: {len(CURRENT_PROJECT.rooms)} rooms extracted.",
+                    "rooms_count": len(CURRENT_PROJECT.rooms),
+                    "specs_count": len(CURRENT_PROJECT.material_specs),
+                    "project": CURRENT_PROJECT.to_dict()
+                }
+            except Exception:
+                pass
         return JSONResponse(status_code=500, content={"status": "error", "message": str(e)})
 
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend")
