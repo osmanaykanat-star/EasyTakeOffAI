@@ -624,6 +624,91 @@
         </div>
     </div>
 
+    <!-- Universal Project & Scope Confirmation Modal -->
+    <div id="takeoffConfirmModal" class="modal-overlay" style="display:none">
+        <div class="modal-box" style="max-width: 680px; border: 1px solid #38bdf8; box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+            <div class="modal-header" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(2, 132, 199, 0.05)); border-bottom: 1px solid #0284c7;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 36px; height: 36px; border-radius: 8px; background: #0284c7; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div>
+                        <h2 style="margin: 0; font-size: 1.15rem; color: #fff;">Universal Takeoff Scope Confirmation</h2>
+                        <span style="font-size: 0.75rem; color: #38bdf8;"><i class="fa-solid fa-shield-halved"></i> Guardrails & Sheet Index Verified</span>
+                    </div>
+                </div>
+                <span class="close-btn" onclick="closeConfirmModal()">&times;</span>
+            </div>
+            <div class="modal-body" style="padding: 20px;">
+                <!-- Summary Stats Grid -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 4px solid #38bdf8;">
+                        <span style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Building Type</span>
+                        <div id="modalConfirmProjType" style="font-size: 0.92rem; font-weight: 700; color: #fff; margin-top: 4px;">Commercial Fit-Out</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 4px solid #10b981;">
+                        <span style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Detected Floors</span>
+                        <div id="modalConfirmFloors" style="font-size: 0.92rem; font-weight: 700; color: #10b981; margin-top: 4px;">5 Floors</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                        <span style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Indexed Drawings</span>
+                        <div id="modalConfirmSheetsCount" style="font-size: 0.92rem; font-weight: 700; color: #f59e0b; margin-top: 4px;">47 Drawings</div>
+                    </div>
+                </div>
+
+                <!-- Project Title & Scope Card -->
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <span style="font-size: 0.72rem; color: #64748b; text-transform: uppercase; font-weight: 700;">Project Name</span>
+                            <h3 id="modalConfirmProjName" style="margin: 2px 0 6px; font-size: 1.05rem; color: #f8fafc;">Crozier - 32-02 Queens Blvd</h3>
+                        </div>
+                        <span id="modalConfirmRoomCountBadge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3);">7 Scope Rooms</span>
+                    </div>
+                </div>
+
+                <!-- Active Trade Selector -->
+                <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+                    <label style="font-size: 0.8rem; font-weight: 700; color: #e2e8f0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                        <span><i class="fa-solid fa-shapes" style="color: #38bdf8;"></i> Target Estimating Trade</span>
+                        <span style="font-size: 0.72rem; color: #94a3b8;">Strict Trade Isolation Enabled</span>
+                    </label>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <button type="button" class="btn btn-xs btn-outline" id="btnPresetTile" onclick="setConfirmModalTrade('Tile & Stone')" style="flex:1;">Tile & Stone Only</button>
+                        <button type="button" class="btn btn-xs btn-outline" id="btnPresetFlooring" onclick="setConfirmModalTrade('Flooring & Carpet')" style="flex:1;">Flooring & Carpet</button>
+                        <button type="button" class="btn btn-xs btn-outline" id="btnPresetAll" onclick="setConfirmModalTrade('All Trades')" style="flex:1;">All Trades</button>
+                    </div>
+                    <select id="modalConfirmTradeSelect" onchange="onConfirmModalTradeChange()" style="width: 100%; padding: 8px 12px; background: #0f172a; border: 1px solid #475569; color: #fff; border-radius: 6px; font-size: 0.88rem; font-weight: 600;">
+                        <option value="Tile & Stone">Tile & Stone</option>
+                        <option value="Flooring & Carpet">Flooring & Carpet</option>
+                        <option value="Cabinets & Millwork">Cabinets & Millwork</option>
+                        <option value="Drywall & Ceilings">Drywall & Ceilings</option>
+                        <option value="Painting">Painting</option>
+                        <option value="Modular Walls / Casework">Modular Walls / Casework</option>
+                        <option value="Plumbing">Plumbing</option>
+                        <option value="All Trades">All Trades</option>
+                    </select>
+                </div>
+
+                <!-- Relevant Drawing Sheets List -->
+                <div>
+                    <span style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 6px;">
+                        <i class="fa-solid fa-map"></i> Relevant Filtered Drawing Sheets (<span id="modalConfirmSheetCount">8</span>)
+                    </span>
+                    <div id="modalConfirmRelevantSheets" style="max-height: 110px; overflow-y: auto; background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 8px 12px; font-size: 0.78rem; color: #cbd5e1; font-family: monospace;">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: #0f172a; border-top: 1px solid #1e293b;">
+                <button type="button" class="btn btn-outline" onclick="closeConfirmModal()" style="border-color: #64748b; color: #94a3b8;">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="confirmAndApplyTakeoff()" style="background: linear-gradient(135deg, #0284c7, #0369a1); font-weight: 700; padding: 10px 24px; font-size: 0.92rem;">
+                    <i class="fa-solid fa-check-double"></i> Onayla & Metrajı Çıkar (Confirm Takeoff)
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Notification Toast -->
     <div id="toast" class="toast"></div>
 

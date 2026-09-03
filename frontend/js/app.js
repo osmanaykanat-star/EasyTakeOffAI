@@ -587,29 +587,130 @@ async function uploadFile(file) {
         });
         const data = await res.json();
         if (statusEl) statusEl.style.display = "none";
-        if (resultsEl) resultsEl.style.display = "flex";
 
-        projectData = data.project;
-        if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
-        renderProject();
-        if (typeof loadPolygonsAndAudit === 'function') {
-            loadPolygonsAndAudit();
-        }
-
-        const badgeType = data.is_zip ? `<span class="badge badge-active"><i class="fa-solid fa-file-zipper"></i> ZIP (${data.pdf_count} PDFs)</span>` : "";
-        if (resultsEl) {
-            resultsEl.innerHTML = `
-                ${badgeType}
-                <span class="badge badge-active"><i class="fa-solid fa-file"></i> ${data.total_pages} Pages</span>
-                <span class="badge badge-active"><i class="fa-solid fa-bath"></i> ${data.extracted_rooms_count} Rooms Extracted</span>
-                <span class="badge badge-active"><i class="fa-solid fa-check-double"></i> Auto-Calculated!</span>
-            `;
-        }
-        showToast(`🎉 Auto-Takeoff Completed! ${data.extracted_rooms_count} rooms & quantities calculated.`);
+        // Open 2-Second Universal Scope Confirmation Modal
+        openConfirmModal(data);
     } catch (e) {
         if (statusEl) statusEl.style.display = "none";
         showToast("Drawing processing error: " + e.message);
     }
+}
+
+let pendingTakeoffData = null;
+
+function openConfirmModal(data) {
+    pendingTakeoffData = data;
+    const modal = document.getElementById('takeoffConfirmModal');
+    if (!modal) {
+        applyTakeoffData(data);
+        return;
+    }
+
+    const projName = data.project?.project_name || "New Takeoff Project";
+    const projType = data.project_type || "Commercial Fit-Out";
+    const floors = (data.detected_floors || 1) + " Floors";
+    const sheetsCount = (data.total_sheets_indexed || data.total_pages || 1) + " Drawings";
+    const roomCount = (data.extracted_rooms_count || 0) + " Scope Rooms";
+
+    const nameEl = document.getElementById('modalConfirmProjName');
+    const typeEl = document.getElementById('modalConfirmProjType');
+    const floorsEl = document.getElementById('modalConfirmFloors');
+    const sheetsEl = document.getElementById('modalConfirmSheetsCount');
+    const badgeEl = document.getElementById('modalConfirmRoomCountBadge');
+    const tradeSelect = document.getElementById('modalConfirmTradeSelect');
+
+    if (nameEl) nameEl.textContent = projName;
+    if (typeEl) typeEl.textContent = projType;
+    if (floorsEl) floorsEl.textContent = floors;
+    if (sheetsEl) sheetsEl.textContent = sheetsCount;
+    if (badgeEl) badgeEl.textContent = roomCount;
+    if (tradeSelect) tradeSelect.value = data.active_trade || "Tile & Stone";
+
+    renderConfirmRelevantSheets(data.relevant_sheets || []);
+    modal.style.display = 'flex';
+}
+
+function renderConfirmRelevantSheets(sheets) {
+    const cont = document.getElementById('modalConfirmRelevantSheets');
+    const countEl = document.getElementById('modalConfirmSheetCount');
+    if (countEl) countEl.textContent = sheets.length;
+    if (!cont) return;
+    if (!sheets || sheets.length === 0) {
+        cont.innerHTML = '<div style="color: #64748b; font-style: italic;">No specific discipline sheets flagged; general architectural scope applies.</div>';
+        return;
+    }
+    cont.innerHTML = sheets.map(s => `<div style="padding: 2px 0;"><i class="fa-solid fa-file-lines" style="color: #38bdf8; margin-right: 6px;"></i>${s}</div>`).join('');
+}
+
+function setConfirmModalTrade(tradeName) {
+    const tradeSelect = document.getElementById('modalConfirmTradeSelect');
+    if (tradeSelect) {
+        tradeSelect.value = tradeName;
+        onConfirmModalTradeChange();
+    }
+}
+
+async function onConfirmModalTradeChange() {
+    const tradeSelect = document.getElementById('modalConfirmTradeSelect');
+    if (!tradeSelect || !pendingTakeoffData) return;
+    const chosenTrade = tradeSelect.value;
+    try {
+        const res = await fetch("/api/project/set_trades", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ trades: [chosenTrade] })
+        });
+        const resJson = await res.json();
+        if (resJson.project) {
+            pendingTakeoffData.project = resJson.project;
+            pendingTakeoffData.extracted_rooms_count = resJson.project.rooms?.length || 0;
+            const badgeEl = document.getElementById('modalConfirmRoomCountBadge');
+            if (badgeEl) badgeEl.textContent = pendingTakeoffData.extracted_rooms_count + " Scope Rooms";
+            
+            if (pendingTakeoffData.relevant_sheets) {
+                const filteredSheets = chosenTrade === 'All Trades' ? pendingTakeoffData.relevant_sheets : 
+                    pendingTakeoffData.relevant_sheets.filter(s => chosenTrade.toLowerCase().includes('tile') ? (s.includes('A-4') || s.includes('A-5')) : true);
+                renderConfirmRelevantSheets(filteredSheets);
+            }
+        }
+    } catch (e) {
+        console.error("Error setting trade:", e);
+    }
+}
+
+function closeConfirmModal() {
+    const modal = document.getElementById('takeoffConfirmModal');
+    if (modal) modal.style.display = 'none';
+}
+
+function confirmAndApplyTakeoff() {
+    closeConfirmModal();
+    if (pendingTakeoffData) {
+        applyTakeoffData(pendingTakeoffData);
+    }
+}
+
+function applyTakeoffData(data) {
+    projectData = data.project;
+    if (projectData && projectData.trade_category) {
+        selectedTrades = [projectData.trade_category];
+    }
+    renderProject();
+    if (typeof loadPolygonsAndAudit === 'function') {
+        loadPolygonsAndAudit();
+    }
+    const resultsEl = document.getElementById("ocrResults");
+    if (resultsEl) {
+        resultsEl.style.display = "flex";
+        const badgeType = data.is_zip ? `<span class="badge badge-active"><i class="fa-solid fa-file-zipper"></i> ZIP (${data.pdf_count} PDFs)</span>` : "";
+        resultsEl.innerHTML = `
+            ${badgeType}
+            <span class="badge badge-active"><i class="fa-solid fa-file"></i> ${data.total_pages} Pages</span>
+            <span class="badge badge-active"><i class="fa-solid fa-bath"></i> ${data.extracted_rooms_count} Rooms Extracted</span>
+            <span class="badge badge-active"><i class="fa-solid fa-check-double"></i> Confirmed Takeoff</span>
+        `;
+    }
+    showToast(`🎉 Auto-Takeoff Confirmed! ${data.extracted_rooms_count} rooms & quantities ready.`);
 }
 
 function handleFileUpload(event) {

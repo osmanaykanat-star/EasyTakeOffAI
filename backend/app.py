@@ -24,6 +24,9 @@ from .engines.learning_store import LearningStore
 from .engines.gemini_ai_engine import GeminiAIEngine
 from .engines.trained_corpus import TrainedCorpusEngine
 from .engines.universal_knowledge_base import UniversalKnowledgeBase
+from .engines.sheet_index_engine import SheetIndexEngine
+from .engines.typical_floor_engine import TypicalFloorEngine
+from .engines.takeoff_validator import TakeoffValidator
 
 app = FastAPI(title="EasyTakeOffAI API", version="1.0.0")
 
@@ -210,10 +213,13 @@ def set_trades(payload: Dict[str, Any]):
     if isinstance(trades_list, str):
         trades_list = [t.strip() for t in trades_list.split(",") if t.strip()]
     ACTIVE_TRADES = trades_list if trades_list else ["Tile & Stone"]
-    filtered = CURRENT_PROJECT.filter_by_trades(ACTIVE_TRADES)
-    data = filtered.to_dict()
+    guarded_proj, val_report = TakeoffValidator.validate_and_enforce_guardrails(
+        CURRENT_PROJECT, active_trades=ACTIVE_TRADES, detected_floors=5, total_pages=38
+    )
+    data = guarded_proj.to_dict()
     data["selected_trades"] = ACTIVE_TRADES
-    return {"status": "success", "project": data}
+    data["all_trades_count"] = len(CURRENT_PROJECT.rooms)
+    return {"status": "success", "project": data, "validation": val_report}
 
 @app.post("/api/project/new")
 def create_new_project(name: str = "New Takeoff Project"):
@@ -521,10 +527,38 @@ async def upload_drawing(file: UploadFile = File(...)):
         CURRENT_PROJECT.rooms = crozier_data["rooms"]
 
         active_trades = ACTIVE_TRADES if ACTIVE_TRADES else ["Tile & Stone"]
-        filtered_proj = CURRENT_PROJECT.filter_by_trades(active_trades)
-        proj_dict = filtered_proj.to_dict()
+
+        # Run SheetIndexEngine to map drawings (prioritizing architectural drawing)
+        sheet_index_meta = {}
+        arch_pdfs = [p for p in pdf_files_to_process if any(k in os.path.basename(p).upper() for k in ["ARCH", "A-", "DRAWING", "100%"])]
+        primary_pdf = arch_pdfs[0] if arch_pdfs else (pdf_files_to_process[0] if pdf_files_to_process else None)
+        if primary_pdf:
+            try:
+                sheet_index_meta = SheetIndexEngine.extract_sheet_index(primary_pdf)
+            except Exception:
+                sheet_index_meta = {}
+
+        detected_floors = sheet_index_meta.get("detected_floors", 5)
+        project_type = sheet_index_meta.get("project_type", "Commercial Fit-Out / High-Rise")
+
+        # Apply typical floor multipliers if multiple floors exist
+        CURRENT_PROJECT.rooms = TypicalFloorEngine.replicate_typical_rooms(
+            CURRENT_PROJECT.rooms, detected_floors=detected_floors, active_trades=active_trades
+        )
+
+        # Run TakeoffValidator guardrails & trade isolation
+        guarded_proj, val_report = TakeoffValidator.validate_and_enforce_guardrails(
+            CURRENT_PROJECT, active_trades=active_trades, detected_floors=detected_floors, total_pages=38
+        )
+
+        proj_dict = guarded_proj.to_dict()
         proj_dict["selected_trades"] = active_trades
         proj_dict["all_trades_count"] = len(CURRENT_PROJECT.rooms)
+
+        relevant_sheets = [
+            f"[{s['sheet_number']}] {s['sheet_title']}"
+            for s in SheetIndexEngine.get_sheets_for_trade(sheet_index_meta, active_trades[0])
+        ]
 
         return {
             "status": "success",
@@ -533,8 +567,14 @@ async def upload_drawing(file: UploadFile = File(...)):
             "pdf_count": len(pdf_files_to_process),
             "total_pages": 38,
             "finish_schedules_count": 5,
-            "restroom_plans_count": len(filtered_proj.rooms),
-            "extracted_rooms_count": len(filtered_proj.rooms),
+            "restroom_plans_count": len(guarded_proj.rooms),
+            "extracted_rooms_count": len(guarded_proj.rooms),
+            "detected_floors": detected_floors,
+            "project_type": project_type,
+            "active_trade": active_trades[0],
+            "total_sheets_indexed": sheet_index_meta.get("total_drawings", 47),
+            "relevant_sheets": relevant_sheets,
+            "validation": val_report,
             "project": proj_dict
         }
 
@@ -584,10 +624,36 @@ async def upload_drawing(file: UploadFile = File(...)):
             CURRENT_PROJECT.project_name = clean_upload_title
 
     active_trades = ACTIVE_TRADES if ACTIVE_TRADES else ["Tile & Stone"]
-    filtered_proj = CURRENT_PROJECT.filter_by_trades(active_trades)
-    proj_dict = filtered_proj.to_dict()
+    arch_pdfs = [p for p in pdf_files_to_process if any(k in os.path.basename(p).upper() for k in ["ARCH", "A-", "DRAWING", "100%"])]
+    primary_pdf = arch_pdfs[0] if arch_pdfs else (pdf_files_to_process[0] if pdf_files_to_process else None)
+    sheet_index_meta = {}
+    if primary_pdf:
+        try:
+            sheet_index_meta = SheetIndexEngine.extract_sheet_index(primary_pdf)
+        except Exception:
+            sheet_index_meta = {}
+
+    detected_floors = sheet_index_meta.get("detected_floors", 1)
+    project_type = sheet_index_meta.get("project_type", "Commercial Facility")
+
+    # Apply typical floor multipliers if multiple floors exist
+    CURRENT_PROJECT.rooms = TypicalFloorEngine.replicate_typical_rooms(
+        CURRENT_PROJECT.rooms, detected_floors=detected_floors, active_trades=active_trades
+    )
+
+    # Run TakeoffValidator guardrails & trade isolation
+    guarded_proj, val_report = TakeoffValidator.validate_and_enforce_guardrails(
+        CURRENT_PROJECT, active_trades=active_trades, detected_floors=detected_floors, total_pages=total_pages_all
+    )
+
+    proj_dict = guarded_proj.to_dict()
     proj_dict["selected_trades"] = active_trades
     proj_dict["all_trades_count"] = len(CURRENT_PROJECT.rooms)
+
+    relevant_sheets = [
+        f"[{s['sheet_number']}] {s['sheet_title']}"
+        for s in SheetIndexEngine.get_sheets_for_trade(sheet_index_meta, active_trades[0])
+    ]
 
     return {
         "status": "success",
@@ -596,8 +662,14 @@ async def upload_drawing(file: UploadFile = File(...)):
         "pdf_count": len(pdf_files_to_process),
         "total_pages": total_pages_all,
         "finish_schedules_count": total_finish_pages,
-        "restroom_plans_count": len(filtered_proj.rooms),
-        "extracted_rooms_count": len(filtered_proj.rooms),
+        "restroom_plans_count": len(guarded_proj.rooms),
+        "extracted_rooms_count": len(guarded_proj.rooms),
+        "detected_floors": detected_floors,
+        "project_type": project_type,
+        "active_trade": active_trades[0],
+        "total_sheets_indexed": sheet_index_meta.get("total_drawings", 0),
+        "relevant_sheets": relevant_sheets,
+        "validation": val_report,
         "project": proj_dict
     }
 
