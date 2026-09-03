@@ -352,6 +352,43 @@ class TrainedCorpusEngine:
                     TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=44.0, unit="LN FT", material_price=2.10, labor_price=3.50, notes="Schluter Stainless Trim", trade="Tile & Stone")
                 ]
             ),
+            RoomTakeoff(
+                room_name="LEVEL 3 - STAFF PANTRY & COFFEE AREA (SHEET A-501)",
+                floor_name="LEVEL 3",
+                length_ft=12.0, width_ft=9.0, ceiling_height_ft=9.5, wall_tile_height_ft=0.0, door_count=1,
+                items=[
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=110.0, unit="SQ FT", material_price=4.25, labor_price=9.50, notes="Daltile Floor Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=42.0, unit="LN FT", material_price=2.40, labor_price=6.00, notes="Porcelain Tile Base", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WT-2", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=45.0, unit="SQ FT", material_price=3.80, labor_price=11.00, notes="Nemo White Subway Tile Backsplash", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=110.0, unit="SQ FT", material_price=1.45, labor_price=2.50, notes="Floor Waterproofing", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", material_price=65.00, labor_price=55.00, notes="Marble Threshold Saddle", trade="Tile & Stone")
+                ]
+            ),
+            RoomTakeoff(
+                room_name="LEVEL 4 - STAFF PANTRY & COFFEE STATION (SHEET A-501)",
+                floor_name="LEVEL 4",
+                length_ft=12.5, width_ft=9.0, ceiling_height_ft=9.5, wall_tile_height_ft=0.0, door_count=1,
+                items=[
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=115.0, unit="SQ FT", material_price=4.25, labor_price=9.50, notes="Daltile Floor Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=44.0, unit="LN FT", material_price=2.40, labor_price=6.00, notes="Porcelain Tile Base", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WT-2", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=50.0, unit="SQ FT", material_price=3.80, labor_price=11.00, notes="Nemo White Subway Tile Backsplash", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=115.0, unit="SQ FT", material_price=1.45, labor_price=2.50, notes="Floor Waterproofing", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=1.0, unit="PCS", material_price=65.00, labor_price=55.00, notes="Marble Threshold Saddle", trade="Tile & Stone")
+                ]
+            ),
+            RoomTakeoff(
+                room_name="LEVEL 4 - ELEVATOR LOBBY STONE & TILED PORTALS (SHEET A-404)",
+                floor_name="LEVEL 4",
+                length_ft=18.0, width_ft=10.0, ceiling_height_ft=10.0, wall_tile_height_ft=0.0, door_count=2,
+                items=[
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=180.0, unit="SQ FT", material_price=4.25, labor_price=9.50, notes="Large Format Lobby Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=56.0, unit="LN FT", material_price=2.40, labor_price=6.00, notes="Tile Base", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=180.0, unit="SQ FT", material_price=1.45, labor_price=2.50, notes="Waterproofing Membrane", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="MUD-SET", finish_type="PREP", material_type="MUD-SET", work_type="S&I", quantity=180.0, unit="SQ FT", material_price=1.85, labor_price=3.50, notes="Subfloor Leveling Bed", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", material_price=65.00, labor_price=55.00, notes="Marble Transition Saddles", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=36.0, unit="LN FT", material_price=2.10, labor_price=3.50, notes="Schluter Stainless Trim", trade="Tile & Stone")
+                ]
+            ),
             # LEVEL 5
             RoomTakeoff(
                 room_name="LEVEL 5 - CORE RESTROOMS (MEN'S & WOMEN'S)",

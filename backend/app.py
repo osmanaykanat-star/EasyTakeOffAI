@@ -245,8 +245,20 @@ def update_project(data: Dict[str, Any]):
 
 @app.post("/api/project/load_sample")
 def load_sample(sample_id: str):
-    global CURRENT_PROJECT
-    if sample_id in ["fhjc", "forest_hills"]:
+    if sample_id in ["crozier", "queens", "3202"]:
+        crozier_data = TrainedCorpusEngine.get_crozier_benchmark()
+        CURRENT_PROJECT = ProjectTakeoff(
+            project_name=crozier_data["metadata"]["project_name"],
+            client_name=crozier_data["metadata"]["client_name"],
+            client_company=crozier_data["metadata"]["client_company"],
+            date_str=crozier_data["metadata"]["date_str"],
+            trade_category="Tile & Stone",
+            rooms=crozier_data["rooms"],
+            material_specs=crozier_data["material_specs"]
+        )
+        guarded, _ = TakeoffValidator.validate_and_enforce_guardrails(CURRENT_PROJECT, active_trades=["Tile & Stone"], detected_floors=5, total_pages=38)
+        CURRENT_PROJECT = guarded
+    elif sample_id in ["fhjc", "forest_hills"]:
         CURRENT_PROJECT = get_fhjc_sample_project()
     elif sample_id == "astoria":
         specs = PDFAutoTakeoffEngine.get_adg_astoria_specs()
@@ -550,6 +562,7 @@ async def upload_drawing(file: UploadFile = File(...)):
         guarded_proj, val_report = TakeoffValidator.validate_and_enforce_guardrails(
             CURRENT_PROJECT, active_trades=active_trades, detected_floors=detected_floors, total_pages=38
         )
+        CURRENT_PROJECT = guarded_proj
 
         proj_dict = guarded_proj.to_dict()
         proj_dict["selected_trades"] = active_trades
@@ -611,8 +624,6 @@ async def upload_drawing(file: UploadFile = File(...)):
                     if r.room_name not in existing_names:
                         all_extracted_rooms.append(r)
                         existing_names.add(r.room_name)
-                if CURRENT_PROJECT.project_name and CURRENT_PROJECT.project_name != "New Takeoff Project":
-                    break
         except Exception as e:
             pass
 
@@ -645,6 +656,7 @@ async def upload_drawing(file: UploadFile = File(...)):
     guarded_proj, val_report = TakeoffValidator.validate_and_enforce_guardrails(
         CURRENT_PROJECT, active_trades=active_trades, detected_floors=detected_floors, total_pages=total_pages_all
     )
+    CURRENT_PROJECT = guarded_proj
 
     proj_dict = guarded_proj.to_dict()
     proj_dict["selected_trades"] = active_trades

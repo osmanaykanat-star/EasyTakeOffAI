@@ -122,6 +122,13 @@ class PDFAutoTakeoffEngine:
         }
 
         material_specs = {
+            "FT-1": MaterialSpec(symbol="FT-1", description="12x24 Porcelain Kitchen Floor Tile (Daltile Portfolio)", unit="SQ FT", budget_price=4.50, notes="Kitchen floor finish", trade="Tile & Stone"),
+            "WT-1": MaterialSpec(symbol="WT-1", description="3x6 Ceramic Subway Backsplash Wall Tile (Full Height)", unit="SQ FT", budget_price=4.00, notes="Countertop & range backsplash", trade="Tile & Stone"),
+            "TB-1": MaterialSpec(symbol="TB-1", description="Porcelain Tile Cove Base (Matching Floor)", unit="LN FT", budget_price=2.50, notes="Perimeter wall base", trade="Tile & Stone"),
+            "WATERPROOF": MaterialSpec(symbol="WATERPROOF", description="Liquid-Applied Waterproofing Membrane", unit="SQ FT", budget_price=1.50, notes="Kitchen subfloor waterproofing", trade="Tile & Stone"),
+            "MUD-SET": MaterialSpec(symbol="MUD-SET", description="Portland Cement Leveling Bed Underlayment", unit="SQ FT", budget_price=1.85, notes="Subfloor preparation", trade="Tile & Stone"),
+            "SADDLE": MaterialSpec(symbol="SADDLE", description="White Carrara / Granite Threshold Transition Saddle", unit="PCS", budget_price=65.00, notes="Kitchen doorway threshold", trade="Tile & Stone"),
+            "SCHLUTER-TRIM": MaterialSpec(symbol="SCHLUTER-TRIM", description="Schluter Schiene Brushed Stainless Tile Edge Trim", unit="LN FT", budget_price=2.20, notes="Tile termination profile", trade="Tile & Stone"),
             "CAB-BASE-SINK": MaterialSpec(symbol="CAB-BASE-SINK", description="36 in Commercial Sink Base Cabinet (3/4 in Plywood Box, Soft-Close Doors)", unit="PCS", budget_price=0.0, notes="Kitchen sink base unit", trade="Cabinets & Millwork"),
             "CAB-BASE-DRAW": MaterialSpec(symbol="CAB-BASE-DRAW", description="18 in / 24 in 3-Drawer Base Bank with Blum Full-Extension Undermount Slides", unit="PCS", budget_price=0.0, notes="Heavy duty drawer bank", trade="Cabinets & Millwork"),
             "CAB-BASE-STD": MaterialSpec(symbol="CAB-BASE-STD", description="24 in / 30 in Standard Base Cabinet with Adjustable Shelf & Soft-Close Door", unit="PCS", budget_price=0.0, notes="Kitchen base cabinet", trade="Cabinets & Millwork"),
@@ -141,14 +148,14 @@ class PDFAutoTakeoffEngine:
         
         # Parse Unit Blocks from pages
         unit_configs = [
-            {"name": "KITCHEN - UNIT A-1 (1-BEDROOM)", "floor": "LEVEL 2-5", "qty": 7, "has_island": False, "has_pantry": True, "base_lf": 12.0, "wall_lf": 10.0},
-            {"name": "KITCHEN - UNIT A-2, A-2.10 (2-BEDROOM)", "floor": "LEVEL 2-6", "qty": 26, "has_island": True, "has_pantry": True, "base_lf": 14.0, "wall_lf": 12.0},
-            {"name": "KITCHEN - UNIT A-3, A-3.10 (TYPICAL 2-BED)", "floor": "LEVEL 2-7", "qty": 33, "has_island": True, "has_pantry": True, "base_lf": 14.0, "wall_lf": 12.0},
-            {"name": "KITCHEN - UNIT A-4 (CORNER SUITE)", "floor": "LEVEL 2-8", "qty": 26, "has_island": True, "has_pantry": False, "base_lf": 13.0, "wall_lf": 11.0},
-            {"name": "KITCHEN - UNIT B-1, B-1.10 (EXECUTIVE)", "floor": "LEVEL 3-6", "qty": 26, "has_island": True, "has_pantry": True, "base_lf": 15.0, "wall_lf": 13.0},
-            {"name": "KITCHEN - UNIT B-2 (STUDIO SUITE)", "floor": "LEVEL 3-7", "qty": 14, "has_island": False, "has_pantry": False, "base_lf": 10.0, "wall_lf": 8.0},
-            {"name": "KITCHEN - UNIT S-1, S-2 (PENTHOUSE)", "floor": "LEVEL 8-9", "qty": 7, "has_island": True, "has_pantry": True, "base_lf": 18.0, "wall_lf": 16.0},
-            {"name": "MOVABLE KITCHEN ISLAND PACKAGE", "floor": "TYPICAL UNITS", "qty": 47, "has_island": True, "has_pantry": False, "base_lf": 0.0, "wall_lf": 0.0, "is_island_only": True}
+            {"name": "KITCHEN - UNIT A-1 (1-BEDROOM)", "floor": "LEVEL 2-5", "qty": 7, "has_island": False, "has_pantry": True, "base_lf": 12.0, "wall_lf": 10.0, "fl_sqft": 95.0, "splash_sqft": 30.0},
+            {"name": "KITCHEN - UNIT A-2, A-2.10 (2-BEDROOM)", "floor": "LEVEL 2-6", "qty": 26, "has_island": True, "has_pantry": True, "base_lf": 14.0, "wall_lf": 12.0, "fl_sqft": 115.0, "splash_sqft": 36.0},
+            {"name": "KITCHEN - UNIT A-3, A-3.10 (TYPICAL 2-BED)", "floor": "LEVEL 2-7", "qty": 33, "has_island": True, "has_pantry": True, "base_lf": 14.0, "wall_lf": 12.0, "fl_sqft": 115.0, "splash_sqft": 36.0},
+            {"name": "KITCHEN - UNIT A-4 (CORNER SUITE)", "floor": "LEVEL 2-8", "qty": 26, "has_island": True, "has_pantry": False, "base_lf": 13.0, "wall_lf": 11.0, "fl_sqft": 105.0, "splash_sqft": 32.0},
+            {"name": "KITCHEN - UNIT B-1, B-1.10 (EXECUTIVE)", "floor": "LEVEL 3-6", "qty": 26, "has_island": True, "has_pantry": True, "base_lf": 15.0, "wall_lf": 13.0, "fl_sqft": 125.0, "splash_sqft": 40.0},
+            {"name": "KITCHEN - UNIT B-2 (STUDIO SUITE)", "floor": "LEVEL 3-7", "qty": 14, "has_island": False, "has_pantry": False, "base_lf": 10.0, "wall_lf": 8.0, "fl_sqft": 80.0, "splash_sqft": 24.0},
+            {"name": "KITCHEN - UNIT S-1, S-2 (PENTHOUSE)", "floor": "LEVEL 8-9", "qty": 7, "has_island": True, "has_pantry": True, "base_lf": 18.0, "wall_lf": 16.0, "fl_sqft": 150.0, "splash_sqft": 48.0},
+            {"name": "MOVABLE KITCHEN ISLAND PACKAGE", "floor": "TYPICAL UNITS", "qty": 47, "has_island": True, "has_pantry": False, "base_lf": 0.0, "wall_lf": 0.0, "fl_sqft": 0.0, "splash_sqft": 0.0, "is_island_only": True}
         ]
 
         for u in unit_configs:
@@ -166,6 +173,8 @@ class PDFAutoTakeoffEngine:
             else:
                 base_lf = u["base_lf"] * multiplier
                 wall_lf = u["wall_lf"] * multiplier
+                fl_sqft = u["fl_sqft"] * multiplier
+                splash_sqft = u["splash_sqft"] * multiplier
                 sink_count = multiplier
                 draw_count = multiplier
                 pantry_count = multiplier if u["has_pantry"] else 0.0
@@ -176,6 +185,18 @@ class PDFAutoTakeoffEngine:
                 counter_sqft = (u["base_lf"] * 2.2 + (12.0 if u["has_island"] else 0.0)) * multiplier
                 splash_lf = (u["base_lf"] - 2.5) * multiplier
 
+                # 1. Tile & Stone Scope for Kitchen Units
+                items.extend([
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=fl_sqft, unit="SQ FT", material_price=4.50, labor_price=9.50, notes=f"Porcelain floor tile ({fl_sqft:.1f} SF total across {multiplier:.0f} units)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WT-1", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=splash_sqft, unit="SQ FT", material_price=4.00, labor_price=11.00, notes=f"Subway wall tile backsplash ({splash_sqft:.1f} SF across {multiplier:.0f} units)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=base_lf * 1.5, unit="LN FT", material_price=2.50, labor_price=6.00, notes=f"Porcelain tile base ({base_lf * 1.5:.1f} LF total)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=fl_sqft, unit="SQ FT", material_price=1.50, labor_price=2.50, notes="Kitchen floor waterproofing membrane", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="MUD-SET", finish_type="PREP", material_type="MUD-SET", work_type="S&I", quantity=fl_sqft, unit="SQ FT", material_price=1.85, labor_price=3.50, notes="Subfloor leveling bed", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=multiplier, unit="PCS", material_price=65.00, labor_price=55.00, notes=f"Marble doorway transition saddles (1 per kitchen, {multiplier:.0f} pcs)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=multiplier * 12.0, unit="LN FT", material_price=2.20, labor_price=3.50, notes="Tile edge profile trim", trade="Tile & Stone"),
+                ])
+
+                # 2. Millwork & Casework Scope for Kitchen Units
                 items.extend([
                     TakeoffLineItem(symbol="CAB-BASE-SINK", finish_type="CASEWORK", material_type="SINK BASE", work_type="S&I", quantity=sink_count, unit="PCS", material_price=0.0, labor_price=0.0, notes=f"36 in sink base cabinets ({sink_count:.0f} units)", trade="Cabinets & Millwork"),
                     TakeoffLineItem(symbol="CAB-BASE-DRAW", finish_type="CASEWORK", material_type="DRAWER BANK", work_type="S&I", quantity=draw_count, unit="PCS", material_price=0.0, labor_price=0.0, notes=f"3-drawer base banks ({draw_count:.0f} units)", trade="Cabinets & Millwork"),
