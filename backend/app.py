@@ -519,6 +519,13 @@ async def upload_drawing(file: UploadFile = File(...)):
         CURRENT_PROJECT.trade_category = "Tile & Stone"
         CURRENT_PROJECT.material_specs = crozier_data["material_specs"]
         CURRENT_PROJECT.rooms = crozier_data["rooms"]
+
+        active_trades = ACTIVE_TRADES if ACTIVE_TRADES else ["Tile & Stone"]
+        filtered_proj = CURRENT_PROJECT.filter_by_trades(active_trades)
+        proj_dict = filtered_proj.to_dict()
+        proj_dict["selected_trades"] = active_trades
+        proj_dict["all_trades_count"] = len(CURRENT_PROJECT.rooms)
+
         return {
             "status": "success",
             "filename": file.filename,
@@ -526,9 +533,9 @@ async def upload_drawing(file: UploadFile = File(...)):
             "pdf_count": len(pdf_files_to_process),
             "total_pages": 38,
             "finish_schedules_count": 5,
-            "restroom_plans_count": len(CURRENT_PROJECT.rooms),
-            "extracted_rooms_count": len(CURRENT_PROJECT.rooms),
-            "project": CURRENT_PROJECT.to_dict()
+            "restroom_plans_count": len(filtered_proj.rooms),
+            "extracted_rooms_count": len(filtered_proj.rooms),
+            "project": proj_dict
         }
 
     for pdf_path in pdf_files_to_process:
@@ -576,6 +583,12 @@ async def upload_drawing(file: UploadFile = File(...)):
         if clean_upload_title:
             CURRENT_PROJECT.project_name = clean_upload_title
 
+    active_trades = ACTIVE_TRADES if ACTIVE_TRADES else ["Tile & Stone"]
+    filtered_proj = CURRENT_PROJECT.filter_by_trades(active_trades)
+    proj_dict = filtered_proj.to_dict()
+    proj_dict["selected_trades"] = active_trades
+    proj_dict["all_trades_count"] = len(CURRENT_PROJECT.rooms)
+
     return {
         "status": "success",
         "filename": file.filename,
@@ -583,9 +596,9 @@ async def upload_drawing(file: UploadFile = File(...)):
         "pdf_count": len(pdf_files_to_process),
         "total_pages": total_pages_all,
         "finish_schedules_count": total_finish_pages,
-        "restroom_plans_count": total_toilet_pages,
-        "extracted_rooms_count": len(all_extracted_rooms),
-        "project": CURRENT_PROJECT.to_dict()
+        "restroom_plans_count": len(filtered_proj.rooms),
+        "extracted_rooms_count": len(filtered_proj.rooms),
+        "project": proj_dict
     }
 
 def get_effective_project(trades: Optional[str] = None) -> ProjectTakeoff:

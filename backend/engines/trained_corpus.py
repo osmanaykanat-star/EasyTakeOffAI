@@ -320,7 +320,68 @@ class TrainedCorpusEngine:
                     TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=52.0, unit="LN FT", material_price=2.10, labor_price=3.50, notes="Schluter Stainless Trim", trade="Tile & Stone")
                 ]
             ),
+            RoomTakeoff(
+                room_name="LEVEL 2 - CORE RESTROOMS (MEN'S & WOMEN'S)",
+                floor_name="LEVEL 2",
+                length_ft=18.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=2,
+                items=[
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=4.25, labor_price=9.50, notes="Daltile Portfolio 12x24 Floor Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WT-1", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=390.0, unit="SQ FT", material_price=3.80, labor_price=11.00, notes="Nemo 3x6 Subway Wall Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=70.0, unit="LN FT", material_price=2.40, labor_price=6.00, notes="Daltile Cove Base", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SS-1", finish_type="VANITY", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", material_price=45.00, labor_price=35.00, notes="Solid Surface Vanity Top", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=1.45, labor_price=2.50, notes="Waterproofing Membrane", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="MUD-SET", finish_type="PREP", material_type="MUD-SET", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=1.85, labor_price=3.50, notes="Leveling Bed", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREP", material_type="EPOXY GROUT", work_type="S&I", quantity=630.0, unit="SQ FT", material_price=0.95, labor_price=1.75, notes="Laticrete SpectraLOCK Epoxy Grout", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", material_price=65.00, labor_price=55.00, notes="Marble Transition Saddles", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=44.0, unit="LN FT", material_price=2.10, labor_price=3.50, notes="Schluter Stainless Trim", trade="Tile & Stone")
+                ]
+            ),
+            RoomTakeoff(
+                room_name="LEVEL 3 - CORE RESTROOMS (MEN'S & WOMEN'S)",
+                floor_name="LEVEL 3",
+                length_ft=18.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=2,
+                items=[
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=4.25, labor_price=9.50, notes="Daltile Portfolio 12x24 Floor Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WT-1", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=390.0, unit="SQ FT", material_price=3.80, labor_price=11.00, notes="Nemo 3x6 Subway Wall Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=70.0, unit="LN FT", material_price=2.40, labor_price=6.00, notes="Daltile Cove Base", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SS-1", finish_type="VANITY", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", material_price=45.00, labor_price=35.00, notes="Solid Surface Vanity Top", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=1.45, labor_price=2.50, notes="Waterproofing Membrane", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="MUD-SET", finish_type="PREP", material_type="MUD-SET", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=1.85, labor_price=3.50, notes="Leveling Bed", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREP", material_type="EPOXY GROUT", work_type="S&I", quantity=630.0, unit="SQ FT", material_price=0.95, labor_price=1.75, notes="Laticrete SpectraLOCK Epoxy Grout", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", material_price=65.00, labor_price=55.00, notes="Marble Transition Saddles", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=44.0, unit="LN FT", material_price=2.10, labor_price=3.50, notes="Schluter Stainless Trim", trade="Tile & Stone")
+                ]
+            ),
             # LEVEL 5
+            RoomTakeoff(
+                room_name="LEVEL 5 - CORE RESTROOMS (MEN'S & WOMEN'S)",
+                floor_name="LEVEL 5",
+                length_ft=18.0, width_ft=14.0, ceiling_height_ft=9.5, wall_tile_height_ft=8.0, door_count=2,
+                items=[
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=4.25, labor_price=9.50, notes="Daltile Portfolio 12x24 Floor Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WT-1", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=390.0, unit="SQ FT", material_price=3.80, labor_price=11.00, notes="Nemo 3x6 Subway Wall Tile", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=70.0, unit="LN FT", material_price=2.40, labor_price=6.00, notes="Daltile Cove Base", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SS-1", finish_type="VANITY", material_type="SOLID SURFACE", work_type="S&I", quantity=24.0, unit="SQ FT", material_price=45.00, labor_price=35.00, notes="Solid Surface Vanity Top", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=1.45, labor_price=2.50, notes="Waterproofing Membrane", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="MUD-SET", finish_type="PREP", material_type="MUD-SET", work_type="S&I", quantity=240.0, unit="SQ FT", material_price=1.85, labor_price=3.50, notes="Leveling Bed", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="EPOXY-GROUT", finish_type="PREP", material_type="EPOXY GROUT", work_type="S&I", quantity=630.0, unit="SQ FT", material_price=0.95, labor_price=1.75, notes="Laticrete SpectraLOCK Epoxy Grout", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=2.0, unit="PCS", material_price=65.00, labor_price=55.00, notes="Marble Transition Saddles", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=44.0, unit="LN FT", material_price=2.10, labor_price=3.50, notes="Schluter Stainless Trim", trade="Tile & Stone")
+                ]
+            ),
+            RoomTakeoff(
+                room_name="FLOORS 1-5 - JANITOR CLOSETS & MOP SERVICE BASINS (5 LOCATIONS)",
+                floor_name="FLOORS 1-5",
+                length_ft=15.0, width_ft=15.0, ceiling_height_ft=9.0, wall_tile_height_ft=4.0, door_count=5,
+                items=[
+                    TakeoffLineItem(symbol="FT-1", finish_type="FLOOR", material_type="PORCELAIN TILE", work_type="S&I", quantity=225.0, unit="SQ FT", material_price=4.25, labor_price=9.50, notes="Daltile Floor Tile (45 SF x 5 floors)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WT-1", finish_type="WALL", material_type="CERAMIC TILE", work_type="S&I", quantity=300.0, unit="SQ FT", material_price=3.80, labor_price=11.00, notes="Nemo Mop Sink Wet Wall Splash (60 SF x 5)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="TB-1", finish_type="BASE", material_type="TILE BASE", work_type="S&I", quantity=130.0, unit="LN FT", material_price=2.40, labor_price=6.00, notes="Porcelain Tile Cove Base (26 LF x 5)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="WATERPROOF", finish_type="FLOOR", material_type="WATERPROOF", work_type="S&I", quantity=225.0, unit="SQ FT", material_price=1.45, labor_price=2.50, notes="Waterproofing at Mop Closets", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SADDLE", finish_type="FLOOR", material_type="SADDLE", work_type="S&I", quantity=5.0, unit="PCS", material_price=65.00, labor_price=55.00, notes="Marble Threshold Saddles (1 per door)", trade="Tile & Stone"),
+                    TakeoffLineItem(symbol="SCHLUTER-TRIM", finish_type="TRIM", material_type="METAL TRIM", work_type="S&I", quantity=40.0, unit="LN FT", material_price=2.10, labor_price=3.50, notes="Schluter Stainless Trim", trade="Tile & Stone")
+                ]
+            ),
             RoomTakeoff(
                 room_name="LEVEL 5 - FINE ART STORAGE VAULTS (20,523 SF)",
                 floor_name="LEVEL 5",
