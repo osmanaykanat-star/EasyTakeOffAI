@@ -588,7 +588,12 @@ async function uploadFile(file) {
         const data = await res.json();
         if (statusEl) statusEl.style.display = "none";
 
-        // Open 2-Second Universal Scope Confirmation Modal
+        // Immediately apply full takeoff data so results display on screen
+        if (data.project) {
+            applyTakeoffData(data);
+        }
+
+        // Open Universal Scope Confirmation Modal
         openConfirmModal(data);
     } catch (e) {
         if (statusEl) statusEl.style.display = "none";

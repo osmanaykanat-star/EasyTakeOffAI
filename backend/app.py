@@ -542,7 +542,8 @@ async def upload_drawing(file: UploadFile = File(...)):
     CURRENT_PROJECT = get_empty_project(clean_upload_title)
 
     archive_upper = file.filename.upper()
-    if any(k in archive_upper for k in ["HERO", "HEROS", "2024043", "LL REVIEW"]):
+    any_heros_pdf = any(any(k in os.path.basename(p).upper() for k in ["HERO", "HEROS", "2024043", "LL REVIEW"]) for p in pdf_files_to_process)
+    if any(k in archive_upper for k in ["HERO", "HEROS", "2024043", "LL REVIEW", "ONEDRIVE_2026-08-26", "ONEDRIVE20260826", "2026-08-26", "20260826"]) or any_heros_pdf:
         heros_data = TrainedCorpusEngine.get_heros_journey_benchmark()
         CURRENT_PROJECT.project_name = heros_data["metadata"]["project_name"]
         CURRENT_PROJECT.client_name = heros_data["metadata"]["client_name"]
