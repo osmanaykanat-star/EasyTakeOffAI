@@ -1,4 +1,5 @@
 // EasyTakeOffAI Client Application Logic
+const API_BASE = (window.location.hostname.includes('netlify.app') || window.location.hostname.includes('github.io')) ? 'https://easytakeoffai.onrender.com' : '';
 let projectData = null;
 let selectedTrades = ["Tile & Stone"];
 
@@ -63,7 +64,7 @@ function setupDragAndDrop() {
 async function loadProject() {
     try {
         const q = selectedTrades.length > 0 ? `?trades=${encodeURIComponent(selectedTrades.join(','))}` : '';
-        const res = await fetch(`/api/project${q}`, { cache: "no-store", headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" } });
+        const res = await fetch(`${API_BASE}/api/project${q}`, { cache: "no-store", headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" } });
         projectData = await res.json();
         if (projectData.selected_trades && projectData.selected_trades.length > 0) {
             selectedTrades = projectData.selected_trades;
@@ -97,7 +98,7 @@ function resetRoomCalculator() {
 async function clearCurrentProject() {
     if (!confirm("Are you sure you want to clear current takeoff and start a fresh project?")) return;
     try {
-        const res = await fetch("/api/project/clear", { method: "POST", headers: { "Cache-Control": "no-cache" } });
+        const res = await fetch(`${API_BASE}/api/project/clear", { method: "POST", headers: { "Cache-Control": "no-cache" } });
         const data = await res.json();
         projectData = data.project;
 
@@ -123,7 +124,7 @@ async function createNewProjectPrompt() {
     if (projName === null) return;
 
     try {
-        const res = await fetch(`/api/project/new?name=${encodeURIComponent(projName.trim() || "New Takeoff Project")}`, {
+        const res = await fetch(`${API_BASE}/api/project/new?name=${encodeURIComponent(projName.trim() || "New Takeoff Project")}`, {
             method: "POST",
             headers: { "Cache-Control": "no-cache" }
         });
@@ -150,7 +151,7 @@ async function createNewProjectPrompt() {
 async function loadSampleProject(sampleId) {
     if (!sampleId) return;
     try {
-        const res = await fetch(`/api/project/load_sample?sample_id=${encodeURIComponent(sampleId)}`, {
+        const res = await fetch(`${API_BASE}/api/project/load_sample?sample_id=${encodeURIComponent(sampleId)}`, {
             method: "POST",
             headers: { "Cache-Control": "no-cache" }
         });
@@ -546,7 +547,7 @@ async function saveMaterialSpecs() {
     }
 
     try {
-        const res = await fetch("/api/project/update_specs", {
+        const res = await fetch(`${API_BASE}/api/project/update_specs", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ specs: specsPayload })
@@ -580,7 +581,7 @@ async function uploadFile(file) {
     formData.append("file", file);
 
     try {
-        const res = await fetch("/api/upload_drawing", {
+        const res = await fetch(`${API_BASE}/api/upload_drawing", {
             method: "POST",
             body: formData,
             headers: { "Cache-Control": "no-cache" }
@@ -660,7 +661,7 @@ async function onConfirmModalTradeChange() {
     if (!tradeSelect || !pendingTakeoffData) return;
     const chosenTrade = tradeSelect.value;
     try {
-        const res = await fetch("/api/project/set_trades", {
+        const res = await fetch(`${API_BASE}/api/project/set_trades", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ trades: [chosenTrade] })
@@ -742,7 +743,7 @@ async function applyBulkPrices() {
     }
 
     try {
-        const res = await fetch("/api/project/update_prices", {
+        const res = await fetch(`${API_BASE}/api/project/update_prices", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ prices })
@@ -802,14 +803,14 @@ async function generateAndAddRoom() {
     };
 
     try {
-        const calcRes = await fetch("/api/calculate_room", {
+        const calcRes = await fetch(`${API_BASE}/api/calculate_room", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
         const calculatedRoom = await calcRes.json();
 
-        const addRes = await fetch("/api/project/add_room", {
+        const addRes = await fetch(`${API_BASE}/api/project/add_room", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(calculatedRoom)
@@ -831,7 +832,7 @@ async function generateAndAddRoom() {
 async function deleteRoom(rIdx) {
     if (!confirm("Are you sure you want to delete this room?")) return;
     try {
-        const res = await fetch(`/api/project/rooms/${rIdx}`, { method: "DELETE" });
+        const res = await fetch(`${API_BASE}/api/project/rooms/${rIdx}`, { method: "DELETE" });
         const data = await res.json();
         projectData = data.project;
         if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
@@ -850,7 +851,7 @@ async function saveProjectDetails() {
         estimator_name: document.getElementById("estimatorName").value.trim()
     };
     try {
-        const res = await fetch("/api/project", {
+        const res = await fetch(`${API_BASE}/api/project", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
@@ -865,7 +866,7 @@ async function saveProjectDetails() {
 
 async function loadSampleProject(sampleId) {
     try {
-        const res = await fetch(`/api/project/load_sample?sample_id=${sampleId}`, { method: "POST" });
+        const res = await fetch(`${API_BASE}/api/project/load_sample?sample_id=${sampleId}`, { method: "POST" });
         const data = await res.json();
         projectData = data.project;
         if (projectData && projectData.trade_category) { selectedTrades = [projectData.trade_category]; }
@@ -1006,7 +1007,7 @@ async function selectTradePreset(preset) {
 
 async function applyTradesFilter() {
     try {
-        const res = await fetch(`/api/project/set_trades`, {
+        const res = await fetch(`${API_BASE}/api/project/set_trades`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ trades: selectedTrades })
@@ -1023,12 +1024,12 @@ async function applyTradesFilter() {
 
 function openProposalHtml() {
     const q = selectedTrades.length > 0 ? `?trades=${encodeURIComponent(selectedTrades.join(','))}` : '';
-    window.open(`/api/export/html${q}`, '_blank');
+    window.open(`${API_BASE}/api/export/html${q}`, '_blank');
 }
 
 function openSowHtml() {
     const q = selectedTrades.length > 0 ? `?trades=${encodeURIComponent(selectedTrades.join(','))}` : '';
-    window.open(`/api/export/sow-html${q}`, '_blank');
+    window.open(`${API_BASE}/api/export/sow-html${q}`, '_blank');
 }
 
 function exportToExcel() {
@@ -1036,7 +1037,7 @@ function exportToExcel() {
         if (!confirm("Seçili trade'ler için mahal bulunmuyor. Yine de boş şablon indirmek ister misiniz?")) return;
     }
     const q = selectedTrades.length > 0 ? `?trades=${encodeURIComponent(selectedTrades.join(','))}` : '';
-    window.location.href = `/api/export/excel${q}`;
+    window.location.href = `${API_BASE}/api/export/excel${q}`;
     showToast(`Teklif Excel dosyası hazırlanıyor (${selectedTrades.join(', ')})...`);
 }
 
@@ -1045,7 +1046,7 @@ function exportToSowExcel() {
         if (!confirm("Seçili trade'ler için mahal bulunmuyor. Yine de boş SOW indirmek ister misiniz?")) return;
     }
     const q = selectedTrades.length > 0 ? `?trades=${encodeURIComponent(selectedTrades.join(','))}` : '';
-    window.location.href = `/api/export/sow-excel${q}`;
+    window.location.href = `${API_BASE}/api/export/sow-excel${q}`;
     showToast(`SOW Excel dosyası hazırlanıyor (${selectedTrades.join(', ')})...`);
 }
 
@@ -1112,7 +1113,7 @@ async function checkUserProfile() {
         }
 
         // 2. Check if registered on server
-        const res = await fetch("/api/user/profile", { cache: "no-store", headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" } });
+        const res = await fetch(`${API_BASE}/api/user/profile", { cache: "no-store", headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" } });
         if (res.ok) {
             const serverProf = await res.json();
             if (serverProf && serverProf.is_registered && serverProf.company_name) {
@@ -1174,7 +1175,7 @@ async function unlockWithPin() {
     }
 
     try {
-        const res = await fetch("/api/auth/pin", {
+        const res = await fetch(`${API_BASE}/api/auth/pin", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ pin: pin })
@@ -1327,7 +1328,7 @@ async function saveRegistrationProfile(event) {
     applyUserProfile(payload);
 
     try {
-        await fetch("/api/user/profile", {
+        await fetch(`${API_BASE}/api/user/profile", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
@@ -1407,7 +1408,7 @@ async function sendAIChatMessage() {
     if (sendBtn) sendBtn.disabled = true;
 
     try {
-        const response = await fetch("/api/ai/chat", {
+        const response = await fetch(`${API_BASE}/api/ai/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -1454,7 +1455,7 @@ async function handleAIVisionUpload(event) {
     formData.append("trade", currentTrade || "Tile & Stone");
 
     try {
-        const res = await fetch("/api/ai/analyze_blueprint", {
+        const res = await fetch(`${API_BASE}/api/ai/analyze_blueprint", {
             method: "POST",
             body: formData
         });
