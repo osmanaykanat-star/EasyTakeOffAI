@@ -29,6 +29,7 @@ class PDFAutoTakeoffEngine:
         floor_plan_pages = []
 
         total_pages = 0
+        doc = None
         try:
             import pymupdf
             doc = pymupdf.open(pdf_path)
@@ -64,6 +65,12 @@ class PDFAutoTakeoffEngine:
                     page_records.append((page_num, text, text_upper))
             except Exception:
                 pass
+        finally:
+            if doc:
+                try:
+                    doc.close()
+                except Exception:
+                    pass
 
         file_basename = os.path.basename(pdf_path)
         full_text_upper = full_text.upper()

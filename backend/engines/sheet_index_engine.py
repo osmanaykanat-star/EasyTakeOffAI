@@ -78,40 +78,46 @@ class SheetIndexEngine:
         if not os.path.exists(pdf_path):
             return {"sheets": [], "trade_relevance": {}, "project_type": "Unknown", "detected_floors": 1}
 
+        doc = None
         try:
             doc = fitz.open(pdf_path)
+            sheets_found = []
+            full_cover_text = ""
+            total_pages = len(doc)
+            pages_to_scan = min(max_scan_pages, total_pages)
+
+            for p_idx in range(pages_to_scan):
+                page = doc[p_idx]
+                text = page.get_text()
+                full_cover_text += f"\n--- PAGE {p_idx+1} ---\n" + text
+                page_sheets = cls._parse_sheet_lines(text, p_idx + 1)
+                sheets_found.extend(page_sheets)
+
+            # Detect total floors mentioned in drawings or index
+            detected_floors = cls._detect_floors(full_cover_text, total_pages)
+
+            # Classify building / project type
+            project_type = cls._detect_project_type(full_cover_text, total_pages)
+
+            # Map sheet relevance to trades
+            trade_relevance = cls._map_sheets_to_trades(sheets_found)
+
+            return {
+                "sheets": sheets_found,
+                "total_drawings": len(sheets_found),
+                "project_type": project_type,
+                "detected_floors": detected_floors,
+                "trade_relevance": trade_relevance,
+                "total_pdf_pages": total_pages
+            }
         except Exception:
             return {"sheets": [], "trade_relevance": {}, "project_type": "Unknown", "detected_floors": 1}
-
-        sheets_found = []
-        full_cover_text = ""
-        total_pages = len(doc)
-        pages_to_scan = min(max_scan_pages, total_pages)
-
-        for p_idx in range(pages_to_scan):
-            page = doc[p_idx]
-            text = page.get_text()
-            full_cover_text += f"\n--- PAGE {p_idx+1} ---\n" + text
-            page_sheets = cls._parse_sheet_lines(text, p_idx + 1)
-            sheets_found.extend(page_sheets)
-
-        # Detect total floors mentioned in drawings or index
-        detected_floors = cls._detect_floors(full_cover_text, total_pages)
-
-        # Classify building / project type
-        project_type = cls._detect_project_type(full_cover_text, total_pages)
-
-        # Map sheet relevance to trades
-        trade_relevance = cls._map_sheets_to_trades(sheets_found)
-
-        return {
-            "sheets": sheets_found,
-            "total_drawings": len(sheets_found),
-            "project_type": project_type,
-            "detected_floors": detected_floors,
-            "trade_relevance": trade_relevance,
-            "total_pdf_pages": total_pages
-        }
+        finally:
+            if doc:
+                try:
+                    doc.close()
+                except Exception:
+                    pass
 
     @classmethod
     def _parse_sheet_lines(cls, text: str, page_num: int) -> List[Dict[str, Any]]:

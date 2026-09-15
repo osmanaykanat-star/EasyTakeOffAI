@@ -4,6 +4,7 @@ import tempfile
 import zipfile
 import datetime
 import re
+import gc
 from typing import Dict, Any, List, Optional
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Response
 from fastapi.staticfiles import StaticFiles
@@ -441,6 +442,14 @@ async def upload_drawing(file: UploadFile = File(...)):
     if file_ext in [".zip"]:
         folder_slug = "".join([c if c.isalnum() or c in "_-" else "_" for c in os.path.splitext(safe_name)[0]])
         extract_folder = os.path.join(UPLOAD_DIR, f"extracted_{folder_slug}")
+        # Clean up older extracted folders to conserve disk & page cache memory
+        try:
+            for item in os.listdir(UPLOAD_DIR):
+                item_path = os.path.join(UPLOAD_DIR, item)
+                if item.startswith("extracted_") and os.path.isdir(item_path) and item != f"extracted_{folder_slug}":
+                    shutil.rmtree(item_path, ignore_errors=True)
+        except Exception:
+            pass
         os.makedirs(extract_folder, exist_ok=True)
         try:
             with zipfile.ZipFile(save_path, 'r') as zip_ref:
@@ -454,7 +463,7 @@ async def upload_drawing(file: UploadFile = File(...)):
                     if clean_fname.lower().endswith(".xlsx") or clean_fname.lower().endswith(".xls"):
                         target_path = os.path.join(extract_folder, clean_fname)
                         with zip_ref.open(member) as source, open(target_path, "wb") as target:
-                            target.write(source.read())
+                            shutil.copyfileobj(source, target, length=64*1024)
                         excel_files_in_zip.append(target_path)
                     elif clean_fname.lower().endswith(".pdf"):
                         if len(clean_fname) > 70:
@@ -463,8 +472,9 @@ async def upload_drawing(file: UploadFile = File(...)):
                         if os.name == 'nt' and not target_path.startswith("\\\\?\\"):
                             target_path = "\\\\?\\" + os.path.abspath(target_path)
                         with zip_ref.open(member) as source, open(target_path, "wb") as target:
-                            target.write(source.read())
+                            shutil.copyfileobj(source, target, length=64*1024)
                         pdf_files_to_process.append(target_path)
+            gc.collect()
         except Exception as e:
             raise HTTPException(status_code=400, detail=f"Failed to extract ZIP: {str(e)}")
 
@@ -581,6 +591,7 @@ async def upload_drawing(file: UploadFile = File(...)):
             for s in SheetIndexEngine.get_sheets_for_trade(sheet_index_meta, active_trades[0])
         ]
 
+        gc.collect()
         return {
             "status": "success",
             "filename": file.filename,
@@ -644,6 +655,7 @@ async def upload_drawing(file: UploadFile = File(...)):
             for s in SheetIndexEngine.get_sheets_for_trade(sheet_index_meta, active_trades[0])
         ]
 
+        gc.collect()
         return {
             "status": "success",
             "filename": file.filename,
@@ -738,6 +750,7 @@ async def upload_drawing(file: UploadFile = File(...)):
         for s in SheetIndexEngine.get_sheets_for_trade(sheet_index_meta, active_trades[0])
     ]
 
+    gc.collect()
     return {
         "status": "success",
         "filename": file.filename,
