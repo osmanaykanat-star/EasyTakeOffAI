@@ -98,7 +98,7 @@ function resetRoomCalculator() {
 async function clearCurrentProject() {
     if (!confirm("Are you sure you want to clear current takeoff and start a fresh project?")) return;
     try {
-        const res = await fetch(`${API_BASE}/api/project/clear", { method: "POST", headers: { "Cache-Control": "no-cache" } });
+        const res = await fetch(`${API_BASE}/api/project/clear`, { method: "POST", headers: { "Cache-Control": "no-cache" } });
         const data = await res.json();
         projectData = data.project;
 
@@ -547,7 +547,7 @@ async function saveMaterialSpecs() {
     }
 
     try {
-        const res = await fetch(`${API_BASE}/api/project/update_specs", {
+        const res = await fetch(`${API_BASE}/api/project/update_specs`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ specs: specsPayload })
@@ -581,7 +581,7 @@ async function uploadFile(file) {
     formData.append("file", file);
 
     try {
-        const res = await fetch(`${API_BASE}/api/upload_drawing", {
+        const res = await fetch(`${API_BASE}/api/upload_drawing`, {
             method: "POST",
             body: formData,
             headers: { "Cache-Control": "no-cache" }
@@ -661,7 +661,7 @@ async function onConfirmModalTradeChange() {
     if (!tradeSelect || !pendingTakeoffData) return;
     const chosenTrade = tradeSelect.value;
     try {
-        const res = await fetch(`${API_BASE}/api/project/set_trades", {
+        const res = await fetch(`${API_BASE}/api/project/set_trades`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ trades: [chosenTrade] })
@@ -743,7 +743,7 @@ async function applyBulkPrices() {
     }
 
     try {
-        const res = await fetch(`${API_BASE}/api/project/update_prices", {
+        const res = await fetch(`${API_BASE}/api/project/update_prices`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ prices })
@@ -803,14 +803,14 @@ async function generateAndAddRoom() {
     };
 
     try {
-        const calcRes = await fetch(`${API_BASE}/api/calculate_room", {
+        const calcRes = await fetch(`${API_BASE}/api/calculate_room`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
         const calculatedRoom = await calcRes.json();
 
-        const addRes = await fetch(`${API_BASE}/api/project/add_room", {
+        const addRes = await fetch(`${API_BASE}/api/project/add_room`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(calculatedRoom)
@@ -851,7 +851,7 @@ async function saveProjectDetails() {
         estimator_name: document.getElementById("estimatorName").value.trim()
     };
     try {
-        const res = await fetch(`${API_BASE}/api/project", {
+        const res = await fetch(`${API_BASE}/api/project`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
@@ -1113,7 +1113,7 @@ async function checkUserProfile() {
         }
 
         // 2. Check if registered on server
-        const res = await fetch(`${API_BASE}/api/user/profile", { cache: "no-store", headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" } });
+        const res = await fetch(`${API_BASE}/api/user/profile`, { cache: "no-store", headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" } });
         if (res.ok) {
             const serverProf = await res.json();
             if (serverProf && serverProf.is_registered && serverProf.company_name) {
@@ -1175,7 +1175,7 @@ async function unlockWithPin() {
     }
 
     try {
-        const res = await fetch(`${API_BASE}/api/auth/pin", {
+        const res = await fetch(`${API_BASE}/api/auth/pin`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ pin: pin })
@@ -1328,7 +1328,7 @@ async function saveRegistrationProfile(event) {
     applyUserProfile(payload);
 
     try {
-        await fetch(`${API_BASE}/api/user/profile", {
+        await fetch(`${API_BASE}/api/user/profile`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
@@ -1408,7 +1408,7 @@ async function sendAIChatMessage() {
     if (sendBtn) sendBtn.disabled = true;
 
     try {
-        const response = await fetch(`${API_BASE}/api/ai/chat", {
+        const response = await fetch(`${API_BASE}/api/ai/chat`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -1455,7 +1455,7 @@ async function handleAIVisionUpload(event) {
     formData.append("trade", currentTrade || "Tile & Stone");
 
     try {
-        const res = await fetch(`${API_BASE}/api/ai/analyze_blueprint", {
+        const res = await fetch(`${API_BASE}/api/ai/analyze_blueprint`, {
             method: "POST",
             body: formData
         });

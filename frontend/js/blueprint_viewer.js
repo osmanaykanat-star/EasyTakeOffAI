@@ -36,8 +36,8 @@ function initBlueprintViewer() {
 async function loadPolygonsAndAudit() {
     try {
         const [polyRes, auditRes] = await Promise.all([
-            fetch(`${BV_API_BASE}/api/polygons'),
-            fetch(`${BV_API_BASE}/api/audit')
+            fetch(`${BV_API_BASE}/api/polygons`),
+            fetch(`${BV_API_BASE}/api/audit`)
         ]);
         const polyData = await polyRes.json();
         const auditJson = await auditRes.json();
@@ -248,7 +248,7 @@ function highlightRoomOnCanvas(roomName) {
 // ========== SETTINGS PANEL ==========
 async function loadTradeSettings() {
     try {
-        const res = await fetch(`${BV_API_BASE}/api/settings');
+        const res = await fetch(`${BV_API_BASE}/api/settings`);
         const settings = await res.json();
         // Populate settings form fields
         const wasteInput = document.getElementById('settingsTileWaste');
@@ -282,7 +282,7 @@ async function saveTradeSettings() {
                 license_no: document.getElementById('settingsLicenseNo')?.value || ''
             }
         };
-        await fetch(`${BV_API_BASE}/api/settings', {
+        await fetch(`${BV_API_BASE}/api/settings`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(payload)
