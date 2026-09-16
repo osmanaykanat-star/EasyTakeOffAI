@@ -571,33 +571,114 @@ async function uploadFile(file) {
 
     const statusEl = document.getElementById("uploadStatus");
     const resultsEl = document.getElementById("analysisResults");
+    const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+
     if (statusEl) {
         statusEl.style.display = "block";
-        statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing & Auto-Calculating Takeoff for ${file.name}...`;
+        statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Preparing upload for <strong>${file.name}</strong> (${sizeMb} MB)...`;
     }
     if (resultsEl) resultsEl.style.display = "none";
 
     const formData = new FormData();
     formData.append("file", file);
 
-    try {
-        const res = await fetch(`${API_BASE}/api/upload_drawing`, {
-            method: "POST",
-            body: formData,
-            headers: { "Cache-Control": "no-cache" }
-        });
-        const data = await res.json();
-        if (statusEl) statusEl.style.display = "none";
+    const primaryUrl = `${API_BASE}/api/upload_drawing`;
+    const fallbackUrl = `/api/upload_drawing`;
 
-        // Immediately apply full takeoff data so results display on screen
-        if (data.project) {
-            applyTakeoffData(data);
+    function doXhrUpload(url) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Cache-Control", "no-cache");
+
+            xhr.upload.onprogress = (event) => {
+                if (event.lengthComputable && statusEl) {
+                    const pct = Math.round((event.loaded / event.total) * 100);
+                    const loadedMb = (event.loaded / (1024 * 1024)).toFixed(1);
+                    if (pct < 100) {
+                        statusEl.innerHTML = `<i class="fa-solid fa-cloud-arrow-up fa-bounce"></i> Uploading ${file.name}: <strong>${pct}%</strong> (${loadedMb} / ${sizeMb} MB)...`;
+                    } else {
+                        statusEl.innerHTML = `<i class="fa-solid fa-gear fa-spin"></i> Upload complete! Analyzing drawing sheets & calculating takeoff...`;
+                    }
+                }
+            };
+
+            xhr.onload = () => {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        const json = JSON.parse(xhr.responseText);
+                        resolve(json);
+                    } catch (err) {
+                        reject(new Error("Invalid JSON response from server."));
+                    }
+                } else {
+                    let errMsg = `Server returned status ${xhr.status}`;
+                    try {
+                        const errObj = JSON.parse(xhr.responseText);
+                        if (errObj.detail) errMsg = errObj.detail;
+                    } catch (_) {
+                        if (xhr.responseText) errMsg = xhr.responseText.substring(0, 120);
+                    }
+                    reject(new Error(errMsg));
+                }
+            };
+
+            xhr.onerror = () => {
+                reject(new Error("Network connection error. Check your internet connection or Render server status."));
+            };
+
+            xhr.ontimeout = () => {
+                reject(new Error("Upload timed out. The file may be too large for the current connection."));
+            };
+
+            xhr.timeout = 180000; // 3 minutes timeout
+            xhr.send(formData);
+        });
+    }
+
+    try {
+        let data = null;
+        try {
+            data = await doXhrUpload(primaryUrl);
+        } catch (primaryErr) {
+            console.warn("Primary upload failed:", primaryErr);
+            if (primaryUrl !== fallbackUrl && file.size < 6 * 1024 * 1024) {
+                if (statusEl) statusEl.innerHTML = `<i class="fa-solid fa-rotate fa-spin"></i> Retrying via proxy...`;
+                data = await doXhrUpload(fallbackUrl);
+            } else {
+                throw primaryErr;
+            }
         }
 
-        // Open Universal Scope Confirmation Modal
-        openConfirmModal(data);
-    } catch (e) {
         if (statusEl) statusEl.style.display = "none";
+
+        if (data && data.project) {
+            try {
+                applyTakeoffData(data);
+            } catch (applyErr) {
+                console.error("Error in applyTakeoffData:", applyErr);
+            }
+            try {
+                openConfirmModal(data);
+            } catch (modalErr) {
+                console.error("Error in openConfirmModal:", modalErr);
+            }
+        } else {
+            showToast("Upload completed, but no takeoff data was returned.");
+        }
+    } catch (e) {
+        if (statusEl) {
+            statusEl.style.display = "block";
+            statusEl.innerHTML = `
+                <div style="background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; border-radius: 8px; padding: 12px; color: #fca5a5;">
+                    <i class="fa-solid fa-circle-exclamation" style="color: #ef4444; margin-right: 6px;"></i>
+                    <strong>Drawing Processing Error:</strong> ${e.message}
+                    <div style="margin-top: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        Please ensure the file is a valid PDF or ZIP, or try uploading the specific architectural PDF plan directly.
+                    </div>
+                </div>
+            `;
+        }
         showToast("Drawing processing error: " + e.message);
     }
 }
