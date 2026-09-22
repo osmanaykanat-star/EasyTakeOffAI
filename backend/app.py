@@ -30,6 +30,7 @@ from .engines.typical_floor_engine import TypicalFloorEngine
 from .engines.takeoff_validator import TakeoffValidator
 from .engines.penn1_project import get_penn1_project
 from .engines.floor14_project import get_floor14_project
+from .engines.broadway225_project import get_broadway225_project
 
 app = FastAPI(title="EasyTakeOffAI API", version="1.0.0")
 
@@ -130,7 +131,7 @@ def get_initial_project() -> ProjectTakeoff:
     except Exception:
         return get_empty_project()
 
-CURRENT_PROJECT: ProjectTakeoff = get_floor14_project()
+CURRENT_PROJECT: ProjectTakeoff = get_broadway225_project()
 
 class RoomCalculationRequest(BaseModel):
     room_name: str
@@ -249,8 +250,8 @@ def update_project(data: Dict[str, Any]):
 @app.post("/api/project/load_sample")
 def load_sample(sample_id: str):
     global CURRENT_PROJECT
-    if sample_id in ["floor14", "floor_14", "level14", "level_14"]:
-        CURRENT_PROJECT = get_floor14_project()
+    if sample_id in ["broadway", "225_broadway", "broadway225", "ddf", "floor14", "floor_14", "level14", "level_14"]:
+        CURRENT_PROJECT = get_broadway225_project()
         return {"status": "success", "project": CURRENT_PROJECT.to_dict()}
     elif sample_id in ["penn1", "penn", "one_penn", "penn_1"]:
         CURRENT_PROJECT = get_penn1_project()
