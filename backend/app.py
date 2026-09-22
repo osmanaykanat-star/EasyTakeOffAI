@@ -878,6 +878,27 @@ def save_settings(payload: Dict[str, Any]):
 def get_user_profile():
     return LearningStore.get_user_profile()
 
+@app.get("/api/debug/live_files")
+def debug_live_files():
+    files_info = []
+    if os.path.exists(UPLOAD_DIR):
+        for root, dirs, files in os.walk(UPLOAD_DIR):
+            for f in files:
+                p = os.path.join(root, f)
+                try:
+                    mtime = datetime.datetime.fromtimestamp(os.path.getmtime(p)).strftime("%Y-%m-%d %H:%M:%S")
+                    size = os.path.getsize(p)
+                    files_info.append({
+                        "name": f,
+                        "rel_path": os.path.relpath(p, UPLOAD_DIR),
+                        "size": size,
+                        "mtime": mtime
+                    })
+                except Exception:
+                    pass
+    files_info.sort(key=lambda x: x.get("mtime", ""), reverse=True)
+    return {"status": "success", "count": len(files_info), "files": files_info[:40]}
+
 @app.post("/api/user/profile")
 def save_user_profile(payload: Dict[str, Any]):
     global CURRENT_PROJECT
