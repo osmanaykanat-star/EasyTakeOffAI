@@ -28,6 +28,8 @@ from .engines.universal_knowledge_base import UniversalKnowledgeBase
 from .engines.sheet_index_engine import SheetIndexEngine
 from .engines.typical_floor_engine import TypicalFloorEngine
 from .engines.takeoff_validator import TakeoffValidator
+from .engines.penn1_project import get_penn1_project
+from .engines.floor14_project import get_floor14_project
 
 app = FastAPI(title="EasyTakeOffAI API", version="1.0.0")
 
@@ -128,7 +130,7 @@ def get_initial_project() -> ProjectTakeoff:
     except Exception:
         return get_empty_project()
 
-CURRENT_PROJECT: ProjectTakeoff = get_empty_project("New Takeoff Project")
+CURRENT_PROJECT: ProjectTakeoff = get_floor14_project()
 
 class RoomCalculationRequest(BaseModel):
     room_name: str
@@ -247,7 +249,13 @@ def update_project(data: Dict[str, Any]):
 @app.post("/api/project/load_sample")
 def load_sample(sample_id: str):
     global CURRENT_PROJECT
-    if sample_id in ["heros", "heros_journey", "2024043"]:
+    if sample_id in ["floor14", "floor_14", "level14", "level_14"]:
+        CURRENT_PROJECT = get_floor14_project()
+        return {"status": "success", "project": CURRENT_PROJECT.to_dict()}
+    elif sample_id in ["penn1", "penn", "one_penn", "penn_1"]:
+        CURRENT_PROJECT = get_penn1_project()
+        return {"status": "success", "project": CURRENT_PROJECT.to_dict()}
+    elif sample_id in ["heros", "heros_journey", "2024043"]:
         heros_data = TrainedCorpusEngine.get_heros_journey_benchmark()
         CURRENT_PROJECT = ProjectTakeoff(
             project_name=heros_data["metadata"]["project_name"],

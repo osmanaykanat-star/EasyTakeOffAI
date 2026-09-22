@@ -283,6 +283,22 @@ class ExcelProposalParser:
                                     unit = "PCS"
                                     break
                             
+                        # Extract Material Price (col K = index 10) & Labor Price (col L = index 11)
+                        if len(row_vals) > 10 and row_vals[10] is not None:
+                            try:
+                                val_clean = str(row_vals[10]).replace('$', '').replace(',', '').strip()
+                                if val_clean:
+                                    mat_price = float(val_clean)
+                            except Exception:
+                                pass
+                        if len(row_vals) > 11 and row_vals[11] is not None:
+                            try:
+                                val_clean = str(row_vals[11]).replace('$', '').replace(',', '').strip()
+                                if val_clean:
+                                    labor_price = float(val_clean)
+                            except Exception:
+                                pass
+                            
                         item = TakeoffLineItem(
                             symbol=sym,
                             finish_type=finish_type,
