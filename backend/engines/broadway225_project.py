@@ -4,20 +4,23 @@ from ..trades.trade_base import ProjectTakeoff, RoomTakeoff, TakeoffLineItem, Ma
 
 def get_broadway225_project() -> ProjectTakeoff:
     """
-    Official Takeoff for:
-    DDF: Downtown Dance Factory - 225 Broadway, 14th Floor, New York, NY 10007
-    Owner: William Macklowe Company
+    Official Commercial Tile & Stone Proposal:
+    Project: DDF: Downtown Dance Factory - 225 Broadway, 14th Floor, New York, NY 10007
+    Owner: William Macklowe Company (126 East 56th St, NY)
     Architect: Daniel Goldner Architects (152 West 25th St, NY)
     Interior Design: Pink Green Interiors - Katie Hartell (917-912-2504)
     Drawing Set: 90% CD & Bid Set Rev. 1 (09/03/2026)
     
-    Tile & Stone Scope:
-    1) Girl's Bathroom (16'-0" x 18'-2"): Black & White Strip Tile, Wall Tile to 84" AFF, Quartz Vanity Top
-    2) Boy's Bathroom (11'-9" x 8'-6"): Black & White Triangle Tile, Wall Tile to 84" AFF, Urinal & Sink Walls
-    3) ADA Bathroom (12'-0" x 7'-10"): Black & White Diamond Tile, Wall Tile to 84" AFF, ADA Vanity Top
-    4) Janitor's Closet (11'-3" x 5'-6"): Black & White Diamond Tile, Mop Sink Surround Wall Tile
-    5) Broom Closet (3'-1" x 2'-9"): Black & White Diamond Tile
-    Note: Dark gray shaded areas on architectural plans (Building common corridors, elevator vestibules, existing terrazzo) are strictly EXCLUDED (Existing to Remain / NIC / By Others).
+    Tile & Stone Base Bid Scope (Clear Unshaded Areas):
+    1) Room 1424 - GIRL'S WC (16'-0" x 18'-2"): Black & White Strip Porcelain Tile, 84" Ceramic Wall Tile, E24 Accent Wall, 116-5/8" Solid Surface Top w/ 4 Undermount Sinks.
+    2) Room 1422 - BOY'S WC (11'-9" x 8'-6"): Black & White Triangle Geometric Tile, 84" Ceramic Wall Tile, E33 Sink & E35 Urinal Accent Walls (Wall-hung sink per E33).
+    3) Room 1425 - JANITOR'S CLOSET (11'-3" x 5'-6"): Black & White Diamond Tile, 48" Ceramic Wall Tile Surround at Mop Basin.
+
+    Excluded from Base Bid per Drawing Scope Rules:
+    - Dark Gray Shaded Areas (Corridors 1400/1401/1413/1429/1431, Elevator Shafts, Stair B, and Room 1417 ADA WC) are strictly EXCLUDED (Existing to Remain / NIC / By Others).
+    - Elevator Lobby (Rooms 1430 & 1412, ~496.7 SF): Existing Terrazzo per Sheet A-011.00 ('WHERE EXISTING TERRAZZO TILE ENDS') & Painted Walls (Available as Add-Alternate: +$21,279.84).
+    - ADA WC (Room 1417) & Broom Closet: Shaded dark gray on A-100 / A-011 core zone (Available as Add-Alternate: +$12,788.80 & +$587.95).
+    - Countertop Apron: 5" Fixed P-Lam Apron is by Millwork contractor per Detail 01/A-500. Horizontal Solid Surface slab top & 4" backsplash included per Detail 10/A-500.
     """
     specs: Dict[str, MaterialSpec] = {
         "FT-STRIP": MaterialSpec(
@@ -30,7 +33,7 @@ def get_broadway225_project() -> ProjectTakeoff:
             color="Black & White",
             unit="SQ FT",
             budget_price=13.50,
-            notes="Girl's Bathroom Floor (+1/2\" finish).",
+            notes="Girl's Bathroom Floor (Room 1424) (+1/2\" finish).",
             trade="Tile & Stone"
         ),
         "FT-TRIANGLE": MaterialSpec(
@@ -43,7 +46,7 @@ def get_broadway225_project() -> ProjectTakeoff:
             color="Black & White",
             unit="SQ FT",
             budget_price=14.00,
-            notes="Boy's Bathroom Floor (+1/2\" finish).",
+            notes="Boy's Bathroom Floor (Room 1422) (+1/2\" finish).",
             trade="Tile & Stone"
         ),
         "FT-DIAMOND": MaterialSpec(
@@ -56,25 +59,25 @@ def get_broadway225_project() -> ProjectTakeoff:
             color="Black & White",
             unit="SQ FT",
             budget_price=13.00,
-            notes="ADA Bathroom, Janitor's Closet & Broom Closet floors.",
+            notes="Janitor's Closet Floor (Room 1425).",
             trade="Tile & Stone"
         ),
         "WT-01": MaterialSpec(
             symbol="WT-01",
-            description="Glazed Ceramic Wall Tile, 84\" (7'-0\" AFF) Full Height Wainscot & Wet Wall Tile",
-            manufacturer="Daltile / American Olean",
+            description="Glazed Ceramic Wall Tile, 84\" (7'-0\" AFF) Wainscot & Mop Basin Wet Wall Tile (NEMO Ceramic Metro 2x8 / Daltile)",
+            manufacturer="NEMO Tile / Daltile",
             collection="Commercial Glazed Wall",
-            size="3\"x6\" / 4\"x12\"",
+            size="2\"x8\" Metro / 3\"x6\"",
             finish="Gloss / Satin",
-            color="Crisp White / Accent Black Band",
+            color="Crisp White",
             unit="SQ FT",
             budget_price=9.50,
-            notes="Full 84\" AFF wall tile at Girl's, Boy's and ADA Restrooms.",
+            notes="Full 84\" AFF wall tile at Girl's & Boy's Restrooms, 48\" AFF at Janitor's Closet.",
             trade="Tile & Stone"
         ),
         "WT-ACCENT": MaterialSpec(
             symbol="WT-ACCENT",
-            description="Ceramic Sink Accent Wall Tile, Full 84\" Height Feature Wall (E24 Sink Wall & E33 Boy's Sink Wall)",
+            description="Ceramic Sink & Urinal Feature Wall Tile, Full 84\" Height Accent (E24 Girl's Sink Wall, E33 Boy's Sink Wall & E35 Urinal)",
             manufacturer="Custom Ceramic / Designer Spec",
             collection="Accent Feature Series",
             size="Accent Module",
@@ -82,12 +85,12 @@ def get_broadway225_project() -> ProjectTakeoff:
             color="Feature Contrast Pattern",
             unit="SQ FT",
             budget_price=12.50,
-            notes="Behind vanity sinks to 84\" AFF.",
+            notes="Sink and urinal wet feature walls to 84\" AFF.",
             trade="Tile & Stone"
         ),
         "TB-1": MaterialSpec(
             symbol="TB-1",
-            description="4\" Ceramic / Porcelain Cove Base with Finished Rounded Top Edge",
+            description="4\" Ceramic / Porcelain Sanitary Cove Base with Finished Rounded Top Edge",
             manufacturer="Matching Tile Mfr",
             collection="Cove Base",
             size="4\" High",
@@ -95,20 +98,20 @@ def get_broadway225_project() -> ProjectTakeoff:
             color="To Match Floor Pattern",
             unit="LN FT",
             budget_price=5.00,
-            notes="Perimeter base at all tiled restrooms & closets.",
+            notes="Perimeter cove base at all tiled restrooms & janitor's closet.",
             trade="Tile & Stone"
         ),
         "SSF-1": MaterialSpec(
             symbol="SSF-1",
-            description="Engineered Quartz / Solid Surface Custom Vanity Countertop (34\" AFF, Multi-Sink Cutouts & Finished Edges)",
+            description="Engineered Quartz / Solid Surface Custom Vanity Countertop (34\" AFF, 1-1/2\" Square Edge & 4\" Backsplash per Detail 10/A-500)",
             manufacturer="Caesarstone / Corian",
-            collection="Commercial Tops",
-            size="2cm Thick Slab",
-            finish="Polished",
+            collection="Commercial Solid Surface",
+            size="2cm / 1-1/2\" Built-up Square Edge",
+            finish="Polished / Matte Satin",
             color="Solid White / Neutral",
             unit="SQ FT",
             budget_price=45.00,
-            notes="Custom countertops: 116-5/8\" in Girl's WC, 75\" in Boy's WC, 56\" in ADA WC.",
+            notes="Custom 116-5/8\" top in Girl's WC with 4 undermount lavatory cutouts and 4\" backsplash.",
             trade="Tile & Stone"
         ),
         "SADDLE": MaterialSpec(
@@ -121,25 +124,12 @@ def get_broadway225_project() -> ProjectTakeoff:
             color="Carrara / Absolute Black",
             unit="PCS",
             budget_price=50.00,
-            notes="Entrance threshold transitions at all restroom and closet doors.",
-            trade="Tile & Stone"
-        ),
-        "TERRAZZO": MaterialSpec(
-            symbol="TERRAZZO",
-            description="Epoxy / Cementitious Terrazzo Floor Finish & Base (+1/2\" finish)",
-            manufacturer="Fritztile / Terrazzo USA",
-            collection="Classic Architectural Terrazzo",
-            size="Seamless / Tile",
-            finish="Polished Satin",
-            color="Architectural Gray Blend",
-            unit="SQ FT",
-            budget_price=18.00,
-            notes="Hallway & Elevator Lobby Floor (10'-0\" x 49'-8\").",
+            notes="Entrance threshold transitions at restroom and closet doors.",
             trade="Tile & Stone"
         ),
         "WATERPROOF": MaterialSpec(
             symbol="WATERPROOF",
-            description="Liquid-Applied Waterproofing Membrane (Laticrete Hydro Ban / RedGard ANSI A118.10), 100% Floor Slab Coverage",
+            description="Liquid-Applied Waterproofing Membrane (Laticrete Hydro Ban / RedGard ANSI A118.10), 100% Floor Slab Coverage & 8\" Up Walls",
             manufacturer="Laticrete",
             collection="Hydro Ban",
             size="Continuous Membrane",
@@ -147,20 +137,20 @@ def get_broadway225_project() -> ProjectTakeoff:
             color="Green",
             unit="SQ FT",
             budget_price=2.50,
-            notes="Full floor slab waterproofing under all wet restrooms & mop closets.",
+            notes="Full floor slab waterproofing under all wet restrooms & mop closet.",
             trade="Tile & Stone"
         ),
         "MUD-SET": MaterialSpec(
             symbol="MUD-SET",
-            description="Portland Cement Mortar Bed (Mud-Set Wire-Mesh Reinforced Leveling & Pitch Bed, 1.25\" - 3.5\" Variable)",
+            description="Portland Cement Mortar Bed (Mud-Set Wire-Mesh Reinforced Leveling & Pitch Bed, 1.25\" - 2.0\" Variable)",
             manufacturer="SpecChem / Laticrete",
             collection="Thick Bed Mortar",
-            size="Variable Bed (+1/2\" to +3.5\")",
+            size="Variable Bed (+1/2\" finish)",
             finish="Troweled",
             color="Grey",
             unit="SQ FT",
             budget_price=3.75,
-            notes="Mudset mortar leveling bed for ADA (+3.5\") and standard (+1/2\") floor elevations.",
+            notes="Mudset mortar leveling bed for +1/2\" floor elevations.",
             trade="Tile & Stone"
         ),
         "EPOXY-GROUT": MaterialSpec(
@@ -206,7 +196,7 @@ def get_broadway225_project() -> ProjectTakeoff:
 
     rooms = [
         RoomTakeoff(
-            room_name="14TH FL - GIRL'S BATHROOM",
+            room_name="14TH FL - GIRL'S WC (ROOM 1424)",
             floor_name="LEVEL 14",
             length_ft=18.17,
             width_ft=16.0,
@@ -222,13 +212,13 @@ def get_broadway225_project() -> ProjectTakeoff:
                 TakeoffLineItem("WT-01", "WALL", "CERAMIC TILE", "S&I", 380.0, "SQ FT", 9.50, 15.50, "Glazed Ceramic Wall Tile to 84\" (7'-0\" AFF)"),
                 TakeoffLineItem("WT-ACCENT", "WALL", "CERAMIC ACCENT TILE", "S&I", 77.0, "SQ FT", 12.50, 16.50, "E24 Sink Accent Wall Tile to 84\" AFF"),
                 TakeoffLineItem("TB-1", "BASE", "TILE BASE", "S&I", 65.0, "LN FT", 5.00, 5.50, "4\" Cove Ceramic Tile Base"),
-                TakeoffLineItem("SSF-1", "COUNTERTOP", "QUARTZ", "S&I", 19.5, "SQ FT", 45.00, 50.00, "116-5/8\" Quartz Vanity Countertop with Sink Cutouts"),
+                TakeoffLineItem("SSF-1", "COUNTERTOP", "QUARTZ", "S&I", 19.5, "SQ FT", 45.00, 50.00, "116-5/8\" Solid Surface Vanity Top (4 Cutouts & 4\" Backsplash per DTL 10/A-500)"),
                 TakeoffLineItem("SADDLE", "THRESHOLD", "MARBLE SADDLE", "S&I", 1.0, "PCS", 50.00, 55.00, "Doorway Marble / Granite Transition Saddle"),
                 TakeoffLineItem("TRIM-01", "TRIM", "METAL TRIM", "S&I", 35.0, "LN FT", 4.50, 6.50, "Schluter Wainscot Cap & Corner Profiles")
             ]
         ),
         RoomTakeoff(
-            room_name="14TH FL - BOY'S BATHROOM",
+            room_name="14TH FL - BOY'S WC (ROOM 1422)",
             floor_name="LEVEL 14",
             length_ft=11.75,
             width_ft=8.5,
@@ -244,34 +234,12 @@ def get_broadway225_project() -> ProjectTakeoff:
                 TakeoffLineItem("WT-01", "WALL", "CERAMIC TILE", "S&I", 215.0, "SQ FT", 9.50, 15.50, "Glazed Ceramic Wall Tile to 84\" AFF"),
                 TakeoffLineItem("WT-ACCENT", "WALL", "CERAMIC ACCENT TILE", "S&I", 51.0, "SQ FT", 12.50, 16.50, "E33 Sink & E35 Urinal Accent Wall Tile"),
                 TakeoffLineItem("TB-1", "BASE", "TILE BASE", "S&I", 38.0, "LN FT", 5.00, 5.50, "4\" Cove Ceramic Tile Base"),
-                TakeoffLineItem("SSF-1", "COUNTERTOP", "QUARTZ", "S&I", 12.5, "SQ FT", 45.00, 50.00, "75\" Quartz Vanity Countertop with Sink Cutouts"),
                 TakeoffLineItem("SADDLE", "THRESHOLD", "MARBLE SADDLE", "S&I", 1.0, "PCS", 50.00, 55.00, "Doorway Marble / Granite Transition Saddle"),
                 TakeoffLineItem("TRIM-01", "TRIM", "METAL TRIM", "S&I", 28.0, "LN FT", 4.50, 6.50, "Schluter Wainscot Cap & Corner Profiles")
             ]
         ),
         RoomTakeoff(
-            room_name="14TH FL - ADA BATHROOM",
-            floor_name="LEVEL 14",
-            length_ft=12.0,
-            width_ft=7.83,
-            ceiling_height_ft=10.04,
-            wall_tile_height_ft=7.0,
-            door_count=1,
-            items=[
-                TakeoffLineItem("PREP-01", "FLOOR PREP", "SUBSTRATE PREPARATION", "S&I", 94.0, "SQ FT", 0.95, 1.25, "Minor Floor Prep & Substrate Leveling"),
-                TakeoffLineItem("WATERPROOF", "FLOOR PREP", "WATERPROOFING", "S&I", 94.0, "SQ FT", 2.50, 2.50, "Liquid-Applied Hydro Ban Membrane"),
-                TakeoffLineItem("MUD-SET", "FLOOR PREP", "MUDSET BED", "S&I", 94.0, "SQ FT", 4.50, 6.50, "Thick Bed Mudset for +3.5\" Raised Floor Transition"),
-                TakeoffLineItem("FT-DIAMOND", "FLOOR", "PORCELAIN TILE", "S&I", 94.0, "SQ FT", 13.00, 14.50, "Black & White Diamond Porcelain Floor Tile"),
-                TakeoffLineItem("EPOXY-GROUT", "FLOOR PREP", "EPOXY GROUT", "S&I", 94.0, "SQ FT", 2.25, 3.00, "Commercial Epoxy Grout Floor & Walls"),
-                TakeoffLineItem("WT-01", "WALL", "CERAMIC TILE", "S&I", 253.0, "SQ FT", 9.50, 15.50, "Glazed Ceramic Wall Tile to 84\" (7'-0\" AFF)"),
-                TakeoffLineItem("TB-1", "BASE", "TILE BASE", "S&I", 36.0, "LN FT", 5.00, 5.50, "4\" Cove Ceramic Tile Base"),
-                TakeoffLineItem("SSF-1", "COUNTERTOP", "QUARTZ", "S&I", 9.3, "SQ FT", 45.00, 50.00, "56\" ADA Quartz Lavatory Countertop with Sink Cutout"),
-                TakeoffLineItem("SADDLE", "THRESHOLD", "MARBLE SADDLE", "S&I", 1.0, "PCS", 50.00, 55.00, "42\" Beveled Marble / Granite Doorway Saddle"),
-                TakeoffLineItem("TRIM-01", "TRIM", "METAL TRIM", "S&I", 28.0, "LN FT", 4.50, 6.50, "Schluter Wainscot Cap & Corner Profiles")
-            ]
-        ),
-        RoomTakeoff(
-            room_name="14TH FL - JANITOR'S CLOSET",
+            room_name="14TH FL - JANITOR'S CLOSET (ROOM 1425)",
             floor_name="LEVEL 14",
             length_ft=11.25,
             width_ft=5.5,
@@ -287,23 +255,6 @@ def get_broadway225_project() -> ProjectTakeoff:
                 TakeoffLineItem("TB-1", "BASE", "TILE BASE", "S&I", 31.0, "LN FT", 5.00, 5.50, "4\" Cove Ceramic Tile Base"),
                 TakeoffLineItem("SADDLE", "THRESHOLD", "MARBLE SADDLE", "S&I", 1.0, "PCS", 50.00, 55.00, "Doorway Marble / Granite Transition Saddle")
             ]
-        ),
-        RoomTakeoff(
-            room_name="14TH FL - BROOM CLOSET",
-            floor_name="LEVEL 14",
-            length_ft=3.08,
-            width_ft=2.75,
-            ceiling_height_ft=9.5,
-            wall_tile_height_ft=0.0,
-            door_count=1,
-            items=[
-                TakeoffLineItem("PREP-01", "FLOOR PREP", "SUBSTRATE PREPARATION", "S&I", 8.5, "SQ FT", 0.95, 1.25, "Minor Floor Prep & Substrate Leveling"),
-                TakeoffLineItem("WATERPROOF", "FLOOR PREP", "WATERPROOFING", "S&I", 8.5, "SQ FT", 2.50, 2.50, "Liquid-Applied Hydro Ban Membrane"),
-                TakeoffLineItem("MUD-SET", "FLOOR PREP", "MUDSET BED", "S&I", 8.5, "SQ FT", 4.50, 6.50, "Thick Bed Mudset for +3.5\" Raised Floor"),
-                TakeoffLineItem("FT-DIAMOND", "FLOOR", "PORCELAIN TILE", "S&I", 8.5, "SQ FT", 13.00, 14.50, "Black & White Diamond Porcelain Floor Tile"),
-                TakeoffLineItem("TB-1", "BASE", "TILE BASE", "S&I", 9.0, "LN FT", 5.00, 5.50, "4\" Cove Ceramic Tile Base"),
-                TakeoffLineItem("SADDLE", "THRESHOLD", "MARBLE SADDLE", "S&I", 1.0, "PCS", 50.00, 55.00, "Doorway Marble / Granite Transition Saddle")
-            ]
         )
     ]
 
@@ -314,28 +265,33 @@ def get_broadway225_project() -> ProjectTakeoff:
         "4) Bathroom plumbing fixtures, faucets, grab bars, flush valves and soap dispensers (by MEP / Division 22).",
         "5) Premium / Overtime labor unless authorized in writing.",
         "6) Moisture mitigation / epoxy vapor barrier unless specified.",
-        "7) Dark gray shaded areas on architectural drawings (Building common corridors, elevator vestibules, existing terrazzo flooring, elevator shafts, stairs and electrical closets) are strictly EXCLUDED per client / GC scope rules (Existing to Remain / NIC / By Others)."
+        "7) DARK GRAY SHADED AREAS RULE: All rooms and areas shaded dark gray on architectural plans (Corridors 1400/1401/1413/1429/1431, Elevator Vestibules 1430 & 1412, Stair B, elevator shafts, and Room 1417 ADA WC) are strictly EXCLUDED (Existing to Remain / NIC / By Landlord / By Others).",
+        "8) ELEVATOR LOBBY TERRAZZO: Elevator Lobby (Rooms 1430 & 1412, ~496.7 SF) is existing terrazzo floor to remain per Sheet A-011.00 note ('WHERE EXISTING TERRAZZO TILE ENDS') and walls are paint finish. Excluded from Base Bid (Available as Add-Alternate: +$21,279.84).",
+        "9) ADA WC (ROOM 1417) & BROOM CLOSET: Shaded dark gray on sheet A-100 & A-011 (building core). Excluded from Base Bid (Available as Add-Alternate: +$12,788.80 for ADA WC and +$587.95 for Broom Closet).",
+        "10) COUNTERTOP SUB-FRAMING & APRON: Countertop pricing includes 116-5/8\" horizontal Solid Surface slab top with square edge and 4\" backsplash per Detail 10/A-500. Countertop sub-framing, wood blocking, and 5\" Fixed P-Lam Apron are by Millwork contractor per Detail 01/A-500. Vertical Solid Surface drop apron / mitered face is strictly EXCLUDED unless requested by written change order.",
+        "11) BOY'S WC (ROOM 1422): Features a wall-mounted lavatory fixture per Detail E33/ID-11 without countertop."
     ]
 
     inclusions = [
-        "1) Supply & Install of all specified Floor Tiles (Strip, Triangle & Diamond patterns) on 14th Floor.",
-        "2) Supply & Install of full 84\" (7'-0\" AFF) ceramic wall tile and sink accent feature walls.",
-        "3) 100% floor slab liquid-applied waterproofing membrane (Laticrete Hydro Ban) in all restrooms & closets.",
-        "4) Wire-mesh reinforced thick-bed mortar (Mudset) for +1/2\" and +3.5\" raised floor transitions.",
+        "1) Supply & Install of specified Floor Tiles (Strip, Triangle & Diamond patterns) on 14th Floor (Rooms 1424, 1422, 1425).",
+        "2) Supply & Install of full 84\" (7'-0\" AFF) glazed ceramic wall tile and sink/urinal accent feature walls.",
+        "3) 100% floor slab liquid-applied waterproofing membrane (Laticrete Hydro Ban) in all restrooms & mop closet.",
+        "4) Wire-mesh reinforced thick-bed mortar (Mudset) for +1/2\" floor elevations.",
         "5) Commercial 100% solids stain-resistant epoxy grout at all tiled floors & wet walls.",
-        "6) Custom engineered quartz vanity countertops (Girl's 116-5/8\", Boy's 75\", ADA 56\") with undermount sink cutouts.",
+        "6) Custom 116-5/8\" Solid Surface / Quartz vanity countertop in Girl's WC (Room 1424) with 4 undermount sink cutouts and 4\" backsplash.",
         "7) Polished marble / granite threshold saddles at all doorway transitions.",
-        "8) Schluter aluminum trims at all exposed outside wall tile corners and 84\" AFF wainscot top caps.",
+        "8) Schluter aluminum metal trims at all outside wall tile corners and 84\" AFF wainscot top caps.",
         "9) Minor floor prep: mechanical scraping, substrate cleaning, divot patching and polymer flash-patching."
     ]
 
     notes = [
         "Project: DDF: Downtown Dance Factory - 225 Broadway, 14th Floor, New York, NY 10007.",
-        "Drawing Reference: 90% CD & Bid Set Rev. 1 (Architect: Daniel Goldner Architects / Interior Design: Pink Green Interiors).",
-        "Key Sheets: ID-1 (Studio Floor Plan), ID-9 (Girl's WC), ID-10 (ADA WC), ID-11 (Boy's WC & Broom), ID-12 (Janitor's Closet), A-002/A-003 (Specs).",
-        "Wall Tile Heights: 84\" (7'-0\" AFF) in Girl's Bathroom, Boy's Bathroom and ADA Bathroom.",
-        "Floor Transitions: Mudset leveling provided for +1/2\" and +3.5\" floor height differential.",
-        "Waste Allowance: +10% standard tile & terrazzo, +12% geometric pattern tiles included in net quantities."
+        "Drawing Reference: 90% CD & Bid Set Rev. 1 (Architect: Daniel Goldner Architects / Interior Design: Pink Green Interiors - Katie Hartell).",
+        "Key Sheets: A-100.00 (Partition Plan), A-011.00 (Existing Plan), A-500.00 (Details 01 & 10), ID-1, ID-9 (Girl's WC), ID-11 (Boy's WC), ID-12 (Janitor's Closet), 1-Default-Section Rev. 2 (Finish Schedule).",
+        "Official Room Numbers: Room 1424 (Girl's WC), Room 1422 (Boy's WC), Room 1425 (Janitor's Closet).",
+        "Dark Gray Scope Rule: Rooms 1417 (ADA WC), 1430 & 1412 (Elevator Vestibules), Corridors 1400/1401/1413/1429/1431 and Broom Area are shaded dark gray on A-100 / A-011 and are excluded from Base Bid.",
+        "Countertop / Apron Specification: Apron is 5\" Fixed P-Lam by Millwork per Detail 01/A-500. Tile & Stone scope includes horizontal Solid Surface slab & 4\" backsplash per Detail 10/A-500.",
+        "Add-Alternates Available Upon Request: ADA Bathroom 1417 (+$12,788.80), Broom Closet (+$587.95), Elevator Lobby Terrazzo (+$21,279.84)."
     ]
 
     return ProjectTakeoff(
