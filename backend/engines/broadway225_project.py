@@ -17,7 +17,7 @@ def get_broadway225_project() -> ProjectTakeoff:
     3) ADA Bathroom (12'-0" x 7'-10"): Black & White Diamond Tile, Wall Tile to 84" AFF, ADA Vanity Top
     4) Janitor's Closet (11'-3" x 5'-6"): Black & White Diamond Tile, Mop Sink Surround Wall Tile
     5) Broom Closet (3'-1" x 2'-9"): Black & White Diamond Tile
-    6) Hallway / Lobby (10'-0" x 49'-8"): Terrazzo / Tile Flooring & Base
+    Note: Dark gray shaded areas on architectural plans (Building common corridors, elevator vestibules, existing terrazzo) are strictly EXCLUDED (Existing to Remain / NIC / By Others).
     """
     specs: Dict[str, MaterialSpec] = {
         "FT-STRIP": MaterialSpec(
@@ -304,21 +304,6 @@ def get_broadway225_project() -> ProjectTakeoff:
                 TakeoffLineItem("TB-1", "BASE", "TILE BASE", "S&I", 9.0, "LN FT", 5.00, 5.50, "4\" Cove Ceramic Tile Base"),
                 TakeoffLineItem("SADDLE", "THRESHOLD", "MARBLE SADDLE", "S&I", 1.0, "PCS", 50.00, 55.00, "Doorway Marble / Granite Transition Saddle")
             ]
-        ),
-        RoomTakeoff(
-            room_name="14TH FL - HALLWAY & ELEVATOR LOBBY",
-            floor_name="LEVEL 14",
-            length_ft=49.67,
-            width_ft=10.0,
-            ceiling_height_ft=10.33,
-            wall_tile_height_ft=0.0,
-            door_count=4,
-            items=[
-                TakeoffLineItem("PREP-01", "FLOOR PREP", "SUBSTRATE PREPARATION", "S&I", 496.7, "SQ FT", 0.95, 1.25, "Substrate Cleaning & Preparation"),
-                TakeoffLineItem("TERRAZZO", "FLOOR", "TERRAZZO TILE", "S&I", 496.7, "SQ FT", 18.00, 20.00, "Architectural Terrazzo / Tile Floor Finish (+1/2\" finish)"),
-                TakeoffLineItem("TB-1", "BASE", "TILE BASE", "S&I", 105.0, "LN FT", 5.00, 5.50, "Matching Terrazzo / Tile Cove Base"),
-                TakeoffLineItem("SADDLE", "THRESHOLD", "MARBLE SADDLE", "S&I", 2.0, "PCS", 50.00, 55.00, "Elevator Lobby & Corridor Transition Saddles")
-            ]
         )
     ]
 
@@ -328,7 +313,8 @@ def get_broadway225_project() -> ProjectTakeoff:
         "3) Dance studio wall mirrors, barre brackets, and collapsible partitions (by Specialties Division 10).",
         "4) Bathroom plumbing fixtures, faucets, grab bars, flush valves and soap dispensers (by MEP / Division 22).",
         "5) Premium / Overtime labor unless authorized in writing.",
-        "6) Moisture mitigation / epoxy vapor barrier unless specified."
+        "6) Moisture mitigation / epoxy vapor barrier unless specified.",
+        "7) Dark gray shaded areas on architectural drawings (Building common corridors, elevator vestibules, existing terrazzo flooring, elevator shafts, stairs and electrical closets) are strictly EXCLUDED per client / GC scope rules (Existing to Remain / NIC / By Others)."
     ]
 
     inclusions = [
@@ -338,10 +324,9 @@ def get_broadway225_project() -> ProjectTakeoff:
         "4) Wire-mesh reinforced thick-bed mortar (Mudset) for +1/2\" and +3.5\" raised floor transitions.",
         "5) Commercial 100% solids stain-resistant epoxy grout at all tiled floors & wet walls.",
         "6) Custom engineered quartz vanity countertops (Girl's 116-5/8\", Boy's 75\", ADA 56\") with undermount sink cutouts.",
-        "7) Architectural Terrazzo flooring & base in Hallway / Elevator Lobby (10'-0\" x 49'-8\").",
-        "8) Polished marble / granite threshold saddles at all doorway transitions.",
-        "9) Schluter aluminum trims at all exposed outside wall tile corners and 84\" AFF wainscot top caps.",
-        "10) Minor floor prep: mechanical scraping, substrate cleaning, divot patching and polymer flash-patching."
+        "7) Polished marble / granite threshold saddles at all doorway transitions.",
+        "8) Schluter aluminum trims at all exposed outside wall tile corners and 84\" AFF wainscot top caps.",
+        "9) Minor floor prep: mechanical scraping, substrate cleaning, divot patching and polymer flash-patching."
     ]
 
     notes = [
